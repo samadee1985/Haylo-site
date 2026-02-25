@@ -1,25 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://withhaylo.com/</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
-  <url><loc>https://withhaylo.com/about/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://withhaylo.com/google-business-profile/</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://withhaylo.com/facebook/</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://withhaylo.com/reporting/</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://withhaylo.com/review-generation/</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://withhaylo.com/google-marketing-for-cleaners/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://withhaylo.com/google-marketing-for-tradies/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://withhaylo.com/marketing-consultant-sunshine-coast/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://withhaylo.com/marketing-consultant-caloundra/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://withhaylo.com/marketing-consultant-maroochydore/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://withhaylo.com/marketing-consultant-buderim/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://withhaylo.com/marketing-consultant-noosa/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://withhaylo.com/blog/</loc><priority>0.7</priority><changefreq>weekly</changefreq></url>
-  <url><loc>https://withhaylo.com/blog-google-reviews/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://withhaylo.com/blog-google-maps-top-3/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://withhaylo.com/blog-facebook-for-service-businesses/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://withhaylo.com/privacy-policy/</loc><priority>0.3</priority><changefreq>yearly</changefreq></url>
-  <url><loc>https://withhaylo.com/google-marketing-for-garden-outdoor/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://withhaylo.com/google-marketing-for-home-services/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://withhaylo.com/google-marketing-for-auto-mechanical/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://withhaylo.com/google-marketing-for-health-wellness/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <url>
+    <loc>https://withhaylo.com/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://withhaylo.com/about/</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://withhaylo.com/google-business-profile/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://withhaylo.com/facebook/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://withhaylo.com/reporting/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://withhaylo.com/review-generation/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://withhaylo.com/google-marketing-for-cleaners/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://withhaylo.com/google-marketing-for-tradies/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://withhaylo.com/marketing-consultant-sunshine-coast/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://withhaylo.com/marketing-consultant-caloundra/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://withhaylo.com/marketing-consultant-maroochydore/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://withhaylo.com/marketing-consultant-buderim/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://withhaylo.com/marketing-consultant-noosa/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://withhaylo.com/blog/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://withhaylo.com/privacy-policy/</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
 </urlset>
