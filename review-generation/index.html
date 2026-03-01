@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Build a five-star reputation that wins jobs before you've spoken to the customer. Review generation and management for Sunshine Coast service businesses.">
+<meta name="description" content="Build a steady flow of five-star Google reviews for your Sunshine Coast service business. Automated review requests, reputation monitoring, and professional responses.">
 <title>Google Review Generation & Management Sunshine Coast | 5-Star Reputation Building | Haylo</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -110,7 +110,7 @@ nav.scrolled{box-shadow:0 4px 24px rgba(31,45,61,.08);}
 }
 .hero-photo{
   position:absolute;inset:0;
-  background:url('/images/hero/hero-sunshine-coast-local-marketing.jpg') center/cover no-repeat;
+  background:url('/images/general/haylo-og-share.jpg') center/cover no-repeat;
   opacity:.18;
   pointer-events:none;
 }
@@ -538,35 +538,80 @@ footer{background:#141C25;padding:2.5rem var(--pad);display:flex;flex-direction:
   .proof-inner .btn{width:100%;text-align:center;justify-content:center;}
 }
 
-</style>
-<style>
-/* ── INTERIOR PAGE SHARED ── */
-.ip-hero {
-  min-height:55vh;display:flex;flex-direction:column;justify-content:flex-end;
-  padding:calc(var(--nav-h) + 4rem) var(--pad) 5rem;
-  background:var(--navy);position:relative;overflow:hidden;
-}
-.ip-hero-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:.18;pointer-events:none;}
-.ip-glow{position:absolute;top:-10%;right:-5%;width:600px;height:600px;background:radial-gradient(circle,rgba(56,189,248,.12) 0%,transparent 70%);pointer-events:none;}
-.ip-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(56,189,248,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(56,189,248,.04) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;}
-.ip-crumb{font-family:'Josefin Sans',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:1.5rem;}
-.ip-crumb a{color:rgba(56,189,248,.5);transition:color .2s;}
-.ip-crumb a:hover{color:var(--sky);}
-.ip-h1{font-family:'Josefin Sans',sans-serif;font-size:clamp(2.8rem,8vw,7rem);font-weight:700;text-transform:uppercase;line-height:.93;letter-spacing:.03em;color:var(--white);animation:fadeUp .6s ease both;}
-.ip-h1 em{color:var(--sky);font-style:normal;}
-.ip-sub{font-size:.97rem;color:rgba(255,255,255,.45);line-height:1.85;max-width:560px;margin-top:1.5rem;animation:fadeUp .6s .1s ease both;}
-.ip-actions{margin-top:2rem;display:flex;gap:.75rem;flex-wrap:wrap;animation:fadeUp .6s .2s ease both;}
-.ip-divider{height:4px;background:linear-gradient(90deg,var(--sky) 0%,transparent 60%);}
-.ip-body{font-size:.94rem;line-height:1.95;color:var(--muted);}
-.ip-body p+p{margin-top:1.2rem;}
-.ip-body strong{color:var(--navy);font-weight:700;}
-.ip-body a{color:var(--sky);font-weight:700;text-decoration:none;}
-.ip-h2{font-family:'Josefin Sans',sans-serif;font-size:clamp(1.8rem,4vw,3rem);font-weight:700;text-transform:uppercase;letter-spacing:.03em;line-height:1;color:var(--navy);margin-bottom:1rem;}
-.ip-h2 em{color:var(--sky);font-style:normal;}
-.ip-split{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
-.ip-vis{border-radius:12px;overflow:hidden;position:relative;}
-.ip-vis img{width:100%;height:100%;object-fit:cover;display:block;}
-.ip-vis-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(31,45,61,.35),transparent);}
+
+/* ── What's included grid ── */
+.incl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem;}
+.incl-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:1.8rem;transition:border-color .2s,box-shadow .2s;}
+.incl-card:hover{border-color:var(--sky);box-shadow:0 8px 32px rgba(56,189,248,.08);}
+.incl-ico{font-size:1.8rem;margin-bottom:.8rem;}
+.incl-title{font-family:'Josefin Sans',sans-serif;font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--navy);margin-bottom:.5rem;}
+.incl-desc{font-size:.82rem;line-height:1.75;color:var(--muted);}
+@media(max-width:900px){.incl-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:560px){.incl-grid{grid-template-columns:1fr;}}
+
+/* ── How it works steps ── */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:2.5rem;margin-top:3rem;position:relative;}
+.steps::before{content:'';position:absolute;top:2rem;left:calc(12.5% + 1rem);right:calc(12.5% + 1rem);height:2px;background:linear-gradient(90deg,var(--sky),rgba(56,189,248,.2));pointer-events:none;}
+.step{position:relative;}
+.step-num{width:4rem;height:4rem;background:var(--sky);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Josefin Sans',sans-serif;font-size:1.2rem;font-weight:700;color:var(--navy);margin:0 0 1.2rem;}
+.step-title{font-family:'Josefin Sans',sans-serif;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--navy);margin-bottom:.6rem;}
+.step-desc{font-size:.82rem;line-height:1.75;color:var(--muted);}
+@media(max-width:768px){.steps{grid-template-columns:1fr 1fr;gap:2rem;}.steps::before{display:none;}}
+@media(max-width:480px){.steps{grid-template-columns:1fr;}}
+
+/* ── Stats band ── */
+.stats-band{background:var(--navy);padding:4rem var(--pad);display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background-color:rgba(255,255,255,.08);}
+.stat-cell{background:var(--navy);padding:2.5rem 2rem;text-align:center;}
+.stat-n{font-family:'Josefin Sans',sans-serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:700;color:var(--sky);line-height:1;}
+.stat-l{font-size:.75rem;color:rgba(255,255,255,.4);margin-top:.5rem;line-height:1.4;text-transform:uppercase;letter-spacing:.06em;}
+@media(max-width:700px){.stats-band{grid-template-columns:1fr 1fr;}}
+
+/* ── FAQ ── */
+.faq-list{max-width:780px;margin:2.5rem auto 0;}
+.faq-item{border:1px solid var(--border);border-radius:10px;margin-bottom:.8rem;overflow:hidden;transition:border-color .2s;}
+.faq-item.open{border-color:var(--sky);}
+.faq-q{padding:1.3rem 1.6rem;font-family:'Josefin Sans',sans-serif;font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--navy);cursor:pointer;display:flex;justify-content:space-between;align-items:center;user-select:none;}
+.faq-q::after{content:'+';font-size:1.4rem;font-weight:300;color:var(--sky);transition:transform .25s;}
+.faq-item.open .faq-q::after{transform:rotate(45deg);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .25s;}
+.faq-item.open .faq-a{max-height:500px;padding:0 1.6rem 1.4rem;}
+.faq-a p{font-size:.85rem;line-height:1.8;color:var(--muted);margin:0;}
+
+
+/* ── Related grid ── */
+.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem;}
+.rel-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:2rem;text-decoration:none;display:block;transition:border-color .2s,transform .2s,box-shadow .2s;}
+.rel-card:hover{border-color:var(--sky);transform:translateY(-3px);box-shadow:0 12px 32px rgba(56,189,248,.08);}
+.rel-ico{font-size:1.8rem;margin-bottom:.8rem;}
+.rel-title{font-family:'Josefin Sans',sans-serif;font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--navy);margin-bottom:.5rem;}
+.rel-desc{font-size:.82rem;line-height:1.75;color:var(--muted);margin-bottom:1rem;}
+.rel-link{font-family:'Josefin Sans',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--sky);}
+@media(max-width:768px){.related-grid{grid-template-columns:1fr;}}
+
+
+/* ── Service page hero ── */
+.spage-divider{height:var(--nav-h);}
+.spage-hero{position:relative;min-height:70vh;display:flex;flex-direction:column;justify-content:flex-end;padding:4rem var(--pad) 4.5rem;overflow:hidden;background:var(--navy);}
+.spage-hero-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:.18;pointer-events:none;}
+.spage-hero-glow{position:absolute;top:-10%;right:-5%;width:650px;height:650px;background:radial-gradient(circle,rgba(56,189,248,.14) 0%,transparent 70%);pointer-events:none;}
+.spage-hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(56,189,248,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(56,189,248,.04) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;}
+.spage-crumb{font-family:'Josefin Sans',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:1.2rem;position:relative;z-index:1;}
+.spage-crumb a{color:rgba(255,255,255,.3);}.spage-crumb a:hover{color:var(--sky);}
+.spage-h1{font-family:'Josefin Sans',sans-serif;font-size:clamp(2.8rem,8vw,7rem);font-weight:700;text-transform:uppercase;line-height:.95;letter-spacing:.03em;color:var(--white);position:relative;z-index:1;margin-bottom:1rem;}
+.spage-h1 em{color:var(--sky);font-style:normal;}
+.spage-sub{font-size:.92rem;color:rgba(255,255,255,.5);line-height:1.85;max-width:560px;position:relative;z-index:1;margin-bottom:1.8rem;}
+.spage-actions{display:flex;gap:.75rem;flex-wrap:wrap;position:relative;z-index:1;}
+/* ── Intro split layout ── */
+.intro-split{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
+.intro-vis{position:relative;border-radius:16px;overflow:hidden;min-height:340px;background:var(--navy);}
+.intro-vis-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(31,45,61,.4) 0%,transparent 60%);pointer-events:none;}
+.intro-vis img{width:100%;height:100%;object-fit:cover;display:block;}
+.intro-tag{display:inline-block;font-family:'Josefin Sans',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--sky);border:1px solid rgba(56,189,248,.25);padding:.35rem .9rem;border-radius:100px;margin-bottom:1rem;}
+.intro-h2{font-family:'Josefin Sans',sans-serif;font-size:clamp(1.5rem,3.5vw,2.4rem);font-weight:700;text-transform:uppercase;line-height:1.05;letter-spacing:.03em;color:var(--navy);margin-bottom:1.2rem;}
+.intro-h2 em{color:var(--sky);font-style:normal;}
+.intro-split p{font-size:.88rem;line-height:1.85;color:var(--muted);margin-bottom:.9rem;}
+@media(max-width:820px){.intro-split{grid-template-columns:1fr;gap:2rem;}.intro-vis{min-height:220px;}}
+
 .cta-band{background:var(--navy);padding:5rem var(--pad);text-align:center;position:relative;overflow:hidden;}
 .cta-band-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:300px;background:radial-gradient(ellipse,rgba(56,189,248,.1) 0%,transparent 70%);pointer-events:none;}
 .cta-band-inner{position:relative;z-index:1;}
@@ -575,43 +620,17 @@ footer{background:#141C25;padding:2.5rem var(--pad);display:flex;flex-direction:
 .cta-band p{font-size:.92rem;color:rgba(255,255,255,.4);max-width:400px;margin:0 auto 2rem;line-height:1.8;}
 .cta-band-ph{font-size:.76rem;color:rgba(255,255,255,.25);margin-top:1.2rem;}
 .cta-band-ph a{color:var(--sky);font-weight:700;}
-@media(max-width:820px){.ip-split{grid-template-columns:1fr;gap:2.5rem;}}
-
-/* ── GLOBAL MOBILE FIXES ── */
-@media(max-width:820px){
-  .ip-split,
-  .intro-split,
-  .loc-split{
-    grid-template-columns:1fr!important;
-    gap:2.5rem!important;
-  }
-}
-@media(max-width:820px){
-  .loc-stats,[style*="grid-template-columns:repeat(4"]{grid-template-columns:1fr 1fr!important;}
-  [style*="grid-template-columns:repeat(3,"],[style*="repeat(3, 1fr)"]{grid-template-columns:1fr 1fr!important;}
-  .why-row{grid-template-columns:1fr!important;}
-  .included-grid{grid-template-columns:1fr 1fr!important;}
-}
-@media(max-width:520px){
-  [style*="grid-template-columns:repeat(3"]{grid-template-columns:1fr!important;}
-  .included-grid,.related-grid,.areas-grid{grid-template-columns:1fr!important;}
-  .cta-band .btn,.proof-inner .btn{width:100%;text-align:center;}
-}
-.ip-vis{min-height:280px;}
-.ip-vis img,.intro-vis img{width:100%!important;height:100%!important;object-fit:cover!important;display:block!important;}
-section{padding-top:5rem;padding-bottom:5rem;}
-.ip-hero,.loc-hero,.spage-hero{padding-top:calc(var(--nav-h) + 4rem)!important;}
-
 </style>
   <link rel="canonical" href="https://withhaylo.com/review-generation/">
   <meta name="robots" content="index, follow">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://withhaylo.com/review-generation/">
   <meta property="og:title" content="Google Review Generation & Management Sunshine Coast | 5-Star Reputation Building | Haylo">
-  <meta property="og:description" content="Build a five-star reputation that wins jobs before you've spoken to the customer. Review generation and management for Sunshine Coast service businesses.">
+  <meta property="og:description" content="Build a steady flow of five-star Google reviews for your Sunshine Coast service business. Automated review requests, reputation monitoring, and professional responses.">
   <meta property="og:image" content="/images/general/haylo-og-share.jpg">
 </head>
 <body>
+
 <!-- NAV -->
 <nav id="main-nav">
   <a href="/" class="nav-logo">HAY<span>LO</span></a>
@@ -621,13 +640,13 @@ section{padding-top:5rem;padding-bottom:5rem;}
     <li><a href="/#pricing">Pricing</a></li>
     <li><a href="/#about">About</a></li>
     <li><a href="/#faq">FAQ</a></li>
+    <li><a href="/blog/">Blog</a></li>
     <li><a href="/#cta" class="nav-btn">Free Audit</a></li>
   </ul>
   <button class="nav-burger" id="burger" aria-label="Open menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
-
 <div class="nav-drawer" id="drawer">
   <ul>
     <li><a href="/" class="drawer-link">Home</a></li>
@@ -635,32 +654,181 @@ section{padding-top:5rem;padding-bottom:5rem;}
     <li><a href="/#pricing" class="drawer-link">Pricing</a></li>
     <li><a href="/#about" class="drawer-link">About</a></li>
     <li><a href="/#faq" class="drawer-link">FAQ</a></li>
+    <li><a href="/blog/" class="drawer-link">Blog</a></li>
   </ul>
-  <a href="/#cta" class="drawer-cta drawer-link">Get My Free Audit →</a>
+  <a href="/#cta" class="drawer-cta drawer-link">Get My Free Audit &#8594;</a>
 </div>
 
-<section class="ip-hero">
-  <img class="ip-hero-photo" src="/images/services/review-generation-happy-customer.jpg" alt="Happy customer shaking hands">
-  <div class="ip-glow"></div><div class="ip-grid"></div>
-  <div class="ip-crumb reveal"><a href="/">Home</a> / Services / Review Generation</div>
-  <h1 class="ip-h1">Review Generation<br><em>&amp; Management</em></h1>
-  <p class="ip-sub">Build a steady flow of five-star reviews that win customers before you've even spoken to them - and protect your reputation automatically.</p>
-  <div class="ip-actions">
+
+<div class="spage-divider"></div>
+<section class="spage-hero">
+  <img class="spage-hero-photo" src="/images/services/review-generation-happy-customer.jpg" alt="Happy customer leaving a five star Google review">
+  <div class="spage-hero-glow"></div>
+  <div class="spage-hero-grid"></div>
+  <div class="spage-crumb"><a href="/">Home</a> / Services / Review Generation</div>
+  <h1 class="spage-h1">Google Review<br>Generation <em>&amp; Management</em></h1>
+  <p class="spage-sub">Build a steady flow of five-star reviews that win customers before you've even spoken to them - and protect your reputation automatically.</p>
+  <div class="spage-actions">
     <a href="/#cta" class="btn btn-sky">Get My Free Audit &#8594;</a>
     <a href="tel:0490422192" class="btn btn-ghost-w">&#128222; 0490 422 192</a>
   </div>
 </section>
 
 <section style="background:var(--white);">
-  <div class="ip-split reveal">
+  <div class="intro-split reveal">
+    <div class="intro-vis">
+      <img src="/images/services/customer-leaving-google-review.jpg" alt="Customer leaving a five star Google review" loading="lazy">
+      <div class="intro-vis-overlay"></div>
+    </div>
     <div>
-      <span class="eyebrow">Why Reviews Win Jobs</span>
-      <h2 class="ip-h2">Build the review reputation<br><em>that wins local jobs.</em></h2>
-    <p>Get a free audit and find out how your current review profile compares to your top local competitors.</p>
+      <div class="intro-tag">&#11088; Google Reviews &amp; Reputation</div>
+      <h2 class="intro-h2">Your next customer reads your reviews<br><em>before they call.</em></h2>
+      <p>93% of local customers check Google reviews before choosing a service business. If you have fewer reviews than your competitors - or a handful of old ones with no recent activity - you're losing jobs before the phone even rings.</p>
+      <p>The businesses winning in local search aren't just the best at their trade. They're the ones with 50+ recent five-star reviews and a system to keep them coming in. Haylo builds and manages that system for you.</p>
+      <a href="/#cta" class="btn btn-sky" style="margin-top:1.5rem;">Get My Free Audit &#8594;</a>
+      <div class="cta-band-ph" style="margin-top:1rem;">Or call: <a href="tel:0490422192">0490 422 192</a> &nbsp;&middot;&nbsp; <a href="mailto:hello@withhaylo.com">hello@withhaylo.com</a></div>
+    </div>
+  </div>
+</section>
+
+<div class="stats-band reveal">
+  <div class="stat-cell"><div class="stat-n">93%</div><div class="stat-l">of local customers check reviews before choosing</div></div>
+  <div class="stat-cell"><div class="stat-n">4.5+</div><div class="stat-l">Average star rating needed to win customer trust</div></div>
+  <div class="stat-cell"><div class="stat-n">3&times;</div><div class="stat-l">More likely to be chosen over a competitor with fewer reviews</div></div>
+  <div class="stat-cell"><div class="stat-n">24H</div><div class="stat-l">Response time to all reviews - good and bad</div></div>
+</div>
+
+<section style="background:var(--off);">
+  <div class="reveal">
+    <span class="eyebrow">What You Get</span>
+    <h2 class="sec-h2">A complete review system.<br><em>Not just a request link.</em></h2>
+    <p style="color:var(--muted);max-width:600px;margin:.8rem 0 0;font-size:.9rem;line-height:1.8;">Most businesses try to get reviews by awkwardly asking at the end of a job. We build a proper system that makes it easy for happy customers to leave reviews consistently.</p>
+  </div>
+  <div class="incl-grid reveal">
+    <div class="incl-card">
+      <div class="incl-ico">&#128241;</div>
+      <div class="incl-title">Automated Review Requests</div>
+      <div class="incl-desc">We set up a follow-up system that sends a personalised review request to customers after each job - via SMS or email, at the right time, with the right message.</div>
+    </div>
+    <div class="incl-card">
+      <div class="incl-ico">&#128279;</div>
+      <div class="incl-title">Direct Review Links</div>
+      <div class="incl-desc">We create a custom short link that takes customers directly to your Google review page in one tap - removing all friction from the process.</div>
+    </div>
+    <div class="incl-card">
+      <div class="incl-ico">&#128172;</div>
+      <div class="incl-title">Professional Review Responses</div>
+      <div class="incl-desc">We respond to every review on your behalf - thanking positive reviewers and handling negative ones professionally to protect your reputation and show future customers you care.</div>
+    </div>
+    <div class="incl-card">
+      <div class="incl-ico">&#128680;</div>
+      <div class="incl-title">Reputation Monitoring</div>
+      <div class="incl-desc">We monitor your reviews across Google and alert you immediately if a negative review appears, so nothing slips through unnoticed.</div>
+    </div>
+    <div class="incl-card">
+      <div class="incl-ico">&#128203;</div>
+      <div class="incl-title">Review Card &amp; QR Setup</div>
+      <div class="incl-desc">We design a printed or digital review card you can hand to customers on-site - with a QR code that links straight to your Google review page.</div>
+    </div>
+    <div class="incl-card">
+      <div class="incl-ico">&#128202;</div>
+      <div class="incl-title">Monthly Review Report</div>
+      <div class="incl-desc">A monthly summary showing new reviews received, your current rating, how you compare to local competitors, and the impact on your Google Maps ranking.</div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--white);">
+  <div class="reveal">
+    <span class="eyebrow">How It Works</span>
+    <h2 class="sec-h2">Reviews on autopilot<br><em>within a week.</em></h2>
+  </div>
+  <div class="steps reveal">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-title">Reputation Audit</div>
+      <div class="step-desc">We check your current review count, rating, and how you compare to your top local competitors to set a clear target.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-title">System Setup</div>
+      <div class="step-desc">We build your automated follow-up sequence, create your review link, and set up monitoring - ready to go within 5 business days.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-title">Reviews Come In</div>
+      <div class="step-desc">Your happy customers get a timely, friendly request after each job. Most clients see their first new review within days of launching.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-title">We Manage It All</div>
+      <div class="step-desc">We respond to every review, monitor for new ones, and send you a monthly report. You just keep doing great work.</div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--white);">
+  <div class="reveal" style="text-align:center;">
+    <span class="eyebrow">Common Questions</span>
+    <h2 class="sec-h2">Review generation<br><em>FAQs.</em></h2>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item reveal">
+      <div class="faq-q">Is it okay to ask customers for reviews?</div>
+      <div class="faq-a"><p>Yes - asking customers to leave an honest review is completely legitimate and encouraged by Google. What's not allowed is incentivising reviews (offering discounts or gifts in exchange) or asking only selected customers to filter out unhappy ones. Our approach follows Google's guidelines - we simply make it easy for all recent customers to share their experience.</p></div>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-q">What happens if we get a negative review?</div>
+      <div class="faq-a"><p>We respond to every negative review professionally within 24 hours. A well-handled negative review can actually build trust with future customers - it shows you take feedback seriously. We'll also flag genuinely fake or malicious reviews and help you request their removal through Google where appropriate.</p></div>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-q">How many reviews do I need?</div>
+      <div class="faq-a"><p>It depends on your local competition. In most Sunshine Coast trades and services, 30-50 reviews with a 4.5+ rating puts you in a strong position. We'll show you exactly where you stand relative to the top 3 businesses in your category during your free audit.</p></div>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-q">Do reviews actually affect my Google Maps ranking?</div>
+      <div class="faq-a"><p>Yes, significantly. Review count, rating, recency, and how you respond to reviews are all factors Google uses to determine local ranking. A business with 50 recent reviews will almost always outrank an identical business with 5 old ones. It's one of the most direct ways to improve your position in the local pack.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-band reveal">
+  <div class="cta-band-glow"></div>
+  <div class="cta-band-inner">
+    <h2>Start building your<br><em>5-star reputation.</em></h2>
+    <p>Find out how your current review profile compares to your top local competitors - and what it would take to get ahead.</p>
     <a href="/#cta" class="btn btn-sky">Get My Free Audit &#8594;</a>
     <div class="cta-band-ph">Call or text: <a href="tel:0490422192">0490 422 192</a> &nbsp;&middot;&nbsp; <a href="mailto:hello@withhaylo.com">hello@withhaylo.com</a></div>
   </div>
 </div>
+
+<section style="background:var(--off);">
+  <div class="reveal">
+    <span class="eyebrow">Related Services</span>
+    <h2 class="sec-h2">Keep the<br><em>momentum going.</em></h2>
+  </div>
+  <div class="related-grid reveal">
+    <a href="/google-business-profile/" class="rel-card">
+      <div class="rel-ico">&#128205;</div>
+      <div class="rel-title">Google Business Profile Optimisation</div>
+      <div class="rel-desc">Reviews live on your Google Business Profile - make sure the whole profile is optimised so every review drives more ranking power.</div>
+      <div class="rel-link">Learn More &#8594;</div>
+    </a>
+    <a href="/facebook/" class="rel-card">
+      <div class="rel-ico">&#128216;</div>
+      <div class="rel-title">Facebook Management</div>
+      <div class="rel-desc">Your Facebook presence reinforces your reputation. Consistent content keeps you front of mind between jobs.</div>
+      <div class="rel-link">Learn More &#8594;</div>
+    </a>
+    <a href="/reporting/" class="rel-card">
+      <div class="rel-ico">&#128202;</div>
+      <div class="rel-title">Local Visibility Reporting</div>
+      <div class="rel-desc">Track how your review growth is affecting your Google Maps ranking with clear monthly reporting.</div>
+      <div class="rel-link">Learn More &#8594;</div>
+    </a>
+  </div>
+</section>
+
 
 <!-- FOOTER -->
 <footer>
@@ -669,10 +837,10 @@ section{padding-top:5rem;padding-bottom:5rem;}
     <li><a href="#services">Services</a></li>
     <li><a href="/google-business-profile/">Google Profile</a></li>
     <li><a href="/facebook/">Facebook</a></li>
+    <li><a href="/review-generation/">Reviews</a></li>
     <li><a href="/reporting/">Reporting</a></li>
-    <li><a href="#pricing">Pricing</a></li>
-    <li><a href="#faq">FAQ</a></li>
-    <li><a href="#cta">Get Started</a></li>
+    <li><a href="/blog/">Blog</a></li>
+    <li><a href="/#cta">Get Started</a></li>
   </ul>
   <ul class="fnav" style="margin-top:.5rem">
     <li><a href="/marketing-consultant-sunshine-coast/">Sunshine Coast</a></li>
@@ -681,7 +849,7 @@ section{padding-top:5rem;padding-bottom:5rem;}
     <li><a href="/marketing-consultant-buderim/">Buderim</a></li>
     <li><a href="/marketing-consultant-noosa/">Noosa</a></li>
   </ul>
-  <div class="fcopy">© 2026 Haylo · Sunshine Coast, QLD &nbsp;·&nbsp; <a href="tel:0490422192" style="color:rgba(255,255,255,.3)">0490 422 192</a> &nbsp;·&nbsp; <a href="mailto:hello@withhaylo.com" style="color:rgba(255,255,255,.3)">hello@withhaylo.com</a></div>
+  <div class="fcopy">&copy; 2026 Haylo &middot; Sunshine Coast, QLD &nbsp;&middot;&nbsp; <a href="tel:0490422192" style="color:rgba(255,255,255,.3)">0490 422 192</a> &nbsp;&middot;&nbsp; <a href="mailto:hello@withhaylo.com" style="color:rgba(255,255,255,.3)">hello@withhaylo.com</a></div>
 </footer>
 <script>
 const burger = document.getElementById('burger');
@@ -708,6 +876,15 @@ const revealObs = new IntersectionObserver((entries, obs) => {
   });
 }, { threshold: 0, rootMargin: '0px 0px -40px 0px' });
 document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+// FAQ accordion
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('click', () => {
+    const item = q.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
 </script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Plain-English monthly local visibility reports for Sunshine Coast service businesses. See exactly how your Google and Facebook presence is performing.">
+<meta name="description" content="Plain-English monthly reporting on your Google Maps ranking, calls, profile views, and review growth. Know exactly how your local marketing is performing.">
 <title>Local Visibility Reporting Sunshine Coast | Monthly Google Business Profile Analytics | Haylo</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -110,7 +110,7 @@ nav.scrolled{box-shadow:0 4px 24px rgba(31,45,61,.08);}
 }
 .hero-photo{
   position:absolute;inset:0;
-  background:url('/images/hero/hero-sunshine-coast-local-marketing.jpg') center/cover no-repeat;
+  background:url('/images/general/haylo-og-share.jpg') center/cover no-repeat;
   opacity:.18;
   pointer-events:none;
 }
@@ -538,62 +538,80 @@ footer{background:#141C25;padding:2.5rem var(--pad);display:flex;flex-direction:
   .proof-inner .btn{width:100%;text-align:center;justify-content:center;}
 }
 
-</style>
-<style>
-/* ── SERVICE PAGE EXTRAS ── */
-.spage-hero{
-  min-height:60vh;display:flex;flex-direction:column;justify-content:flex-end;
-  padding:calc(var(--nav-h) + 4rem) var(--pad) 5rem;
-  background:var(--navy);position:relative;overflow:hidden;
-}
+
+/* ── What's included grid ── */
+.incl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem;}
+.incl-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:1.8rem;transition:border-color .2s,box-shadow .2s;}
+.incl-card:hover{border-color:var(--sky);box-shadow:0 8px 32px rgba(56,189,248,.08);}
+.incl-ico{font-size:1.8rem;margin-bottom:.8rem;}
+.incl-title{font-family:'Josefin Sans',sans-serif;font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--navy);margin-bottom:.5rem;}
+.incl-desc{font-size:.82rem;line-height:1.75;color:var(--muted);}
+@media(max-width:900px){.incl-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:560px){.incl-grid{grid-template-columns:1fr;}}
+
+/* ── How it works steps ── */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:2.5rem;margin-top:3rem;position:relative;}
+.steps::before{content:'';position:absolute;top:2rem;left:calc(12.5% + 1rem);right:calc(12.5% + 1rem);height:2px;background:linear-gradient(90deg,var(--sky),rgba(56,189,248,.2));pointer-events:none;}
+.step{position:relative;}
+.step-num{width:4rem;height:4rem;background:var(--sky);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Josefin Sans',sans-serif;font-size:1.2rem;font-weight:700;color:var(--navy);margin:0 0 1.2rem;}
+.step-title{font-family:'Josefin Sans',sans-serif;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--navy);margin-bottom:.6rem;}
+.step-desc{font-size:.82rem;line-height:1.75;color:var(--muted);}
+@media(max-width:768px){.steps{grid-template-columns:1fr 1fr;gap:2rem;}.steps::before{display:none;}}
+@media(max-width:480px){.steps{grid-template-columns:1fr;}}
+
+/* ── Stats band ── */
+.stats-band{background:var(--navy);padding:4rem var(--pad);display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background-color:rgba(255,255,255,.08);}
+.stat-cell{background:var(--navy);padding:2.5rem 2rem;text-align:center;}
+.stat-n{font-family:'Josefin Sans',sans-serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:700;color:var(--sky);line-height:1;}
+.stat-l{font-size:.75rem;color:rgba(255,255,255,.4);margin-top:.5rem;line-height:1.4;text-transform:uppercase;letter-spacing:.06em;}
+@media(max-width:700px){.stats-band{grid-template-columns:1fr 1fr;}}
+
+/* ── FAQ ── */
+.faq-list{max-width:780px;margin:2.5rem auto 0;}
+.faq-item{border:1px solid var(--border);border-radius:10px;margin-bottom:.8rem;overflow:hidden;transition:border-color .2s;}
+.faq-item.open{border-color:var(--sky);}
+.faq-q{padding:1.3rem 1.6rem;font-family:'Josefin Sans',sans-serif;font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--navy);cursor:pointer;display:flex;justify-content:space-between;align-items:center;user-select:none;}
+.faq-q::after{content:'+';font-size:1.4rem;font-weight:300;color:var(--sky);transition:transform .25s;}
+.faq-item.open .faq-q::after{transform:rotate(45deg);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .25s;}
+.faq-item.open .faq-a{max-height:500px;padding:0 1.6rem 1.4rem;}
+.faq-a p{font-size:.85rem;line-height:1.8;color:var(--muted);margin:0;}
+
+
+/* ── Related grid ── */
+.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem;}
+.rel-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:2rem;text-decoration:none;display:block;transition:border-color .2s,transform .2s,box-shadow .2s;}
+.rel-card:hover{border-color:var(--sky);transform:translateY(-3px);box-shadow:0 12px 32px rgba(56,189,248,.08);}
+.rel-ico{font-size:1.8rem;margin-bottom:.8rem;}
+.rel-title{font-family:'Josefin Sans',sans-serif;font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--navy);margin-bottom:.5rem;}
+.rel-desc{font-size:.82rem;line-height:1.75;color:var(--muted);margin-bottom:1rem;}
+.rel-link{font-family:'Josefin Sans',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--sky);}
+@media(max-width:768px){.related-grid{grid-template-columns:1fr;}}
+
+
+/* ── Service page hero ── */
+.spage-divider{height:var(--nav-h);}
+.spage-hero{position:relative;min-height:70vh;display:flex;flex-direction:column;justify-content:flex-end;padding:4rem var(--pad) 4.5rem;overflow:hidden;background:var(--navy);}
 .spage-hero-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:.18;pointer-events:none;}
-.spage-hero-glow{position:absolute;top:-10%;right:-5%;width:600px;height:600px;background:radial-gradient(circle,rgba(56,189,248,.12) 0%,transparent 70%);pointer-events:none;}
+.spage-hero-glow{position:absolute;top:-10%;right:-5%;width:650px;height:650px;background:radial-gradient(circle,rgba(56,189,248,.14) 0%,transparent 70%);pointer-events:none;}
 .spage-hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(56,189,248,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(56,189,248,.04) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;}
-.spage-crumb{font-family:'Josefin Sans',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:1.5rem;}
-.spage-crumb a{color:rgba(56,189,248,.5);transition:color .2s;}
-.spage-crumb a:hover{color:var(--sky);}
-.spage-h1{font-family:'Josefin Sans',sans-serif;font-size:clamp(2.8rem,8vw,7rem);font-weight:700;text-transform:uppercase;line-height:.93;letter-spacing:.03em;color:var(--white);max-width:900px;animation:fadeUp .6s ease both;}
+.spage-crumb{font-family:'Josefin Sans',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:1.2rem;position:relative;z-index:1;}
+.spage-crumb a{color:rgba(255,255,255,.3);}.spage-crumb a:hover{color:var(--sky);}
+.spage-h1{font-family:'Josefin Sans',sans-serif;font-size:clamp(2.8rem,8vw,7rem);font-weight:700;text-transform:uppercase;line-height:.95;letter-spacing:.03em;color:var(--white);position:relative;z-index:1;margin-bottom:1rem;}
 .spage-h1 em{color:var(--sky);font-style:normal;}
-.spage-sub{font-size:.97rem;color:rgba(255,255,255,.45);line-height:1.85;max-width:520px;margin-top:1.5rem;animation:fadeUp .6s .1s ease both;}
-.spage-actions{margin-top:2rem;display:flex;gap:.75rem;flex-wrap:wrap;animation:fadeUp .6s .2s ease both;}
-.spage-divider{height:4px;background:linear-gradient(90deg,var(--sky) 0%,transparent 60%);}
-
-/* ── INTRO SPLIT ── */
-.intro-split{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
-.intro-vis{border-radius:10px;overflow:hidden;aspect-ratio:4/3;background:var(--navy);position:relative;}
-.intro-vis img{width:100%;height:100%;object-fit:cover;}
-.intro-vis-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(31,45,61,.3),transparent);}
-.intro-tag{display:inline-flex;align-items:center;gap:.5rem;background:var(--sky-pale);border:1px solid var(--border);border-radius:100px;padding:.35rem 1rem;font-family:'Josefin Sans',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--sky);margin-bottom:1.2rem;}
-.intro-h2{font-family:'Josefin Sans',sans-serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;text-transform:uppercase;letter-spacing:.03em;line-height:1;color:var(--navy);margin-bottom:1rem;}
+.spage-sub{font-size:.92rem;color:rgba(255,255,255,.5);line-height:1.85;max-width:560px;position:relative;z-index:1;margin-bottom:1.8rem;}
+.spage-actions{display:flex;gap:.75rem;flex-wrap:wrap;position:relative;z-index:1;}
+/* ── Intro split layout ── */
+.intro-split{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
+.intro-vis{position:relative;border-radius:16px;overflow:hidden;min-height:340px;background:var(--navy);}
+.intro-vis-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(31,45,61,.4) 0%,transparent 60%);pointer-events:none;}
+.intro-vis img{width:100%;height:100%;object-fit:cover;display:block;}
+.intro-tag{display:inline-block;font-family:'Josefin Sans',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--sky);border:1px solid rgba(56,189,248,.25);padding:.35rem .9rem;border-radius:100px;margin-bottom:1rem;}
+.intro-h2{font-family:'Josefin Sans',sans-serif;font-size:clamp(1.5rem,3.5vw,2.4rem);font-weight:700;text-transform:uppercase;line-height:1.05;letter-spacing:.03em;color:var(--navy);margin-bottom:1.2rem;}
 .intro-h2 em{color:var(--sky);font-style:normal;}
-.intro-body{font-size:.92rem;line-height:1.9;color:var(--muted);}
-.intro-body p + p{margin-top:1rem;}
+.intro-split p{font-size:.88rem;line-height:1.85;color:var(--muted);margin-bottom:.9rem;}
+@media(max-width:820px){.intro-split{grid-template-columns:1fr;gap:2rem;}.intro-vis{min-height:220px;}}
 
-/* ── WHAT'S INCLUDED ── */
-.included-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem;}
-.inc-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:2rem;transition:border-color .2s,transform .2s,box-shadow .2s;}
-.inc-card:hover{border-color:var(--sky);transform:translateY(-3px);box-shadow:0 8px 30px rgba(56,189,248,.08);}
-.inc-ico{font-size:1.8rem;margin-bottom:1rem;line-height:1;}
-.inc-title{font-family:'Josefin Sans',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--navy);margin-bottom:.5rem;}
-.inc-desc{font-size:.82rem;line-height:1.75;color:var(--muted);}
-
-/* ── WHY IT MATTERS ── */
-.why-row{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border-dark);border:1px solid var(--border-dark);border-radius:8px;overflow:hidden;}
-.why-cell{background:var(--navy);padding:2.5rem;}
-.why-stat{font-family:'Josefin Sans',sans-serif;font-weight:700;font-size:3rem;color:var(--sky);line-height:1;margin-bottom:.4rem;}
-.why-lbl{font-family:'Josefin Sans',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:.6rem;}
-.why-desc{font-size:.84rem;line-height:1.8;color:rgba(255,255,255,.4);}
-
-/* ── PROCESS STEPS ── */
-.steps{display:flex;flex-direction:column;gap:0;margin-top:3rem;border:1px solid var(--border);border-radius:10px;overflow:hidden;}
-.step{display:grid;grid-template-columns:60px 1fr;gap:2rem;padding:2rem;border-bottom:1px solid var(--border);background:var(--white);transition:background .2s;align-items:start;}
-.step:last-child{border-bottom:none;}
-.step:hover{background:var(--sky-pale);}
-.step-n{font-family:'Josefin Sans',sans-serif;font-weight:700;font-size:1.8rem;color:var(--sky);opacity:.35;line-height:1;padding-top:.1rem;}
-.step-title{font-family:'Josefin Sans',sans-serif;font-size:.85rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--navy);margin-bottom:.4rem;}
-.step-desc{font-size:.85rem;line-height:1.8;color:var(--muted);}
-
-/* ── CTA BAND ── */
 .cta-band{background:var(--navy);padding:5rem var(--pad);text-align:center;position:relative;overflow:hidden;}
 .cta-band-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:300px;background:radial-gradient(ellipse,rgba(56,189,248,.1) 0%,transparent 70%);pointer-events:none;}
 .cta-band-inner{position:relative;z-index:1;}
@@ -602,59 +620,14 @@ footer{background:#141C25;padding:2.5rem var(--pad);display:flex;flex-direction:
 .cta-band p{font-size:.92rem;color:rgba(255,255,255,.4);max-width:400px;margin:0 auto 2rem;line-height:1.8;}
 .cta-band-ph{font-size:.76rem;color:rgba(255,255,255,.25);margin-top:1.2rem;}
 .cta-band-ph a{color:var(--sky);font-weight:700;}
-
-/* ── RELATED SERVICES ── */
-.related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:2.5rem;}
-.rel-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:2rem;display:flex;flex-direction:column;gap:.8rem;transition:border-color .2s,transform .2s;}
-.rel-card:hover{border-color:var(--sky);transform:translateY(-3px);}
-.rel-ico{font-size:1.5rem;}
-.rel-title{font-family:'Josefin Sans',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--navy);}
-.rel-desc{font-size:.82rem;line-height:1.7;color:var(--muted);flex:1;}
-.rel-link{font-family:'Josefin Sans',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--sky);}
-
-@media(max-width:800px){
-  .intro-split{grid-template-columns:1fr;gap:2.5rem;}
-  .included-grid{grid-template-columns:1fr 1fr;}
-  .why-row{grid-template-columns:1fr;}
-  .related-grid{grid-template-columns:1fr;}
-}
-@media(max-width:500px){
-  .included-grid{grid-template-columns:1fr;}
-  .step{grid-template-columns:40px 1fr;gap:1rem;}
-}
-
-/* ── GLOBAL MOBILE FIXES ── */
-@media(max-width:820px){
-  .ip-split,
-  .intro-split,
-  .loc-split{
-    grid-template-columns:1fr!important;
-    gap:2.5rem!important;
-  }
-}
-@media(max-width:820px){
-  .loc-stats,[style*="grid-template-columns:repeat(4"]{grid-template-columns:1fr 1fr!important;}
-  [style*="grid-template-columns:repeat(3,"],[style*="repeat(3, 1fr)"]{grid-template-columns:1fr 1fr!important;}
-  .why-row{grid-template-columns:1fr!important;}
-  .included-grid{grid-template-columns:1fr 1fr!important;}
-}
-@media(max-width:520px){
-  [style*="grid-template-columns:repeat(3"]{grid-template-columns:1fr!important;}
-  .included-grid,.related-grid,.areas-grid{grid-template-columns:1fr!important;}
-  .cta-band .btn,.proof-inner .btn{width:100%;text-align:center;}
-}
-.ip-vis{min-height:280px;}
-.ip-vis img,.intro-vis img{width:100%!important;height:100%!important;object-fit:cover!important;display:block!important;}
-section{padding-top:5rem;padding-bottom:5rem;}
-.ip-hero,.loc-hero,.spage-hero{padding-top:calc(var(--nav-h) + 4rem)!important;}
-
 </style>
+
   <link rel="canonical" href="https://withhaylo.com/reporting/">
   <meta name="robots" content="index, follow">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://withhaylo.com/reporting/">
   <meta property="og:title" content="Local Visibility Reporting Sunshine Coast | Monthly Google Business Profile Analytics | Haylo">
-  <meta property="og:description" content="Plain-English monthly local visibility reports for Sunshine Coast service businesses. See exactly how your Google and Facebook presence is performing.">
+  <meta property="og:description" content="Plain-English monthly reporting on your Google Maps ranking, calls, profile views, and review growth. Know exactly how your local marketing is performing.">
   <meta property="og:image" content="/images/general/haylo-og-share.jpg">
 </head>
 <body>
@@ -668,13 +641,13 @@ section{padding-top:5rem;padding-bottom:5rem;}
     <li><a href="/#pricing">Pricing</a></li>
     <li><a href="/#about">About</a></li>
     <li><a href="/#faq">FAQ</a></li>
+    <li><a href="/blog/">Blog</a></li>
     <li><a href="/#cta" class="nav-btn">Free Audit</a></li>
   </ul>
   <button class="nav-burger" id="burger" aria-label="Open menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
-
 <div class="nav-drawer" id="drawer">
   <ul>
     <li><a href="/" class="drawer-link">Home</a></li>
@@ -682,37 +655,151 @@ section{padding-top:5rem;padding-bottom:5rem;}
     <li><a href="/#pricing" class="drawer-link">Pricing</a></li>
     <li><a href="/#about" class="drawer-link">About</a></li>
     <li><a href="/#faq" class="drawer-link">FAQ</a></li>
+    <li><a href="/blog/" class="drawer-link">Blog</a></li>
   </ul>
-  <a href="/#cta" class="drawer-cta drawer-link">Get My Free Audit →</a>
+  <a href="/#cta" class="drawer-cta drawer-link">Get My Free Audit &#8594;</a>
 </div>
 
 
 <div class="spage-divider"></div>
 <section class="spage-hero">
-  <img class="spage-hero-photo" src="/images/services/business-analytics-dashboard.jpg" alt="Local marketing analytics dashboard showing business performance">
+  <img class="spage-hero-photo" src="/images/services/business-analytics-dashboard.jpg" alt="Local marketing performance dashboard">
   <div class="spage-hero-glow"></div>
   <div class="spage-hero-grid"></div>
-  <div class="spage-crumb"><a href="/">Home</a> / Services / Visibility Reporting</div>
+  <div class="spage-crumb"><a href="/">Home</a> / Services / Local Visibility Reporting</div>
   <h1 class="spage-h1">Local Visibility<br><em>Reporting</em></h1>
-  <p class="spage-sub">A plain-English monthly report showing exactly how your online presence is performing - no jargon, no fluff, just the numbers that matter.</p>
+  <p class="spage-sub">See exactly how your Google Maps ranking, calls, and online visibility are performing - in plain English, every month, without the jargon.</p>
   <div class="spage-actions">
-    <a href="/#cta" class="btn btn-sky">Get My Free Audit →</a>
-    <a href="tel:0490422192" class="btn btn-ghost-w">📞 0490 422 192</a>
+    <a href="/#cta" class="btn btn-sky">Get My Free Audit &#8594;</a>
+    <a href="tel:0490422192" class="btn btn-ghost-w">&#128222; 0490 422 192</a>
   </div>
 </section>
 
 <section style="background:var(--white);">
   <div class="intro-split reveal">
     <div class="intro-vis">
-      <img src="/images/services/local-marketing-performance-report.jpg" alt="Monthly local visibility report for a Sunshine Coast business" loading="lazy">
+      <img src="/images/services/local-marketing-performance-report.jpg" alt="Monthly local marketing report" loading="lazy">
       <div class="intro-vis-overlay"></div>
     </div>
     <div>
-      <div class="intro-tag">📊 Monthly Performance Reports</div>
-      <h2 class="intro-h2">Understand your Google performance.<br><em>Grow your Sunshine Coast business.</em></h2>
-    <p>Get started with a free audit and see what your Google profile is currently doing - or not doing - for your business.</p>
-    <a href="/#cta" class="btn btn-sky">Get My Free Audit →</a>
-    <div class="cta-band-ph">Or call: <a href="tel:0490422192">0490 422 192</a> &nbsp;·&nbsp; <a href="mailto:hello@withhaylo.com">hello@withhaylo.com</a></div>
+      <div class="intro-tag">&#128202; Analytics &amp; Reporting</div>
+      <h2 class="intro-h2">Know what's working.<br><em>Know what's growing.</em></h2>
+      <p>Most local marketing agencies send you a PDF full of graphs and numbers that don't mean anything to a business owner. We do it differently - a clear, plain-English report each month that tells you exactly what happened, what changed, and what we're doing about it.</p>
+      <p>If you're investing in your local visibility, you should know whether it's working. Our reporting makes that simple.</p>
+      <a href="/#cta" class="btn btn-sky" style="margin-top:1.5rem;">Get My Free Audit &#8594;</a>
+      <div class="cta-band-ph" style="margin-top:1rem;">Or call: <a href="tel:0490422192">0490 422 192</a> &nbsp;&middot;&nbsp; <a href="mailto:hello@withhaylo.com">hello@withhaylo.com</a></div>
+    </div>
+  </div>
+</section>
+
+<div class="stats-band reveal">
+  <div class="stat-cell"><div class="stat-n">Monthly</div><div class="stat-l">Reports delivered on the same day each month, no chasing</div></div>
+  <div class="stat-cell"><div class="stat-n">Plain</div><div class="stat-l">English - no jargon, no graphs that need a degree to read</div></div>
+  <div class="stat-cell"><div class="stat-n">100%</div><div class="stat-l">Transparent - you see everything, nothing is hidden</div></div>
+  <div class="stat-cell"><div class="stat-n">Actioned</div><div class="stat-l">Every report includes what we're doing next based on the data</div></div>
+</div>
+
+<section style="background:var(--off);">
+  <div class="reveal">
+    <span class="eyebrow">What's In Each Report</span>
+    <h2 class="sec-h2">Six things you'll know<br><em>every single month.</em></h2>
+    <p style="color:var(--muted);max-width:600px;margin:.8rem 0 0;font-size:.9rem;line-height:1.8;">Our reports cover every metric that actually matters for a local service business - with context that helps you understand what the numbers mean.</p>
+  </div>
+  <div class="incl-grid reveal">
+    <div class="incl-card">
+      <div class="incl-ico">&#128205;</div>
+      <div class="incl-title">Google Maps Ranking</div>
+      <div class="incl-desc">Where you're appearing in Google Maps for your key search terms - with month-on-month comparison so you can see the trend clearly.</div>
+    </div>
+    <div class="incl-card">
+      <div class="incl-ico">&#128222;</div>
+      <div class="incl-title">Calls &amp; Enquiries</div>
+      <div class="incl-desc">How many people called your business directly from Google Maps - one of the clearest indicators that your local visibility is translating into real leads.</div>
+    </div>
+    <div class="incl-card">
+      <div class="incl-ico">&#128064;</div>
+      <div class="incl-title">Profile Views</div>
+      <div class="incl-desc">How many people viewed your Google Business Profile - broken down by search type (direct vs discovery) so you can see how new customers are finding you.</div>
+    </div>
+    <div class="incl-card">
+      <div class="incl-ico">&#11088;</div>
+      <div class="incl-title">Review Growth</div>
+      <div class="incl-desc">New reviews received, current rating, and how your review count compares to your main local competitors in your category.</div>
+    </div>
+    <div class="incl-card">
+      <div class="incl-ico">&#128506;</div>
+      <div class="incl-title">Direction Requests</div>
+      <div class="incl-desc">How many people asked Google Maps for directions to your business - a strong signal that customers are actively intending to visit or verify your location.</div>
+    </div>
+    <div class="incl-card">
+      <div class="incl-ico">&#128640;</div>
+      <div class="incl-title">What We're Doing Next</div>
+      <div class="incl-desc">Every report includes a clear summary of what actions we're taking in the next 30 days based on the data - so you always know what's happening and why.</div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--white);">
+  <div class="reveal">
+    <span class="eyebrow">How It Works</span>
+    <h2 class="sec-h2">Clear reporting.<br><em>Every month, on time.</em></h2>
+  </div>
+  <div class="steps reveal">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-title">Baseline Audit</div>
+      <div class="step-desc">We establish your starting metrics - ranking, calls, views, and reviews - so every future report shows real progress against a clear baseline.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-title">Data Collection</div>
+      <div class="step-desc">We pull data directly from Google Business Profile Insights and other tracking tools throughout the month.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-title">Plain-English Report</div>
+      <div class="step-desc">On the same date each month, you receive a clear, readable summary with context and commentary - not just raw numbers.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-title">Next Steps</div>
+      <div class="step-desc">Every report closes with what we're doing in the next 30 days to keep improving your numbers. No guesswork, no vague promises.</div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--white);">
+  <div class="reveal" style="text-align:center;">
+    <span class="eyebrow">Common Questions</span>
+    <h2 class="sec-h2">Reporting<br><em>FAQs.</em></h2>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item reveal">
+      <div class="faq-q">Is reporting included with other Haylo services?</div>
+      <div class="faq-a"><p>Yes - monthly reporting is included as part of our Google Business Profile optimisation and review generation services. You'll always know how things are performing. We also offer reporting as a standalone service if you're managing your own profile and just want visibility into the metrics.</p></div>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-q">Where does the data come from?</div>
+      <div class="faq-a"><p>Primarily from Google Business Profile Insights - the data Google provides directly about how customers are finding and interacting with your profile. This includes calls, views, direction requests, and search queries. We also track your ranking position for your key search terms and your review metrics over time.</p></div>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-q">How do I receive the report?</div>
+      <div class="faq-a"><p>By email on the same date each month. The report is formatted to be readable on your phone - you don't need to open a spreadsheet or log into any platform. If you have questions about anything in the report, we're always available to talk through it.</p></div>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-q">Can I see reports from past months?</div>
+      <div class="faq-a"><p>Yes - we keep a record of every report and can share historical data at any time. Seeing the trend over 6 or 12 months is often the most powerful indicator of how your local visibility is improving over time.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-band reveal">
+  <div class="cta-band-glow"></div>
+  <div class="cta-band-inner">
+    <h2>Know exactly how your<br><em>local marketing is performing.</em></h2>
+    <p>Start with a free audit - we'll show you where you currently sit and what the data says about your opportunities.</p>
+    <a href="/#cta" class="btn btn-sky">Get My Free Audit &#8594;</a>
+    <div class="cta-band-ph">Call or text: <a href="tel:0490422192">0490 422 192</a> &nbsp;&middot;&nbsp; <a href="mailto:hello@withhaylo.com">hello@withhaylo.com</a></div>
   </div>
 </div>
 
@@ -723,16 +810,22 @@ section{padding-top:5rem;padding-bottom:5rem;}
   </div>
   <div class="related-grid reveal">
     <a href="/google-business-profile/" class="rel-card">
-      <div class="rel-ico">📍</div>
-      <div class="rel-title">Google Business Profile Optimisation</div>
-      <div class="rel-desc">Show up at the top of Google Maps when customers search for your service - the fastest way to get more calls.</div>
-      <div class="rel-link">Learn More →</div>
+      <div class="rel-ico">&#128205;</div>
+      <div class="rel-title">Google Business Profile</div>
+      <div class="rel-desc">The foundation of your local visibility. Get fully optimised and ranking where your customers can find you.</div>
+      <div class="rel-link">Learn More &#8594;</div>
+    </a>
+    <a href="/review-generation/" class="rel-card">
+      <div class="rel-ico">&#11088;</div>
+      <div class="rel-title">Review Generation</div>
+      <div class="rel-desc">Build the review count and rating that turns your Google Maps visibility into actual customer calls.</div>
+      <div class="rel-link">Learn More &#8594;</div>
     </a>
     <a href="/facebook/" class="rel-card">
-      <div class="rel-ico">📘</div>
-      <div class="rel-title">Facebook Business Page Management</div>
-      <div class="rel-desc">Keep your Facebook active and working for you - consistent content, local reach, and real engagement.</div>
-      <div class="rel-link">Learn More →</div>
+      <div class="rel-ico">&#128216;</div>
+      <div class="rel-title">Facebook Management</div>
+      <div class="rel-desc">Keep your Facebook page consistently active so it reinforces trust whenever a customer checks you out.</div>
+      <div class="rel-link">Learn More &#8594;</div>
     </a>
   </div>
 </section>
@@ -742,19 +835,23 @@ section{padding-top:5rem;padding-bottom:5rem;}
 <footer>
   <div class="footer-logo">HAY<span>LO</span></div>
   <ul class="fnav">
-    <li><a href="#who">Who We Help</a></li>
     <li><a href="#services">Services</a></li>
-    <li><a href="#pricing">Pricing</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#faq">FAQ</a></li>
-    <li><a href="#cta">Get Started</a></li>
-    <li><a href="https://www.facebook.com/withhaylo" target="_blank" rel="noopener">Facebook</a></li>
-    <li><a href="https://www.instagram.com/withhaylo" target="_blank" rel="noopener">Instagram</a></li>
+    <li><a href="/google-business-profile/">Google Profile</a></li>
+    <li><a href="/facebook/">Facebook</a></li>
+    <li><a href="/review-generation/">Reviews</a></li>
+    <li><a href="/reporting/">Reporting</a></li>
+    <li><a href="/blog/">Blog</a></li>
+    <li><a href="/#cta">Get Started</a></li>
   </ul>
-  <div class="fcopy">© 2026 Haylo · Sunshine Coast, QLD &nbsp;·&nbsp; <a href="tel:0490422192" style="color:rgba(255,255,255,.3)">0490 422 192</a> &nbsp;·&nbsp; <a href="mailto:hello@withhaylo.com" style="color:rgba(255,255,255,.3)">hello@withhaylo.com</a></div>
+  <ul class="fnav" style="margin-top:.5rem">
+    <li><a href="/marketing-consultant-sunshine-coast/">Sunshine Coast</a></li>
+    <li><a href="/marketing-consultant-caloundra/">Caloundra</a></li>
+    <li><a href="/marketing-consultant-maroochydore/">Maroochydore</a></li>
+    <li><a href="/marketing-consultant-buderim/">Buderim</a></li>
+    <li><a href="/marketing-consultant-noosa/">Noosa</a></li>
+  </ul>
+  <div class="fcopy">&copy; 2026 Haylo &middot; Sunshine Coast, QLD &nbsp;&middot;&nbsp; <a href="tel:0490422192" style="color:rgba(255,255,255,.3)">0490 422 192</a> &nbsp;&middot;&nbsp; <a href="mailto:hello@withhaylo.com" style="color:rgba(255,255,255,.3)">hello@withhaylo.com</a></div>
 </footer>
-
-
 <script>
 const burger = document.getElementById('burger');
 const drawer = document.getElementById('drawer');
@@ -780,6 +877,15 @@ const revealObs = new IntersectionObserver((entries, obs) => {
   });
 }, { threshold: 0, rootMargin: '0px 0px -40px 0px' });
 document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+// FAQ accordion
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('click', () => {
+    const item = q.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
 </script>
 </body>
 </html>
