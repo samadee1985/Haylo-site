@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Haylo - Local marketing for Sunshine Coast service businesses. Google Business Profile, Facebook management, review generation and local visibility reporting.">
-<title>Local Marketing for Tradies & Cleaners | Sunshine Coast | Haylo</title>
+<meta name="description" content="Haylo helps Sunshine Coast small businesses rank higher on Google Maps, get more 5-star reviews, and attract consistent local leads. Free audit for tradies, cleaners & services.">
+<title>Local Marketing Sunshine Coast | Google Maps & Local SEO for Small Businesses | Haylo</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -145,17 +145,23 @@ nav.scrolled{box-shadow:0 4px 24px rgba(31,45,61,.08);}
 .hero-actions{display:flex;gap:.75rem;flex-wrap:wrap;align-items:center;}
 
 .hero-stats{
-  margin-top:3.5rem;
+  margin-top:3rem;
   display:grid;grid-template-columns:repeat(2,1fr);
-  border-top:1px solid rgba(255,255,255,.07);
+  gap:.75rem;
   animation:fadeUp .7s .3s ease both;
 }
-.hstat{padding:1.5rem 0;border-right:1px solid rgba(255,255,255,.07);}
-.hstat:nth-child(2){border-right:none;}
-.hstat:nth-child(3){border-right:1px solid rgba(255,255,255,.07);border-top:1px solid rgba(255,255,255,.07);}
-.hstat:nth-child(4){border-top:1px solid rgba(255,255,255,.07);}
-.hstat-num{font-family:'Josefin Sans',sans-serif;font-weight:700;font-size:2rem;color:var(--sky);line-height:1;margin-bottom:.3rem;}
-.hstat-lbl{font-size:.68rem;font-weight:600;color:rgba(255,255,255,.28);letter-spacing:.08em;text-transform:uppercase;}
+.hstat{
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:12px;
+  padding:1.4rem 1.2rem;
+  display:flex;align-items:center;gap:1rem;
+  transition:background .2s,border-color .2s;
+}
+.hstat:hover{background:rgba(56,189,248,.08);border-color:rgba(56,189,248,.25);}
+.hstat-num{font-size:1.6rem;line-height:1;flex-shrink:0;}
+.hstat-lbl{font-size:.7rem;font-weight:700;color:rgba(255,255,255,.5);letter-spacing:.07em;text-transform:uppercase;line-height:1.4;}
+@media(min-width:600px){.hero-stats{grid-template-columns:repeat(4,1fr);}}
 
 /* ─── BUTTONS ──────────────────────────────── */
 .btn{
@@ -583,44 +589,55 @@ section{padding-top:5rem;padding-bottom:5rem;}
   <meta name="robots" content="index, follow">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://withhaylo.com/">
-  <meta property="og:title" content="Local Marketing for Tradies & Cleaners | Sunshine Coast | Haylo">
-  <meta property="og:description" content="Haylo - Local marketing for Sunshine Coast service businesses. Google Business Profile, Facebook management, review generation and local visibility reporting.">
+  <meta property="og:title" content="Local Marketing Sunshine Coast | Google Maps & Local SEO for Small Businesses | Haylo">
+  <meta property="og:description" content="Haylo helps Sunshine Coast small businesses rank higher on Google Maps, get more 5-star reviews, and attract consistent local leads. Free audit for tradies, cleaners & services.">
   <meta property="og:image" content="/images/general/haylo-og-share.jpg">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
+  "@type": "ProfessionalService",
   "name": "Haylo",
   "url": "https://withhaylo.com",
   "telephone": "+61490422192",
   "email": "hello@withhaylo.com",
+  "priceRange": "$$",
+  "openingHours": "Mo-Fr 08:00-17:00",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Sunshine Coast",
     "addressRegion": "QLD",
+    "postalCode": "4556",
     "addressCountry": "AU"
   },
-  "areaServed": {
-    "@type": "GeoCircle",
-    "geoMidpoint": {
-      "@type": "GeoCoordinates",
-      "latitude": -26.6500,
-      "longitude": 153.0667
-    },
-    "geoRadius": "50000"
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": -26.6500,
+    "longitude": 153.0667
   },
-  "serviceType": [
-    "Google Business Profile Optimisation",
-    "Facebook Page Management",
-    "Review Generation and Management",
-    "Local Visibility Reporting"
+  "areaServed": [
+    {"@type": "City", "name": "Sunshine Coast"},
+    {"@type": "City", "name": "Caloundra"},
+    {"@type": "City", "name": "Maroochydore"},
+    {"@type": "City", "name": "Noosa"},
+    {"@type": "City", "name": "Buderim"}
   ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Local Marketing Services",
+    "itemListElement": [
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Google Business Profile Optimisation Sunshine Coast"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Local SEO Sunshine Coast"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Review Generation and Management"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Facebook Page Management Sunshine Coast"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Google Maps Ranking Optimisation"}}
+    ]
+  },
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "5",
     "reviewCount": "12"
   },
-  "description": "Haylo helps local service businesses on the Sunshine Coast get found on Google Maps, build five-star reviews, and grow their local presence."
+  "description": "Haylo is a local marketing consultancy on the Sunshine Coast specialising in Google Business Profile optimisation, local SEO, Google Maps ranking, and review generation for small businesses including tradies, cleaners, and service providers."
 }
 </script>
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -669,24 +686,25 @@ section{padding-top:5rem;padding-bottom:5rem;}
   <div class="hero-glow-1"></div>
   <div class="hero-glow-2"></div>
   <div class="hero-grid"></div>
-  <div class="hero-badge"><span class="pip"></span>Local Marketing for Cleaners, Trades & Services</div>
+  <div class="hero-badge"><span class="pip"></span>Local Marketing for Small Businesses · Sunshine Coast</div>
   <h1 class="hero-h1">
     Your phone<br>
     should be<br>
     <span class="acc">ringing.</span>
   </h1>
+  <p style="font-family:'Josefin Sans',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(56,189,248,.55);margin-top:1rem;animation:fadeUp .7s .12s ease both;">Google Maps &amp; Local SEO for Sunshine Coast Small Businesses</p>
   <div class="hero-bottom">
-    <p class="hero-sub">We help <strong>cleaners, tradies and local service businesses</strong> get found on Google, stay active on Facebook, and get the phone ringing.</p>
+    <p class="hero-sub">We help <strong>Sunshine Coast small businesses</strong> rank higher on Google Maps, build genuine 5-star reviews, and attract more local leads &mdash; tradies, cleaners, services and more. No lock-in contracts.</p>
     <div class="hero-actions">
       <a href="#cta" class="btn btn-sky">Get My Free Audit →</a>
       <a href="#services" class="btn btn-ghost-w">See What We Do</a>
     </div>
   </div>
   <div class="hero-stats">
-    <div class="hstat"><div class="hstat-num">3×</div><div class="hstat-lbl">Average call increase</div></div>
-    <div class="hstat"><div class="hstat-num">48H</div><div class="hstat-lbl">To first results</div></div>
-    <div class="hstat"><div class="hstat-num">100+</div><div class="hstat-lbl">Businesses helped</div></div>
-    <div class="hstat"><div class="hstat-num">5★</div><div class="hstat-lbl">Client satisfaction</div></div>
+    <div class="hstat"><div class="hstat-num">📍</div><div class="hstat-lbl">Be found on Google Maps</div></div>
+    <div class="hstat"><div class="hstat-num">⭐</div><div class="hstat-lbl">Build trust through reviews</div></div>
+    <div class="hstat"><div class="hstat-num">📱</div><div class="hstat-lbl">Stay visible on socials</div></div>
+    <div class="hstat"><div class="hstat-num">📊</div><div class="hstat-lbl">See clearly what's working</div></div>
   </div>
 </section>
 
@@ -716,10 +734,10 @@ section{padding-top:5rem;padding-bottom:5rem;}
 <section id="who">
   <div class="who-top reveal">
     <div>
-      <span class="eyebrow">Who We Help</span>
-      <h2 class="sec-h2">Built for cleaners,<br>trades &amp; services<br>who want <em>more work.</em></h2>
+      <span class="eyebrow">Sunshine Coast Small Businesses Marketing</span>
+      <h2 class="sec-h2">Built for local businesses<br>who want <em>more customers.</em></h2>
     </div>
-    <p class="sec-sub">If you show up, do the job right, and deliver - you deserve a full calendar. We specialise in cleaners, tradies and local service businesses across the Sunshine Coast.</p>
+    <p class="sec-sub">If you show up, do the job right, and deliver - you deserve a full calendar. Haylo specialises in Google Maps and local SEO for small businesses across the Sunshine Coast - tradies, cleaners, health, home services and more.</p>
   </div>
   <div class="industries reveal">
     <a href="/google-marketing-for-cleaners/" class="ind"><div class="ind-icon">🧹</div><div><div class="ind-name">Cleaning Businesses</div><div class="ind-desc">Residential, commercial, end-of-lease, carpet &amp; window cleaners.</div></div></a>
@@ -735,8 +753,8 @@ section{padding-top:5rem;padding-bottom:5rem;}
 <section id="services">
   <div class="svc-header reveal">
     <div>
-      <span class="eyebrow">Our Services</span>
-      <h2 class="sec-h2">How we drive<br><em>growth.</em></h2>
+      <span class="eyebrow">Local Marketing Services · Sunshine Coast</span>
+      <h2 class="sec-h2">How we grow your<br><em>local presence.</em></h2>
     </div>
     <div class="svc-header-row">
       <a href="#cta" class="btn btn-navy">Start a Conversation →</a>
@@ -785,7 +803,7 @@ section{padding-top:5rem;padding-bottom:5rem;}
 <!-- PROCESS -->
 <section id="process">
   <div class="reveal">
-    <span class="eyebrow eyebrow-dark">How It Works</span>
+    <span class="eyebrow eyebrow-dark">Our Local SEO Process</span>
     <h2 class="sec-h2 sec-h2-w">Simple by design.<br><em>Powerful</em> in practice.</h2>
   </div>
   <div class="proc-grid">
@@ -816,7 +834,7 @@ section{padding-top:5rem;padding-bottom:5rem;}
 <section id="results">
   <div class="results-header reveal">
     <div>
-      <span class="eyebrow">What to Expect</span>
+      <span class="eyebrow">Results for Sunshine Coast Businesses</span>
       <h2 class="sec-h2">Real improvements.<br><em>Realistic timeframes.</em></h2>
       <p class="sec-sub" style="max-width:580px;margin-top:1rem;">Every business starts from a different point. Here&#39;s what most Sunshine Coast service businesses can realistically expect when they get their Google presence properly optimised.</p>
       <a href="#cta" class="btn btn-navy" style="margin-top:1.8rem;">Start Your Audit →</a>
@@ -843,7 +861,7 @@ section{padding-top:5rem;padding-bottom:5rem;}
     <div class="proof-inner">
       <span class="eyebrow eyebrow-dark">The Bottom Line</span>
       <h2 class="proof-h2">Most customers book<br>the first cleaner or<br><em>tradie they find.</em></h2>
-      <p class="proof-sub">If you're not in the top 3 on Google Maps, those jobs are going to someone else. We change that.</p>
+      <p class="proof-sub">If your Sunshine Coast small business isn't in the top 3 on Google Maps, those customers are going to competitors. Haylo's local SEO and Google Business Profile optimisation changes that.</p>
       <a href="#cta" class="btn btn-sky">Get My Free Audit →</a>
     </div>
   </div>
@@ -1004,9 +1022,9 @@ section{padding-top:5rem;padding-bottom:5rem;}
     <div class="reveal">
       <span class="eyebrow">Our Story</span>
       <h2 class="sec-h2">We built Haylo because<br>great businesses deserve<br><em>to be found.</em></h2>
-      <p class="sec-sub" style="max-width:100%">Haylo was built for one reason - too many great local businesses on the Sunshine Coast are invisible online. Cleaners, tradies and service providers doing excellent work but losing jobs to competitors who simply show up higher on Google. We fix that with practical, no-jargon improvements to your Google presence so your phone rings more often.</p>
+      <p class="sec-sub" style="max-width:100%">Haylo was built because too many great Sunshine Coast small businesses are invisible online. Tradies, cleaners, health and beauty, home services - businesses doing excellent work but losing customers to competitors who simply rank higher on Google Maps. We fix that with Google Business Profile optimisation, local SEO, and review generation that gets your phone ringing more consistently.</p>
       <div class="about-pts">
-        <div class="apt"><div class="apt-ico">🎯</div><div><div class="apt-t">100% Local Focus</div><div class="apt-b">We only work with Sunshine Coast businesses - cleaners, trades and service providers. We know the suburbs, the competition, and what actually gets results here.</div></div></div>
+        <div class="apt"><div class="apt-ico">🎯</div><div><div class="apt-t">100% Local Focus</div><div class="apt-b">We only work with Sunshine Coast small businesses. We know the local suburbs, the competitive landscape, and which Google Maps and local SEO strategies actually move the needle in this specific market.</div></div></div>
         <div class="apt"><div class="apt-ico">📞</div><div><div class="apt-t">Calls Are Our Obsession</div><div class="apt-b">We don't measure likes or impressions. We measure customers picking up the phone to call you - that's it.</div></div></div>
         <div class="apt"><div class="apt-ico">🤝</div><div><div class="apt-t">No Lock-In Contracts</div><div class="apt-b">We earn your business month after month. Stay because it's working - not because you signed a contract.</div></div></div>
       </div>
@@ -1058,7 +1076,7 @@ section{padding-top:5rem;padding-bottom:5rem;}
   <div class="cta-inner reveal">
     <div class="cta-pre">Free · No Obligation · Takes 10 Minutes</div>
     <h2 class="cta-h2">Get more calls.<br><em>Start today.</em></h2>
-    <p class="cta-sub">Tell us about your cleaning or trade business and we'll show you exactly where you're missing out on Google - and what it'll take to fix it.</p>
+    <p class="cta-sub">Tell us about your Sunshine Coast small business and we'll show you exactly where your Google Maps and local SEO presence has gaps - and what it'll take to fix them.</p>
 
     <div class="form-wrap">
       <div class="form-grid">
