@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y2MFJPRSRL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Y2MFJPRSRL');
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Haylo helps Sunshine Coast small businesses rank higher on Google Maps, get more 5-star reviews, and attract consistent local leads. Free audit for tradies, cleaners & services.">
@@ -161,7 +170,8 @@ nav.scrolled{box-shadow:0 4px 24px rgba(31,45,61,.08);}
   display:flex;align-items:center;gap:1rem;
   transition:background .2s,border-color .2s;
 }
-.hstat:hover{background:rgba(56,189,248,.08);border-color:rgba(56,189,248,.25);}
+.hstat:hover{background:rgba(56,189,248,.08);border-color:rgba(56,189,248,.25);cursor:pointer;}
+a.hstat{text-decoration:none;}
 .hstat-num{font-size:1.6rem;line-height:1;flex-shrink:0;}
 .hstat-lbl{font-size:.7rem;font-weight:700;color:rgba(255,255,255,.5);letter-spacing:.07em;text-transform:uppercase;line-height:1.4;}
 @media(min-width:600px){.hero-stats{grid-template-columns:repeat(4,1fr);}}
@@ -241,7 +251,7 @@ section{padding:5rem var(--pad);}
 /* Desktop services layout */
 @media(min-width:800px){
   .svc-row{
-    display:grid;grid-template-columns:60px 1fr 1fr auto;
+    display:grid;grid-template-columns:60px 1fr 1fr 1fr;
     align-items:start;gap:2.5rem;flex-direction:unset;
   }
   .svc-row-top{display:contents;}
@@ -798,10 +808,10 @@ section{padding-top:5rem;padding-bottom:5rem;}
     </div>
   </div>
   <div class="hero-stats">
-    <div class="hstat"><div class="hstat-num">📍</div><div class="hstat-lbl">Be found on Google Maps</div></div>
-    <div class="hstat"><div class="hstat-num">⭐</div><div class="hstat-lbl">Build trust through reviews</div></div>
-    <div class="hstat"><div class="hstat-num">📱</div><div class="hstat-lbl">Stay visible on socials</div></div>
-    <div class="hstat"><div class="hstat-num">📊</div><div class="hstat-lbl">See clearly what's working</div></div>
+    <a href="/google-business-profile/" class="hstat"><div class="hstat-num">📍</div><div class="hstat-lbl">Be found on Google Maps</div></a>
+    <a href="/review-generation/" class="hstat"><div class="hstat-num">⭐</div><div class="hstat-lbl">Build trust through reviews</div></a>
+    <a href="/facebook/" class="hstat"><div class="hstat-num">📱</div><div class="hstat-lbl">Stay visible on socials</div></a>
+    <a href="/reporting/" class="hstat"><div class="hstat-num">📊</div><div class="hstat-lbl">See clearly what's working</div></a>
   </div>
 </section>
 

@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y2MFJPRSRL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Y2MFJPRSRL');
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Google Business Profile optimisation for Sunshine Coast tradies. Get to the top of Google Maps, build your reputation, and get more jobs.">
@@ -114,6 +123,13 @@ footer{background:#141C25;padding:2.5rem var(--pad);display:flex;flex-direction:
 @media(min-width:640px){footer{flex-direction:row;align-items:center;justify-content:space-between;flex-wrap:wrap;}}
 @media(max-width:820px){.ip-split{grid-template-columns:1fr!important;gap:2.5rem!important;}.why-grid{grid-template-columns:1fr 1fr!important;}}
 @media(max-width:520px){.included-grid{grid-template-columns:1fr!important;}.why-grid{grid-template-columns:1fr!important;}}
+.faq-list{margin-top:2rem;display:flex;flex-direction:column;gap:.75rem;}
+.faq-item{background:var(--white);border:1px solid var(--border);border-radius:10px;overflow:hidden;}
+.faq-q{font-family:'Josefin Sans',sans-serif;font-size:.8rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--navy);padding:1.4rem 1.5rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;user-select:none;}
+.faq-q::after{content:'+';font-size:1.2rem;color:var(--sky);flex-shrink:0;transition:transform .2s;}
+.faq-item.open .faq-q::after{transform:rotate(45deg);}
+.faq-a{font-size:.85rem;line-height:1.8;color:var(--muted);padding:0 1.5rem 1.4rem;display:none;}
+.faq-item.open .faq-a{display:block;}
 </style>
   <link rel="canonical" href="https://withhaylo.com/google-marketing-for-tradies/">
   <meta name="robots" content="index, follow">
@@ -128,6 +144,8 @@ footer{background:#141C25;padding:2.5rem var(--pad);display:flex;flex-direction:
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
   <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Tradies Google Marketing Sunshine Coast","provider":{"@type":"LocalBusiness","name":"Haylo","telephone":"0490422192","url":"https://withhaylo.com","address":{"@type":"PostalAddress","addressRegion":"QLD","addressCountry":"AU"}},"areaServed":"Sunshine Coast","url":"https://withhaylo.com/google-marketing-for-tradies/"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How long before I see results from local SEO?","acceptedAnswer":{"@type":"Answer","text":"Local SEO is a gradual process. Most businesses start to see measurable improvements within 2-3 months of consistent work, though this varies depending on your starting point and how competitive your area is."}},{"@type":"Question","name":"Do I need a website to work with Haylo?","acceptedAnswer":{"@type":"Answer","text":"Not necessarily. A well-optimised Google Business Profile can generate significant leads on its own. A website does strengthen your local authority, but we'll advise on what makes most sense for your situation."}},{"@type":"Question","name":"How does Haylo help with Google reviews?","acceptedAnswer":{"@type":"Answer","text":"We set up a simple review request process - typically a text or email sent to customers after each job with a direct link to your Google review page, making it easy for happy customers to leave feedback."}},{"@type":"Question","name":"What makes local SEO different to regular SEO?","acceptedAnswer":{"@type":"Answer","text":"Local SEO focuses on getting your business into the Google Maps pack - the three local results above organic search. It involves your Google Business Profile, citations, reviews, and proximity signals rather than just webpage content."}},{"@type":"Question","name":"Is there a lock-in contract?","acceptedAnswer":{"@type":"Answer","text":"No. Haylo works month-to-month. You can pause or cancel at any time with 30 days notice."}}]}</script>
 </head>
 <body>
 <nav id="main-nav">
@@ -275,6 +293,15 @@ footer{background:#141C25;padding:2.5rem var(--pad);display:flex;flex-direction:
   </div>
 </div>
 
+<!-- FAQ -->
+<section style="background:var(--off);">
+  <div class="reveal">
+    <span class="eyebrow">Your Questions Answered</span>
+    <h2 class="sec-h2">Questions about<br><em>local marketing.</em></h2>
+  </div>
+  <div class="faq-list reveal"><div class="faq-item"><div class="faq-q">How long before I see results from local SEO?</div><div class="faq-a">Local SEO is a gradual process. Most businesses start to see measurable improvements within 2-3 months of consistent work, though this varies depending on your starting point and how competitive your area is.</div></div><div class="faq-item"><div class="faq-q">Do I need a website to work with Haylo?</div><div class="faq-a">Not necessarily. A well-optimised Google Business Profile can generate significant leads on its own. A website does strengthen your local authority, but we'll advise on what makes most sense for your situation.</div></div><div class="faq-item"><div class="faq-q">How does Haylo help with Google reviews?</div><div class="faq-a">We set up a simple review request process - typically a text or email sent to customers after each job with a direct link to your Google review page, making it easy for happy customers to leave feedback.</div></div><div class="faq-item"><div class="faq-q">What makes local SEO different to regular SEO?</div><div class="faq-a">Local SEO focuses on getting your business into the Google Maps pack - the three local results above organic search. It involves your Google Business Profile, citations, reviews, and proximity signals rather than just webpage content.</div></div><div class="faq-item"><div class="faq-q">Is there a lock-in contract?</div><div class="faq-a">No. Haylo works month-to-month. You can pause or cancel at any time with 30 days notice.</div></div></div>
+</section>
+
 <div class="cta-band">
   <div class="cta-band-glow"></div>
   <div class="cta-band-inner reveal">
@@ -315,6 +342,7 @@ const nav=document.getElementById('main-nav');
 window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>10),{passive:true});
 const obs=new IntersectionObserver((e,o)=>e.forEach(en=>{if(en.isIntersecting){en.target.classList.add('visible');o.unobserve(en.target);}}),{threshold:0,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+document.querySelectorAll('.faq-q').forEach(q=>{q.addEventListener('click',()=>{const item=q.parentElement;const wasOpen=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));if(!wasOpen)item.classList.add('open');});});
 </script>
 </body>
 </html>
