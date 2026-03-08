@@ -592,13 +592,15 @@ footer{background:#141C25;padding:2.5rem var(--pad);display:flex;flex-direction:
 /* ── Service page hero ── */
 .spage-divider{height:var(--nav-h);}
 .spage-hero{position:relative;min-height:70vh;display:flex;flex-direction:column;justify-content:flex-end;padding:4rem var(--pad) 4.5rem;overflow:hidden;background:var(--navy);}
-.spage-hero-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:.18;pointer-events:none;}
+.spage-hero-photo{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.18;pointer-events:none;will-change:transform;animation:kenBurns 10s ease-in-out infinite alternate;}
+@keyframes kenBurns{from{transform:scale(1)}to{transform:scale(1.08)}}
 .spage-hero-glow{position:absolute;top:-10%;right:-5%;width:650px;height:650px;background:radial-gradient(circle,rgba(56,189,248,.14) 0%,transparent 70%);pointer-events:none;}
 .spage-hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(56,189,248,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(56,189,248,.04) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;}
 .spage-crumb{font-family:'Josefin Sans',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:1.2rem;position:relative;z-index:1;}
 .spage-crumb a{color:rgba(255,255,255,.3);}.spage-crumb a:hover{color:var(--sky);}
 .spage-h1{font-family:'Josefin Sans',sans-serif;font-size:clamp(2.8rem,8vw,7rem);font-weight:700;text-transform:uppercase;line-height:.95;letter-spacing:.03em;color:var(--white);position:relative;z-index:1;margin-bottom:1rem;}
 .spage-h1 em{color:var(--sky);font-style:normal;}
+100%{background-position:-200% center}}
 .spage-sub{font-size:.92rem;color:rgba(255,255,255,.5);line-height:1.85;max-width:560px;position:relative;z-index:1;margin-bottom:1.8rem;}
 .spage-actions{display:flex;gap:.75rem;flex-wrap:wrap;position:relative;z-index:1;}
 /* ── Intro split layout ── */
@@ -620,6 +622,8 @@ footer{background:#141C25;padding:2.5rem var(--pad);display:flex;flex-direction:
 .cta-band p{font-size:.92rem;color:rgba(255,255,255,.4);max-width:400px;margin:0 auto 2rem;line-height:1.8;}
 .cta-band-ph{font-size:.76rem;color:rgba(255,255,255,.25);margin-top:1.2rem;}
 .cta-band-ph a{color:var(--sky);font-weight:700;}
+@keyframes gradShimmer{0%{background-position:200% center}100%{background-position:-200% center}}
+.sec-h2 em,.intro-h2 em,.spage-h1 em,.loc-h1 em,.loc-h2 em,.cta-band h2 em{background:linear-gradient(90deg,#38BDF8 0%,#BAE6FD 30%,#38BDF8 50%,#7DD3FC 75%,#38BDF8 100%);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;color:transparent;animation:gradShimmer 5s linear infinite;}
 </style>
 
   <link rel="canonical" href="https://withhaylo.com/facebook/">
@@ -671,7 +675,7 @@ footer{background:#141C25;padding:2.5rem var(--pad);display:flex;flex-direction:
 
 <div class="spage-divider"></div>
 <section class="spage-hero">
-  <img class="spage-hero-photo" src="/images/services/facebook-marketing-for-business.jpg" alt="Facebook business page on phone">
+  <div class="spage-hero-photo" style="background-image:url('/images/services/facebook-marketing-for-business.jpg');"></div>
   <div class="spage-hero-glow"></div>
   <div class="spage-hero-grid"></div>
   <div class="spage-crumb"><a href="/">Home</a> / Services / Facebook Management</div>
@@ -695,7 +699,7 @@ footer{background:#141C25;padding:2.5rem var(--pad);display:flex;flex-direction:
       <p>Before someone calls a tradie or cleaner they found on Google, many will check their Facebook page first. An active, professional page builds trust instantly. A dead or half-finished page - or no page at all - raises questions.</p>
       <p>Haylo manages your Facebook Business Page so it works in the background 24/7, keeping you front of mind in your local community without you having to think about it.</p>
       <a href="/#cta" class="btn btn-sky" style="margin-top:1.5rem;">Get My Free Audit &#8594;</a>
-      <div class="cta-band-ph" style="margin-top:1rem;">Or call: <a href="tel:0490422192">0490 422 192</a> &nbsp;&middot;&nbsp; <a href="mailto:hello@withhaylo.com">hello@withhaylo.com</a></div>
+      <div class="cta-band-ph" style="margin-top:.8rem;padding-left:1.6rem;color:var(--muted);">Or call: <a href="tel:0490422192">0490 422 192</a> &nbsp;&middot;&nbsp; <a href="mailto:hello@withhaylo.com">hello@withhaylo.com</a></div>
     </div>
   </div>
 </section>

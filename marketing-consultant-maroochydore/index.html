@@ -549,6 +549,9 @@ footer{background:#141C25;padding:2.5rem var(--pad);display:flex;flex-direction:
 }
 .loc-hero-glow { position:absolute;top:-10%;right:-5%;width:600px;height:600px;background:radial-gradient(circle,rgba(56,189,248,.12) 0%,transparent 70%);pointer-events:none; }
 .loc-hero-grid { position:absolute;inset:0;background-image:linear-gradient(rgba(56,189,248,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(56,189,248,.04) 1px,transparent 1px);background-size:60px 60px;pointer-events:none; }
+.loc-hero img{animation:kenBurns 10s ease-in-out infinite alternate;}
+@keyframes kenBurns{from{transform:scale(1)}to{transform:scale(1.08)}}
+100%{background-position:-200% center}}
 .loc-crumb { font-family:'Josefin Sans',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:1.5rem; }
 .loc-crumb a { color:rgba(56,189,248,.5);transition:color .2s; }
 .loc-crumb a:hover { color:var(--sky); }
@@ -640,6 +643,8 @@ footer{background:#141C25;padding:2.5rem var(--pad);display:flex;flex-direction:
 section{padding-top:5rem;padding-bottom:5rem;}
 .ip-hero,.loc-hero,.spage-hero{padding-top:calc(var(--nav-h) + 4rem)!important;}
 
+@keyframes gradShimmer{0%{background-position:200% center}100%{background-position:-200% center}}
+.sec-h2 em,.intro-h2 em,.spage-h1 em,.loc-h1 em,.loc-h2 em,.cta-band h2 em{background:linear-gradient(90deg,#38BDF8 0%,#BAE6FD 30%,#38BDF8 50%,#7DD3FC 75%,#38BDF8 100%);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;color:transparent;animation:gradShimmer 5s linear infinite;}
 </style>
   <link rel="canonical" href="https://withhaylo.com/marketing-consultant-maroochydore/">
   <meta name="robots" content="index, follow">
