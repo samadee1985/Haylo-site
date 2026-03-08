@@ -1,0 +1,11 @@
+# Mac system files
+.DS_Store
+
+# Claude workspace
+.claude/
+
+# VS Code settings
+.vscode/
+
+# OS junk
+Thumbs.db
