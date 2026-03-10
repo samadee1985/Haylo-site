@@ -298,22 +298,22 @@ section{padding:5rem var(--pad);}
 @media(min-width:720px){.results-grid{grid-template-columns:repeat(3,1fr);gap:1.5rem;}}
 
 /* ─── TESTIMONIALS ─────────────────────────── */
-#testimonials{background:var(--navy);}
-.testi-grid{
-  display:grid;grid-template-columns:1fr;
-  gap:1px;background:var(--border-dark);
-  border:1px solid var(--border-dark);border-radius:8px;overflow:hidden;
-  margin-top:3rem;
-}
-.testi-cell{background:var(--navy);padding:2.2rem;transition:background .2s;}
-.testi-cell:hover{background:var(--navy-2);}
-.testi-stars{color:var(--sky);font-size:.9rem;letter-spacing:.1em;margin-bottom:1rem;}
-.testi-q{font-size:.88rem;line-height:1.85;color:rgba(255,255,255,.58);margin-bottom:1.8rem;font-style:italic;}
+#testimonials{background:var(--off);}
+.testi-grid{display:grid;grid-template-columns:1fr;gap:1.25rem;margin-top:3rem;}
+.testi-cell{background:#fff;border:1px solid #E8E8E8;border-radius:14px;padding:1.8rem 2rem;box-shadow:0 2px 12px rgba(31,45,61,.06);transition:box-shadow .2s,transform .2s;display:flex;flex-direction:column;}
+#testimonials .testi-cell:hover{box-shadow:0 8px 30px rgba(31,45,61,.1);transform:translateY(-3px) scale(1.02);}
+.testi-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:.9rem;}
+.testi-stars{color:#FBBC04;font-size:1.05rem;letter-spacing:.04em;}
+.testi-g{font-family:Arial,sans-serif;font-size:.8rem;font-weight:700;letter-spacing:.01em;}
+.testi-g .gc1{color:#4285F4;}.testi-g .gc2{color:#EA4335;}.testi-g .gc3{color:#FBBC04;}.testi-g .gc4{color:#4285F4;}.testi-g .gc5{color:#34A853;}.testi-g .gc6{color:#EA4335;}
+.testi-q{font-size:.87rem;line-height:1.85;color:#445566;margin-bottom:1.5rem;flex:1;}
 .testi-auth{display:flex;align-items:center;gap:.85rem;}
-.testi-av{width:40px;height:40px;border-radius:50%;flex-shrink:0;background:linear-gradient(135deg,var(--sky) 0%,#0369A1 100%);display:flex;align-items:center;justify-content:center;font-family:'Josefin Sans',sans-serif;font-size:.8rem;font-weight:700;color:var(--navy);}
-.testi-name{font-family:'Josefin Sans',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--white);}
-.testi-biz{font-size:.7rem;color:rgba(255,255,255,.28);margin-top:.15rem;}
-@media(min-width:800px){.testi-grid{grid-template-columns:repeat(3,1fr);}}
+.testi-av{width:42px;height:42px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:'Josefin Sans',sans-serif;font-size:.78rem;font-weight:700;color:#fff;}
+.av-blue{background:#4285F4;}.av-green{background:#34A853;}.av-red{background:#EA4335;}.av-yellow{background:#FBBC04;}
+.testi-name{font-family:'Josefin Sans',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--navy);}
+.testi-biz{font-size:.7rem;color:var(--muted);margin-top:.15rem;}
+@media(min-width:620px){.testi-grid{grid-template-columns:repeat(2,1fr);}}
+@media(min-width:1100px){.testi-grid{grid-template-columns:repeat(4,1fr);}}
 
 /* ─── PRICING ──────────────────────────────── */
 #pricing{background:var(--off);}
@@ -483,9 +483,7 @@ footer{background:#141C25;border-top:1px solid rgba(255,255,255,.05);}
 .btn-ghost-w:hover{border-color:var(--sky);color:var(--sky);transform:translateY(-2px);}
 .btn-navy:hover{background:var(--sky);color:var(--navy);transform:translateY(-2px);}
 
-/* Testimonial hover lift */
-.testi-cell{transition:background .2s,transform .25s;}
-.testi-cell:hover{background:var(--navy-2);transform:translateY(-5px);}
+/* Testimonial hover lift — handled in main block */
 
 /* Scroll progress bar */
 #scroll-bar{
@@ -963,25 +961,47 @@ section{padding-top:5rem;padding-bottom:5rem;}
 <!-- TESTIMONIALS -->
 <section id="testimonials">
   <div class="reveal">
-    <span class="eyebrow eyebrow-dark">What Clients Say</span>
-    <h2 class="sec-h2 sec-h2-w">Don&#39;t take<br><em>our word</em> for it.</h2>
+    <span class="eyebrow">What Clients Say</span>
+    <h2 class="sec-h2">Don&#39;t take<br><em>our word</em> for it.</h2>
   </div>
   <div class="testi-grid">
+
     <div class="testi-cell reveal">
-      <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div class="testi-top">
+        <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="testi-g"><span class="gc1">G</span><span class="gc2">o</span><span class="gc3">o</span><span class="gc4">g</span><span class="gc5">l</span><span class="gc6">e</span></div>
+      </div>
       <p class="testi-q">&ldquo;We&rsquo;re very happy with the service. Hassle-free, and communication was prompt and professional throughout. Haylo made the whole process of getting our Google Business Profile set up and optimised incredibly straightforward.&rdquo;</p>
-      <div class="testi-auth"><div class="testi-av">ST</div><div><div class="testi-name">Sarah Tappe</div><div class="testi-biz">The Laser Cut Crew, Sunshine Coast</div></div></div>
+      <div class="testi-auth"><div class="testi-av av-blue">ST</div><div><div class="testi-name">Sarah Tappe</div><div class="testi-biz">The Laser Cut Crew, Sunshine Coast</div></div></div>
     </div>
+
     <div class="testi-cell reveal">
-      <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div class="testi-top">
+        <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="testi-g"><span class="gc1">G</span><span class="gc2">o</span><span class="gc3">o</span><span class="gc4">g</span><span class="gc5">l</span><span class="gc6">e</span></div>
+      </div>
       <p class="testi-q">&ldquo;Starting a new business comes with a steep learning curve, and working with Haylo has made a real difference. The guidance has been practical, clear and genuinely valuable - it&rsquo;s often the small adjustments that create the biggest shifts. I highly recommend Haylo to anyone starting out or looking to sharpen their business.&rdquo;</p>
-      <div class="testi-auth"><div class="testi-av">SH</div><div><div class="testi-name">Secure Home Solutions</div><div class="testi-biz">Home Security, Sunshine Coast</div></div></div>
+      <div class="testi-auth"><div class="testi-av av-green">SH</div><div><div class="testi-name">Secure Home Solutions</div><div class="testi-biz">Home Security, Sunshine Coast</div></div></div>
     </div>
+
     <div class="testi-cell reveal">
-      <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div class="testi-top">
+        <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="testi-g"><span class="gc1">G</span><span class="gc2">o</span><span class="gc3">o</span><span class="gc4">g</span><span class="gc5">l</span><span class="gc6">e</span></div>
+      </div>
       <p class="testi-q">&ldquo;Haylo was incredibly helpful in getting our Google Business Profile up and running. From the initial setup to ongoing optimisation, they made the whole process easy to understand and the improvement in our local visibility has been noticeable. Well worth it for any cleaning business wanting to get found online.&rdquo;</p>
-      <div class="testi-auth"><div class="testi-av">KO</div><div><div class="testi-name">KO Cleaning</div><div class="testi-biz">Cleaning Services, Sunshine Coast</div></div></div>
+      <div class="testi-auth"><div class="testi-av av-red">KO</div><div><div class="testi-name">KO Cleaning</div><div class="testi-biz">Cleaning Services, Sunshine Coast</div></div></div>
     </div>
+
+    <div class="testi-cell reveal">
+      <div class="testi-top">
+        <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="testi-g"><span class="gc1">G</span><span class="gc2">o</span><span class="gc3">o</span><span class="gc4">g</span><span class="gc5">l</span><span class="gc6">e</span></div>
+      </div>
+      <p class="testi-q">&ldquo;Working with Sam from Haylo has been wonderful. He has been incredibly patient throughout the whole process and helped optimise my Facebook business page and correct my Google Business Profile. My account unfortunately received a ban, but Sam had it rectified in less than 24 hours. Since then, my Google page has already started to show increased activity. I would highly recommend Haylo to anyone looking for help growing their small business.&rdquo;</p>
+      <div class="testi-auth"><div class="testi-av av-yellow">TW</div><div><div class="testi-name">Terri Webb</div><div class="testi-biz">Sunshine Coast Oven Cleaning</div></div></div>
+    </div>
+
   </div>
 </section>
 
