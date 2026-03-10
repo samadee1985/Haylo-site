@@ -594,6 +594,13 @@ footer{background:#141C25;border-top:1px solid rgba(255,255,255,.05);}
 section{padding-top:5rem;padding-bottom:5rem;}
 .ip-hero,.loc-hero,.spage-hero{padding-top:calc(var(--nav-h) + 4rem)!important;}
 
+
+/* ─── MOBILE STICKY CTA ─────────────────────── */
+#mob-bar{position:fixed;bottom:0;left:0;right:0;z-index:101;background:var(--navy);border-top:1px solid rgba(255,255,255,.08);box-shadow:0 -4px 24px rgba(0,0,0,.18);display:flex;gap:.5rem;padding:.6rem .9rem;padding-bottom:calc(.6rem + env(safe-area-inset-bottom,0px));}
+#mob-bar .mb-call{flex:1.4;display:flex;align-items:center;justify-content:center;gap:.45rem;background:var(--sky);color:var(--navy);border-radius:100px;padding:.7rem .5rem;font-family:'Josefin Sans',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;-webkit-tap-highlight-color:transparent;}
+#mob-bar .mb-audit{flex:1;display:flex;align-items:center;justify-content:center;background:transparent;color:rgba(255,255,255,.75);border:1px solid rgba(255,255,255,.2);border-radius:100px;padding:.7rem .5rem;font-family:'Josefin Sans',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;-webkit-tap-highlight-color:transparent;}
+@media(min-width:860px){#mob-bar{display:none;}}
+@media(max-width:859px){body{padding-bottom:calc(62px + env(safe-area-inset-bottom,0px));}}
 </style>
 <style>
 /* ── INTERIOR SHARED ── */
@@ -811,5 +818,13 @@ document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 <script>
 document.addEventListener('click',function(e){var a=e.target.closest('a');if(!a)return;if(a.href&&a.href.indexOf('tel:')===0){gtag('event','phone_click',{event_category:'contact',event_label:a.href.replace('tel:','')});}else if(a.href&&a.href.indexOf('mailto:')===0){gtag('event','email_click',{event_category:'contact',event_label:a.href.replace('mailto:','')});}});
 </script>
+<!-- MOBILE STICKY CTA BAR -->
+<div id="mob-bar">
+  <a href="tel:0490422192" class="mb-call" onclick="gtag('event','phone_click',{'method':'mobile_sticky_bar'})">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.01 1.18 2 2 0 012 .01h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
+    0490 422 192
+  </a>
+  <a href="/google-business-profile-audit/#audit-form" class="mb-audit">Free Audit →</a>
+</div>
 </body>
 </html>
