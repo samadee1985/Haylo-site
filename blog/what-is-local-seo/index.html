@@ -12,8 +12,8 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Practical local marketing tips and guides for Sunshine Coast cleaners, tradies and service businesses. Google, Facebook, reviews and more.">
-<title>Local Marketing Blog for Sunshine Coast Small Businesses | Haylo</title>
+<meta name="description" content="Local SEO explained in plain English for Sunshine Coast small businesses — what it is, why it matters, and how it affects your enquiries.">
+<title>What Is Local SEO and Why Does It Matter for Sunshine Coast Small Businesses? | Haylo</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -151,7 +151,7 @@ nav.scrolled{box-shadow:0 4px 24px rgba(31,45,61,.08);}
 }
 .hero-sub{font-size:.92rem;color:rgba(255,255,255,.45);line-height:1.85;}
 .hero-sub strong{color:rgba(255,255,255,.85);font-weight:600;}
-.hero-actions{display:flex;gap:.75rem;flex-wrap:wrap;}
+.hero-actions{display:flex;gap:.75rem;flex-wrap:wrap;align-items:center;}
 
 .hero-stats{
   margin-top:3.5rem;
@@ -177,7 +177,7 @@ nav.scrolled{box-shadow:0 4px 24px rgba(31,45,61,.08);}
 }
 .btn-sky{background:var(--sky);color:var(--navy);}
 .btn-sky:hover{background:#7DD3FC;}
-.btn-ghost-w{background:transparent;color:rgba(255,255,255,.65);border:1.5px solid rgba(255,255,255,.18);}
+.btn-ghost-w{background:transparent;color:rgba(255,255,255,.65);border:2px solid rgba(255,255,255,.18);line-height:1;}
 .btn-ghost-w:hover{border-color:var(--sky);color:var(--sky);}
 .btn-navy{background:var(--navy);color:var(--white);}
 .btn-navy:hover{background:var(--sky);color:var(--navy);}
@@ -354,6 +354,15 @@ section{padding:5rem var(--pad);}
   .about-grid{grid-template-columns:1fr 1fr;gap:6rem;align-items:center;}
   .about-vis{aspect-ratio:4/5;}
 }
+@media(max-width:860px){
+  .about-vis{aspect-ratio:unset;min-height:420px;}
+  .about-pill{position:relative;bottom:auto;left:auto;right:auto;margin:1rem;transform:none;}
+  .about-stat-card{top:1rem;right:1rem;}
+}
+@media(max-width:500px){
+  .about-vis{min-height:320px;}
+  .about-stat-card{display:none;}
+}
 
 /* ─── FAQ ──────────────────────────────────── */
 #faq{background:var(--off);}
@@ -504,13 +513,18 @@ footer{background:#141C25;border-top:1px solid rgba(255,255,255,.05);}
 /* ─── ABOUT PHOTO ──────────────────────────── */
 .about-photo{
   position:absolute;inset:0;width:100%;height:100%;
-  object-fit:cover;object-position:center;
+  object-fit:cover;object-position:center top;
   display:block;
+  z-index:0;
 }
 .about-overlay{
   position:absolute;inset:0;
   background:linear-gradient(160deg,rgba(31,45,61,.55) 0%,rgba(31,45,61,.2) 60%,rgba(31,45,61,.7) 100%);
+  z-index:1;
 }
+.about-pill{z-index:2;}
+.about-stat-card{z-index:2;}
+.about-wm{z-index:2;}
 .about-stat-card{
   position:absolute;top:2rem;right:2rem;
   background:rgba(15,25,36,.85);backdrop-filter:blur(12px);
@@ -555,51 +569,6 @@ footer{background:#141C25;border-top:1px solid rgba(255,255,255,.05);}
 }
 
 
-/* ─── MOBILE STICKY CTA ─────────────────────── */
-#mob-bar{position:fixed;bottom:0;left:0;right:0;z-index:101;background:var(--navy);border-top:1px solid rgba(255,255,255,.08);box-shadow:0 -4px 24px rgba(0,0,0,.18);display:flex;gap:.5rem;padding:.6rem .9rem;padding-bottom:calc(.6rem + env(safe-area-inset-bottom,0px));}
-#mob-bar .mb-call{flex:1.4;display:flex;align-items:center;justify-content:center;gap:.45rem;background:var(--sky);color:var(--navy);border-radius:100px;padding:.7rem .5rem;font-family:'Josefin Sans',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;-webkit-tap-highlight-color:transparent;}
-#mob-bar .mb-audit{flex:1;display:flex;align-items:center;justify-content:center;background:transparent;color:rgba(255,255,255,.75);border:1px solid rgba(255,255,255,.2);border-radius:100px;padding:.7rem .5rem;font-family:'Josefin Sans',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;-webkit-tap-highlight-color:transparent;}
-@media(min-width:860px){#mob-bar{display:none;}}
-@media(max-width:859px){body{padding-bottom:calc(62px + env(safe-area-inset-bottom,0px));}}
-</style>
-<style>
-/* ── INTERIOR PAGE SHARED ── */
-.ip-hero {
-  min-height:55vh;display:flex;flex-direction:column;justify-content:flex-end;
-  padding:calc(var(--nav-h) + 4rem) var(--pad) 5rem;
-  background:var(--navy);position:relative;overflow:hidden;
-}
-.ip-glow{position:absolute;top:-10%;right:-5%;width:600px;height:600px;background:radial-gradient(circle,rgba(56,189,248,.12) 0%,transparent 70%);pointer-events:none;}
-.ip-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(56,189,248,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(56,189,248,.04) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;}
-.ip-crumb{font-family:'Josefin Sans',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:1.5rem;}
-.ip-crumb a{color:rgba(56,189,248,.5);transition:color .2s;}
-.ip-crumb a:hover{color:var(--sky);}
-.ip-h1{font-family:'Josefin Sans',sans-serif;font-size:clamp(2.8rem,8vw,7rem);font-weight:700;text-transform:uppercase;line-height:.93;letter-spacing:.03em;color:var(--white);animation:fadeUp .6s ease both;}
-.ip-h1 em{font-style:normal;background:linear-gradient(90deg,#38BDF8 0%,#BAE6FD 30%,#38BDF8 50%,#7DD3FC 75%,#38BDF8 100%);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:gradShimmer 5s linear infinite;}
-@keyframes gradShimmer{0%{background-position:200% center}100%{background-position:-200% center}}
-.ip-sub{font-size:.97rem;color:rgba(255,255,255,.45);line-height:1.85;max-width:560px;margin-top:1.5rem;animation:fadeUp .6s .1s ease both;}
-.ip-actions{margin-top:2rem;display:flex;gap:.75rem;flex-wrap:wrap;animation:fadeUp .6s .2s ease both;}
-.ip-divider{height:4px;background:linear-gradient(90deg,var(--sky) 0%,transparent 60%);}
-.ip-body{font-size:.94rem;line-height:1.95;color:var(--muted);}
-.ip-body p+p{margin-top:1.2rem;}
-.ip-body strong{color:var(--navy);font-weight:700;}
-.ip-body a{color:var(--sky);font-weight:700;text-decoration:none;}
-.ip-h2{font-family:'Josefin Sans',sans-serif;font-size:clamp(1.8rem,4vw,3rem);font-weight:700;text-transform:uppercase;letter-spacing:.03em;line-height:1;color:var(--navy);margin-bottom:1rem;}
-.ip-h2 em{color:var(--sky);font-style:normal;}
-.ip-split{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
-.ip-vis{border-radius:12px;overflow:hidden;position:relative;}
-.ip-vis img{width:100%;height:100%;object-fit:cover;display:block;}
-.ip-vis-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(31,45,61,.35),transparent);}
-.cta-band{background:var(--navy);padding:5rem var(--pad);text-align:center;position:relative;overflow:hidden;}
-.cta-band-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:300px;background:radial-gradient(ellipse,rgba(56,189,248,.1) 0%,transparent 70%);pointer-events:none;}
-.cta-band-inner{position:relative;z-index:1;}
-.cta-band h2{font-family:'Josefin Sans',sans-serif;font-weight:700;font-size:clamp(2rem,5vw,4rem);text-transform:uppercase;letter-spacing:.03em;line-height:.95;color:var(--white);margin-bottom:1rem;}
-.cta-band h2 em{color:var(--sky);font-style:normal;}
-.cta-band p{font-size:.92rem;color:rgba(255,255,255,.4);max-width:400px;margin:0 auto 2rem;line-height:1.8;}
-.cta-band-ph{font-size:.76rem;color:rgba(255,255,255,.25);margin-top:1.2rem;}
-.cta-band-ph a{color:var(--sky);font-weight:700;}
-@media(max-width:820px){.ip-split{grid-template-columns:1fr;gap:2.5rem;}}
-
 /* ── GLOBAL MOBILE FIXES ── */
 @media(max-width:820px){
   .ip-split,
@@ -625,20 +594,81 @@ footer{background:#141C25;border-top:1px solid rgba(255,255,255,.05);}
 section{padding-top:5rem;padding-bottom:5rem;}
 .ip-hero,.loc-hero,.spage-hero{padding-top:calc(var(--nav-h) + 4rem)!important;}
 
+
+/* ─── MOBILE STICKY CTA ─────────────────────── */
+#mob-bar{position:fixed;bottom:0;left:0;right:0;z-index:101;background:var(--navy);border-top:1px solid rgba(255,255,255,.08);box-shadow:0 -4px 24px rgba(0,0,0,.18);display:flex;gap:.5rem;padding:.6rem .9rem;padding-bottom:calc(.6rem + env(safe-area-inset-bottom,0px));}
+#mob-bar .mb-call{flex:1.4;display:flex;align-items:center;justify-content:center;gap:.45rem;background:var(--sky);color:var(--navy);border-radius:100px;padding:.7rem .5rem;font-family:'Josefin Sans',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;-webkit-tap-highlight-color:transparent;}
+#mob-bar .mb-audit{flex:1;display:flex;align-items:center;justify-content:center;background:transparent;color:rgba(255,255,255,.75);border:1px solid rgba(255,255,255,.2);border-radius:100px;padding:.7rem .5rem;font-family:'Josefin Sans',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;-webkit-tap-highlight-color:transparent;}
+@media(min-width:860px){#mob-bar{display:none;}}
+@media(max-width:859px){body{padding-bottom:calc(62px + env(safe-area-inset-bottom,0px));}}
 </style>
-  <link rel="canonical" href="https://withhaylo.com/blog/">
+<style>
+/* ── INTERIOR SHARED ── */
+.ip-hero{min-height:55vh;display:flex;flex-direction:column;justify-content:flex-end;padding:calc(var(--nav-h) + 4rem) var(--pad) 5rem;background:var(--navy);position:relative;overflow:hidden;}
+.ip-glow{position:absolute;top:-10%;right:-5%;width:min(600px,100vw);height:min(600px,100vw);background:radial-gradient(circle,rgba(56,189,248,.12) 0%,transparent 70%);pointer-events:none;}
+.ip-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(56,189,248,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(56,189,248,.04) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;}
+.ip-crumb{font-family:'Josefin Sans',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:1.5rem;}
+.ip-crumb a{color:rgba(56,189,248,.5);}
+.ip-h1{font-family:'Josefin Sans',sans-serif;font-size:clamp(2.8rem,8vw,7rem);font-weight:700;text-transform:uppercase;line-height:.93;letter-spacing:.03em;color:var(--white);}
+.ip-h1 em{color:var(--sky);font-style:normal;}
+.ip-sub{font-size:.97rem;color:rgba(255,255,255,.45);line-height:1.85;max-width:560px;margin-top:1.5rem;}
+.ip-divider{height:4px;background:linear-gradient(90deg,var(--sky) 0%,transparent 60%);}
+.ip-body{font-size:.94rem;line-height:1.95;color:var(--muted);}
+.ip-body p+p{margin-top:1.2rem;}
+.ip-body strong{color:var(--navy);font-weight:700;}
+.ip-h2{font-family:'Josefin Sans',sans-serif;font-size:clamp(1.8rem,4vw,3rem);font-weight:700;text-transform:uppercase;letter-spacing:.03em;line-height:1;color:var(--navy);margin-bottom:1rem;}
+.ip-h2 em{color:var(--sky);font-style:normal;}
+.cta-band{background:var(--navy);padding:5rem var(--pad);text-align:center;position:relative;overflow:hidden;}
+.cta-band-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:300px;background:radial-gradient(ellipse,rgba(56,189,248,.1) 0%,transparent 70%);pointer-events:none;}
+.cta-band-inner{position:relative;z-index:1;}
+.cta-band h2{font-family:'Josefin Sans',sans-serif;font-weight:700;font-size:clamp(2rem,5vw,4rem);text-transform:uppercase;letter-spacing:.03em;line-height:.95;color:var(--white);margin-bottom:1rem;}
+.cta-band h2 em{color:var(--sky);font-style:normal;}
+.cta-band p{font-size:.92rem;color:rgba(255,255,255,.4);max-width:400px;margin:0 auto 2rem;line-height:1.8;}
+.cta-band-ph{font-size:.76rem;color:rgba(255,255,255,.25);margin-top:1.2rem;}
+.cta-band-ph a{color:var(--sky);font-weight:700;}
+section{padding:5rem var(--pad);overflow-x:hidden;}
+html,body{overflow-x:hidden;}
+@media(max-width:820px){
+  .ip-split,[style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr!important;gap:2.5rem!important;}
+  [style*="grid-template-columns:repeat(3"]{grid-template-columns:1fr 1fr!important;}
+  [style*="grid-template-columns:repeat(4"]{grid-template-columns:1fr 1fr!important;}
+}
+@media(max-width:520px){
+  [style*="grid-template-columns:repeat(3"],[style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr!important;}
+  .cta-band .btn{width:100%;text-align:center;box-sizing:border-box;}
+}
+</style>
+  <link rel="canonical" href="https://withhaylo.com/blog/what-is-local-seo/">
   <meta name="robots" content="index, follow">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://withhaylo.com/blog/">
-  <meta property="og:title" content="Local Marketing Blog | Google Maps, Reviews & Growth Tips | Haylo Sunshine Coast">
-  <meta property="og:description" content="Practical local marketing tips and guides for Sunshine Coast cleaners, tradies and service businesses. Google, Facebook, reviews and more.">
-  <meta property="og:image" content="/images/general/haylo-og-share.jpg">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://withhaylo.com/blog/what-is-local-seo/">
+  <meta property="og:title" content="What Is Local SEO and Why Does It Matter for Sunshine Coast Small Businesses? | Haylo">
+  <meta property="og:description" content="Local SEO explained in plain English for Sunshine Coast small businesses — what it is, why it matters, and how it affects your enquiries.">
+  <meta property="og:image" content="/blog/what-is-local-seo/what-is-local-seo-blog.jpg">
+  <meta property="article:published_time" content="2026-01-27">
+  <meta property="article:modified_time" content="2026-01-27">
+  <meta property="article:author" content="Haylo">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
   <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "What Is Local SEO and Why Does It Matter for Sunshine Coast Small Businesses?",
+    "description": "A plain-English explanation of local SEO for Sunshine Coast small business owners — what it means, why it matters, and how to improve your local Google ranking.",
+    "url": "https://withhaylo.com/blog/what-is-local-seo/",
+    "datePublished": "2026-01-27",
+    "dateModified": "2026-01-27",
+    "image": "https://withhaylo.com/blog/what-is-local-seo/what-is-local-seo-blog.jpg",
+    "author": {"@type": "Organization", "name": "Haylo", "url": "https://withhaylo.com"},
+    "publisher": {"@type": "Organization", "name": "Haylo", "url": "https://withhaylo.com"},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://withhaylo.com/blog/what-is-local-seo/"}
+  }
+  </script>
 </head>
 <body>
 <!-- NAV -->
@@ -669,186 +699,65 @@ section{padding-top:5rem;padding-bottom:5rem;}
     <li><a href="/marketing-for-tradies/" class="drawer-link">Trades</a></li>
     <li><a href="/blog/" class="drawer-link">Blog</a></li>
   </ul>
-  <a href="/google-business-profile-audit/#audit-form" class="drawer-cta drawer-link">Get My Free Audit →</a>
+  <a href="/google-business-profile-audit/#audit-form" class="drawer-cta drawer-link">Get My Free Audit &rarr;</a>
 </div>
 
 <section class="ip-hero">
-  <img class="hero-photo-img" src="/images/services/business-analytics-dashboard.jpg" alt="Person writing blog content" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.18;pointer-events:none;">
+  <img class="hero-photo-img" src="/blog/what-is-local-seo/what-is-local-seo-blog.jpg" alt="Local SEO explained for Sunshine Coast small businesses" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.18;pointer-events:none;">
   <div class="ip-glow"></div><div class="ip-grid"></div>
-  <div class="ip-crumb reveal"><a href="/">Home</a> / Blog</div>
-  <h1 class="ip-h1">Local Marketing Blog for<br><em>Sunshine Coast</em><br>Small Businesses</h1>
-  <p class="ip-sub">Practical tips and guides for Sunshine Coast cleaners, tradies and service businesses on getting found online and getting more calls.</p>
+  <div class="ip-crumb"><a href="/">Home</a> / <a href="/blog/">Blog</a> / Local SEO</div>
+  <h1 class="ip-h1">What Is<br>Local SEO?<br><em>Plain English.</em></h1>
+  <p class="ip-sub">You've heard the term. Here's what it actually means for Sunshine Coast small businesses — and whether you need to care about it.</p>
 </section>
 
 <section style="background:var(--white);">
-  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;" class="reveal">
+  <div style="max-width:740px;margin:0 auto;" class="reveal">
+    <span class="eyebrow">Local SEO &middot; 5 min read</span>
+    <p style="font-family:'Josefin Sans',sans-serif;font-size:.62rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:.6rem 0 0;">27 January 2026</p>
 
-    <a href="/blog/google-posts-local-business/" style="text-decoration:none;display:flex;flex-direction:column;background:var(--white);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s,border-color .2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 40px rgba(56,189,248,.1)';this.style.borderColor='var(--sky)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor=''">
-      <div style="aspect-ratio:16/9;overflow:hidden;position:relative;">
-        <img src="/blog/google-posts-local-business/google-posts-visibility-blog.jpg" alt="Google Posts guide for Sunshine Coast local businesses" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
-      </div>
-      <div style="padding:1.8rem;flex:1;display:flex;flex-direction:column;">
-        <div style="font-family:'Josefin Sans',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--sky);margin-bottom:.7rem;">Google Business Profile</div>
-        <div style="font-family:'Josefin Sans',sans-serif;font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.03em;color:var(--navy);line-height:1.2;margin-bottom:.8rem;">How to Use Google Posts to Keep Your Sunshine Coast Business Visible Between Jobs</div>
-        <div style="font-size:.82rem;line-height:1.75;color:var(--muted);flex:1;">Google Posts is a free feature most Sunshine Coast businesses never use. Here's what it does, why it helps your ranking, and how to get started in 5 minutes.</div>
-        <div style="margin-top:1.2rem;font-family:'Josefin Sans',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--sky);">Read Article &#8594;</div>
-      </div>
-    </a>
+    <div class="ip-body" style="margin-top:2rem;">
+      <p>You've probably heard the term "local SEO" thrown around — from your web developer, a marketing agency, maybe an ad that showed up in your Facebook feed. But if you're a Sunshine Coast tradie or small business owner, you might be wondering: what does it actually mean? And more importantly, does it affect your business?</p>
+<p>The short answer: yes, it does. And it's probably the most practical thing you can invest in to get more local customers through Google.</p>
 
-    <a href="/blog/what-customers-check/" style="text-decoration:none;display:flex;flex-direction:column;background:var(--white);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s,border-color .2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 40px rgba(56,189,248,.1)';this.style.borderColor='var(--sky)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor=''">
-      <div style="aspect-ratio:16/9;overflow:hidden;position:relative;">
-        <img src="/blog/what-customers-check/what-customer-check-blog.jpg" alt="What customers check before calling a Sunshine Coast local business" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
-      </div>
-      <div style="padding:1.8rem;flex:1;display:flex;flex-direction:column;">
-        <div style="font-family:'Josefin Sans',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--sky);margin-bottom:.7rem;">Local Business</div>
-        <div style="font-family:'Josefin Sans',sans-serif;font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.03em;color:var(--navy);line-height:1.2;margin-bottom:.8rem;">What Sunshine Coast Customers Actually Look at Before Calling a Local Business</div>
-        <div style="font-size:.82rem;line-height:1.75;color:var(--muted);flex:1;">Before a Sunshine Coast customer calls you, they run a 30-second mental checklist. Here's what's on it — and how to make sure you pass.</div>
-        <div style="margin-top:1.2rem;font-family:'Josefin Sans',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--sky);">Read Article &#8594;</div>
-      </div>
-    </a>
+<h2 style="font-family:'Josefin Sans',sans-serif;font-size:1.4rem;font-weight:700;text-transform:uppercase;letter-spacing:.03em;color:var(--navy);margin:2.5rem 0 1rem;">What Local SEO Actually Means</h2>
+<p>SEO stands for search engine optimisation — the practice of making your business more visible in Google search results. Local SEO is the same thing, but focused specifically on location-based searches.</p>
+<p>When someone in Maroochydore searches "plumber near me" or "best cleaner Caloundra," Google shows results based on proximity, relevance, and trust. Local SEO is the process of making sure your business signals all three things clearly — so Google shows you instead of your competitor.</p>
 
-    <a href="/blog/gbp-categories-tradies/" style="text-decoration:none;display:flex;flex-direction:column;background:var(--white);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s,border-color .2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 40px rgba(56,189,248,.1)';this.style.borderColor='var(--sky)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor=''">
-      <div style="aspect-ratio:16/9;overflow:hidden;position:relative;">
-        <img src="/blog/gbp-categories-tradies/gbp-categories-blog.jpg" alt="Google Business Profile categories guide for Sunshine Coast tradies" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
-      </div>
-      <div style="padding:1.8rem;flex:1;display:flex;flex-direction:column;">
-        <div style="font-family:'Josefin Sans',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--sky);margin-bottom:.7rem;">Google Business Profile</div>
-        <div style="font-family:'Josefin Sans',sans-serif;font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.03em;color:var(--navy);line-height:1.2;margin-bottom:.8rem;">How to Choose the Right Google Business Profile Categories for Your Trade Business</div>
-        <div style="font-size:.82rem;line-height:1.75;color:var(--muted);flex:1;">The wrong GBP category can drop you out of local search entirely. Here's how to get it right for Sunshine Coast trade businesses.</div>
-        <div style="margin-top:1.2rem;font-family:'Josefin Sans',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--sky);">Read Article &#8594;</div>
-      </div>
-    </a>
+<h2 style="font-family:'Josefin Sans',sans-serif;font-size:1.4rem;font-weight:700;text-transform:uppercase;letter-spacing:.03em;color:var(--navy);margin:2.5rem 0 1rem;">Why Local Search Is Different From Regular Google Search</h2>
+<p>When you search for information or a product, Google shows websites ranked by content quality. When you search for a local service, Google shows something different — the map pack. Three businesses appear at the top with their name, rating, phone number, and distance. Ranking in that map pack is determined by different factors than regular search.</p>
+<p>This is why a business with a basic website can outrank one with a $10,000 website — if their local signals are stronger. Your Google Business Profile completeness, review count, and geographic relevance matter far more in local search than page design or content volume.</p>
 
-    <a href="/blog/marketing-routine-tradies/" style="text-decoration:none;display:flex;flex-direction:column;background:var(--white);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s,border-color .2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 40px rgba(56,189,248,.1)';this.style.borderColor='var(--sky)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor=''">
-      <div style="aspect-ratio:16/9;overflow:hidden;position:relative;">
-        <img src="/blog/marketing-routine-tradies/marketing-routine-tradies-blog.jpg" alt="Simple monthly marketing routine for Sunshine Coast tradies" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
-      </div>
-      <div style="padding:1.8rem;flex:1;display:flex;flex-direction:column;">
-        <div style="font-family:'Josefin Sans',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--sky);margin-bottom:.7rem;">Marketing Tips</div>
-        <div style="font-family:'Josefin Sans',sans-serif;font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.03em;color:var(--navy);line-height:1.2;margin-bottom:.8rem;">A Simple Monthly Marketing Routine for Sunshine Coast Tradies Who Don't Have Time</div>
-        <div style="font-size:.82rem;line-height:1.75;color:var(--muted);flex:1;">An hour a month is enough to keep your Google presence strong. Here's the simple marketing routine that works for busy Sunshine Coast tradies.</div>
-        <div style="margin-top:1.2rem;font-family:'Josefin Sans',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--sky);">Read Article &#8594;</div>
-      </div>
-    </a>
+<h2 style="font-family:'Josefin Sans',sans-serif;font-size:1.4rem;font-weight:700;text-transform:uppercase;letter-spacing:.03em;color:var(--navy);margin:2.5rem 0 1rem;">The Main Factors That Affect Your Local Ranking</h2>
+<p>For Sunshine Coast small businesses, the key local SEO factors are:</p>
+<p><strong>Google Business Profile completeness</strong> — categories, description, photos, services, hours, and Q&amp;A all contribute to how Google understands your business.<br>
+<strong>Review quantity and recency</strong> — more reviews, more recently, consistently beats a business with a high rating but no new reviews.<br>
+<strong>NAP consistency</strong> — your Name, Address, and Phone number need to be identical everywhere: your website, your GBP, any directory listings. Inconsistencies dilute your credibility.<br>
+<strong>Service area relevance</strong> — if you haven't told Google where you work, it doesn't know. Setting your service areas is critical for mobile businesses.</p>
 
-    <a href="/blog/plumber-google-maps/" style="text-decoration:none;display:flex;flex-direction:column;background:var(--white);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s,border-color .2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 40px rgba(56,189,248,.1)';this.style.borderColor='var(--sky)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor=''">
-      <div style="aspect-ratio:16/9;overflow:hidden;position:relative;">
-        <img src="/blog/plumber-google-maps/plumber-google-maps-blog.jpg" alt="Sunshine Coast plumber Google Maps ranking" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
-      </div>
-      <div style="padding:1.8rem;flex:1;display:flex;flex-direction:column;">
-        <div style="font-family:'Josefin Sans',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--sky);margin-bottom:.7rem;">Google Maps</div>
-        <div style="font-family:'Josefin Sans',sans-serif;font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.03em;color:var(--navy);line-height:1.2;margin-bottom:.8rem;">The Real Reason Sunshine Coast Plumbers Lose Jobs to Competitors on Google Maps</div>
-        <div style="font-size:.82rem;line-height:1.75;color:var(--muted);flex:1;">Why are other plumbers ranking above you on Google Maps? Here's what they're doing differently — and how to close the gap.</div>
-        <div style="margin-top:1.2rem;font-family:'Josefin Sans',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--sky);">Read Article &#8594;</div>
-      </div>
-    </a>
+<h2 style="font-family:'Josefin Sans',sans-serif;font-size:1.4rem;font-weight:700;text-transform:uppercase;letter-spacing:.03em;color:var(--navy);margin:2.5rem 0 1rem;">How It Affects Real Enquiries</h2>
+<p>Local SEO isn't abstract. It directly determines whether your phone rings when someone in Buderim searches for an electrician on a Tuesday afternoon. If your business appears in the top three results on Google Maps, you'll get a significant share of clicks and calls. If you're not in the top three, you're largely invisible — most people never scroll past the first three map results.</p>
+<p>For service businesses on the Sunshine Coast — where local discovery is often the primary channel for new customers — improving your local ranking is one of the highest-leverage things you can do.</p>
 
-    <a href="/blog/gbp-description-sunshine-coast/" style="text-decoration:none;display:flex;flex-direction:column;background:var(--white);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s,border-color .2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 40px rgba(56,189,248,.1)';this.style.borderColor='var(--sky)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor=''">
-      <div style="aspect-ratio:16/9;overflow:hidden;position:relative;">
-        <img src="/blog/gbp-description-sunshine-coast/gbp-description-sunshine-coast-blog.jpg" alt="Writing a Google Business Profile description for Sunshine Coast businesses" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
-      </div>
-      <div style="padding:1.8rem;flex:1;display:flex;flex-direction:column;">
-        <div style="font-family:'Josefin Sans',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--sky);margin-bottom:.7rem;">Google Business Profile</div>
-        <div style="font-family:'Josefin Sans',sans-serif;font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.03em;color:var(--navy);line-height:1.2;margin-bottom:.8rem;">How to Write a Google Business Profile Description That Gets You Found on the Sunshine Coast</div>
-        <div style="font-size:.82rem;line-height:1.75;color:var(--muted);flex:1;">Most Google Business Profile descriptions are a wasted opportunity. Here's how to write one that improves your Sunshine Coast local ranking.</div>
-        <div style="margin-top:1.2rem;font-family:'Josefin Sans',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--sky);">Read Article &#8594;</div>
-      </div>
-    </a>
+<h2 style="font-family:'Josefin Sans',sans-serif;font-size:1.4rem;font-weight:700;text-transform:uppercase;letter-spacing:.03em;color:var(--navy);margin:2.5rem 0 1rem;">How Long Does It Take to See Results?</h2>
+<p>Local SEO isn't instant, but it's faster than many people expect. Small changes to a GBP — fixing categories, adding photos, updating service areas — can produce ranking shifts within a few weeks. Building reviews consistently over two to three months typically produces a noticeable improvement. It's not a one-time job either. The businesses that maintain strong local rankings treat it as an ongoing activity, not something done once and forgotten.</p>
 
-    <a href="/blog/what-is-local-seo/" style="text-decoration:none;display:flex;flex-direction:column;background:var(--white);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s,border-color .2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 40px rgba(56,189,248,.1)';this.style.borderColor='var(--sky)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor=''">
-      <div style="aspect-ratio:16/9;overflow:hidden;position:relative;">
-        <img src="/blog/what-is-local-seo/what-is-local-seo-blog.jpg" alt="Local SEO explained for Sunshine Coast small businesses" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
-      </div>
-      <div style="padding:1.8rem;flex:1;display:flex;flex-direction:column;">
-        <div style="font-family:'Josefin Sans',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--sky);margin-bottom:.7rem;">Local SEO</div>
-        <div style="font-family:'Josefin Sans',sans-serif;font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.03em;color:var(--navy);line-height:1.2;margin-bottom:.8rem;">What Is Local SEO and Why Does It Matter for Sunshine Coast Small Businesses?</div>
-        <div style="font-size:.82rem;line-height:1.75;color:var(--muted);flex:1;">Local SEO explained in plain English — what it is, why it matters, and how it affects enquiries for Sunshine Coast small businesses.</div>
-        <div style="margin-top:1.2rem;font-family:'Josefin Sans',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--sky);">Read Article &#8594;</div>
-      </div>
-    </a>
+<div style="margin-top:2.5rem;padding:1.5rem;background:var(--off);border-left:3px solid var(--sky);border-radius:0 8px 8px 0;">
+<p><strong>Quick Win: Search for your business right now.</strong> Type your main service + your suburb into Google (e.g. "cleaner Noosa" or "electrician Sippy Downs"). See where you appear. If you're not in the top three, or your listing looks incomplete compared to competitors, that gap is your starting point.</p>
+</div>
 
-    <a href="/blog/sunshine-coast-growth-suburbs/" style="text-decoration:none;display:flex;flex-direction:column;background:var(--white);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s,border-color .2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 40px rgba(56,189,248,.1)';this.style.borderColor='var(--sky)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor=''">
-      <div style="aspect-ratio:16/9;overflow:hidden;position:relative;">
-        <img src="/blog/sunshine-coast-growth-suburbs/sunshine-coast-growth-suburbs.jpg" alt="Sunshine Coast growth suburbs local business opportunity" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
-      </div>
-      <div style="padding:1.8rem;flex:1;display:flex;flex-direction:column;">
-        <div style="font-family:'Josefin Sans',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--sky);margin-bottom:.7rem;">Local Business</div>
-        <div style="font-family:'Josefin Sans',sans-serif;font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.03em;color:var(--navy);line-height:1.2;margin-bottom:.8rem;">The Sunshine Coast Suburbs Growing Fastest — What It Means for Local Service Businesses</div>
-        <div style="font-size:.82rem;line-height:1.75;color:var(--muted);flex:1;">Aura, Baringa, Little Mountain — the Sunshine Coast's growth suburbs are full of new residents searching for local services. Are you visible?</div>
-        <div style="margin-top:1.2rem;font-family:'Josefin Sans',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--sky);">Read Article &#8594;</div>
-      </div>
-    </a>
-
-    <a href="/blog/gbp-vs-website-tradies/" style="text-decoration:none;display:flex;flex-direction:column;background:var(--white);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s,border-color .2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 40px rgba(56,189,248,.1)';this.style.borderColor='var(--sky)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor=''">
-      <div style="aspect-ratio:16/9;overflow:hidden;position:relative;">
-        <img src="/blog/gbp-vs-website-tradies/gbp-vs-website-blog.avif" alt="Google Business Profile versus website for tradies Sunshine Coast" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
-      </div>
-      <div style="padding:1.8rem;flex:1;display:flex;flex-direction:column;">
-        <div style="font-family:'Josefin Sans',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--sky);margin-bottom:.7rem;">Local Marketing</div>
-        <div style="font-family:'Josefin Sans',sans-serif;font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.03em;color:var(--navy);line-height:1.2;margin-bottom:.8rem;">Google Business Profile vs Website: What Gets Sunshine Coast Tradies More Calls?</div>
-        <div style="font-size:.82rem;line-height:1.75;color:var(--muted);flex:1;">GBP or website — what actually drives calls for Sunshine Coast tradies? Here's the honest answer and the right order of operations.</div>
-        <div style="margin-top:1.2rem;font-family:'Josefin Sans',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--sky);">Read Article &#8594;</div>
-      </div>
-    </a>
-
-    <a href="/blog/cleaning-business-google-maps/" style="text-decoration:none;display:flex;flex-direction:column;background:var(--white);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s,border-color .2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 40px rgba(56,189,248,.1)';this.style.borderColor='var(--sky)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor=''">
-      <div style="aspect-ratio:16/9;overflow:hidden;position:relative;">
-        <img src="/blog/cleaning-business-google-maps/google-cleaners-blog.jpg" alt="Sunshine Coast cleaning business marketing on Google" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
-      </div>
-      <div style="padding:1.8rem;flex:1;display:flex;flex-direction:column;">
-        <div style="font-family:'Josefin Sans',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--sky);margin-bottom:.7rem;">Google Maps</div>
-        <div style="font-family:'Josefin Sans',sans-serif;font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.03em;color:var(--navy);line-height:1.2;margin-bottom:.8rem;">Why Your Sunshine Coast Cleaning Business Isn't Getting Calls From Google</div>
-        <div style="font-size:.82rem;line-height:1.75;color:var(--muted);flex:1;">Is your cleaning business invisible on Google Maps? Here's why Sunshine Coast cleaners miss out on enquiries — and what to fix first.</div>
-        <div style="margin-top:1.2rem;font-family:'Josefin Sans',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--sky);">Read Article &#8594;</div>
-      </div>
-    </a>
-
-    <a href="/blog/google-reviews/" style="text-decoration:none;display:flex;flex-direction:column;background:var(--white);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s,border-color .2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 40px rgba(56,189,248,.1)';this.style.borderColor='var(--sky)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor=''">
-      <div style="aspect-ratio:16/9;overflow:hidden;position:relative;">
-        <img src="/blog/google-reviews/google-reviews-blog.jpg" alt="Five star Google review on phone" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
-      </div>
-      <div style="padding:1.8rem;flex:1;display:flex;flex-direction:column;">
-        <div style="font-family:'Josefin Sans',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--sky);margin-bottom:.7rem;">Google Reviews</div>
-        <div style="font-family:'Josefin Sans',sans-serif;font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.03em;color:var(--navy);line-height:1.2;margin-bottom:.8rem;">How to Get More 5-Star Google Reviews for Your Cleaning Business</div>
-        <div style="font-size:.82rem;line-height:1.75;color:var(--muted);flex:1;">A practical guide to building a steady flow of five-star Google reviews - without being pushy or awkward about it.</div>
-        <div style="margin-top:1.2rem;font-family:'Josefin Sans',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--sky);">Read Article &#8594;</div>
-      </div>
-    </a>
-
-    <a href="/blog/google-maps-top-3/" style="text-decoration:none;display:flex;flex-direction:column;background:var(--white);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s,border-color .2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 40px rgba(56,189,248,.1)';this.style.borderColor='var(--sky)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor=''">
-      <div style="aspect-ratio:16/9;overflow:hidden;position:relative;">
-        <img src="/images/services/google-maps-mobile-search.jpg" alt="Google Maps on phone" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
-      </div>
-      <div style="padding:1.8rem;flex:1;display:flex;flex-direction:column;">
-        <div style="font-family:'Josefin Sans',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--sky);margin-bottom:.7rem;">Google Maps</div>
-        <div style="font-family:'Josefin Sans',sans-serif;font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.03em;color:var(--navy);line-height:1.2;margin-bottom:.8rem;">How to Get Your Trade Business Into the Top 3 on Google Maps</div>
-        <div style="font-size:.82rem;line-height:1.75;color:var(--muted);flex:1;">The top 3 on Google Maps gets 90% of clicks. Here&#39;s exactly what it takes to get your tradie business into those spots.</div>
-        <div style="margin-top:1.2rem;font-family:'Josefin Sans',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--sky);">Read Article &#8594;</div>
-      </div>
-    </a>
-
-    <a href="/blog/facebook-for-service-businesses/" style="text-decoration:none;display:flex;flex-direction:column;background:var(--white);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s,border-color .2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 40px rgba(56,189,248,.1)';this.style.borderColor='var(--sky)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor=''">
-      <div style="aspect-ratio:16/9;overflow:hidden;position:relative;">
-        <img src="/images/services/social-media-on-mobile.jpg" alt="Facebook on phone" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
-      </div>
-      <div style="padding:1.8rem;flex:1;display:flex;flex-direction:column;">
-        <div style="font-family:'Josefin Sans',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--sky);margin-bottom:.7rem;">Facebook</div>
-        <div style="font-family:'Josefin Sans',sans-serif;font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.03em;color:var(--navy);line-height:1.2;margin-bottom:.8rem;">Does Facebook Still Work for Local Service Businesses in 2026?</div>
-        <div style="font-size:.82rem;line-height:1.75;color:var(--muted);flex:1;">The honest answer might surprise you. Here&#39;s why Facebook is still one of the best tools for local cleaners and tradies.</div>
-        <div style="margin-top:1.2rem;font-family:'Josefin Sans',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--sky);">Read Article &#8594;</div>
-      </div>
-    </a>
-
+<p style="margin-top:2rem;">Local SEO is the clearest path for Sunshine Coast small businesses to get found by customers who are actively looking for what they offer. It's not complicated, but it does require the right setup and consistent attention.</p>
+<p>Not sure where your local visibility stands? <a href="/google-business-profile-audit/#audit-form" style="color:var(--sky);font-weight:700;">Get a free Google Business Profile audit from Haylo</a> — we'll show you exactly what's holding your ranking back.</p>
+    </div>
   </div>
 </section>
 
 <div class="cta-band reveal">
   <div class="cta-band-glow"></div>
   <div class="cta-band-inner">
-    <h2>Ready to put this<br><em>into practice?</em></h2>
-    <p>Get a free audit of your Google Business Profile - we&#39;ll show you exactly what&#39;s missing and how to fix it.</p>
+    <h2>See how your local<br><em>SEO stacks up.</em></h2>
+    <p>Get a free Google Business Profile audit and find out exactly where your local visibility has gaps.</p>
     <a href="/google-business-profile-audit/#audit-form" class="btn btn-sky">Get My Free Audit &#8594;</a>
-    <div class="cta-band-ph">Call or text: <a href="tel:0490422192">0490 422 192</a> &nbsp;&middot;&nbsp; <a href="mailto:hello@withhaylo.com">hello@withhaylo.com</a></div>
+    <div class="cta-band-ph">Call or text: <a href="tel:0490422192">0490 422 192</a></div>
   </div>
 </div>
 
@@ -913,12 +822,6 @@ burger.addEventListener('click', () => {
 });
 const mainNav = document.getElementById('main-nav');
 window.addEventListener('scroll', () => { mainNav.classList.toggle('scrolled', window.scrollY > 10); }, { passive: true });
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const target = document.querySelector(a.getAttribute('href'));
-    if (target) { e.preventDefault(); window.scrollTo({ top: target.offsetTop - 62, behavior: 'smooth' }); }
-  });
-});
 const revealObs = new IntersectionObserver((entries, obs) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) { entry.target.classList.add('visible'); obs.unobserve(entry.target); }
@@ -935,7 +838,7 @@ document.addEventListener('click',function(e){var a=e.target.closest('a');if(!a)
     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.01 1.18 2 2 0 012 .01h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
     0490 422 192
   </a>
-  <a href="/google-business-profile-audit/#audit-form" class="mb-audit">Free Audit →</a>
+  <a href="/google-business-profile-audit/#audit-form" class="mb-audit">Free Audit &rarr;</a>
 </div>
 </body>
 </html>

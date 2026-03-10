@@ -39,9 +39,19 @@
 
   <!-- Blog -->
   <url><loc>https://withhaylo.com/blog/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://withhaylo.com/blog-google-maps-top-3/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://withhaylo.com/blog-google-reviews/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://withhaylo.com/blog-facebook-for-service-businesses/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://withhaylo.com/blog/google-posts-local-business/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://withhaylo.com/blog/what-customers-check/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://withhaylo.com/blog/gbp-categories-tradies/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://withhaylo.com/blog/marketing-routine-tradies/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://withhaylo.com/blog/plumber-google-maps/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://withhaylo.com/blog/gbp-description-sunshine-coast/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://withhaylo.com/blog/what-is-local-seo/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://withhaylo.com/blog/sunshine-coast-growth-suburbs/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://withhaylo.com/blog/gbp-vs-website-tradies/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://withhaylo.com/blog/cleaning-business-google-maps/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://withhaylo.com/blog/google-maps-top-3/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://withhaylo.com/blog/google-reviews/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://withhaylo.com/blog/facebook-for-service-businesses/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
   <!-- About & legal -->
   <url><loc>https://withhaylo.com/about/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
