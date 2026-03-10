@@ -59,7 +59,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="/images/services/google-business-profile-on-phone.jpg">
+<link rel="preload" as="image" href="/images/audit/audit-hero.jpg">
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -151,7 +151,7 @@ ul{list-style:none;}
 }
 .audit-hero-bg{
   position:absolute;inset:0;
-  background:url('/images/services/google-business-profile-on-phone.jpg') center/cover no-repeat;
+  background:url('/images/audit/audit-hero.jpg') center/cover no-repeat;
   opacity:.12;
   pointer-events:none;
   animation:auditZoom 22s ease-in-out infinite alternate;
@@ -268,7 +268,7 @@ section{padding:5rem var(--pad);}
 .form-input::placeholder{color:rgba(255,255,255,.2);}
 .form-input:focus{border-color:var(--sky);background:rgba(56,189,248,.07);}
 .form-input.error{border-color:#f87171;}
-.form-pills{display:flex;flex-wrap:wrap;gap:.5rem;}
+.form-pills{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;}
 .form-pill{font-family:'Josefin Sans',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.5rem 1rem;border-radius:100px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.45);cursor:pointer;transition:all .2s;-webkit-tap-highlight-color:transparent;}
 .form-pill:hover{border-color:rgba(56,189,248,.4);color:var(--sky);}
 .form-pill.selected{background:var(--sky);border-color:var(--sky);color:var(--navy);}
