@@ -431,7 +431,7 @@ footer{background:#141C25;border-top:1px solid rgba(255,255,255,.05);}
 .h1-line{display:block;line-height:.93;clip-path:inset(-0.25em 0 0 0);}
 .h1-inner{display:block;transform:translateY(110%);animation:lineUp .85s cubic-bezier(0.16,1,0.3,1) both;}
 
-/* Phone ring shake on "ringing." — buzzes 3 times then pauses */
+/* Phone ring shake on "ringing." - buzzes 3 times then pauses */
 @keyframes phoneRing{
   0%,100%{transform:translateX(0) rotate(0deg)}
   2%{transform:translateX(-3px) rotate(-.4deg)}
@@ -787,7 +787,7 @@ section{padding-top:5rem;padding-bottom:5rem;}
   </h1>
   <h2 style="font-family:'Josefin Sans',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(56,189,248,.55);margin-top:1rem;animation:fadeUp .7s .12s ease both;">Google Maps &amp; Local SEO for Sunshine Coast Small Businesses</h2>
   <div class="hero-bottom">
-    <p class="hero-sub">We help <strong>Sunshine Coast small businesses</strong> rank higher on Google Maps, build genuine 5-star reviews, and attract more local leads &mdash; tradies, cleaners, services and more. No lock-in contracts.</p>
+    <p class="hero-sub">We help <strong>Sunshine Coast small businesses</strong> rank higher on Google Maps, build genuine 5-star reviews, and attract more local leads - tradies, cleaners, services and more. No lock-in contracts.</p>
     <div class="hero-actions">
       <a href="#cta" class="btn btn-sky">Get My Free Audit →</a>
       <a href="#services" class="btn btn-ghost-w">See What We Do</a>
@@ -1279,7 +1279,7 @@ function toggleFaq(btn) {
   document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
   if (!isOpen) item.classList.add('open');
 }
-// — SCROLL PROGRESS BAR —
+// - SCROLL PROGRESS BAR -
 const scrollBar = document.createElement('div');
 scrollBar.id = 'scroll-bar';
 document.body.prepend(scrollBar);
@@ -1288,7 +1288,7 @@ window.addEventListener('scroll', () => {
   scrollBar.style.transform = 'scaleX(' + Math.min(pct, 1) + ')';
 }, { passive: true });
 
-// — CURSOR GLOW —
+// - CURSOR GLOW -
 const cursorGlow = document.createElement('div');
 cursorGlow.id = 'cursor-glow';
 document.body.appendChild(cursorGlow);
@@ -1297,7 +1297,7 @@ document.addEventListener('mousemove', e => {
   cursorGlow.style.top = e.clientY + 'px';
 });
 
-// — SCROLL REVEAL WITH STAGGER —
+// - SCROLL REVEAL WITH STAGGER -
 const revealed = new WeakSet();
 const revealObs = new IntersectionObserver((entries, obs) => {
   entries.forEach(entry => {
@@ -1317,7 +1317,7 @@ const revealObs = new IntersectionObserver((entries, obs) => {
 }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
-// — COUNT-UP NUMBERS —
+// - COUNT-UP NUMBERS -
 function countUp(el) {
   const target = parseFloat(el.dataset.target);
   const suffix = el.dataset.suffix || '';
@@ -1338,7 +1338,7 @@ const countObs = new IntersectionObserver((entries, obs) => {
 }, { threshold: 0.5 });
 document.querySelectorAll('[data-target]').forEach(el => countObs.observe(el));
 
-// — MAGNETIC BUTTONS —
+// - MAGNETIC BUTTONS -
 document.querySelectorAll('.btn-sky, .btn-navy').forEach(btn => {
   btn.addEventListener('mousemove', e => {
     const r = btn.getBoundingClientRect();
@@ -1349,7 +1349,7 @@ document.querySelectorAll('.btn-sky, .btn-navy').forEach(btn => {
   btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
 });
 
-// — PROOF PHOTO PARALLAX —
+// - PROOF PHOTO PARALLAX -
 const proofBand = document.querySelector('.proof-band');
 const proofPhoto = document.querySelector('.proof-photo');
 if (proofBand && proofPhoto) {
@@ -1360,7 +1360,7 @@ if (proofBand && proofPhoto) {
   }, { passive: true });
 }
 
-// — FORM —
+// - FORM -
 document.querySelectorAll('.form-pill').forEach(pill => {
   pill.addEventListener('click', () => {
     document.querySelectorAll('.form-pill').forEach(p => p.classList.remove('selected'));
