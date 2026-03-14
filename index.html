@@ -189,9 +189,8 @@ a.hstat{text-decoration:none;}
   transition:background .25s,box-shadow .25s;
 }
 .hstat:hover .hstat-icon{background:rgba(56,189,248,.22);box-shadow:0 0 14px rgba(56,189,248,.25);}
-.hstat-body{display:block;}
 .hstat-lbl{font-size:.72rem;font-weight:700;color:rgba(255,255,255,.85);letter-spacing:.05em;text-transform:uppercase;line-height:1.4;}
-.hstat-arr{position:absolute;bottom:.85rem;right:.9rem;font-size:.85rem;color:var(--sky);opacity:.6;transition:opacity .2s,transform .2s;}
+.hstat-arr{position:absolute;top:.85rem;right:.9rem;font-size:.85rem;color:var(--sky);opacity:.6;transition:opacity .2s,transform .2s;}
 .hstat:hover .hstat-arr{opacity:1;transform:translate(2px,-2px);}
 @media(min-width:600px){.hero-stats{grid-template-columns:repeat(4,1fr);}}
 
@@ -854,20 +853,24 @@ section{padding-top:5rem;padding-bottom:5rem;}
   </div>
   <div class="hero-stats">
     <a href="/google-business-profile/" class="hstat">
+      <div class="hstat-arr">↗</div>
       <div class="hstat-icon">📍</div>
-      <div class="hstat-body"><div class="hstat-lbl">Be found on Google Maps</div><div class="hstat-arr">↗</div></div>
+      <div class="hstat-lbl">Be found on Google Maps</div>
     </a>
     <a href="/review-generation/" class="hstat">
+      <div class="hstat-arr">↗</div>
       <div class="hstat-icon">⭐</div>
-      <div class="hstat-body"><div class="hstat-lbl">Build trust through reviews</div><div class="hstat-arr">↗</div></div>
+      <div class="hstat-lbl">Build trust through reviews</div>
     </a>
     <a href="/facebook/" class="hstat">
+      <div class="hstat-arr">↗</div>
       <div class="hstat-icon">📱</div>
-      <div class="hstat-body"><div class="hstat-lbl">Stay visible on socials</div><div class="hstat-arr">↗</div></div>
+      <div class="hstat-lbl">Stay visible on socials</div>
     </a>
     <a href="/reporting/" class="hstat">
+      <div class="hstat-arr">↗</div>
       <div class="hstat-icon">📊</div>
-      <div class="hstat-body"><div class="hstat-lbl">See clearly what's working</div><div class="hstat-arr">↗</div></div>
+      <div class="hstat-lbl">See clearly what's working</div>
     </a>
   </div>
 </section>
