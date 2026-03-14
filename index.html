@@ -189,9 +189,9 @@ a.hstat{text-decoration:none;}
   transition:background .25s,box-shadow .25s;
 }
 .hstat:hover .hstat-icon{background:rgba(56,189,248,.22);box-shadow:0 0 14px rgba(56,189,248,.25);}
-.hstat-body{display:flex;align-items:flex-end;justify-content:space-between;gap:.5rem;}
-.hstat-lbl{font-size:.72rem;font-weight:700;color:rgba(255,255,255,.85);letter-spacing:.05em;text-transform:uppercase;line-height:1.4;flex:1;}
-.hstat-arr{font-size:.9rem;color:var(--sky);opacity:.6;transition:opacity .2s,transform .2s;flex-shrink:0;}
+.hstat-body{display:block;}
+.hstat-lbl{font-size:.72rem;font-weight:700;color:rgba(255,255,255,.85);letter-spacing:.05em;text-transform:uppercase;line-height:1.4;}
+.hstat-arr{position:absolute;bottom:.85rem;right:.9rem;font-size:.85rem;color:var(--sky);opacity:.6;transition:opacity .2s,transform .2s;}
 .hstat:hover .hstat-arr{opacity:1;transform:translate(2px,-2px);}
 @media(min-width:600px){.hero-stats{grid-template-columns:repeat(4,1fr);}}
 
