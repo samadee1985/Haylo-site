@@ -1440,11 +1440,11 @@ function testiGo(n) {
 }
 // Swipe support
 (function() {
-  var el = document.getElementById('testiTrack');
-  if (!el) return;
+  var wrap = document.querySelector('.testi-track-wrap');
+  if (!wrap) return;
   var startX = 0;
-  el.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; }, {passive:true});
-  el.addEventListener('touchend', function(e) {
+  wrap.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; }, {passive:true});
+  wrap.addEventListener('touchend', function(e) {
     var diff = startX - e.changedTouches[0].clientX;
     if (Math.abs(diff) > 40) testiGo(Math.min(Math.max(testiIdx + (diff > 0 ? 1 : -1), 0), 3));
   }, {passive:true});
