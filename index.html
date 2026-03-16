@@ -17,7 +17,7 @@
 <link rel="preload" as="image" href="/images/general/haylo-og-share.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&family=Manrope:wght@400;500;600;700&family=Pinyon+Script&display=swap" rel="stylesheet">
 <style>
 
 /* ─── TOKENS ───────────────────────────────── */
@@ -124,14 +124,15 @@ nav.scrolled{background:rgba(255,255,255,.88);backdrop-filter:blur(20px);-webkit
 }
 .hero-photo{
   position:absolute;inset:0;
-  background:url('/images/general/haylo-og-share.jpg') center/cover no-repeat;
-  opacity:.18;
+  width:100%;height:100%;
+  object-fit:cover;
+  object-position:center top;
+  opacity:.5;
   pointer-events:none;
-  animation:kenBurns 20s ease-in-out infinite alternate;
-  transform-origin:left center;
-  will-change:transform;
 }
-@keyframes kenBurns{from{transform:scale(1)}to{transform:scale(1.22)}}
+@media(max-width:860px){.hero-photo{display:none;}}
+.hero-photo-fallback{display:none;}
+@media(max-width:860px){.hero-photo-fallback{display:block;position:absolute;inset:0;background:url('/images/general/haylo-og-share.jpg') center/cover no-repeat;}}
 .hero-glow-1{position:absolute;top:-10%;right:-5%;width:650px;height:650px;background:radial-gradient(circle,rgba(56,189,248,.14) 0%,transparent 70%);pointer-events:none;}
 .hero-glow-2{position:absolute;bottom:-20%;left:-10%;width:500px;height:500px;background:radial-gradient(circle,rgba(56,189,248,.07) 0%,transparent 70%);pointer-events:none;}
 .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(56,189,248,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(56,189,248,.04) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;}
@@ -240,11 +241,10 @@ section{padding:5rem var(--pad);}
 .who-top .sec-sub{max-width:520px;}
 .industries{
   display:grid;grid-template-columns:1fr 1fr;
-  gap:1px;background:var(--border);
-  border:1px solid var(--border);border-radius:10px;overflow:hidden;
+  gap:1rem;
 }
-.ind{background:var(--warm);padding:1.5rem 1.3rem;display:flex;align-items:flex-start;gap:.9rem;transition:background .2s,border-left-color .2s;color:inherit;text-decoration:none;border-left:3px solid transparent;}
-.ind:hover{background:rgba(56,189,248,.07);border-left-color:var(--sky);}
+.ind{background:var(--white);border:1px solid var(--border);border-top:2px solid var(--sky);border-radius:12px;padding:1.5rem 1.3rem;display:flex;align-items:flex-start;gap:.9rem;transition:background .2s,box-shadow .2s,border-color .2s,transform .2s;color:inherit;text-decoration:none;}
+.industries .ind:hover{background:var(--sky-pale);box-shadow:0 8px 28px rgba(56,189,248,.14);border-color:rgba(56,189,248,.4);transform:translateY(-4px);}
 .ind-icon{font-size:1.4rem;flex-shrink:0;line-height:1;margin-top:.05rem;}
 .ind-name{font-family:'Josefin Sans',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;margin-bottom:.25rem;color:var(--navy);}
 .ind-desc{font-size:.75rem;color:var(--muted);line-height:1.6;}
@@ -257,8 +257,12 @@ section{padding:5rem var(--pad);}
 .svc-rows{border-top:1px solid var(--border);}
 .svc-row{
   display:flex;flex-direction:column;gap:.8rem;
-  padding:2rem 0;border-bottom:1px solid var(--border);
+  padding:2rem 1rem;border-bottom:1px solid var(--border);
+  text-decoration:none;color:inherit;cursor:pointer;
+  border-radius:8px;margin:0 -1rem;
+  transition:background .2s;
 }
+.svc-row:hover{background:var(--off);}
 .svc-row-top{display:flex;align-items:flex-start;gap:1rem;}
 .svc-num{font-family:'Josefin Sans',sans-serif;font-weight:700;font-size:1rem;letter-spacing:.06em;color:var(--sky);flex-shrink:0;padding-top:.2rem;}
 .svc-name{font-family:'Josefin Sans',sans-serif;font-weight:700;font-size:1.25rem;text-transform:uppercase;letter-spacing:.04em;line-height:1.1;color:var(--navy);}
@@ -336,9 +340,9 @@ section{padding:5rem var(--pad);}
 .pricing-top{margin-bottom:3rem;}
 .plans{display:grid;grid-template-columns:1fr;gap:1.5rem;}
 .plan{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:2rem;display:flex;flex-direction:column;position:relative;transition:border-color .22s,transform .22s,box-shadow .22s;}
-.plan:hover{transform:translateY(-4px);border-color:#aac8d8;box-shadow:0 12px 40px rgba(31,45,61,.08);}
+.plans .plan:hover{transform:translateY(-8px);border-color:#aac8d8;box-shadow:0 20px 50px rgba(31,45,61,.14);}
 .plan.feat{background:linear-gradient(145deg,#1a3a5c 0%,var(--navy) 100%);border:2px solid var(--sky);box-shadow:0 0 35px rgba(56,189,248,.2),0 12px 40px rgba(0,0,0,.3);}
-.plan.feat:hover{box-shadow:0 0 50px rgba(56,189,248,.3),0 16px 50px rgba(0,0,0,.35);}
+.plan.feat:hover{transform:translateY(-8px);box-shadow:0 0 50px rgba(56,189,248,.3),0 20px 50px rgba(0,0,0,.35);}
 .plan-badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--sky);color:var(--navy);font-family:'Josefin Sans',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.3rem 1rem;border-radius:100px;white-space:nowrap;}
 .plan-name{font-family:'Josefin Sans',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:.7rem;}
 .feat .plan-name{color:rgba(255,255,255,.3);}
@@ -376,7 +380,7 @@ section{padding:5rem var(--pad);}
 .apt-b{font-size:.82rem;color:rgba(255,255,255,.75);line-height:1.7;}
 
 /* ─── FAQ ──────────────────────────────────── */
-#faq{background:var(--warm);}
+#faq{background:var(--white);}
 .faq-intro{margin-bottom:2.5rem;}
 .faq-list{display:flex;flex-direction:column;}
 .faq-item{border-bottom:1px solid var(--border);}
@@ -488,10 +492,7 @@ footer{background:#141C25;border-top:1px solid rgba(255,255,255,.05);}
 .svc-row::before{content:'';position:absolute;left:-8px;top:0;bottom:0;width:2px;background:var(--sky);transform:scaleY(0);transform-origin:bottom;transition:transform .35s ease;}
 .svc-row:hover::before{transform:scaleY(1);}
 
-/* Float animation on featured pricing plan */
-@keyframes cardFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-.plan.feat{animation:cardFloat 4s ease-in-out infinite;}
-.plan.feat:hover{animation:none;transform:translateY(-4px);}
+.plan.feat:hover{transform:translateY(-6px);box-shadow:0 0 50px rgba(56,189,248,.3),0 16px 50px rgba(0,0,0,.35);}
 
 /* Button glow + lift */
 .btn-sky{box-shadow:0 4px 18px rgba(56,189,248,.28);}
@@ -680,6 +681,9 @@ section{padding-top:5rem;padding-bottom:5rem;}
 #mob-bar .mb-audit{flex:1;display:flex;align-items:center;justify-content:center;background:transparent;color:rgba(255,255,255,.75);border:1px solid rgba(255,255,255,.2);border-radius:100px;padding:.7rem .5rem;font-family:'Josefin Sans',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;-webkit-tap-highlight-color:transparent;}
 @media(min-width:860px){#mob-bar{display:none;}}
 @media(max-width:859px){body{padding-bottom:calc(62px + env(safe-area-inset-bottom,0px));}}
+
+/* ─── ABOUT SECTION ─────────────────────────── */
+@media(max-width:820px){.about-grid{grid-template-columns:1fr!important;gap:2.5rem!important;}.about-img-wrap{max-width:420px;margin:0 auto;width:100%;}}
 </style>
   <link rel="canonical" href="https://withhaylo.com/">
   <meta name="robots" content="index, follow">
@@ -833,7 +837,10 @@ section{padding-top:5rem;padding-bottom:5rem;}
 
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-photo"></div>
+  <video class="hero-photo" autoplay muted loop playsinline poster="/images/general/haylo-og-share.jpg">
+    <source src="/images/general/haylo-hero-video.mp4" type="video/mp4">
+  </video>
+  <div class="hero-photo-fallback"></div>
   <div class="hero-glow-1"></div>
   <div class="hero-glow-2"></div>
   <div class="hero-grid"></div>
@@ -928,42 +935,42 @@ section{padding-top:5rem;padding-bottom:5rem;}
     </div>
   </div>
   <div class="svc-rows">
-    <div class="svc-row reveal">
+    <a href="/google-business-profile/" class="svc-row reveal">
       <div class="svc-row-top">
         <div class="svc-num">01</div>
-        <a href="/google-business-profile/" style="text-decoration:none"><div class="svc-name">Google Business Profile</div></a>
+        <div class="svc-name">Google Business Profile</div>
       </div>
       <div class="svc-desc">Your Google profile is your #1 local asset. We fully optimise every element - categories, keywords, photos, posts, Q&amp;As - so you appear at the top of Google Maps when nearby customers search for your service.</div>
       <div class="svc-tags"><span class="stag">Google Maps</span><span class="stag">Local SEO</span><span class="stag">Reviews</span></div>
       <div class="svc-arr">↗</div>
-    </div>
-    <div class="svc-row reveal">
+    </a>
+    <a href="/facebook/" class="svc-row reveal">
       <div class="svc-row-top">
         <div class="svc-num">02</div>
-        <a href="/facebook/" style="text-decoration:none"><div class="svc-name">Facebook Business Page</div></a>
+        <div class="svc-name">Facebook Business Page</div>
       </div>
       <div class="svc-desc">We transform your Facebook page into a lead machine - complete profile overhaul, consistent content, local targeting, and active community management that builds trust and drives real enquiries.</div>
       <div class="svc-tags"><span class="stag">Content</span><span class="stag">Targeting</span><span class="stag">Engagement</span></div>
       <div class="svc-arr">↗</div>
-    </div>
-    <div class="svc-row reveal">
+    </a>
+    <a href="/review-generation/" class="svc-row reveal">
       <div class="svc-row-top">
         <div class="svc-num">03</div>
-        <a href="/review-generation/" style="text-decoration:none"><div class="svc-name">Review Generation &amp; Management</div></a>
+        <div class="svc-name">Review Generation &amp; Management</div>
       </div>
       <div class="svc-desc">Five-star reviews are the fastest trust signal in local marketing. We implement proven systems to get more reviews from happy customers, and professionally respond to every one - building your reputation on autopilot.</div>
       <div class="svc-tags"><span class="stag">Google Reviews</span><span class="stag">Facebook</span><span class="stag">Reputation</span></div>
       <div class="svc-arr">↗</div>
-    </div>
-    <div class="svc-row reveal">
+    </a>
+    <a href="/reporting/" class="svc-row reveal">
       <div class="svc-row-top">
         <div class="svc-num">04</div>
-        <a href="/reporting/" style="text-decoration:none"><div class="svc-name">Local Visibility Reporting</div></a>
+        <div class="svc-name">Local Visibility Reporting</div>
       </div>
       <div class="svc-desc">A plain-English monthly report showing exactly what's happening - how many people saw your profile, clicked your number, asked for directions. No jargon, just the numbers that matter to your business.</div>
       <div class="svc-tags"><span class="stag">Analytics</span><span class="stag">Call Tracking</span><span class="stag">Monthly Report</span></div>
       <div class="svc-arr">↗</div>
-    </div>
+    </a>
   </div>
 </section>
 
@@ -997,6 +1004,32 @@ section{padding-top:5rem;padding-bottom:5rem;}
   </div>
 </section>
 
+<!-- ABOUT -->
+<section id="about" style="background:var(--warm);">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;" class="about-grid">
+    <div class="about-img-wrap reveal">
+      <img src="/images/general/about-me-fun.jpg" alt="Sam Davies, founder of Haylo — Sunshine Coast local marketing" loading="lazy" style="width:100%;border-radius:16px;display:block;box-shadow:0 20px 60px rgba(31,45,61,.15);">
+    </div>
+    <div class="reveal" style="padding-top:.5rem;">
+      <span class="eyebrow">About Haylo</span>
+      <h2 class="sec-h2">Meet Sam - the person<br><em>behind Haylo.</em></h2>
+      <p style="font-size:1.05rem;color:var(--muted);line-height:1.85;margin-bottom:1.4rem;">I started Haylo because I kept seeing the same thing: great local businesses doing excellent work, but barely showing up online. Customers were driving right past them and calling a competitor instead - simply because that competitor was easier to find on Google.</p>
+      <p style="font-size:1.05rem;color:var(--muted);line-height:1.85;margin-bottom:1.4rem;">A lot of small business owners have told me: &ldquo;I tried marketing once and it didn&rsquo;t work.&rdquo; But here&rsquo;s the thing - if a barber completely butchers your hair, you don&rsquo;t swear off haircuts forever. You just think: right, I&rsquo;m not going back there. Then you find someone who listens. Someone who gets it. Someone you actually trust.</p>
+      <p style="font-size:1.05rem;color:var(--muted);line-height:1.85;margin-bottom:1.4rem;">Marketing is the same. Most of the time it&rsquo;s not that marketing doesn&rsquo;t work - it&rsquo;s that the approach, the strategy, or the person doing it wasn&rsquo;t the right fit. Good marketing shouldn&rsquo;t feel confusing or like you&rsquo;re throwing money into the wind. It should feel clear, make sense, and most importantly - help the right customers find you.</p>
+      <p style="font-size:1.05rem;color:var(--muted);line-height:1.85;margin-bottom:1.4rem;">I work with Sunshine Coast tradies, cleaners and service businesses to fix the basics that actually matter - your Google Business Profile, your reviews, your local visibility. Simple stuff, done properly, that brings real enquiries through the door.</p>
+      <p style="font-size:1.05rem;color:var(--navy);font-weight:600;line-height:1.85;margin-bottom:2rem;">No lock-in contracts. No jargon. Just honest, practical help getting your business found.</p>
+      <a href="#cta" class="btn btn-sky">Get My Free Audit &rarr;</a>
+      <div style="margin-top:2.5rem;padding-top:2rem;border-top:1px solid var(--border);display:flex;align-items:center;gap:1.2rem;">
+        <img src="/images/general/about-me-crop.jpg" alt="Sam Davies, Founder of Haylo" style="width:90px;height:90px;border-radius:50%;object-fit:cover;object-position:center 15%;flex-shrink:0;border:2px solid var(--border);">
+        <div>
+          <div style="font-family:'Pinyon Script',cursive;font-size:2.2rem;color:var(--navy);line-height:1.2;">Sam Davies</div>
+          <div style="font-family:'Josefin Sans',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:.3rem;">Founder, Haylo</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- RESULTS -->
 <section id="results">
   <div class="results-header reveal">
@@ -1017,22 +1050,6 @@ section{padding-top:5rem;padding-bottom:5rem;}
   </div>
 </section>
 
-
-<!-- SOCIAL PROOF BAND -->
-<div class="proof-band">
-  <div class="proof-photo-wrap">
-    <img src="/images/general/sunshine-coast-local-business.jpg" alt="Tradesperson at work on Sunshine Coast" class="proof-photo" loading="lazy">
-    <div class="proof-photo-overlay"></div>
-  </div>
-  <div class="proof-content">
-    <div class="proof-inner">
-      <span class="eyebrow eyebrow-dark">The Bottom Line</span>
-      <h2 class="proof-h2">Most customers book<br>the first cleaner or<br><em>tradie they find.</em></h2>
-      <p class="proof-sub">If your Sunshine Coast small business isn't in the top 3 on Google Maps, those customers are going to competitors. Haylo's local SEO and Google Business Profile optimisation changes that.</p>
-      <a href="#cta" class="btn btn-sky">Get My Free Audit →</a>
-    </div>
-  </div>
-</div>
 
 <!-- TESTIMONIALS -->
 <section id="testimonials">
@@ -1081,52 +1098,6 @@ section{padding-top:5rem;padding-bottom:5rem;}
   </div>
 </section>
 
-
-<!-- LOCATIONS -->
-<section id="locations" style="background:var(--white);">
-  <div class="reveal">
-    <span class="eyebrow">Sunshine Coast Service Areas</span>
-    <h2 class="sec-h2">Local marketing across<br><em>the Sunshine Coast.</em></h2>
-    <p class="sec-sub">We work exclusively with Sunshine Coast service businesses. Whether you're in Caloundra, Maroochydore, Noosa or anywhere in between - we know your local market.</p>
-  </div>
-  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem;" class="reveal">
-    <a href="/marketing-consultant-sunshine-coast/" style="text-decoration:none;background:var(--navy);border-radius:10px;padding:2rem;display:block;transition:transform .2s,box-shadow .2s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 12px 30px rgba(56,189,248,.15)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-      <div style="font-size:1.4rem;margin-bottom:.8rem;">&#9728;&#65039;</div>
-      <div style="font-family:'Josefin Sans',sans-serif;font-size:.9rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--white);margin-bottom:.4rem;">Sunshine Coast</div>
-      <div style="font-size:.78rem;color:rgba(255,255,255,.35);line-height:1.6;">Full region coverage - Caloundra to Noosa</div>
-      <div style="margin-top:1rem;font-family:'Josefin Sans',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--sky);">Learn More &#8594;</div>
-    </a>
-    <a href="/marketing-consultant-caloundra/" style="text-decoration:none;background:var(--off);border:1px solid var(--border);border-radius:10px;padding:2rem;display:block;transition:transform .2s,box-shadow .2s,border-color .2s;" onmouseover="this.style.transform='translateY(-3px)';this.style.borderColor='var(--sky)'" onmouseout="this.style.transform='';this.style.borderColor=''">
-      <div style="font-size:1.4rem;margin-bottom:.8rem;">&#127944;</div>
-      <div style="font-family:'Josefin Sans',sans-serif;font-size:.9rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--navy);margin-bottom:.4rem;">Caloundra</div>
-      <div style="font-size:.78rem;color:var(--muted);line-height:1.6;">Kings Beach, Aura, Little Mountain & surrounds</div>
-      <div style="margin-top:1rem;font-family:'Josefin Sans',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--sky);">Learn More &#8594;</div>
-    </a>
-    <a href="/marketing-consultant-maroochydore/" style="text-decoration:none;background:var(--off);border:1px solid var(--border);border-radius:10px;padding:2rem;display:block;transition:transform .2s,box-shadow .2s,border-color .2s;" onmouseover="this.style.transform='translateY(-3px)';this.style.borderColor='var(--sky)'" onmouseout="this.style.transform='';this.style.borderColor=''">
-      <div style="font-size:1.4rem;margin-bottom:.8rem;">&#127970;</div>
-      <div style="font-family:'Josefin Sans',sans-serif;font-size:.9rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--navy);margin-bottom:.4rem;">Maroochydore</div>
-      <div style="font-size:.78rem;color:var(--muted);line-height:1.6;">Alexandra Headland, Mooloolaba, Cotton Tree</div>
-      <div style="margin-top:1rem;font-family:'Josefin Sans',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--sky);">Learn More &#8594;</div>
-    </a>
-    <a href="/marketing-consultant-buderim/" style="text-decoration:none;background:var(--off);border:1px solid var(--border);border-radius:10px;padding:2rem;display:block;transition:transform .2s,box-shadow .2s,border-color .2s;" onmouseover="this.style.transform='translateY(-3px)';this.style.borderColor='var(--sky)'" onmouseout="this.style.transform='';this.style.borderColor=''">
-      <div style="font-size:1.4rem;margin-bottom:.8rem;">&#127795;</div>
-      <div style="font-family:'Josefin Sans',sans-serif;font-size:.9rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--navy);margin-bottom:.4rem;">Buderim</div>
-      <div style="font-size:.78rem;color:var(--muted);line-height:1.6;">Sippy Downs, Forest Glen, Palmwoods & surrounds</div>
-      <div style="margin-top:1rem;font-family:'Josefin Sans',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--sky);">Learn More &#8594;</div>
-    </a>
-    <a href="/marketing-consultant-noosa/" style="text-decoration:none;background:var(--off);border:1px solid var(--border);border-radius:10px;padding:2rem;display:block;transition:transform .2s,box-shadow .2s,border-color .2s;" onmouseover="this.style.transform='translateY(-3px)';this.style.borderColor='var(--sky)'" onmouseout="this.style.transform='';this.style.borderColor=''">
-      <div style="font-size:1.4rem;margin-bottom:.8rem;">&#127754;</div>
-      <div style="font-family:'Josefin Sans',sans-serif;font-size:.9rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--navy);margin-bottom:.4rem;">Noosa</div>
-      <div style="font-size:.78rem;color:var(--muted);line-height:1.6;">Noosa Heads, Noosaville, Tewantin, Sunshine Beach</div>
-      <div style="margin-top:1rem;font-family:'Josefin Sans',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--sky);">Learn More &#8594;</div>
-    </a>
-    <div style="background:linear-gradient(135deg,rgba(56,189,248,.08),rgba(56,189,248,.03));border:1px dashed rgba(56,189,248,.25);border-radius:10px;padding:2rem;display:flex;flex-direction:column;justify-content:center;">
-      <div style="font-family:'Josefin Sans',sans-serif;font-size:.8rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--navy);margin-bottom:.5rem;">Somewhere else?</div>
-      <div style="font-size:.78rem;color:var(--muted);line-height:1.6;margin-bottom:1rem;">We cover the full Sunshine Coast region. Get in touch and we'll confirm your area.</div>
-      <a href="/#cta" style="font-family:'Josefin Sans',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--sky);text-decoration:none;">Ask Us &#8594;</a>
-    </div>
-  </div>
-</section>
 
 <!-- PRICING -->
 <section id="pricing">
@@ -1188,22 +1159,6 @@ section{padding-top:5rem;padding-bottom:5rem;}
   <p class="pricing-note reveal">Not sure which plan suits you? <a href="#cta">Book a free 20-minute call</a> - we'll work it out together.</p>
 </section>
 
-<!-- ABOUT -->
-<section id="about">
-  <img src="/images/general/sunshine-coast-our-story.jpg" alt="Sunshine Coast aerial view" class="about-photo" loading="eager" fetchpriority="high">
-  <div class="about-overlay"></div>
-  <div class="about-content reveal">
-    <span class="eyebrow">Our Story</span>
-    <h2 class="sec-h2 sec-h2-w">We built Haylo because<br>great businesses deserve<br><em>to be found.</em></h2>
-    <p class="sec-sub" style="max-width:100%;color:rgba(255,255,255,.55)">Haylo was built because too many great Sunshine Coast small businesses are invisible online. Tradies, cleaners, health and beauty, home services - businesses doing excellent work but losing customers to competitors who simply rank higher on Google Maps. We fix that with Google Business Profile optimisation, local SEO, and review generation that gets your phone ringing more consistently.</p>
-    <div class="about-pts">
-      <div class="apt"><div class="apt-ico">🎯</div><div><div class="apt-t">100% Local Focus</div><div class="apt-b">We only work with Sunshine Coast small businesses. We know the local suburbs, the competitive landscape, and which Google Maps and local SEO strategies actually move the needle in this specific market.</div></div></div>
-      <div class="apt"><div class="apt-ico">📞</div><div><div class="apt-t">Calls Are Our Obsession</div><div class="apt-b">We don't measure likes or impressions. We measure customers picking up the phone to call you - that's it.</div></div></div>
-      <div class="apt"><div class="apt-ico">🤝</div><div><div class="apt-t">No Lock-In Contracts</div><div class="apt-b">We earn your business month after month. Stay because it's working - not because you signed a contract.</div></div></div>
-    </div>
-  </div>
-</section>
-
 <!-- FAQ -->
 <section id="faq">
   <div class="faq-inner-grid">
@@ -1237,6 +1192,52 @@ section{padding-top:5rem;padding-bottom:5rem;}
         <button class="faq-q" onclick="toggleFaq(this)">What do I need to get started?<span class="faq-ico">+</span></button>
         <div class="faq-body"><div class="faq-inner">Very little. We'll need access to your Google Business Profile and Facebook page, and some info about your business. We handle the rest. Most clients are fully onboarded within 48 hours of signing up.</div></div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATIONS -->
+<section id="locations" style="background:var(--off);">
+  <div class="reveal">
+    <span class="eyebrow">Sunshine Coast Service Areas</span>
+    <h2 class="sec-h2">Local marketing across<br><em>the Sunshine Coast.</em></h2>
+    <p class="sec-sub">We work exclusively with Sunshine Coast service businesses. Whether you're in Caloundra, Maroochydore, Noosa or anywhere in between - we know your local market.</p>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem;" class="reveal">
+    <a href="/marketing-consultant-sunshine-coast/" style="text-decoration:none;background:var(--navy);border-radius:10px;padding:2rem;display:block;transition:transform .2s,box-shadow .2s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 12px 30px rgba(56,189,248,.15)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+      <div style="font-size:1.4rem;margin-bottom:.8rem;">&#9728;&#65039;</div>
+      <div style="font-family:'Josefin Sans',sans-serif;font-size:.9rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--white);margin-bottom:.4rem;">Sunshine Coast</div>
+      <div style="font-size:.78rem;color:rgba(255,255,255,.35);line-height:1.6;">Full region coverage - Caloundra to Noosa</div>
+      <div style="margin-top:1rem;font-family:'Josefin Sans',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--sky);">Learn More &#8594;</div>
+    </a>
+    <a href="/marketing-consultant-caloundra/" style="text-decoration:none;background:var(--off);border:1px solid var(--border);border-radius:10px;padding:2rem;display:block;transition:transform .2s,box-shadow .2s,border-color .2s;" onmouseover="this.style.transform='translateY(-3px)';this.style.borderColor='var(--sky)'" onmouseout="this.style.transform='';this.style.borderColor=''">
+      <div style="font-size:1.4rem;margin-bottom:.8rem;">&#127944;</div>
+      <div style="font-family:'Josefin Sans',sans-serif;font-size:.9rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--navy);margin-bottom:.4rem;">Caloundra</div>
+      <div style="font-size:.78rem;color:var(--muted);line-height:1.6;">Kings Beach, Aura, Little Mountain & surrounds</div>
+      <div style="margin-top:1rem;font-family:'Josefin Sans',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--sky);">Learn More &#8594;</div>
+    </a>
+    <a href="/marketing-consultant-maroochydore/" style="text-decoration:none;background:var(--off);border:1px solid var(--border);border-radius:10px;padding:2rem;display:block;transition:transform .2s,box-shadow .2s,border-color .2s;" onmouseover="this.style.transform='translateY(-3px)';this.style.borderColor='var(--sky)'" onmouseout="this.style.transform='';this.style.borderColor=''">
+      <div style="font-size:1.4rem;margin-bottom:.8rem;">&#127970;</div>
+      <div style="font-family:'Josefin Sans',sans-serif;font-size:.9rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--navy);margin-bottom:.4rem;">Maroochydore</div>
+      <div style="font-size:.78rem;color:var(--muted);line-height:1.6;">Alexandra Headland, Mooloolaba, Cotton Tree</div>
+      <div style="margin-top:1rem;font-family:'Josefin Sans',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--sky);">Learn More &#8594;</div>
+    </a>
+    <a href="/marketing-consultant-buderim/" style="text-decoration:none;background:var(--off);border:1px solid var(--border);border-radius:10px;padding:2rem;display:block;transition:transform .2s,box-shadow .2s,border-color .2s;" onmouseover="this.style.transform='translateY(-3px)';this.style.borderColor='var(--sky)'" onmouseout="this.style.transform='';this.style.borderColor=''">
+      <div style="font-size:1.4rem;margin-bottom:.8rem;">&#127795;</div>
+      <div style="font-family:'Josefin Sans',sans-serif;font-size:.9rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--navy);margin-bottom:.4rem;">Buderim</div>
+      <div style="font-size:.78rem;color:var(--muted);line-height:1.6;">Sippy Downs, Forest Glen, Palmwoods & surrounds</div>
+      <div style="margin-top:1rem;font-family:'Josefin Sans',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--sky);">Learn More &#8594;</div>
+    </a>
+    <a href="/marketing-consultant-noosa/" style="text-decoration:none;background:var(--off);border:1px solid var(--border);border-radius:10px;padding:2rem;display:block;transition:transform .2s,box-shadow .2s,border-color .2s;" onmouseover="this.style.transform='translateY(-3px)';this.style.borderColor='var(--sky)'" onmouseout="this.style.transform='';this.style.borderColor=''">
+      <div style="font-size:1.4rem;margin-bottom:.8rem;">&#127754;</div>
+      <div style="font-family:'Josefin Sans',sans-serif;font-size:.9rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--navy);margin-bottom:.4rem;">Noosa</div>
+      <div style="font-size:.78rem;color:var(--muted);line-height:1.6;">Noosa Heads, Noosaville, Tewantin, Sunshine Beach</div>
+      <div style="margin-top:1rem;font-family:'Josefin Sans',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--sky);">Learn More &#8594;</div>
+    </a>
+    <div style="background:linear-gradient(135deg,rgba(56,189,248,.08),rgba(56,189,248,.03));border:1px dashed rgba(56,189,248,.25);border-radius:10px;padding:2rem;display:flex;flex-direction:column;justify-content:center;">
+      <div style="font-family:'Josefin Sans',sans-serif;font-size:.8rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--navy);margin-bottom:.5rem;">Somewhere else?</div>
+      <div style="font-size:.78rem;color:var(--muted);line-height:1.6;margin-bottom:1rem;">We cover the full Sunshine Coast region. Get in touch and we'll confirm your area.</div>
+      <a href="/#cta" style="font-family:'Josefin Sans',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--sky);text-decoration:none;">Ask Us &#8594;</a>
     </div>
   </div>
 </section>
