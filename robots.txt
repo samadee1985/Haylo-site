@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /_templates/
 
 # AI search crawlers — explicitly permitted
 User-agent: GPTBot
@@ -38,4 +39,13 @@ Allow: /
 User-agent: Bytespider
 Allow: /
 
-Sitemap: https://withhaylo.com/sitemap.xml
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: Diffbot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+Sitemap: https://www.withhaylo.com/sitemap.xml
