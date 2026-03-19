@@ -118,8 +118,8 @@ nav.scrolled{background:rgba(255,255,255,.88);backdrop-filter:blur(20px);-webkit
 /* ─── HERO ─────────────────────────────────── */
 #hero{
   min-height:100svh;
-  display:flex;flex-direction:column;justify-content:flex-end;
-  padding:calc(var(--nav-h) + 3rem) var(--pad) 4rem;
+  display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start;
+  padding:calc(var(--nav-h) + 1rem) var(--pad) 5rem;
   position:relative;overflow:hidden;background:var(--navy);
 }
 .hero-photo{
@@ -127,13 +127,21 @@ nav.scrolled{background:rgba(255,255,255,.88);backdrop-filter:blur(20px);-webkit
   width:100%;height:100%;
   object-fit:cover;
   object-position:center top;
-  opacity:.5;
+  opacity:1;
   pointer-events:none;
 }
-@media(max-width:860px){.hero-photo{display:none;}}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(15,23,35,.65) 0%,rgba(15,23,35,.1) 40%,rgba(15,23,35,.1) 65%,rgba(15,23,35,.7) 100%);pointer-events:none;}
+#hero h2{margin-top:auto!important;}
+.hero-bottom{margin-top:0;}
+@media(max-width:860px){.hero-photo{display:none;}#hero{padding:calc(var(--nav-h) + 1rem) var(--pad) 5rem!important;}}
 .hero-photo-fallback{display:none;}
 @keyframes kenBurns{from{transform:scale(1)}to{transform:scale(1.5)}}
-@media(max-width:860px){.hero-photo-fallback{display:block;position:absolute;inset:0;background:url('/images/general/haylo-og-share.jpg') center top/cover no-repeat;opacity:.3;}}
+@media(max-width:860px){
+  .hero-photo-fallback{display:block;position:absolute;inset:0;background:url('/images/general/haylo-og-share.jpg') center top/cover no-repeat;opacity:1;}
+  .hero-photo-fallback::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(15,23,35,.7) 0%,rgba(15,23,35,.1) 40%,rgba(15,23,35,.1) 70%,rgba(15,23,35,.75) 100%);}
+  .hero-h1{font-size:clamp(2.8rem,13vw,4.5rem);margin-top:-1rem;}
+  .hero-badge{margin-bottom:.5rem;font-size:.6rem;}
+}
 .hero-glow-1{position:absolute;top:-10%;right:-5%;width:650px;height:650px;background:radial-gradient(circle,rgba(56,189,248,.14) 0%,transparent 70%);pointer-events:none;}
 .hero-glow-2{position:absolute;bottom:-20%;left:-10%;width:500px;height:500px;background:radial-gradient(circle,rgba(56,189,248,.07) 0%,transparent 70%);pointer-events:none;}
 .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(56,189,248,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(56,189,248,.04) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;}
@@ -160,7 +168,7 @@ nav.scrolled{background:rgba(255,255,255,.88);backdrop-filter:blur(20px);-webkit
   gap:1.5rem;
   animation:fadeUp .7s .18s ease both;
 }
-.hero-sub{font-size:.92rem;color:rgba(255,255,255,.65);line-height:1.85;}
+.hero-sub{font-size:.92rem;color:rgba(255,255,255,.88);line-height:1.6;}
 .hero-sub strong{color:rgba(255,255,255,.95);font-weight:600;}
 .hero-actions{display:flex;gap:.75rem;flex-wrap:wrap;align-items:center;}
 
@@ -195,6 +203,13 @@ a.hstat{text-decoration:none;}
 .hstat-arr{position:absolute;top:.85rem;right:.9rem;font-size:.85rem;color:var(--sky);opacity:.6;transition:opacity .2s,transform .2s;}
 .hstat:hover .hstat-arr{opacity:1;transform:translate(2px,-2px);}
 @media(min-width:600px){.hero-stats{grid-template-columns:repeat(4,1fr);}}
+@media(max-width:599px){
+  .hero-stats{margin-top:1rem;gap:.4rem;}
+  .hstat{padding:.65rem .65rem;gap:.35rem;}
+  .hstat-icon{width:22px;height:22px;font-size:.7rem;border-radius:5px;}
+  .hstat-lbl{font-size:.57rem;letter-spacing:.03em;}
+  .hstat-arr{display:none;}
+}
 
 /* ─── BUTTONS ──────────────────────────────── */
 .btn{
@@ -872,6 +887,7 @@ footer{background:#141C25;border-top:1px solid rgba(255,255,255,.05);}
   <video class="hero-photo" autoplay muted loop playsinline poster="/images/general/haylo-og-share.jpg">
     <source src="/images/general/haylo-hero-videoV2.mp4" type="video/mp4">
   </video>
+  <div class="hero-overlay"></div>
   <div class="hero-photo-fallback"></div>
   <div class="hero-glow-1"></div>
   <div class="hero-glow-2"></div>
@@ -882,35 +898,13 @@ footer{background:#141C25;border-top:1px solid rgba(255,255,255,.05);}
     <span class="h1-line"><span class="h1-inner">should be</span></span>
     <span class="h1-line"><span class="h1-inner"><span class="acc">ringing.</span></span></span>
   </h1>
-  <h2 style="font-family:'Josefin Sans',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(56,189,248,.55);margin-top:1rem;animation:fadeUp .7s .12s ease both;">Google Maps &amp; Local SEO for Sunshine Coast Small Businesses</h2>
+  <h2 style="font-family:'Josefin Sans',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(56,189,248,.9);margin-top:1rem;animation:fadeUp .7s .12s ease both;">Google Maps &amp; Local SEO for Sunshine Coast Small Businesses</h2>
   <div class="hero-bottom">
     <p class="hero-sub">We help <strong>Sunshine Coast small businesses</strong> rank higher on Google Maps, build genuine 5-star reviews, and attract more local leads - tradies, cleaners, services and more. No lock-in contracts.</p>
     <div class="hero-actions">
       <a href="#cta" class="btn btn-sky">Get My Free Audit →</a>
       <a href="#services" class="btn btn-ghost-w">See What We Do</a>
     </div>
-  </div>
-  <div class="hero-stats">
-    <a href="/google-business-profile/" class="hstat">
-      <div class="hstat-arr">↗</div>
-      <div class="hstat-icon">📍</div>
-      <div class="hstat-lbl">Be found on Google Maps</div>
-    </a>
-    <a href="/review-generation/" class="hstat">
-      <div class="hstat-arr">↗</div>
-      <div class="hstat-icon">⭐</div>
-      <div class="hstat-lbl">Build trust through reviews</div>
-    </a>
-    <a href="/facebook/" class="hstat">
-      <div class="hstat-arr">↗</div>
-      <div class="hstat-icon">📱</div>
-      <div class="hstat-lbl">Stay visible on socials</div>
-    </a>
-    <a href="/reporting/" class="hstat">
-      <div class="hstat-arr">↗</div>
-      <div class="hstat-icon">📊</div>
-      <div class="hstat-lbl">See clearly what's working</div>
-    </a>
   </div>
 </section>
 
