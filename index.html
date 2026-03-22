@@ -27,6 +27,7 @@
   --navy-deep:    #0D1B2A;
   --navy-mid:     #112236;
   --sky:          #38BDF8;
+  --gold:         #F5B732;
   --sky-pale:     #F0F8FF;
   --teal:         #0D9488;
   --white:        #FFFFFF;
@@ -62,8 +63,8 @@ nav.scrolled{background:rgba(255,255,255,.88);backdrop-filter:blur(20px);-webkit
 .nav-menu{display:flex;gap:2rem;list-style:none;align-items:center;}
 .nav-menu a{font-family:'Josefin Sans',sans-serif;font-size:.72rem;font-weight:700;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;transition:color .2s;}
 .nav-menu a:hover,.nav-menu a.active{color:var(--navy);}
-.nav-btn{background:var(--sky);color:var(--navy)!important;padding:.5rem 1.4rem;border-radius:100px;transition:background .2s,color .2s!important;font-weight:700;}
-.nav-btn:hover{background:var(--navy)!important;color:var(--white)!important;}
+.nav-btn{background:#ffffff;color:var(--navy)!important;padding:.5rem 1.4rem;border-radius:100px;transition:background .2s,color .2s!important;font-weight:700;}
+.nav-btn:hover{background:var(--sky)!important;color:var(--white)!important;}
 
 /* Hamburger */
 .nav-burger{
@@ -119,7 +120,7 @@ nav.scrolled{background:rgba(255,255,255,.88);backdrop-filter:blur(20px);-webkit
 #hero{
   min-height:100svh;
   display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start;
-  padding:calc(var(--nav-h) + 1rem) var(--pad) 5rem;
+  padding:calc(var(--nav-h) + 4rem) var(--pad) 5rem;
   position:relative;overflow:hidden;background:var(--navy);
 }
 .hero-photo{
@@ -133,13 +134,12 @@ nav.scrolled{background:rgba(255,255,255,.88);backdrop-filter:blur(20px);-webkit
 .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(15,23,35,.65) 0%,rgba(15,23,35,.1) 40%,rgba(15,23,35,.1) 65%,rgba(15,23,35,.7) 100%);pointer-events:none;}
 #hero h2{margin-top:auto!important;}
 .hero-bottom{margin-top:0;}
-@media(max-width:860px){.hero-photo{display:none;}#hero{padding:calc(var(--nav-h) + 1rem) var(--pad) 5rem!important;}}
+@media(max-width:860px){#hero{padding:calc(var(--nav-h) + 2rem) var(--pad) 5rem!important;}.hero-photo{object-position:70% top;}}
 .hero-photo-fallback{display:none;}
 @keyframes kenBurns{from{transform:scale(1)}to{transform:scale(1.5)}}
 @media(max-width:860px){
-  .hero-photo-fallback{display:block;position:absolute;inset:0;background:url('/images/general/haylo-og-share.jpg') center top/cover no-repeat;opacity:1;}
-  .hero-photo-fallback::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(15,23,35,.7) 0%,rgba(15,23,35,.1) 40%,rgba(15,23,35,.1) 70%,rgba(15,23,35,.75) 100%);}
-  .hero-h1{font-size:clamp(2.8rem,13vw,4.5rem);margin-top:-1rem;}
+  .hero-h1{font-size:clamp(2.8rem,13vw,4.5rem);}
+  .vis-glow{font-size:clamp(2.8rem,13vw,4.5rem);}
   .hero-badge{margin-bottom:.5rem;font-size:.6rem;}
 }
 .hero-glow-1{position:absolute;top:-10%;right:-5%;width:650px;height:650px;background:radial-gradient(circle,rgba(56,189,248,.14) 0%,transparent 70%);pointer-events:none;}
@@ -149,18 +149,27 @@ nav.scrolled{background:rgba(255,255,255,.88);backdrop-filter:blur(20px);-webkit
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 @keyframes pip{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.25;transform:scale(1.8)}}
 
-.hero-badge{display:inline-flex;align-items:center;gap:.55rem;border:1px solid rgba(56,189,248,.25);color:var(--sky);padding:.38rem 1rem;border-radius:100px;font-family:'Josefin Sans',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:1.8rem;width:fit-content;animation:fadeUp .5s ease both;}
-.pip{width:6px;height:6px;background:var(--sky);border-radius:50%;animation:pip 2s ease-in-out infinite;flex-shrink:0;}
+.hero-badge{display:inline-flex;align-items:center;gap:.55rem;border:1px solid rgba(255,255,255,.35);color:rgba(255,255,255,.9);padding:.38rem 1rem;border-radius:100px;font-family:'Josefin Sans',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:1.8rem;width:fit-content;animation:fadeUp .5s ease both;}
+.pip{width:6px;height:6px;background:#ffffff;border-radius:50%;animation:pip 2s ease-in-out infinite;flex-shrink:0;}
 
+.hero-h1-wrap{position:relative;display:inline-block;}
 .hero-h1{
   font-family:'Josefin Sans',sans-serif;
   font-size:clamp(3.2rem,12vw,9.5rem);
   font-weight:700;text-transform:uppercase;
   line-height:.93;letter-spacing:.03em;
   color:var(--white);
-  animation:fadeUp .7s .08s ease both;
+  position:relative;display:block;user-select:none;
 }
-.hero-h1 .acc{color:var(--sky);}
+.vis-glow-wrap{position:relative;display:inline-block;}
+.vis-glow{position:absolute;inset:0;font-family:'Josefin Sans',sans-serif;font-size:clamp(3.2rem,12vw,9.5rem);font-weight:700;line-height:.93;letter-spacing:.03em;text-transform:uppercase;color:#ffffff;filter:blur(0px);opacity:0;pointer-events:none;z-index:0;white-space:nowrap;}
+.vis-crisp{position:relative;z-index:1;color:#ffffff;}
+.glitch-r{position:absolute;top:0;left:0;color:#ff003c;opacity:0;pointer-events:none;z-index:1;}
+.glitch-c{position:absolute;top:0;left:0;color:#00ffe0;opacity:0;pointer-events:none;z-index:1;}
+.glitch-b{position:absolute;top:0;left:0;color:var(--sky);opacity:0;pointer-events:none;z-index:2;}
+.hero-noise{position:absolute;inset:0;opacity:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");background-size:200px;pointer-events:none;z-index:4;mix-blend-mode:overlay;}
+@keyframes heroSteadyPulse{0%,100%{opacity:.5;filter:blur(9px);}50%{opacity:.95;filter:blur(17px);}}
+.glow-pulsing{animation:heroSteadyPulse 4.5s ease-in-out infinite;}
 
 .hero-bottom{
   margin-top:1.2rem;
@@ -224,6 +233,8 @@ a.hstat{text-decoration:none;}
 .btn-sky:hover{background:#7DD3FC;}
 .btn-ghost-w{background:transparent;color:rgba(255,255,255,.9);border:2px solid rgba(255,255,255,.45);line-height:1;}
 .btn-ghost-w:hover{border-color:var(--sky);background:var(--sky);color:var(--navy);}
+.btn-sky-outline{background:transparent;color:var(--sky);border:2px solid var(--sky);line-height:1;}
+.btn-sky-outline:hover{background:var(--sky);color:#fff;}
 .btn-navy{background:var(--navy);color:var(--white);}
 .btn-navy:hover{background:var(--sky);color:var(--navy);}
 .btn-outline{background:transparent;color:var(--navy);border:2px solid rgba(31,45,61,.3);}
@@ -252,59 +263,72 @@ section{padding:5rem var(--pad);}
 .sec-h2-w{color:var(--white);}
 .sec-sub{font-size:.92rem;line-height:1.85;color:var(--muted);margin-top:1rem;}
 
+
 /* ─── WHO WE HELP ──────────────────────────── */
-#who{background:var(--warm);}
-.who-top{margin-bottom:2.5rem;}
-.who-top .sec-sub{max-width:520px;}
-.industries{
-  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:1rem;
+.who-pin-wrap{position:relative;height:calc(100vh + 3800px);}
+#who{background:var(--navy-mid);position:sticky;top:0;height:100vh;display:flex;align-items:center;justify-content:center;perspective:1200px;overflow:hidden;}
+.who-top{text-align:center;position:relative;z-index:1;transform-style:preserve-3d;will-change:transform,opacity;}
+.who-top .sec-h2{color:#fff;}
+.industries{position:absolute;inset:0;pointer-events:none;}
+.ind{
+  position:absolute;
+  top:50%;left:50%;
+  width:min(240px,44vw);
+  aspect-ratio:1/1;
+  overflow:hidden;
+  pointer-events:none;
+  will-change:transform;
+  -webkit-font-smoothing:antialiased;
 }
-.ind{background:var(--white);border:1px solid var(--border);border-top:2px solid var(--sky);border-radius:12px;padding:1.5rem 1.3rem;display:flex;align-items:flex-start;gap:.9rem;transition:background .2s,box-shadow .2s,border-color .2s,transform .2s;color:inherit;text-decoration:none;min-width:0;}
-.industries .ind:hover{background:var(--sky-pale);box-shadow:0 8px 28px rgba(56,189,248,.14);border-color:rgba(56,189,248,.4);transform:translateY(-4px);}
-.ind-icon{font-size:1.4rem;flex-shrink:0;line-height:1;margin-top:.05rem;}
-@media(max-width:639px){.ind-icon{font-size:1.1rem;}}
-.ind > div:last-child{min-width:0;flex:1;overflow:hidden;}
-.ind-name{font-family:'Josefin Sans',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;margin-bottom:.25rem;color:var(--navy);word-break:break-word;overflow-wrap:break-word;}
-.ind-desc{font-size:.75rem;color:var(--muted);line-height:1.6;word-break:break-word;}
-@media(max-width:639px){.ind{padding:1rem .9rem;gap:.6rem;}.ind-name{font-size:.68rem;letter-spacing:.03em;}.ind-desc{font-size:.7rem;}}
-@media(min-width:640px){.industries{grid-template-columns:repeat(3,minmax(0,1fr));}}
+@media(min-width:820px){
+  .ind{width:min(460px,33vw);aspect-ratio:4/3;}
+  .ind .ind-name{font-size:20px!important;margin-bottom:10px!important;}
+  .ind .ind-desc{font-size:14px!important;line-height:1.6!important;}
+}
+@media(max-width:1100px){.ind-desc{display:none;}}
+@media(max-width:819px){.ind .ind-name{margin-bottom:0;font-size:13px!important;letter-spacing:0!important;height:34px;overflow:hidden;}}
+.who-cta{position:absolute;bottom:2.2rem;left:50%;transform:translateX(-50%);font-family:'Josefin Sans',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);opacity:0;pointer-events:none;white-space:nowrap;}
+@media(min-width:820px){.who-cta{font-size:.9rem;}}
+.who-services-label{position:absolute;top:calc(var(--nav-h) + 3.2rem);left:var(--pad);font-family:'Josefin Sans',sans-serif;font-size:clamp(2rem,5vw,4rem);font-weight:700;letter-spacing:.06em;text-transform:uppercase;opacity:0;pointer-events:none;z-index:10;line-height:1;}
+@media(max-width:819px){.who-services-label{top:calc(var(--nav-h) + 2.2rem);}}
+.wsl-our{color:#fff;}
+.wsl-services{background:linear-gradient(90deg,var(--sky) 0%,#fff 40%,var(--sky) 60%,var(--sky) 100%);background-size:200% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:shimmer 3s linear infinite;}
+@keyframes shimmer{0%{background-position:200% center;}100%{background-position:-200% center;}}
+.ind{transition:translate .25s ease;}
+.ind.ind-visible{pointer-events:all;cursor:pointer;}
+@media(min-width:820px){.ind.ind-visible:hover{translate:0 -10px;filter:brightness(0.97);box-shadow:0 16px 40px rgba(0,0,0,.2);}}
 
 /* ─── SERVICES ─────────────────────────────── */
-#services{background:var(--white);}
+.svc-pin-wrap{position:relative;height:calc(100vh + 2400px);}
+#services{background:var(--off);position:sticky;top:var(--nav-h);height:calc(100vh - var(--nav-h));overflow:hidden;}
 .svc-header{margin-bottom:2rem;}
 .svc-header-row{display:flex;align-items:flex-end;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;margin-top:1.8rem;}
 .svc-rows{border-top:1px solid var(--border);}
 .svc-row{
-  display:flex;flex-direction:column;gap:.8rem;
-  padding:2rem 1rem;border-bottom:1px solid var(--border);
+  will-change:transform;
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  padding:1.2rem 0;border-bottom:1px solid var(--border);
   text-decoration:none;color:inherit;cursor:pointer;
-  border-radius:8px;margin:0 -1rem;
-  transition:background .2s;
+  transition:border-color .2s;
 }
-.svc-row:hover{background:var(--off);}
-.svc-row-top{display:flex;align-items:flex-start;gap:1rem;}
-.svc-num{font-family:'Josefin Sans',sans-serif;font-weight:700;font-size:1rem;letter-spacing:.06em;color:var(--sky);flex-shrink:0;padding-top:.2rem;}
-.svc-name{font-family:'Josefin Sans',sans-serif;font-weight:700;font-size:1.25rem;text-transform:uppercase;letter-spacing:.04em;line-height:1.1;color:var(--navy);}
-.svc-desc{font-size:.85rem;line-height:1.8;color:var(--muted);padding-left:2.1rem;}
-.svc-tags{display:flex;gap:.4rem;flex-wrap:wrap;padding-left:2.1rem;}
-.stag{font-family:'Josefin Sans',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:.25rem .7rem;border-radius:100px;border:1px solid var(--border);color:var(--muted);}
-
-/* Desktop services layout */
-@media(min-width:800px){
-  .svc-row{
-    display:grid;grid-template-columns:60px 1fr 1fr 1fr;
-    align-items:start;gap:2.5rem;flex-direction:unset;
-  }
-  .svc-row-top{display:contents;}
-  .svc-desc{padding-left:0;}
-  .svc-tags{padding-left:0;align-self:start;}
-  .svc-arr{font-size:1.4rem;color:var(--border);align-self:center;transition:color .2s,transform .22s;}
-  .svc-row:hover .svc-arr{color:var(--sky);transform:translate(4px,-4px);}
-  .svc-row:hover .stag{border-color:rgba(56,189,248,.4);color:var(--sky);}
-  .svc-name{font-size:1.4rem;}
+.svc-row:hover{border-bottom-color:var(--sky);}
+.svc-row-main{flex:1;}
+.svc-name{font-family:'Josefin Sans',sans-serif;font-weight:700;font-size:clamp(1.6rem,5.5vw,2.2rem);text-transform:uppercase;letter-spacing:.03em;line-height:1;color:var(--navy);transition:color .25s;}
+.svc-row:hover .svc-name{color:var(--sky);}
+.svc-tag{font-size:.8rem;color:var(--muted);margin-top:.35rem;line-height:1.4;}
+.svc-arr{font-size:1.8rem;color:var(--border);transition:color .25s,transform .25s;flex-shrink:0;line-height:1;}
+.svc-row:hover .svc-arr{color:var(--sky);transform:translate(5px,-5px);}
+@media(min-width:820px){
+  #services{display:block;padding-top:4rem;padding-bottom:4rem;}
+  .svc-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:3rem;padding-top:0;margin-left:0;padding-left:0;padding-right:0;}
+  .svc-header .sec-h2{font-size:clamp(1rem,1.6vw,1.4rem);line-height:1;text-transform:uppercase;letter-spacing:.12em;}
+  .svc-rows{border-top:1px solid var(--border);}
+  .svc-row{flex:none;padding:1.4rem 0;}
+  .svc-name{font-size:clamp(2.8rem,5vw,5rem);}
+  .svc-tag{font-size:.88rem;margin-top:.5rem;}
+  .svc-arr{font-size:2.4rem;}
 }
-@media(max-width:799px){.svc-arr{display:none;}}
+@media(max-width:819px){.svc-arr{display:none;}}
 
 /* ─── PROCESS ──────────────────────────────── */
 #process{background:var(--navy-deep);border-top:2px solid rgba(56,189,248,.15);}
@@ -349,7 +373,11 @@ section{padding:5rem var(--pad);}
 .testi-q{font-size:.87rem;line-height:1.85;color:#445566;margin-bottom:1.5rem;flex:1;}
 .testi-auth{display:flex;align-items:center;gap:.85rem;}
 .testi-av{width:42px;height:42px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:'Josefin Sans',sans-serif;font-size:.78rem;font-weight:700;color:#fff;}
-.av-blue{background:#0369A1;}.av-green{background:#1F2D3D;}.av-red{background:#0D6B86;}.av-yellow{background:#0284C7;}
+.av-blue{background:#BFD9F5;color:#1a4a7a!important;}.av-green{background:#B8EAC8;color:#1a4a2a!important;}.av-red{background:#F5C0C0;color:#7a1a1a!important;}.av-yellow{background:#FDE8A0;color:#7a5a00!important;}
+.testi-cell:has(.av-blue){border-color:#BFD9F5;}
+.testi-cell:has(.av-green){border-color:#B8EAC8;}
+.testi-cell:has(.av-red){border-color:#F5C0C0;}
+.testi-cell:has(.av-yellow){border-color:#FDE8A0;}
 .testi-name{font-family:'Josefin Sans',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--navy);}
 .testi-biz{font-size:.7rem;color:var(--muted);margin-top:.15rem;}
 /* Mobile carousel */
@@ -480,27 +508,6 @@ footer{background:#141C25;border-top:1px solid rgba(255,255,255,.05);}
 }
 
 /* Hero h1 line-by-line reveal */
-.hero-h1{animation:none!important;}
-.h1-line{display:block;line-height:.93;clip-path:inset(-0.25em 0 0 0);}
-.h1-inner{display:block;transform:translateY(110%);animation:lineUp .85s cubic-bezier(0.16,1,0.3,1) both;}
-
-/* Phone ring shake on "ringing." - buzzes 3 times then pauses */
-@keyframes phoneRing{
-  0%,100%{transform:translateX(0) rotate(0deg)}
-  2%{transform:translateX(-3px) rotate(-.4deg)}
-  4%{transform:translateX(3px) rotate(.4deg)}
-  6%{transform:translateX(-3px) rotate(-.4deg)}
-  8%{transform:translateX(3px) rotate(.4deg)}
-  11%{transform:translateX(-2px) rotate(-.2deg)}
-  13%{transform:translateX(2px) rotate(.2deg)}
-  16%{transform:translateX(-1px)}
-  18%{transform:translateX(0) rotate(0deg)}
-}
-.hero-h1 .acc{color:var(--sky);display:inline-block;animation:phoneRing 4s 1.2s ease-in-out infinite;}
-.h1-line:nth-child(1) .h1-inner{animation-delay:.1s;}
-.h1-line:nth-child(2) .h1-inner{animation-delay:.26s;}
-.h1-line:nth-child(3) .h1-inner{animation-delay:.42s;}
-@keyframes lineUp{from{transform:translateY(110%)}to{transform:translateY(0)}}
 
 /* Cursor glow */
 #cursor-glow{
@@ -522,8 +529,6 @@ footer{background:#141C25;border-top:1px solid rgba(255,255,255,.05);}
 .svc-rows .reveal{transform:translateX(-18px);}
 .svc-rows .reveal.visible{transform:translateX(0);}
 .svc-row{position:relative;}
-.svc-row::before{content:'';position:absolute;left:-8px;top:0;bottom:0;width:2px;background:var(--sky);transform:scaleY(0);transform-origin:bottom;transition:transform .35s ease;}
-.svc-row:hover::before{transform:scaleY(1);}
 
 .plan.feat:hover{transform:translateY(-6px);box-shadow:0 0 50px rgba(56,189,248,.3),0 16px 50px rgba(0,0,0,.35);}
 
@@ -531,6 +536,7 @@ footer{background:#141C25;border-top:1px solid rgba(255,255,255,.05);}
 .btn-sky{box-shadow:0 4px 18px rgba(56,189,248,.28);}
 .btn-sky:hover{background:#7DD3FC;box-shadow:0 8px 32px rgba(56,189,248,.45);transform:translateY(-2px);}
 .btn-ghost-w:hover{border-color:var(--sky);background:var(--sky);color:var(--navy);transform:translateY(-2px);}
+.btn-ghost-w-plain:hover{border-color:#fff!important;background:#fff!important;color:var(--navy)!important;transform:translateY(-2px);}
 .btn-navy:hover{background:var(--sky);color:var(--navy);transform:translateY(-2px);}
 
 /* Testimonial hover lift — handled in main block */
@@ -709,19 +715,39 @@ footer{background:#141C25;border-top:1px solid rgba(255,255,255,.05);}
 
 /* ─── MOBILE STICKY CTA ─────────────────────── */
 #mob-bar{position:fixed;bottom:0;left:0;right:0;z-index:101;background:var(--navy);border-top:1px solid rgba(255,255,255,.08);box-shadow:0 -4px 24px rgba(0,0,0,.18);display:flex;gap:.5rem;padding:.6rem .9rem;padding-bottom:calc(.6rem + env(safe-area-inset-bottom,0px));}
-#mob-bar .mb-call{flex:1.4;display:flex;align-items:center;justify-content:center;gap:.45rem;background:var(--sky);color:var(--navy);border-radius:100px;padding:.7rem .5rem;font-family:'Josefin Sans',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;-webkit-tap-highlight-color:transparent;}
-#mob-bar .mb-audit{flex:1;display:flex;align-items:center;justify-content:center;background:transparent;color:rgba(255,255,255,.75);border:1px solid rgba(255,255,255,.2);border-radius:100px;padding:.7rem .5rem;font-family:'Josefin Sans',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;-webkit-tap-highlight-color:transparent;}
+#mob-bar .mb-call{flex:1.4;display:flex;align-items:center;justify-content:center;gap:.45rem;background:transparent;color:var(--sky);border:1.5px solid var(--sky);border-radius:100px;padding:.7rem .5rem;font-family:'Josefin Sans',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;-webkit-tap-highlight-color:transparent;}
+#mob-bar .mb-audit{flex:1;display:flex;align-items:center;justify-content:center;background:transparent;color:#fff;border:1.5px solid #fff;border-radius:100px;padding:.7rem .5rem;font-family:'Josefin Sans',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;-webkit-tap-highlight-color:transparent;}
 @media(min-width:860px){#mob-bar{display:none;}}
 @media(max-width:859px){body{padding-bottom:calc(62px + env(safe-area-inset-bottom,0px));}}
 
+/* ─── INDUSTRY CARD ANIMATIONS ──────────────── */
+
 /* ─── ABOUT SECTION ─────────────────────────── */
-.about-mobile-heading{display:none;}
+#about{background:var(--navy-mid);padding:0;overflow:hidden;}
+.about-grid{display:grid;grid-template-columns:1fr 1.4fr;min-height:1000px;}
+.about-img-col{position:relative;overflow:hidden;}
+.about-img-col img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;display:block;}
+.about-img-col::after{content:'';position:absolute;top:0;right:0;bottom:0;width:180px;background:linear-gradient(to right,transparent,var(--navy-mid));z-index:1;}
+.about-text-col{padding:5rem 5rem 5rem 2rem;display:flex;flex-direction:column;justify-content:center;}
+.about-sig{display:flex;align-items:center;gap:1.1rem;margin-bottom:2rem;}
+.about-sig-photo{width:58px;height:58px;border-radius:50%;object-fit:cover;object-position:center 15%;border:2px solid rgba(56,189,248,.35);flex-shrink:0;}
+.about-sig-name{font-family:'Pinyon Script',cursive;font-size:2rem;color:#fff;line-height:1.1;}
+.about-sig-role{font-family:'Josefin Sans',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-top:.25rem;}
+.about-h{color:#fff!important;margin:1rem 0 1.5rem;}
+.about-body{font-size:.93rem;color:rgba(255,255,255,.65);line-height:1.9;margin-bottom:1.2rem;}
+.about-body strong{color:rgba(255,255,255,.9);font-weight:600;}
+.about-trust{display:flex;margin:2rem 0 2.4rem;border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08);}
+.about-trust-item{flex:1;padding:1.1rem 0;display:flex;flex-direction:column;gap:.3rem;border-right:1px solid rgba(255,255,255,.08);}
+.about-trust-item:last-child{border-right:none;padding-left:1.5rem;}
+.about-trust-item:not(:first-child){padding-left:1.5rem;}
+.about-trust-val{font-family:'Josefin Sans',sans-serif;font-size:.95rem;font-weight:700;letter-spacing:.02em;color:#fff;}
+.about-trust-lbl{font-family:'Josefin Sans',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.38);}
 @media(max-width:820px){
-  .about-grid{grid-template-columns:1fr!important;gap:2.5rem!important;}
-  .about-img-wrap{max-width:420px;margin:0 auto;width:100%;}
-  .about-mobile-heading{display:block;}
-  .about-desktop-heading{display:none;}
-  #about{padding-top:2rem!important;}
+  .about-grid{grid-template-columns:1fr;}
+  .about-img-col{min-height:380px;}
+  .about-img-col::after{width:100%;height:120px;top:auto;right:0;left:0;bottom:0;background:linear-gradient(to bottom,transparent,var(--navy-mid));}
+  .about-text-col{padding:2.5rem var(--pad) 3.5rem;}
+  .about-trust-val{font-size:.82rem;}
 }
 
 /* ─── LOCATIONS GRID ────────────────────────── */
@@ -884,207 +910,185 @@ footer{background:#141C25;border-top:1px solid rgba(255,255,255,.05);}
 
 <!-- HERO -->
 <section id="hero">
-  <video class="hero-photo" autoplay muted loop playsinline poster="/images/general/haylo-og-share.jpg">
+  <video class="hero-photo" autoplay muted playsinline id="heroVideo">
     <source src="/images/general/haylo-hero-videoV2.mp4" type="video/mp4">
   </video>
   <div class="hero-overlay"></div>
   <div class="hero-photo-fallback"></div>
   <div class="hero-glow-1"></div>
   <div class="hero-glow-2"></div>
-  <div class="hero-grid"></div>
-  <div class="hero-badge"><span class="pip"></span>Local Marketing for Small Businesses · Sunshine Coast</div>
-  <h1 class="hero-h1">
-    <span class="h1-line"><span class="h1-inner">Your phone</span></span>
-    <span class="h1-line"><span class="h1-inner">should be</span></span>
-    <span class="h1-line"><span class="h1-inner"><span class="acc">ringing.</span></span></span>
-  </h1>
-  <h2 style="font-family:'Josefin Sans',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(56,189,248,.9);margin-top:1rem;animation:fadeUp .7s .12s ease both;">Google Maps &amp; Local SEO for Sunshine Coast Small Businesses</h2>
+  <div class="hero-noise" id="heroNoise"></div>
+
+  <div class="hero-h1-wrap" id="heroH1Wrap">
+    <div class="hero-h1" id="heroH1">
+      <span>Turn on</span><br>
+      <span>your</span><br>
+      <span class="vis-glow-wrap">
+        <span class="vis-glow" id="visGlow" aria-hidden="true">visibility.</span>
+        <span class="vis-crisp" id="visWord">visibility.</span>
+      </span>
+    </div>
+    <div class="hero-h1 glitch-r" id="glitchR" aria-hidden="true"><span>Turn on</span><br><span>your</span><br><span>visibility.</span></div>
+    <div class="hero-h1 glitch-c" id="glitchC" aria-hidden="true"><span>Turn on</span><br><span>your</span><br><span>visibility.</span></div>
+    <div class="hero-h1 glitch-b" id="glitchB" aria-hidden="true"><span>Turn on</span><br><span>your</span><br><span>visibility.</span></div>
+  </div>
+
   <div class="hero-bottom">
-    <p class="hero-sub">We help <strong>Sunshine Coast small businesses</strong> rank higher on Google Maps, build genuine 5-star reviews, and attract more local leads - tradies, cleaners, services and more. No lock-in contracts.</p>
     <div class="hero-actions">
-      <a href="#cta" class="btn btn-sky">Get My Free Audit →</a>
-      <a href="#services" class="btn btn-ghost-w">See What We Do</a>
+      <a href="#cta" class="btn btn-ghost-w" style="background:#ffffff;color:var(--navy);border:none;">Get My Free Audit →</a>
+      <a href="#services" class="btn btn-ghost-w btn-ghost-w-plain">See What We Do</a>
     </div>
   </div>
 </section>
 
-<!-- MARQUEE -->
-<div class="marquee-wrap" aria-hidden="true">
-  <div class="marquee-track">
-    <div class="marquee-item">Google Business Profile</div>
-    <div class="marquee-item">Facebook Management</div>
-    <div class="marquee-item">More Calls</div>
-    <div class="marquee-item">Local SEO</div>
-    <div class="marquee-item">Review Management</div>
-    <div class="marquee-item">Sunshine Coast</div>
-    <div class="marquee-item">Service Businesses</div>
-    <div class="marquee-item">More Customers</div>
-    <div class="marquee-item">Google Business Profile</div>
-    <div class="marquee-item">Facebook Management</div>
-    <div class="marquee-item">More Calls</div>
-    <div class="marquee-item">Local SEO</div>
-    <div class="marquee-item">Review Management</div>
-    <div class="marquee-item">Sunshine Coast</div>
-    <div class="marquee-item">Service Businesses</div>
-    <div class="marquee-item">More Customers</div>
+
+<!-- SERVICES (animated cards) -->
+<div class="who-pin-wrap">
+<section id="who">
+  <div class="who-top">
+    <div>
+      <h2 class="sec-h2" style="font-size:clamp(2.6rem,9vw,5.5rem);">Built for <em>small businesses.</em></h2>
+    </div>
   </div>
+  <div class="who-cta">Select a service to learn more ↑</div>
+  <div class="who-services-label"><span class="wsl-our">Our</span> <span class="wsl-services">Services</span></div>
+  <div class="industries">
+    <a class="ind ind-anim" href="/google-business-profile/" style="background:#e0f5ff;border:8px solid #7dd9f8;border-radius:18px;padding:26px 22px 22px;text-decoration:none;display:flex;flex-direction:column;">
+      <div class="ind-icon" style="width:44px;height:44px;border-radius:12px;background:#b8ecff;display:flex;align-items:center;justify-content:center;margin-bottom:16px;flex-shrink:0;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0797c8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      </div>
+      <div class="ind-name" style="color:#054e72;font-size:15px;font-weight:700;margin-bottom:7px;line-height:1.25;text-transform:none;letter-spacing:0;padding:0;background:none;border:none;box-shadow:none;white-space:normal;border-radius:0;">Google Maps Visibility</div>
+      <div class="ind-desc" style="color:#2d7fa0;font-size:13px;line-height:1.55;flex-grow:1;">Show up when locals search. We get your business ranking in the Google Maps 3-pack for the searches that matter.</div>
+      <span style="color:#0797c8;font-size:11.5px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;margin-top:auto;display:block;padding-top:12px;">Learn more →</span>
+    </a>
+    <a class="ind ind-anim" href="/google-business-profile/" style="background:#38bdf8;border:8px solid transparent;border-radius:18px;padding:26px 22px 22px;text-decoration:none;display:flex;flex-direction:column;">
+      <div class="ind-icon" style="width:44px;height:44px;border-radius:12px;background:rgba(255,255,255,0.25);display:flex;align-items:center;justify-content:center;margin-bottom:16px;flex-shrink:0;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>
+      </div>
+      <div class="ind-name" style="color:#fff;font-size:15px;font-weight:700;margin-bottom:7px;line-height:1.25;text-transform:none;letter-spacing:0;padding:0;background:none;border:none;box-shadow:none;white-space:normal;border-radius:0;">Google Business Profile</div>
+      <div class="ind-desc" style="color:rgba(255,255,255,0.8);font-size:13px;line-height:1.55;flex-grow:1;">Your GBP is your digital shopfront. We set it up, optimise it, and keep it working hard for you every day.</div>
+      <span style="color:#fff;font-size:11.5px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;margin-top:auto;display:block;padding-top:12px;">Learn more →</span>
+    </a>
+    <a class="ind ind-anim" href="/#services" style="background:#edfce8;border:8px solid #90e07a;border-radius:18px;padding:26px 22px 22px;text-decoration:none;display:flex;flex-direction:column;">
+      <div class="ind-icon" style="width:44px;height:44px;border-radius:12px;background:#c6f5ba;display:flex;align-items:center;justify-content:center;margin-bottom:16px;flex-shrink:0;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2e8a18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </div>
+      <div class="ind-name" style="color:#1a4d10;font-size:15px;font-weight:700;margin-bottom:7px;line-height:1.25;text-transform:none;letter-spacing:0;padding:0;background:none;border:none;box-shadow:none;white-space:normal;border-radius:0;">Local SEO &amp; Google Ranking</div>
+      <div class="ind-desc" style="color:#3a7a28;font-size:13px;line-height:1.55;flex-grow:1;">Rank higher in local search. We optimise your presence so customers in your area find you first — not your competitor.</div>
+      <span style="color:#2e8a18;font-size:11.5px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;margin-top:auto;display:block;padding-top:12px;">Learn more →</span>
+    </a>
+    <a class="ind ind-anim" href="/review-generation/" style="background:#fff8e6;border:8px solid #fcd06a;border-radius:18px;padding:26px 22px 22px;text-decoration:none;display:flex;flex-direction:column;">
+      <div class="ind-icon" style="width:44px;height:44px;border-radius:12px;background:#fdeebb;display:flex;align-items:center;justify-content:center;margin-bottom:16px;flex-shrink:0;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c47d00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <div class="ind-name" style="color:#5c3800;font-size:15px;font-weight:700;margin-bottom:7px;line-height:1.25;text-transform:none;letter-spacing:0;padding:0;background:none;border:none;box-shadow:none;white-space:normal;border-radius:0;">Reputation &amp; Review Generation</div>
+      <div class="ind-desc" style="color:#9a6010;font-size:13px;line-height:1.55;flex-grow:1;">More 5-star reviews, automatically. Build genuine social proof that converts browsers into paying customers.</div>
+      <span style="color:#c47d00;font-size:11.5px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;margin-top:auto;display:block;padding-top:12px;">Learn more →</span>
+    </a>
+    <a class="ind ind-anim" href="/facebook/" style="background:#fff0f2;border:8px solid #ffaab8;border-radius:18px;padding:26px 22px 22px;text-decoration:none;display:flex;flex-direction:column;">
+      <div class="ind-icon" style="width:44px;height:44px;border-radius:12px;background:#ffd4db;display:flex;align-items:center;justify-content:center;margin-bottom:16px;flex-shrink:0;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#d42050" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2H7a5 5 0 00-5 5v10a5 5 0 005 5h10a5 5 0 005-5V7a5 5 0 00-5-5z"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </div>
+      <div class="ind-name" style="color:#6b0015;font-size:15px;font-weight:700;margin-bottom:7px;line-height:1.25;text-transform:none;letter-spacing:0;padding:0;background:none;border:none;box-shadow:none;white-space:normal;border-radius:0;">Social Media &amp; Content</div>
+      <div class="ind-desc" style="color:#b02040;font-size:13px;line-height:1.55;flex-grow:1;">Consistent, on-brand content that keeps your business visible and builds trust with your local audience.</div>
+      <span style="color:#d42050;font-size:11.5px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;margin-top:auto;display:block;padding-top:12px;">Learn more →</span>
+    </a>
+    <a class="ind ind-anim" href="/#services" style="background:#f2effe;border:8px solid #b8a8f8;border-radius:18px;padding:26px 22px 22px;text-decoration:none;display:flex;flex-direction:column;">
+      <div class="ind-icon" style="width:44px;height:44px;border-radius:12px;background:#d8d0fc;display:flex;align-items:center;justify-content:center;margin-bottom:16px;flex-shrink:0;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6840d8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91A16 16 0 0015.1 17.9l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+      </div>
+      <div class="ind-name" style="color:#1e0a5c;font-size:15px;font-weight:700;margin-bottom:7px;line-height:1.25;text-transform:none;letter-spacing:0;padding:0;background:none;border:none;box-shadow:none;white-space:normal;border-radius:0;">Lead &amp; Enquiry Generation</div>
+      <div class="ind-desc" style="color:#5538b0;font-size:13px;line-height:1.55;flex-grow:1;">Turn your online visibility into real enquiries. We build the local presence that makes your phone ring.</div>
+      <span style="color:#6840d8;font-size:11.5px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;margin-top:auto;display:block;padding-top:12px;">Learn more →</span>
+    </a>
+  </div>
+</section>
 </div>
 
-<!-- WHO WE HELP -->
-<section id="who" style="background:var(--off);">
-  <div class="who-top reveal">
-    <div>
-      <span class="eyebrow">Sunshine Coast Small Businesses Marketing</span>
-      <h2 class="sec-h2">Built for local businesses<br>who want <em>more customers.</em></h2>
-    </div>
-    <p class="sec-sub">If you show up, do the job right, and deliver - you deserve a full calendar. Haylo specialises in Google Maps and local SEO for small businesses across the Sunshine Coast - tradies, cleaners, health, home services and more.</p>
-  </div>
-  <div class="industries reveal">
-    <a href="/google-marketing-for-cleaners/" class="ind"><div class="ind-icon">🧹</div><div><div class="ind-name">Cleaning Businesses</div><div class="ind-desc">Residential, commercial, end-of-lease, carpet &amp; window cleaners.</div></div></a>
-    <a href="/marketing-for-tradies/" class="ind"><div class="ind-icon">🔧</div><div><div class="ind-name">Trades &amp; Construction</div><div class="ind-desc">Plumbers, electricians, roofers, tilers, concreters &amp; painters.</div></div></a>
-    <a href="/google-marketing-for-garden-outdoor/" class="ind"><div class="ind-icon">🌿</div><div><div class="ind-name">Garden &amp; Outdoor</div><div class="ind-desc">Landscapers, lawn mowing, garden maintenance &amp; pest control.</div></div></a>
-    <a href="/google-marketing-for-home-services/" class="ind"><div class="ind-icon">🏠</div><div><div class="ind-name">Home Services</div><div class="ind-desc">Removalists, handymen, pool care, pressure washing &amp; more.</div></div></a>
-    <a href="/google-marketing-for-auto-mechanical/" class="ind"><div class="ind-icon">🚗</div><div><div class="ind-name">Auto &amp; Mechanical</div><div class="ind-desc">Mechanics, detailers, panel beaters &amp; mobile tyre services.</div></div></a>
-    <a href="/google-marketing-for-health-wellness/" class="ind"><div class="ind-icon">💆</div><div><div class="ind-name">Health &amp; Wellness</div><div class="ind-desc">Physios, chiropractors, massage therapists &amp; beauty salons.</div></div></a>
-  </div>
-</section>
-
-<!-- SERVICES -->
+<!-- WHO WE HELP (industries) -->
+<div class="svc-pin-wrap">
 <section id="services">
   <div class="svc-header reveal">
     <div>
-      <span class="eyebrow">Local Marketing Services · Sunshine Coast</span>
-      <h2 class="sec-h2">How we grow your<br><em>local presence.</em></h2>
+      <h2 class="sec-h2">Who we <em>help.</em></h2>
     </div>
     <div class="svc-header-row">
-      <a href="#cta" class="btn btn-navy">Start a Conversation →</a>
+      <a href="#cta" class="btn btn-sky-outline">Start a Conversation →</a>
     </div>
   </div>
   <div class="svc-rows">
-    <a href="/google-business-profile/" class="svc-row reveal">
-      <div class="svc-row-top">
-        <div class="svc-num">01</div>
-        <div class="svc-name">Google Business Profile</div>
+    <a href="/google-marketing-for-cleaners/" class="svc-row">
+      <div class="svc-row-main">
+        <div class="svc-name">Cleaning Businesses</div>
+        <div class="svc-tag">Get found before the big franchises</div>
       </div>
-      <div class="svc-desc">Your Google profile is your #1 local asset. We fully optimise every element - categories, keywords, photos, posts, Q&amp;As - so you appear at the top of Google Maps when nearby customers search for your service.</div>
-      <div class="svc-tags"><span class="stag">Google Maps</span><span class="stag">Local SEO</span><span class="stag">Reviews</span></div>
       <div class="svc-arr">↗</div>
     </a>
-    <a href="/facebook/" class="svc-row reveal">
-      <div class="svc-row-top">
-        <div class="svc-num">02</div>
-        <div class="svc-name">Facebook Business Page</div>
+    <a href="/marketing-for-tradies/" class="svc-row">
+      <div class="svc-row-main">
+        <div class="svc-name">Trades &amp; Construction</div>
+        <div class="svc-tag">More calls from locals, less chasing work</div>
       </div>
-      <div class="svc-desc">We transform your Facebook page into a lead machine - complete profile overhaul, consistent content, local targeting, and active community management that builds trust and drives real enquiries.</div>
-      <div class="svc-tags"><span class="stag">Content</span><span class="stag">Targeting</span><span class="stag">Engagement</span></div>
       <div class="svc-arr">↗</div>
     </a>
-    <a href="/review-generation/" class="svc-row reveal">
-      <div class="svc-row-top">
-        <div class="svc-num">03</div>
-        <div class="svc-name">Review Generation &amp; Management</div>
+    <a href="/google-marketing-for-garden-outdoor/" class="svc-row">
+      <div class="svc-row-main">
+        <div class="svc-name">Garden &amp; Outdoors</div>
+        <div class="svc-tag">Show up when locals search for help</div>
       </div>
-      <div class="svc-desc">Five-star reviews are the fastest trust signal in local marketing. We implement proven systems to get more reviews from happy customers, and professionally respond to every one - building your reputation on autopilot.</div>
-      <div class="svc-tags"><span class="stag">Google Reviews</span><span class="stag">Facebook</span><span class="stag">Reputation</span></div>
       <div class="svc-arr">↗</div>
     </a>
-    <a href="/reporting/" class="svc-row reveal">
-      <div class="svc-row-top">
-        <div class="svc-num">04</div>
-        <div class="svc-name">Local Visibility Reporting</div>
+    <a href="/google-marketing-for-home-services/" class="svc-row">
+      <div class="svc-row-main">
+        <div class="svc-name">Home Services</div>
+        <div class="svc-tag">Be the first name they find and call</div>
       </div>
-      <div class="svc-desc">A plain-English monthly report showing exactly what's happening - how many people saw your profile, clicked your number, asked for directions. No jargon, just the numbers that matter to your business.</div>
-      <div class="svc-tags"><span class="stag">Analytics</span><span class="stag">Call Tracking</span><span class="stag">Monthly Report</span></div>
+      <div class="svc-arr">↗</div>
+    </a>
+    <a href="/google-marketing-for-auto-mechanical/" class="svc-row">
+      <div class="svc-row-main">
+        <div class="svc-name">Auto &amp; Mechanical</div>
+        <div class="svc-tag">Turn local searches into booked jobs</div>
+      </div>
+      <div class="svc-arr">↗</div>
+    </a>
+    <a href="/google-marketing-for-health-wellness/" class="svc-row">
+      <div class="svc-row-main">
+        <div class="svc-name">Health &amp; Wellness</div>
+        <div class="svc-tag">Help more locals find the care they need</div>
+      </div>
       <div class="svc-arr">↗</div>
     </a>
   </div>
 </section>
-
-<!-- PROCESS -->
-<section id="process">
-  <div class="reveal">
-    <span class="eyebrow eyebrow-dark">Our Local SEO Process</span>
-    <h2 class="sec-h2 sec-h2-w">Simple by design.<br><em>Powerful</em> in practice.</h2>
-  </div>
-  <div class="proc-grid">
-    <div class="proc-cell reveal" data-n="01">
-      <div class="proc-n">01 - Audit</div>
-      <div class="proc-title">We find what's costing you customers.</div>
-      <p class="proc-desc">We do a free, thorough audit of your Google profile, Facebook page, and local search visibility - showing you exactly where you're losing customers to competitors right now.</p>
-    </div>
-    <div class="proc-cell reveal" data-n="02">
-      <div class="proc-n">02 - Optimise</div>
-      <div class="proc-title">We fix it. Fast.</div>
-      <p class="proc-desc">Within 48 hours of signing up we get to work - optimising your profiles, fixing gaps, adding keywords, refreshing photos, and setting up your review strategy from day one.</p>
-    </div>
-    <div class="proc-cell reveal" data-n="03">
-      <div class="proc-n">03 - Grow</div>
-      <div class="proc-title">Your phone starts ringing.</div>
-      <p class="proc-desc">As your profiles gain traction you'll start showing up higher in local searches, attracting more clicks, and - most importantly - more calls from customers ready to book.</p>
-    </div>
-    <div class="proc-cell reveal" data-n="04">
-      <div class="proc-n">04 - Report</div>
-      <div class="proc-title">You see exactly what's working.</div>
-      <p class="proc-desc">Every month you get a clear, honest report. We talk you through it, flag what we're doing next, and keep pushing to improve your numbers month after month.</p>
-    </div>
-  </div>
-</section>
+</div>
 
 <!-- ABOUT -->
-<section id="about" style="background:var(--warm);">
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;" class="about-grid">
-    <div class="about-mobile-heading reveal">
-      <span class="eyebrow">About Haylo</span>
-      <h2 class="sec-h2">Meet Sam - the person<br><em>behind Haylo.</em></h2>
+<section id="about">
+  <div class="about-grid">
+    <div class="about-img-col">
+      <img src="/images/general/about-me-fun.jpg" alt="Sam Davies, founder of Haylo — Sunshine Coast local marketing" loading="lazy">
     </div>
-    <div class="about-img-wrap reveal">
-      <img src="/images/general/about-me-fun.jpg" alt="Sam Davies, founder of Haylo — Sunshine Coast local marketing" loading="lazy" style="width:100%;border-radius:16px;display:block;box-shadow:0 20px 60px rgba(31,45,61,.15);">
-    </div>
-    <div class="reveal" style="padding-top:.5rem;">
-      <span class="eyebrow about-desktop-heading">About Haylo</span>
-      <h2 class="sec-h2 about-desktop-heading">Meet Sam - the person<br><em>behind Haylo.</em></h2>
-      <p style="font-size:.92rem;color:var(--muted);line-height:1.85;margin-bottom:1.4rem;">I started Haylo because I kept seeing the same thing: great local businesses doing excellent work, but barely showing up online. Customers were driving right past them and calling a competitor instead - simply because that competitor was easier to find on Google.</p>
-      <p style="font-size:.92rem;color:var(--muted);line-height:1.85;margin-bottom:1.4rem;">A lot of small business owners have told me: &ldquo;I tried marketing once and it didn&rsquo;t work.&rdquo; But here&rsquo;s the thing - if a barber completely butchers your hair, you don&rsquo;t swear off haircuts forever. You just think: right, I&rsquo;m not going back there. Then you find someone who listens. Someone who gets it. Someone you actually trust.</p>
-      <p style="font-size:.92rem;color:var(--muted);line-height:1.85;margin-bottom:1.4rem;">Marketing is the same. Most of the time it&rsquo;s not that marketing doesn&rsquo;t work - it&rsquo;s that the approach, the strategy, or the person doing it wasn&rsquo;t the right fit. Good marketing shouldn&rsquo;t feel confusing or like you&rsquo;re throwing money into the wind. It should feel clear, make sense, and most importantly - help the right customers find you.</p>
-      <p style="font-size:.92rem;color:var(--muted);line-height:1.85;margin-bottom:1.4rem;">I work with Sunshine Coast tradies, cleaners and service businesses to fix the basics that actually matter - your Google Business Profile, your reviews, your local visibility. Simple stuff, done properly, that brings real enquiries through the door.</p>
-      <p style="font-size:.92rem;color:var(--navy);font-weight:600;line-height:1.85;margin-bottom:2rem;">No lock-in contracts. No jargon. Just honest, practical help getting your business found.</p>
-      <a href="#cta" class="btn btn-sky">Get My Free Audit &rarr;</a>
-      <div style="margin-top:2.5rem;padding-top:2rem;border-top:1px solid var(--border);display:flex;align-items:center;gap:1.2rem;">
-        <img src="/images/general/about-me-crop.jpg" alt="Sam Davies, Founder of Haylo" style="width:150px;height:150px;border-radius:50%;object-fit:cover;object-position:center 15%;flex-shrink:0;border:3px solid var(--border);">
+    <div class="about-text-col reveal">
+      <div class="about-sig">
+        <img src="/images/general/about-me-crop.jpg" alt="Sam Davies" class="about-sig-photo">
         <div>
-          <div style="font-family:'Pinyon Script',cursive;font-size:2.2rem;color:var(--navy);line-height:1.2;">Sam Davies</div>
-          <div style="font-family:'Josefin Sans',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:.3rem;">Founder, Haylo</div>
+          <div class="about-sig-name">Sam Davies</div>
+          <div class="about-sig-role">Founder, Haylo</div>
         </div>
       </div>
+      <h2 class="sec-h2 sec-h2-w about-h">The person<br><em>behind Haylo.</em></h2>
+      <p class="about-body">I started Haylo because I kept seeing the same thing: great local businesses doing excellent work, but barely showing up online. Customers were driving right past them and calling a competitor instead -simply because that competitor was easier to find on Google.</p>
+      <p class="about-body">A lot of small business owners tell me: <strong>&ldquo;I tried marketing once and it didn&rsquo;t work.&rdquo;</strong> But here&rsquo;s the thing -if a barber completely butchers your hair, you don&rsquo;t swear off haircuts forever. You just think: right, I&rsquo;m not going back there. Then you find someone who listens. Someone who gets it. Someone you actually trust.</p>
+      <p class="about-body">Marketing is the same. Most of the time it&rsquo;s not that marketing doesn&rsquo;t work -it&rsquo;s that the approach, the strategy, or the person doing it wasn&rsquo;t the right fit. Good marketing shouldn&rsquo;t feel confusing or like you&rsquo;re throwing money into the wind. It should feel clear, make sense, and most importantly -help the right customers find you.</p>
+      <a href="#cta" class="btn btn-sky" style="width:fit-content;">Get My Free Audit &rarr;</a>
     </div>
   </div>
 </section>
-
-<!-- RESULTS -->
-<section id="results">
-  <div class="results-header reveal">
-    <div>
-      <span class="eyebrow">Results for Sunshine Coast Businesses</span>
-      <h2 class="sec-h2">Real improvements.<br><em>Realistic timeframes.</em></h2>
-      <p class="sec-sub" style="max-width:580px;margin-top:1rem;">Every business starts from a different point. Here&#39;s what most Sunshine Coast service businesses can realistically expect when they get their Google presence properly optimised.</p>
-      <a href="#cta" class="btn btn-navy" style="margin-top:1.8rem;">Start Your Audit →</a>
-    </div>
-  </div>
-  <div class="results-grid">
-    <div class="res-card reveal"><div class="res-biz">Google Business Profile</div><div class="res-num">Week 1</div><div class="res-label">Profile fully optimised, photos updated, categories and keywords aligned</div><div class="res-time">First visible lift in profile views</div></div>
-    <div class="res-card reveal"><div class="res-biz">Google Maps Visibility</div><div class="res-num">2-6 wks</div><div class="res-label">Improved ranking in local map results for your key search terms</div><div class="res-time">Timeline varies by competition level</div></div>
-    <div class="res-card reveal"><div class="res-biz">Review Profile</div><div class="res-num">Steady</div><div class="res-label">Consistent flow of new 5-star reviews as the request system kicks in</div><div class="res-time">Builds trust and improves ranking</div></div>
-    <div class="res-card reveal"><div class="res-biz">Call &amp; Enquiry Volume</div><div class="res-num">↑ More</div><div class="res-label">More calls and quote requests from Google as visibility improves</div><div class="res-time">Typically noticeable within 4-8 weeks</div></div>
-    <div class="res-card reveal"><div class="res-biz">Facebook Presence</div><div class="res-num">Active</div><div class="res-label">Consistent posting and engagement builds local trust and brand awareness</div><div class="res-time">Ongoing - compounding over time</div></div>
-    <div class="res-card reveal"><div class="res-biz">Monthly Reporting</div><div class="res-num">Clear</div><div class="res-label">Plain-English report showing profile views, call clicks and review growth</div><div class="res-time">Delivered every month, no jargon</div></div>
-  </div>
-</section>
-
 
 <!-- TESTIMONIALS -->
 <section id="testimonials">
   <div class="reveal">
-    <span class="eyebrow">What Clients Say</span>
     <h2 class="sec-h2">Don&#39;t take<br><em>our word</em> for it.</h2>
   </div>
   <div class="testi-grid">
@@ -1163,6 +1167,56 @@ footer{background:#141C25;border-top:1px solid rgba(255,255,255,.05);}
 
 </section>
 
+<!-- RESULTS -->
+<section id="results">
+  <div class="results-header reveal">
+    <div>
+      <span class="eyebrow">Results for Sunshine Coast Businesses</span>
+      <h2 class="sec-h2">Real improvements.<br><em>Realistic timeframes.</em></h2>
+      <p class="sec-sub" style="max-width:580px;margin-top:1rem;">Every business starts from a different point. Here&#39;s what most Sunshine Coast service businesses can realistically expect when they get their Google presence properly optimised.</p>
+      <a href="#cta" class="btn btn-navy" style="margin-top:1.8rem;">Start Your Audit →</a>
+    </div>
+  </div>
+  <div class="results-grid">
+    <div class="res-card reveal"><div class="res-biz">Google Business Profile</div><div class="res-num">Week 1</div><div class="res-label">Profile fully optimised, photos updated, categories and keywords aligned</div><div class="res-time">First visible lift in profile views</div></div>
+    <div class="res-card reveal"><div class="res-biz">Google Maps Visibility</div><div class="res-num">2-6 wks</div><div class="res-label">Improved ranking in local map results for your key search terms</div><div class="res-time">Timeline varies by competition level</div></div>
+    <div class="res-card reveal"><div class="res-biz">Review Profile</div><div class="res-num">Steady</div><div class="res-label">Consistent flow of new 5-star reviews as the request system kicks in</div><div class="res-time">Builds trust and improves ranking</div></div>
+    <div class="res-card reveal"><div class="res-biz">Call &amp; Enquiry Volume</div><div class="res-num">↑ More</div><div class="res-label">More calls and quote requests from Google as visibility improves</div><div class="res-time">Typically noticeable within 4-8 weeks</div></div>
+    <div class="res-card reveal"><div class="res-biz">Facebook Presence</div><div class="res-num">Active</div><div class="res-label">Consistent posting and engagement builds local trust and brand awareness</div><div class="res-time">Ongoing - compounding over time</div></div>
+    <div class="res-card reveal"><div class="res-biz">Monthly Reporting</div><div class="res-num">Clear</div><div class="res-label">Plain-English report showing profile views, call clicks and review growth</div><div class="res-time">Delivered every month, no jargon</div></div>
+  </div>
+</section>
+
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="reveal">
+    <span class="eyebrow eyebrow-dark">Our Local SEO Process</span>
+    <h2 class="sec-h2 sec-h2-w">Simple by design.<br><em>Powerful</em> in practice.</h2>
+  </div>
+  <div class="proc-grid">
+    <div class="proc-cell reveal" data-n="01">
+      <div class="proc-n">01 - Audit</div>
+      <div class="proc-title">We find what's costing you customers.</div>
+      <p class="proc-desc">We do a free, thorough audit of your Google profile, Facebook page, and local search visibility - showing you exactly where you're losing customers to competitors right now.</p>
+    </div>
+    <div class="proc-cell reveal" data-n="02">
+      <div class="proc-n">02 - Optimise</div>
+      <div class="proc-title">We fix it. Fast.</div>
+      <p class="proc-desc">Within 48 hours of signing up we get to work - optimising your profiles, fixing gaps, adding keywords, refreshing photos, and setting up your review strategy from day one.</p>
+    </div>
+    <div class="proc-cell reveal" data-n="03">
+      <div class="proc-n">03 - Grow</div>
+      <div class="proc-title">Your phone starts ringing.</div>
+      <p class="proc-desc">As your profiles gain traction you'll start showing up higher in local searches, attracting more clicks, and - most importantly - more calls from customers ready to book.</p>
+    </div>
+    <div class="proc-cell reveal" data-n="04">
+      <div class="proc-n">04 - Report</div>
+      <div class="proc-title">You see exactly what's working.</div>
+      <p class="proc-desc">Every month you get a clear, honest report. We talk you through it, flag what we're doing next, and keep pushing to improve your numbers month after month.</p>
+    </div>
+  </div>
+</section>
 
 <!-- PRICING -->
 <section id="pricing">
@@ -1500,6 +1554,8 @@ const revealObs = new IntersectionObserver((entries, obs) => {
 }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
+
+
 // - COUNT-UP NUMBERS -
 function countUp(el) {
   const target = parseFloat(el.dataset.target);
@@ -1520,6 +1576,132 @@ const countObs = new IntersectionObserver((entries, obs) => {
   });
 }, { threshold: 0.5 });
 document.querySelectorAll('[data-target]').forEach(el => countObs.observe(el));
+
+// - INDUSTRY CARD SCROLL-DRIVEN (STICKY PIN) -
+(function() {
+  var wrap = document.querySelector('.who-pin-wrap');
+  var section = document.getElementById('who');
+  var cards = section ? [...section.querySelectorAll('.ind-anim')] : [];
+  var whoTop = section ? section.querySelector('.who-top') : null;
+  var whoCta = section ? section.querySelector('.who-cta') : null;
+  var whoServicesLabel = section ? section.querySelector('.who-services-label') : null;
+  if (!wrap || !section || !cards.length) return;
+
+  var cfg = [
+    [-58, -55, 0, -4,  6, 0],
+    [ 58, -55, 0,  6, -4, 0],
+    [-58,  55, 0, -6, -2, 0],
+    [ 58,  55, 0,  4,  4, 0],
+    [  0, -62, 0, -2,  2, 0],
+    [  0,  62, 0,  0,  0, 0]
+  ];
+
+  var STACK_SCROLL = 2400;
+  var GRID_SCROLL  = 800;
+
+  function lerp(a, b, t) { return a + (b - a) * t; }
+  function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
+  function clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
+
+  function getGridInfo() {
+    var vw = window.innerWidth;
+    var mob = vw < 820;
+    var gap = mob ? 24 : 128;
+    var curW = mob ? Math.min(240, vw * 0.44) : Math.min(460, vw * 0.33);
+    var curH = mob ? curW : curW * 0.75;
+    var s = 1;
+    var hx = mob ? (curW + gap) / 2 : curW + gap;
+    var vy = mob ? curW + gap : (curH + gap) / 2;
+    var pos = mob
+      ? [[-hx,-vy],[hx,-vy],[-hx,0],[hx,0],[-hx,vy],[hx,vy]]
+      : [[-hx,-vy],[0,-vy],[hx,-vy],[-hx,vy],[0,vy],[hx,vy]];
+    return { s: s, pos: pos };
+  }
+
+  var rafId = null;
+
+  function render() {
+    var rect = wrap.getBoundingClientRect();
+    var scroll = Math.max(0, -rect.top);
+    var p1 = clamp(scroll / STACK_SCROLL, 0, 1);
+    var p2 = clamp((scroll - STACK_SCROLL) / GRID_SCROLL, 0, 1);
+    var vw = window.innerWidth / 100;
+    var vh = window.innerHeight / 100;
+    var ep1 = easeOut(p1);
+    var ep2 = easeOut(p2);
+    var info = p2 > 0 ? getGridInfo() : null;
+
+    cards.forEach(function(card, i) {
+      var c = cfg[i];
+      var tx, ty, sc;
+      if (p2 > 0) {
+        tx = lerp(c[3], info.pos[i][0], ep2);
+        ty = lerp(c[4], info.pos[i][1], ep2);
+        sc = lerp(1, info.s, ep2);
+      } else {
+        tx = lerp(c[0] * vw, c[3], ep1);
+        ty = lerp(c[1] * vh, c[4], ep1);
+        sc = 1;
+      }
+      card.style.opacity = p1 < 0.01 ? '0' : '1';
+      var txStr = p2 > 0 ? Math.round(tx) : tx.toFixed(1);
+      var tyStr = p2 > 0 ? Math.round(ty) : ty.toFixed(1);
+      card.style.transform = 'translate(calc(-50% + ' + txStr + 'px), calc(-50% + ' + tyStr + 'px)) scale(' + sc.toFixed(3) + ')';
+      if (p2 >= 0.95) { card.classList.add('ind-visible'); }
+      else { card.classList.remove('ind-visible'); }
+    });
+
+    if (whoTop) {
+      var scale = 1 - ep1 * 0.45;
+      var tz = -ep1 * 300;
+      var op = Math.max(0, 1 - ep1 * 1.15);
+      whoTop.style.transform = 'scale(' + scale.toFixed(3) + ') translateZ(' + tz.toFixed(1) + 'px)';
+      whoTop.style.opacity = op.toFixed(3);
+    }
+    if (whoCta) {
+      whoCta.style.opacity = clamp((ep2 - 0.75) / 0.25, 0, 1).toFixed(3);
+    }
+    if (whoServicesLabel) {
+      whoServicesLabel.style.opacity = clamp((ep2 - 0.75) / 0.25, 0, 1).toFixed(3);
+    }
+    rafId = null;
+  }
+
+  function onScroll() { if (!rafId) rafId = requestAnimationFrame(render); }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  render();
+})();
+
+// - SERVICES SCROLL-DRIVEN (STICKY PIN) -
+(function(){
+  var wrap = document.querySelector('.svc-pin-wrap');
+  var section = document.getElementById('services');
+  if (!wrap || !section) return;
+  var rows = [...section.querySelectorAll('.svc-row')];
+  if (rows.length < 2) return;
+  var animRows = rows.slice(1);
+  var n = animRows.length;
+  function easeOut(t){ return 1 - Math.pow(1-t, 3); }
+  function clamp(v,a,b){ return Math.max(a,Math.min(b,v)); }
+  var rafId = null;
+  function render(){
+    var rect = wrap.getBoundingClientRect();
+    var extra = wrap.offsetHeight - window.innerHeight;
+    var p = clamp(-rect.top / extra, 0, 1);
+    var vh = window.innerHeight;
+    animRows.forEach(function(row, i){
+      var start = i / n;
+      var end = (i + 1) / n;
+      var local = clamp((p - start) / (end - start), 0, 1);
+      var ep = easeOut(local);
+      row.style.transform = 'translateY(' + ((1 - ep) * vh).toFixed(1) + 'px)';
+    });
+    rafId = null;
+  }
+  function onScroll(){ if (!rafId) rafId = requestAnimationFrame(render); }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  render();
+})();
 
 // - MAGNETIC BUTTONS -
 document.querySelectorAll('.btn-sky, .btn-navy').forEach(btn => {
@@ -1580,6 +1762,77 @@ async function submitForm() {
   }
 }
 document.addEventListener('click',function(e){var a=e.target.closest('a');if(!a)return;if(a.href&&a.href.indexOf('tel:')===0){gtag('event','phone_click',{event_category:'contact',event_label:a.href.replace('tel:','')});}else if(a.href&&a.href.indexOf('mailto:')===0){gtag('event','email_click',{event_category:'contact',event_label:a.href.replace('mailto:','')});}});
+
+/* Hero glitch animation */
+(function(){
+  var h1=document.getElementById('heroH1'),gr=document.getElementById('glitchR'),gc=document.getElementById('glitchC'),gb=document.getElementById('glitchB'),vis=document.getElementById('visWord'),visGlow=document.getElementById('visGlow'),noise=document.getElementById('heroNoise'),sub=document.querySelector('.hero-sub'),cta=document.querySelector('.hero-actions');
+  if(!h1)return;
+  var visWrap=vis?vis.parentElement:null;
+  var running=false,idleTimer=null,idleActive=false;
+  function rand(a,b){return Math.random()*(b-a)+a;}
+  function sleep(ms){return new Promise(function(r){setTimeout(r,ms);});}
+  function setGlitch(on,withBlue){
+    if(on){
+      var tx1=rand(-10,10),tx2=rand(-7,7),tx3=rand(-12,12),cy1=rand(5,55),cy2=rand(40,85),cy3=rand(20,70);
+      gr.style.opacity=rand(0.35,0.85);gr.style.transform='translate('+tx1+'px,'+rand(-4,4)+'px)';gr.style.clipPath='inset('+cy1+'% 0 '+(100-cy1-rand(5,30))+'% 0)';
+      gc.style.opacity=rand(0.25,0.7);gc.style.transform='translate('+tx2+'px,'+rand(-3,3)+'px)';gc.style.clipPath='inset('+cy2+'% 0 '+(100-cy2-rand(5,22))+'% 0)';
+      noise.style.opacity=rand(0.04,0.18);h1.style.opacity=rand(0.3,1);
+      if(withBlue){gb.style.opacity=rand(0.4,0.9);gb.style.transform='translate('+tx3+'px,'+rand(-5,5)+'px)';gb.style.clipPath='inset('+cy3+'% 0 '+(100-cy3-rand(8,28))+'% 0)';}
+    }else{gr.style.opacity=gc.style.opacity=gb.style.opacity=0;noise.style.opacity=0;}
+  }
+  function flicker(times,interval,cb){
+    var i=0;
+    function step(){h1.style.opacity=i%2===0?rand(0.04,0.3):rand(0.5,0.9);i++;if(i<times)setTimeout(step,interval*(1+rand(-0.3,0.3)));else{h1.style.opacity=1;if(cb)cb();}}
+    step();
+  }
+  async function glowIn(){
+    vis.style.color='#ffffff';visGlow.style.filter='blur(0px)';visGlow.style.opacity=0;
+    var steps=40;
+    for(var i=0;i<=steps;i++){var t=i/steps,e=t<0.5?2*t*t:-1+(4-2*t)*t;visGlow.style.opacity=(e*0.85).toFixed(2);visGlow.style.filter='blur('+(e*14).toFixed(1)+'px)';await sleep(18);}
+    visGlow.classList.add('glow-pulsing');
+  }
+  async function idleGlitch(){
+    if(!idleActive)return;var count=Math.floor(rand(1,4));
+    for(var i=0;i<count;i++){if(!idleActive)break;setGlitch(true,Math.random()>0.35);await sleep(rand(18,55));setGlitch(false);h1.style.opacity=1;await sleep(rand(20,60));}
+    if(idleActive)idleTimer=setTimeout(idleGlitch,rand(1800,5000));
+  }
+  function startIdle(){idleActive=true;idleTimer=setTimeout(idleGlitch,rand(1800,4000));}
+  function stopIdle(){idleActive=false;clearTimeout(idleTimer);setGlitch(false);h1.style.opacity=1;}
+  async function runAnimation(){
+    if(running)return;running=true;stopIdle();
+    visGlow.classList.remove('glow-pulsing');visGlow.style.opacity=0;visGlow.style.filter='blur(0px)';vis.style.color='#ffffff';h1.style.opacity=0.05;setGlitch(false);
+    await sleep(200);
+    for(var i=0;i<22;i++){setGlitch(true,false);await sleep(rand(25,85));setGlitch(false);await sleep(rand(15,70));}
+    h1.style.opacity=0.12;await sleep(100);
+    for(var i=0;i<10;i++){setGlitch(true,false);await sleep(rand(35,100));setGlitch(false);await sleep(rand(30,100));}
+    flicker(10,52,async function(){
+      h1.style.opacity=1;vis.style.color='#ffffff';await sleep(200);
+      h1.style.opacity=0;vis.style.color='#ffffff';setGlitch(false);await sleep(1000);
+      for(var i=0;i<6;i++){h1.style.opacity=rand(0.04,0.18);setGlitch(true,i>2);await sleep(rand(35,75));setGlitch(false);h1.style.opacity=0;await sleep(rand(100,220));}
+      await sleep(500);
+      h1.style.opacity=0.08;
+      for(var i=0;i<16;i++){setGlitch(true,true);await sleep(rand(20,65));setGlitch(false);await sleep(rand(15,55));}
+      await sleep(150);
+      flicker(16,45,async function(){
+        h1.style.opacity=1;
+        for(var i=0;i<5;i++){setGlitch(true,true);await sleep(rand(20,50));setGlitch(false);await sleep(rand(60,140));}
+        h1.style.opacity=1;setGlitch(false);
+        await glowIn();
+        running=false;await sleep(800);startIdle();
+      });
+    });
+  }
+  document.getElementById('heroH1Wrap').addEventListener('click',runAnimation);
+  runAnimation();
+})();
+(function(){
+  var v=document.getElementById('heroVideo');
+  if(!v)return;
+  v.addEventListener('ended',function(){
+    v.currentTime=v.duration;
+    v.pause();
+  });
+})();
 </script>
 <!-- THANK YOU OVERLAY -->
 <div id="thankyou-overlay" style="display:none">
