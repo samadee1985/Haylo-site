@@ -266,6 +266,7 @@ section{padding:5rem var(--pad);}
 
 /* ─── WHO WE HELP ──────────────────────────── */
 .who-pin-wrap{position:relative;height:calc(100vh + 3800px);}
+@media(max-width:819px){.who-pin-wrap{height:calc(100vh + 1800px);}}
 #who{background:var(--navy-mid);position:sticky;top:0;height:100vh;display:flex;align-items:center;justify-content:center;perspective:1200px;overflow:hidden;}
 .who-top{text-align:center;position:relative;z-index:1;transform-style:preserve-3d;will-change:transform,opacity;}
 .who-top .sec-h2{color:#fff;}
@@ -290,7 +291,7 @@ section{padding:5rem var(--pad);}
 .who-cta{position:absolute;bottom:2.2rem;left:50%;transform:translateX(-50%);font-family:'Josefin Sans',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);opacity:0;pointer-events:none;white-space:nowrap;}
 @media(min-width:820px){.who-cta{font-size:.9rem;}}
 .who-services-label{position:absolute;top:calc(var(--nav-h) + 3.2rem);left:var(--pad);font-family:'Josefin Sans',sans-serif;font-size:clamp(2rem,5vw,4rem);font-weight:700;letter-spacing:.06em;text-transform:uppercase;opacity:0;pointer-events:none;z-index:10;line-height:1;}
-@media(max-width:819px){.who-services-label{top:calc(var(--nav-h) + 2.2rem);}}
+@media(max-width:819px){.who-services-label{display:none;}}
 .wsl-our{color:#fff;}
 .wsl-services{background:linear-gradient(90deg,var(--sky) 0%,#fff 40%,var(--sky) 60%,var(--sky) 100%);background-size:200% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:shimmer 3s linear infinite;}
 @keyframes shimmer{0%{background-position:200% center;}100%{background-position:-200% center;}}
@@ -1596,8 +1597,9 @@ document.querySelectorAll('[data-target]').forEach(el => countObs.observe(el));
     [  0,  62, 0,  0,  0, 0]
   ];
 
-  var STACK_SCROLL = 2400;
-  var GRID_SCROLL  = 800;
+  var isMob = window.innerWidth < 820;
+  var STACK_SCROLL = isMob ? 900 : 2400;
+  var GRID_SCROLL  = isMob ? 400 : 800;
 
   function lerp(a, b, t) { return a + (b - a) * t; }
   function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
