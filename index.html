@@ -67,6 +67,9 @@ nav.scrolled{background:rgba(255,255,255,.88);backdrop-filter:blur(20px);-webkit
 .nav-btn:hover{background:var(--sky)!important;color:var(--white)!important;}
 
 /* Hamburger */
+.nav-right{display:flex;align-items:center;gap:0;}
+.nav-phone{display:none;align-items:center;justify-content:center;width:36px;height:36px;color:var(--sky);-webkit-tap-highlight-color:transparent;}
+@media(max-width:860px){.nav-phone{display:flex;}}
 .nav-burger{
   display:none;flex-direction:column;justify-content:center;
   gap:5px;width:40px;height:40px;
@@ -370,10 +373,10 @@ section{padding:5rem var(--pad);}
 @media(min-width:720px){.results-grid{grid-template-columns:repeat(3,1fr);gap:1.5rem;}}
 
 /* ─── TESTIMONIALS ─────────────────────────── */
-#testimonials{background:var(--white);}
-.testi-grid{display:grid;grid-template-columns:1fr;gap:1.25rem;margin-top:3rem;}
-.testi-cell{background:#fff;border:1px solid #E8E8E8;border-radius:14px;padding:1.8rem 2rem;box-shadow:0 2px 12px rgba(31,45,61,.06);transition:box-shadow .2s,transform .2s;display:flex;flex-direction:column;}
-#testimonials .testi-cell:hover{box-shadow:0 8px 30px rgba(31,45,61,.1);transform:translateY(-3px) scale(1.02);}
+#testimonials{background:#fff;}
+.testi-grid{display:grid;grid-template-columns:1fr;gap:1rem;margin-top:3rem;background:#fff;}
+.testi-cell{background:#fff;border:2.5px solid #E8E8E8;border-radius:14px;padding:1.8rem 2rem;box-shadow:none;transition:box-shadow .2s,transform .2s;display:flex;flex-direction:column;}
+@media(min-width:820px){#testimonials .testi-cell:hover{box-shadow:0 8px 30px rgba(31,45,61,.1);transform:translateY(-3px) scale(1.02);}}
 .testi-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:.9rem;}
 .testi-stars{color:#FBBC04;font-size:1.05rem;letter-spacing:.04em;}
 .testi-g{font-family:Arial,sans-serif;font-size:.8rem;font-weight:700;letter-spacing:.01em;}
@@ -393,9 +396,9 @@ section{padding:5rem var(--pad);}
 @media(max-width:619px){
   .testi-grid{display:none;}
   .testi-carousel{display:block;margin-top:2rem;overflow:hidden;width:100%;}
-  .testi-track-wrap{overflow:hidden;width:100%;}
+  .testi-track-wrap{overflow:hidden;width:100%;padding:4px;}
   .testi-track{display:flex;transition:transform .4s ease;will-change:transform;width:100%;}
-  .testi-track .testi-cell{min-width:100%;width:100%;flex-shrink:0;box-sizing:border-box;}
+  .testi-track .testi-cell{min-width:calc(100% - 8px);width:calc(100% - 8px);flex-shrink:0;box-sizing:border-box;margin:0 4px;-webkit-tap-highlight-color:transparent;}
   .testi-dots{display:flex;justify-content:center;gap:.5rem;margin-top:1.25rem;}
   .testi-dot{width:8px;height:8px;border-radius:50%;background:var(--border);border:none;padding:0;cursor:pointer;transition:background .2s,transform .2s;}
   .testi-dot.active{background:var(--sky);transform:scale(1.3);}
@@ -726,6 +729,8 @@ footer{background:#141C25;border-top:1px solid rgba(255,255,255,.05);}
 #mob-bar .mb-call{flex:1.4;display:flex;align-items:center;justify-content:center;gap:.45rem;background:transparent;color:var(--sky);border:1.5px solid var(--sky);border-radius:100px;padding:.7rem .5rem;font-family:'Josefin Sans',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;-webkit-tap-highlight-color:transparent;}
 #mob-bar .mb-audit{flex:1;display:flex;align-items:center;justify-content:center;background:transparent;color:#fff;border:1.5px solid #fff;border-radius:100px;padding:.7rem .5rem;font-family:'Josefin Sans',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;-webkit-tap-highlight-color:transparent;}
 @media(min-width:860px){#mob-bar{display:none;}}
+#mob-bar{transform:translateY(100%);transition:transform .3s ease;}
+#mob-bar.bar-visible{transform:translateY(0);}
 @media(max-width:859px){body{padding-bottom:calc(62px + env(safe-area-inset-bottom,0px));}}
 
 /* ─── INDUSTRY CARD ANIMATIONS ──────────────── */
@@ -898,9 +903,14 @@ footer{background:#141C25;border-top:1px solid rgba(255,255,255,.05);}
     <li><a href="/blog/">Blog</a></li>
     <li><a href="/google-business-profile-audit/" class="nav-btn">Free Audit →</a></li>
   </ul>
-  <button class="nav-burger" id="burger" aria-label="Open menu">
-    <span></span><span></span><span></span>
-  </button>
+  <div class="nav-right">
+    <a href="tel:0490422192" class="nav-phone" aria-label="Call us">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.01 1.18 2 2 0 012 .01h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
+    </a>
+    <button class="nav-burger" id="burger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </nav>
 
 <div class="nav-drawer" id="drawer">
@@ -943,7 +953,7 @@ footer{background:#141C25;border-top:1px solid rgba(255,255,255,.05);}
 
   <div class="hero-bottom">
     <div class="hero-actions">
-      <a href="#cta" class="btn btn-ghost-w" style="background:#ffffff;color:var(--navy);border:none;">Get My Free Audit →</a>
+      <a href="#cta" class="btn btn-ghost-w" style="background:#ffffff;color:var(--navy);border:none;">Get Your Free Audit →</a>
       <a href="#services" class="btn btn-ghost-w btn-ghost-w-plain">See What We Do</a>
     </div>
   </div>
@@ -1615,12 +1625,13 @@ document.querySelectorAll('[data-target]').forEach(el => countObs.observe(el));
   function getGridInfo() {
     var vw = window.innerWidth;
     var mob = vw < 820;
-    var gap = mob ? 24 : 128;
+    var gapH = mob ? 16 : 128;
+    var gapV = mob ? 48 : 128;
     var curW = mob ? Math.min(240, vw * 0.44) : Math.min(460, vw * 0.33);
     var curH = mob ? curW : curW * 0.75;
     var s = 1;
-    var hx = mob ? (curW + gap) / 2 : curW + gap;
-    var vy = mob ? curW + gap : (curH + gap) / 2;
+    var hx = mob ? (curW + gapH) / 2 : curW + gapH;
+    var vy = mob ? curW + gapV : (curH + gapV) / 2;
     var pos = mob
       ? [[-hx,-vy],[hx,-vy],[-hx,0],[hx,0],[-hx,vy],[hx,vy]]
       : [[-hx,-vy],[0,-vy],[hx,-vy],[-hx,vy],[0,vy],[hx,vy]];
@@ -1841,6 +1852,23 @@ document.addEventListener('click',function(e){var a=e.target.closest('a');if(!a)
     v.currentTime=v.duration;
     v.pause();
   });
+})();
+
+// MOB BAR — show only after scrolling past the services animation
+(function(){
+  var bar = document.getElementById('mob-bar');
+  var wrap = document.querySelector('.who-pin-wrap');
+  if (!bar || !wrap) return;
+  function checkBar() {
+    var scrolledIn = -wrap.getBoundingClientRect().top;
+    if (scrolledIn > 1200) {
+      bar.classList.add('bar-visible');
+    } else {
+      bar.classList.remove('bar-visible');
+    }
+  }
+  window.addEventListener('scroll', checkBar, {passive:true});
+  checkBar();
 })();
 </script>
 <!-- THANK YOU OVERLAY -->
