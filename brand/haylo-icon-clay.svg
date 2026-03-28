@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400&amp;display=swap');
+    </style>
+  </defs>
+  <!-- Background: clay-light -->
+  <rect width="100" height="100" fill="#e8d5c4"/>
+  <!-- "h" in clay -->
+  <text
+    x="38"
+    y="72"
+    font-family="'Cormorant Garamond', Georgia, serif"
+    font-size="72"
+    font-weight="400"
+    fill="#b8967a">h</text>
+  <!-- Ink dot accent -->
+  <circle cx="78" cy="68" r="5.5" fill="#1c1a17"/>
+</svg>
