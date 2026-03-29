@@ -832,37 +832,21 @@
       <form class="audit-form" id="form" novalidate>
         <div class="form-row-2">
           <div class="form-row" style="margin-bottom:0;">
-            <label for="name">Your name</label>
-            <input type="text" id="name" name="name" placeholder="Jane Smith" required>
-          </div>
-          <div class="form-row" style="margin-bottom:0;">
             <label for="business">Business name</label>
             <input type="text" id="business" name="business" placeholder="Sunshine Cleaning Co." required>
           </div>
-        </div>
-        <div class="form-row-2">
-          <div class="form-row" style="margin-bottom:0;">
-            <label for="email">Email address</label>
-            <input type="email" id="email" name="email" placeholder="jane@example.com" required>
-          </div>
           <div class="form-row" style="margin-bottom:0;">
             <label for="phone">Phone number</label>
-            <input type="tel" id="phone" name="phone" placeholder="0400 000 000">
+            <input type="tel" id="phone" name="phone" placeholder="0400 000 000" required>
           </div>
         </div>
         <div class="form-row">
-          <label for="interest">I'm interested in</label>
-          <select id="interest" name="interest">
-            <option value="">Select an option...</option>
-            <option value="Visibility Foundation ($590)">Visibility Foundation  -  $590</option>
-            <option value="Growth Accelerator ($1,290)">Growth Accelerator  -  $1,290</option>
-            <option value="Growth Partner ($650/mo)">Growth Partner  -  $650/mo</option>
-            <option value="Not sure yet">Not sure yet  -  just want the audit</option>
-          </select>
+          <label for="email">Email address</label>
+          <input type="email" id="email" name="email" placeholder="jane@example.com" required>
         </div>
         <div class="form-row">
-          <label for="message">Anything else to know?</label>
-          <textarea id="message" name="message" placeholder="Your suburb, type of business, main challenge..."></textarea>
+          <label for="message">What's your biggest challenge? <span style="font-weight:300;text-transform:none;letter-spacing:0;">(optional)</span></label>
+          <textarea id="message" name="message" placeholder="e.g. not showing up on Google, need more reviews, slow enquiries..."></textarea>
         </div>
         <button type="submit" class="form-submit">Send My Free Audit Request →</button>
         <p class="form-note">Free, no obligation. We'll be in touch within one business day.</p>
