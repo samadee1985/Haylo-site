@@ -600,6 +600,24 @@
 
   .footer-contact a:hover { color: rgba(250,248,245,0.65); }
 
+  /* ─── FAQ ─── */
+  .loc-faq { padding: 5rem 0; background: var(--stone-mid); }
+  .loc-faq-inner { max-width: 760px; }
+  .loc-faq-item { border-top: 1px solid var(--border); }
+  .loc-faq-item:last-child { border-bottom: 1px solid var(--border); }
+  .loc-faq-q {
+    width: 100%; background: none; border: none; text-align: left;
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 1.5rem; padding: 1.4rem 0; cursor: pointer;
+    font-family: var(--font-body); font-size: 0.95rem; font-weight: 400;
+    color: var(--ink); line-height: 1.5;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .loc-faq-q svg { flex-shrink: 0; transition: transform 0.25s ease; }
+  .loc-faq-item.open .loc-faq-q svg { transform: rotate(45deg); }
+  .loc-faq-a { display: none; padding: 0 0 1.4rem; font-size: 0.9rem; line-height: 1.8; color: var(--ink-soft); font-weight: 300; }
+  .loc-faq-item.open .loc-faq-a { display: block; }
+
   /* ─── SCROLL REVEAL ─── */
   .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
   .reveal.visible { opacity: 1; transform: none; }
@@ -802,8 +820,9 @@
       <h2 class="sec-h2 sec-h2-light">Maroochydore is the Sunshine Coast's<br>commercial heart. <em>Be visible here.</em></h2>
     </div>
     <div class="sec-body sec-body-light reveal" style="margin-top:1.5rem;max-width:700px;">
-      <p>Maroochydore is the commercial and business hub of the Sunshine Coast  -  home to the region's CBD, major retail precincts, and a dense concentration of service business customers. Competition for Google Maps visibility here is fierce, and businesses that aren't actively managing their online presence are losing jobs every day.</p>
-      <p>Haylo works exclusively with Sunshine Coast businesses. We know the Maroochydore market and what local customers are searching for. Let us make sure your business is the one they find.</p>
+      <p>With the new Sunshine Coast City Centre development underway and Sunshine Plaza anchoring one of the coast's highest foot-traffic retail strips, Maroochydore has more potential customers per square kilometre than anywhere else in the region. It also has the highest density of competing service businesses. That combination means the gap between ranking in the top 3 and ranking #4 on Google Maps is the difference between a full diary and a quiet week.</p>
+      <p>Searches like "cleaner Maroochydore", "electrician near me", and "plumber Cotton Tree" are happening dozens of times a day. The top 3 results capture the overwhelming majority of those clicks — and because the Maroochydore customer base includes both long-term locals and a constant stream of people relocating to the coast, there's always fresh demand to tap.</p>
+      <p>Haylo works exclusively with Sunshine Coast businesses. We know which categories are most competitive in the Maroochydore–Mooloolaba corridor, which profile issues are costing local clients the most visibility, and how to make a service business look like the obvious choice in the region's busiest search market.</p>
     </div>
     <div class="stats-band reveal">
       <div class="stat-item">
@@ -821,6 +840,44 @@
       <div class="stat-item">
         <div class="stat-num">4.9★</div>
         <div class="stat-label">Average client rating achieved</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="loc-faq">
+  <div class="section-wrap">
+    <div class="reveal loc-faq-inner">
+      <span class="eyebrow">Common Questions · Maroochydore</span>
+      <h2 class="sec-h2" style="margin-bottom:2.5rem;">Questions from<br><em>Maroochydore businesses.</em></h2>
+      <div class="loc-faq-item">
+        <button class="loc-faq-q" onclick="this.closest('.loc-faq-item').classList.toggle('open')">
+          The competition in Maroochydore is intense — is it actually possible to break into the top 3?
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="loc-faq-a">Yes — but it requires consistent effort, not just a one-time setup. Most businesses in Maroochydore are competing on autopilot: they set up their Google profile once and never touch it again. Active management — responding to reviews, adding photos, posting updates, fixing profile gaps — is what separates the businesses that rank from the ones that don't. In a competitive market, activity signals matter as much as fundamentals.</div>
+      </div>
+      <div class="loc-faq-item">
+        <button class="loc-faq-q" onclick="this.closest('.loc-faq-item').classList.toggle('open')">
+          I'm based in Maroochydore but most of my work is in Mooloolaba and Alexandra Headland — will I show up there?
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="loc-faq-a">Yes. Service area configuration is one of the first things we fix. Google allows businesses to define exactly where they operate, and when that's set up correctly alongside strong review volume and a complete profile, ranking across the Maroochydore–Mooloolaba–Alexandra Headland corridor is very achievable. These suburbs are close enough that a well-optimised profile can dominate the whole strip.</div>
+      </div>
+      <div class="loc-faq-item">
+        <button class="loc-faq-q" onclick="this.closest('.loc-faq-item').classList.toggle('open')">
+          I've had a few negative reviews — is that going to hold me back?
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="loc-faq-a">A few negatives won't kill a profile — but they need to be outnumbered and they need a response. A business with 80 reviews at 4.6 stars is more credible than one with 12 reviews at 5.0. We help you respond professionally to negatives and build a steady flow of new positive reviews so your overall rating reflects the quality of your actual work.</div>
+      </div>
+      <div class="loc-faq-item">
+        <button class="loc-faq-q" onclick="this.closest('.loc-faq-item').classList.toggle('open')">
+          Do I need a website, or is a Google Business Profile enough?
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="loc-faq-a">In a high-volume market like Maroochydore, a website strengthens your Google profile ranking and gives customers somewhere to go before they call. It also lets you rank in organic search results, not just Maps. That said, a Google Business Profile alone — if it's well-managed — will generate real enquiries. Many of our clients see a significant uplift from profile work before they even think about a new website.</div>
       </div>
     </div>
   </div>

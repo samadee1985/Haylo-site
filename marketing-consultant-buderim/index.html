@@ -602,6 +602,24 @@
 
   .footer-contact a:hover { color: rgba(250,248,245,0.65); }
 
+  /* ─── FAQ ─── */
+  .loc-faq { padding: 5rem 0; background: var(--stone-mid); }
+  .loc-faq-inner { max-width: 760px; }
+  .loc-faq-item { border-top: 1px solid var(--border); }
+  .loc-faq-item:last-child { border-bottom: 1px solid var(--border); }
+  .loc-faq-q {
+    width: 100%; background: none; border: none; text-align: left;
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 1.5rem; padding: 1.4rem 0; cursor: pointer;
+    font-family: var(--font-body); font-size: 0.95rem; font-weight: 400;
+    color: var(--ink); line-height: 1.5;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .loc-faq-q svg { flex-shrink: 0; transition: transform 0.25s ease; }
+  .loc-faq-item.open .loc-faq-q svg { transform: rotate(45deg); }
+  .loc-faq-a { display: none; padding: 0 0 1.4rem; font-size: 0.9rem; line-height: 1.8; color: var(--ink-soft); font-weight: 300; }
+  .loc-faq-item.open .loc-faq-a { display: block; }
+
   /* ─── SCROLL REVEAL ─── */
   .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
   .reveal.visible { opacity: 1; transform: none; }
@@ -804,8 +822,9 @@
       <h2 class="sec-h2 sec-h2-light">Buderim's established community means<br><em>strong local demand.</em></h2>
     </div>
     <div class="sec-body sec-body-light reveal" style="margin-top:1.5rem;max-width:700px;">
-      <p>Buderim is one of the Sunshine Coast's most established and sought-after suburbs  -  a tight-knit community of families and professionals who value quality local service providers. When Buderim residents need a tradie, cleaner, or specialist, they search Google and they trust reviews. Your online presence is your first impression.</p>
-      <p>Haylo works exclusively with Sunshine Coast businesses. We understand the Buderim community, the local competition, and what it takes to become the trusted go-to in your trade or service. Let us get you there.</p>
+      <p>Buderim's residents are savvy buyers. They've lived here for years, they know the area, and they have high standards for who they let into their homes. Before they call anyone, they check Google reviews — not just the star rating, but how the business responds, how many reviews they have, and how recent they are. A profile with 6 reviews from 2021 does not inspire confidence in this market.</p>
+      <p>The competition in Buderim is also real. Because it's one of the most desirable suburbs on the coast, it attracts more service businesses per capita than the growth areas further south. Being good at your trade isn't enough — you need to be the business that shows up first and looks the most credible when a Buderim homeowner searches on a Sunday evening to book work for the week.</p>
+      <p>Haylo works exclusively with Sunshine Coast businesses. We understand Buderim's reputation-first culture, the types of properties and projects that dominate in this area, and how to position a local service business as the obvious first choice — not just in Buderim itself, but across the surrounding hinterland and hillside suburbs.</p>
     </div>
     <div class="stats-band reveal">
       <div class="stat-item">
@@ -823,6 +842,44 @@
       <div class="stat-item">
         <div class="stat-num">4.9★</div>
         <div class="stat-label">Average client rating achieved</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="loc-faq">
+  <div class="section-wrap">
+    <div class="reveal loc-faq-inner">
+      <span class="eyebrow">Common Questions · Buderim</span>
+      <h2 class="sec-h2" style="margin-bottom:2.5rem;">Questions from<br><em>Buderim businesses.</em></h2>
+      <div class="loc-faq-item">
+        <button class="loc-faq-q" onclick="this.closest('.loc-faq-item').classList.toggle('open')">
+          Buderim feels competitive — can a smaller business realistically rank in the top 3?
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="loc-faq-a">Yes — and more often than you'd expect. Many businesses in Buderim have been trading for years on referrals alone and have neglected their Google profile entirely. A small, well-run operation with a properly optimised profile and 30 genuine 5-star reviews will consistently outrank a larger competitor with a stale, incomplete listing. The top 3 is about profile quality and review momentum, not just business size.</div>
+      </div>
+      <div class="loc-faq-item">
+        <button class="loc-faq-q" onclick="this.closest('.loc-faq-item').classList.toggle('open')">
+          Buderim residents are particular about who they hire — how does this affect my approach?
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="loc-faq-a">It actually works in your favour once your profile is strong. Buderim customers do their research — which means when they choose you, they're already pre-sold. A Google profile with detailed, recent reviews, professional photos, and a complete business description signals trustworthiness before the first call is even made. We focus on making your profile look as credible as your actual work.</div>
+      </div>
+      <div class="loc-faq-item">
+        <button class="loc-faq-q" onclick="this.closest('.loc-faq-item').classList.toggle('open')">
+          I also service Palmwoods, Woombye, and the hinterland — will I show up for those areas too?
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="loc-faq-a">Absolutely. We configure your service area to reflect where you actually work — not just the suburb your pin is in. For Buderim-based businesses, that typically means covering the hinterland towns, Sippy Downs, and parts of the Mooloolaba corridor. Paired with good review volume, most clients rank comfortably across a 15–20km radius.</div>
+      </div>
+      <div class="loc-faq-item">
+        <button class="loc-faq-q" onclick="this.closest('.loc-faq-item').classList.toggle('open')">
+          My reviews have slowed down — is that hurting my ranking?
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="loc-faq-a">Almost certainly. Google favours profiles with consistent, recent review activity — a burst of 20 reviews three years ago counts for less than a steady stream of new ones each month. In a reputation-conscious area like Buderim, customers also notice when a business's most recent review is 14 months old. Review generation is one of the fastest ways to re-activate a stalling profile.</div>
       </div>
     </div>
   </div>

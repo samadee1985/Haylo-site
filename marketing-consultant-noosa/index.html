@@ -600,6 +600,24 @@
 
   .footer-contact a:hover { color: rgba(250,248,245,0.65); }
 
+  /* ─── FAQ ─── */
+  .loc-faq { padding: 5rem 0; background: var(--stone-mid); }
+  .loc-faq-inner { max-width: 760px; }
+  .loc-faq-item { border-top: 1px solid var(--border); }
+  .loc-faq-item:last-child { border-bottom: 1px solid var(--border); }
+  .loc-faq-q {
+    width: 100%; background: none; border: none; text-align: left;
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 1.5rem; padding: 1.4rem 0; cursor: pointer;
+    font-family: var(--font-body); font-size: 0.95rem; font-weight: 400;
+    color: var(--ink); line-height: 1.5;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .loc-faq-q svg { flex-shrink: 0; transition: transform 0.25s ease; }
+  .loc-faq-item.open .loc-faq-q svg { transform: rotate(45deg); }
+  .loc-faq-a { display: none; padding: 0 0 1.4rem; font-size: 0.9rem; line-height: 1.8; color: var(--ink-soft); font-weight: 300; }
+  .loc-faq-item.open .loc-faq-a { display: block; }
+
   /* ─── SCROLL REVEAL ─── */
   .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
   .reveal.visible { opacity: 1; transform: none; }
@@ -802,8 +820,9 @@
       <h2 class="sec-h2 sec-h2-light">Noosa's high-value market rewards<br><em>strong online presence.</em></h2>
     </div>
     <div class="sec-body sec-body-light reveal" style="margin-top:1.5rem;max-width:700px;">
-      <p>Noosa attracts some of the highest-spending residents and visitors on the Sunshine Coast  -  a market that expects quality and is willing to pay for it. But even premium customers start their search on Google. If your business isn't visible at the top of local search, you're invisible to a market that would happily choose you.</p>
-      <p>Haylo works exclusively with Sunshine Coast businesses. We understand the Noosa market, its seasonal patterns, and what premium local customers look for when choosing a service provider. Let us make your business the obvious choice.</p>
+      <p>Noosa has one of the most distinct customer profiles on the Sunshine Coast. Permanent residents are often well-resourced professionals or retirees with high expectations — they're not hunting for the cheapest option, they're hunting for the most credible one. And then there's the short-stay market: thousands of Airbnb properties and holiday lets generating constant demand for cleaners, maintenance trades, and property services, particularly around the school holiday peaks.</p>
+      <p>The challenge in Noosa is that the market's premium positioning cuts both ways. Customers here check reviews carefully, and a sparse or dated Google profile will cost you jobs regardless of how good your work is. A business in Noosaville with 60 recent reviews and professional photos will win the booking over a competitor with 8 reviews — even if that competitor has been trading in Noosa for fifteen years.</p>
+      <p>Haylo works exclusively with Sunshine Coast businesses. We understand Noosa's seasonal rhythms, the different customer behaviours across Noosa Heads, Noosaville, Tewantin, and the hinterland, and how to position a service business to attract the premium end of this market consistently — not just during peak season.</p>
     </div>
     <div class="stats-band reveal">
       <div class="stat-item">
@@ -821,6 +840,44 @@
       <div class="stat-item">
         <div class="stat-num">4.9★</div>
         <div class="stat-label">Average client rating achieved</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="loc-faq">
+  <div class="section-wrap">
+    <div class="reveal loc-faq-inner">
+      <span class="eyebrow">Common Questions · Noosa</span>
+      <h2 class="sec-h2" style="margin-bottom:2.5rem;">Questions from<br><em>Noosa businesses.</em></h2>
+      <div class="loc-faq-item">
+        <button class="loc-faq-q" onclick="this.closest('.loc-faq-item').classList.toggle('open')">
+          My clients are high-end — does Google really matter for premium service businesses?
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="loc-faq-a">More than ever. High-value customers don't skip the research phase — they extend it. Before calling a premium service provider, Noosa residents and holiday let owners will typically read multiple reviews, check photos, look at how recent the activity is, and form a judgement about professionalism. A strong Google presence doesn't cheapen your brand — it validates it. Businesses charging premium rates need premium-looking profiles to match.</div>
+      </div>
+      <div class="loc-faq-item">
+        <button class="loc-faq-q" onclick="this.closest('.loc-faq-item').classList.toggle('open')">
+          My work is seasonal — is it worth managing Google year-round?
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="loc-faq-a">Yes — and the off-season is actually when the groundwork gets laid. Google ranking builds over time, and businesses that stay active year-round are the ones sitting at the top when peak season hits and demand spikes. If you only focus on Google when you're busy, you're too late. Your competitors are building their review count and profile signals right now, ready for the next influx of summer visitors.</div>
+      </div>
+      <div class="loc-faq-item">
+        <button class="loc-faq-q" onclick="this.closest('.loc-faq-item').classList.toggle('open')">
+          I service Noosa Heads, Noosaville, Tewantin, and the hinterland — can I rank across all of them?
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="loc-faq-a">Yes. We configure your service area to cover the full Noosa shire — from Noosa Heads and Hastings Street through to Noosaville, Tewantin, and the hinterland villages. Combined with strong review volume and a well-maintained profile, most clients rank across this entire area. Noosa Heads searches and Tewantin searches both become winnable.</div>
+      </div>
+      <div class="loc-faq-item">
+        <button class="loc-faq-q" onclick="this.closest('.loc-faq-item').classList.toggle('open')">
+          I mainly clean holiday lets and Airbnbs — is there a specific approach that works better for that niche?
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="loc-faq-a">Absolutely. Property managers searching for reliable cleaners in Noosa are a distinct audience — they're searching terms like "holiday let cleaner Noosa" and "Airbnb cleaning Noosaville". We make sure your profile is configured to show up for those specific queries, not just generic "cleaner Noosa" searches. It's a high-value niche with strong repeat demand, and the right profile setup targets it directly.</div>
       </div>
     </div>
   </div>

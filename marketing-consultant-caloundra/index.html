@@ -600,6 +600,24 @@
 
   .footer-contact a:hover { color: rgba(250,248,245,0.65); }
 
+  /* ─── FAQ ─── */
+  .loc-faq { padding: 5rem 0; background: var(--stone-mid); }
+  .loc-faq-inner { max-width: 760px; }
+  .loc-faq-item { border-top: 1px solid var(--border); }
+  .loc-faq-item:last-child { border-bottom: 1px solid var(--border); }
+  .loc-faq-q {
+    width: 100%; background: none; border: none; text-align: left;
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 1.5rem; padding: 1.4rem 0; cursor: pointer;
+    font-family: var(--font-body); font-size: 0.95rem; font-weight: 400;
+    color: var(--ink); line-height: 1.5;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .loc-faq-q svg { flex-shrink: 0; transition: transform 0.25s ease; }
+  .loc-faq-item.open .loc-faq-q svg { transform: rotate(45deg); }
+  .loc-faq-a { display: none; padding: 0 0 1.4rem; font-size: 0.9rem; line-height: 1.8; color: var(--ink-soft); font-weight: 300; }
+  .loc-faq-item.open .loc-faq-a { display: block; }
+
   /* ─── SCROLL REVEAL ─── */
   .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
   .reveal.visible { opacity: 1; transform: none; }
@@ -802,8 +820,9 @@
       <h2 class="sec-h2 sec-h2-light">Caloundra is growing fast.<br><em>Don't get left behind.</em></h2>
     </div>
     <div class="sec-body sec-body-light reveal" style="margin-top:1.5rem;max-width:700px;">
-      <p>Caloundra and its surrounding growth corridors  -  Aura, Baringa, and Little Mountain  -  are adding thousands of new homes and residents every year. That means thousands of new potential customers searching Google for cleaners, tradies, and service businesses every single month.</p>
-      <p>Haylo works exclusively with Sunshine Coast businesses. We know the Caloundra market, the suburbs that are growing fastest, and what it takes to be the business that locals call first. Let us put you at the top.</p>
+      <p>Aura alone is projected to house over 50,000 people at full build-out — making it one of the largest master-planned communities in Australia. Baringa and Little Mountain are filling up fast behind it. Every week, new families arrive who don't know a local tradie, a local cleaner, or a local handyman. They have one tool: Google. And they'll call whoever shows up first.</p>
+      <p>Unlike the more established parts of the coast, Caloundra's Google Maps landscape is still taking shape. That means there are real opportunities right now for service businesses willing to establish a strong profile before competitors wake up. The businesses getting in early are the ones locking in those first-page positions and collecting reviews from brand-new residents who have nowhere else to turn.</p>
+      <p>Haylo works exclusively with Sunshine Coast businesses. We understand the Caloundra market — the seasonal shift in Kings Beach over summer, the steady year-round demand coming out of the growth corridors, and the types of jobs that dominate search in this part of the coast. We build your visibility around that local reality, not a generic template.</p>
     </div>
     <div class="stats-band reveal">
       <div class="stat-item">
@@ -821,6 +840,44 @@
       <div class="stat-item">
         <div class="stat-num">4.9★</div>
         <div class="stat-label">Average client rating achieved</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="loc-faq">
+  <div class="section-wrap">
+    <div class="reveal loc-faq-inner">
+      <span class="eyebrow">Common Questions · Caloundra</span>
+      <h2 class="sec-h2" style="margin-bottom:2.5rem;">Questions from<br><em>Caloundra businesses.</em></h2>
+      <div class="loc-faq-item">
+        <button class="loc-faq-q" onclick="this.closest('.loc-faq-item').classList.toggle('open')">
+          Is it worth investing in my Google profile now, before Aura and Baringa finish building out?
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="loc-faq-a">Absolutely — this is one of the best times to move. Google ranks businesses partly based on how long they've had an active, well-reviewed profile. The service businesses building their presence now in Caloundra, Aura, and Baringa are the ones that will own those top positions when the population peaks. Waiting means playing catch-up against whoever got in first.</div>
+      </div>
+      <div class="loc-faq-item">
+        <button class="loc-faq-q" onclick="this.closest('.loc-faq-item').classList.toggle('open')">
+          I'm already getting work through word-of-mouth and referrals — do I still need Google?
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="loc-faq-a">Referrals are great, but they have a ceiling — and in a growth area like Caloundra, most of the new residents moving into Aura and Baringa don't know anyone local yet. They have no referral network to tap. Google is their only tool, and they'll call whoever shows up in the top 3. If you're not there, you're invisible to an entirely new customer base that's arriving every single week.</div>
+      </div>
+      <div class="loc-faq-item">
+        <button class="loc-faq-q" onclick="this.closest('.loc-faq-item').classList.toggle('open')">
+          My business is based in Caloundra — can I also show up for searches in Aura, Baringa, and Little Mountain?
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="loc-faq-a">Yes. Google's local ranking considers your service area, not just your pin location. We configure your profile to cover the specific suburbs you actually service — so if you work across Caloundra, Aura, Baringa, and Little Mountain, we set that up properly. Combined with a consistent review strategy, most of our clients rank across a 10–15km radius from their base.</div>
+      </div>
+      <div class="loc-faq-item">
+        <button class="loc-faq-q" onclick="this.closest('.loc-faq-item').classList.toggle('open')">
+          How quickly will I see results?
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="loc-faq-a">Profile fixes and category optimisation often show movement within 48–72 hours. Reviews compound over weeks — most clients notice a meaningful increase in calls within the first month. In a market like Caloundra where a lot of profiles are under-optimised, the gap between a well-managed profile and an average one is significant, and it shows quickly.</div>
       </div>
     </div>
   </div>
