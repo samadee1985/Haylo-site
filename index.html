@@ -565,10 +565,25 @@
     font-weight: 500;
   }
 
+  /* ─── SECTION PARALLAX BACKGROUNDS ─── */
+  .section-parallax-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    will-change: clip-path;
+    z-index: -1;
+    clip-path: inset(100% 0 0 0);
+    pointer-events: none;
+  }
+
   /* ─── WHO WE HELP ─── */
   .who {
-    background: url('images/homepage/buderim.jpg') center/cover fixed;
     padding: var(--space-xxl) 0;
+    position: relative;
   }
 
   .who .wrap {
@@ -673,9 +688,6 @@
   }
 
   @media (max-width: 900px) {
-    .who {
-      background: url('images/homepage/buderim.jpg') center/cover fixed;
-    }
     .who .wrap {
       position: static;
     }
@@ -891,7 +903,6 @@
   .about {
     min-height: 300vh;
     position: relative;
-    background: url('images/homepage/sunshine-coast-our-story.jpg') center/cover fixed;
   }
 
   .about .wrap {
@@ -1355,9 +1366,7 @@
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background: url('/images/suburbs/noosa-river-and-town.jpg') center/cover fixed;
   }
-
 
   .locations::before {
     content: '';
@@ -1365,11 +1374,12 @@
     inset: 0;
     background: rgba(28,26,23,0.35);
     pointer-events: none;
+    z-index: 1;
   }
 
   .locations .wrap {
     position: relative;
-    z-index: 1;
+    z-index: 2;
     width: 100%;
   }
 
@@ -1734,12 +1744,6 @@
       background-attachment: scroll;
     }
 
-    .who,
-    .about,
-    .locations {
-      background-attachment: scroll;
-    }
-
     .hero {
       min-height: calc(100svh - 4rem);
       min-height: calc(100vh - 4rem);
@@ -1865,7 +1869,7 @@
       top: 4rem;
       height: calc(100vh - 4rem);
       justify-content: center;
-      background: url('images/homepage/sunshine-coast-our-story.jpg') center/cover scroll;
+      background: none;
       padding: var(--space-lg) var(--gutter);
       flex-shrink: 0;
       order: 1;
@@ -2566,6 +2570,7 @@
 
 <!-- ─── WHO WE HELP ─── -->
 <section class="who" id="who" aria-label="Who we help">
+  <div class="section-parallax-bg" id="who-bg" style="background-image:url('images/homepage/buderim.jpg')" aria-hidden="true"></div>
   <div class="wrap">
     <div class="who-content">
     <div class="who-header animate-fade-in">
@@ -2627,6 +2632,7 @@
 
 <!-- ─── ABOUT ─── -->
 <section class="about" id="about" aria-label="About Haylo">
+  <div class="section-parallax-bg" id="about-bg" style="background-image:url('images/homepage/sunshine-coast-our-story.jpg')" aria-hidden="true"></div>
   <div class="wrap">
     <div class="about-inner">
       <div class="about-visual">
@@ -2868,6 +2874,7 @@
 
 <!-- ─── LOCATIONS ─── -->
 <section class="locations" id="locations" aria-label="Service locations">
+  <div class="section-parallax-bg" id="locations-bg" style="background-image:url('/images/suburbs/noosa-river-and-town.jpg')" aria-hidden="true"></div>
   <div class="wrap">
     <div class="locations-header animate-fade-in">
       <div>
@@ -3544,7 +3551,28 @@ serviceNumbers.forEach(num => serviceCounterObserver.observe(num));
   });
 })();
 
+// Section parallax backgrounds — truly fixed image, section scrolls over the top
+(function () {
+  var items = [
+    { bg: document.getElementById('who-bg'),       section: document.querySelector('.who') },
+    { bg: document.getElementById('about-bg'),     section: document.querySelector('.about') },
+    { bg: document.getElementById('locations-bg'), section: document.querySelector('.locations') },
+  ].filter(function (i) { return i.bg && i.section; });
 
+  function update() {
+    var vh = window.innerHeight;
+    items.forEach(function (i) {
+      var rect = i.section.getBoundingClientRect();
+      var topClip    = Math.max(0, rect.top);
+      var bottomClip = Math.max(0, vh - rect.bottom);
+      i.bg.style.clipPath = 'inset(' + topClip + 'px 0px ' + bottomClip + 'px 0px)';
+    });
+  }
+
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update, { passive: true });
+  requestAnimationFrame(update);
+})();
 
 </script>
 
