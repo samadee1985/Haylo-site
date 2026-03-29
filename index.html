@@ -1556,6 +1556,45 @@
     font-weight: 300;
   }
 
+  /* ─── CONTACT FORM ─── */
+  .cta-form { display: flex; flex-direction: column; gap: 0.9rem; }
+  .cta-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; }
+  .cta-form label {
+    display: block; font-size: 0.68rem; font-weight: 500;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink-muted); margin-bottom: 0.4rem;
+  }
+  .cta-form input,
+  .cta-form textarea {
+    width: 100%; background: var(--warm-white);
+    border: 1px solid var(--border); color: var(--ink);
+    font-family: var(--font-body); font-size: 0.9rem; font-weight: 300;
+    padding: 0.7rem 0.9rem; outline: none;
+    transition: border-color 0.2s;
+  }
+  .cta-form input:focus,
+  .cta-form textarea:focus { border-color: var(--ink); }
+  .cta-form textarea { resize: vertical; min-height: 90px; }
+  .cta-form-submit {
+    font-family: var(--font-body); font-size: 0.8rem; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    background: var(--ink); color: var(--warm-white);
+    border: none; padding: 0.9rem 1.5rem;
+    cursor: pointer; transition: background 0.2s; text-align: center;
+  }
+  .cta-form-submit:hover { background: var(--ink-soft); }
+  .cta-form-note { font-size: 0.72rem; color: var(--ink-muted); font-weight: 300; }
+  .cta-form-success { display: none; text-align: center; padding: 2rem 0; }
+  .cta-form-success-icon {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: var(--ink); color: var(--warm-white);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem; margin: 0 auto 1rem;
+  }
+  .cta-form-success h3 { font-family: var(--font-display); font-size: 1.5rem; font-weight: 400; margin-bottom: 0.5rem; }
+  .cta-form-success p { font-size: 0.88rem; color: var(--ink-soft); font-weight: 300; line-height: 1.7; }
+  @media (max-width: 900px) { .cta-form-row { grid-template-columns: 1fr; } }
+
   /* ─── FOOTER ─── */
   footer {
     border-top: 1px solid var(--border);
@@ -3152,32 +3191,42 @@
         <p class="cta-body">
           If you're a local business that wants a stronger online presence, start with a free audit. We'll show you exactly where customers aren't finding you  -  no hard sell, no obligation.
         </p>
-        <div class="cta-actions">
-          <a href="/google-business-profile-audit/#audit-form" class="btn-primary">Get my free audit</a>
-          <a href="tel:0490422192" class="link-secondary">Or call us</a>
-        </div>
       </div>
 
       <div class="cta-side">
-        <div class="cta-contact-item">
-          <span class="cta-contact-label">Email</span>
-          <a href="mailto:hello@withhaylo.com" class="cta-contact-value">hello@withhaylo.com</a>
-        </div>
-        <div class="cta-divider"></div>
-        <div class="cta-contact-item">
-          <span class="cta-contact-label">Location</span>
-          <p class="cta-location">
-            Sunshine Coast, Queensland<br>
-            Working with businesses across the region
-          </p>
-        </div>
-        <div class="cta-divider"></div>
-        <div class="cta-contact-item">
-          <span class="cta-contact-label">Good for</span>
-          <p class="cta-location">
-            Trades &amp; contractors · Cleaning businesses<br>
-            Local services · Any small business that wants to grow
-          </p>
+        <form class="cta-form" id="contact-form" novalidate>
+          <input type="hidden" name="_source" value="homepage-contact">
+          <div class="cta-form-row">
+            <div>
+              <label for="cf-name">Your name</label>
+              <input type="text" id="cf-name" name="name" placeholder="Jane Smith" required>
+            </div>
+            <div>
+              <label for="cf-business">Business type</label>
+              <input type="text" id="cf-business" name="business" placeholder="Plumber, cleaner, etc." required>
+            </div>
+          </div>
+          <div class="cta-form-row">
+            <div>
+              <label for="cf-phone">Phone</label>
+              <input type="tel" id="cf-phone" name="phone" placeholder="0400 000 000" required>
+            </div>
+            <div>
+              <label for="cf-email">Email</label>
+              <input type="email" id="cf-email" name="email" placeholder="you@example.com">
+            </div>
+          </div>
+          <div>
+            <label for="cf-message">What do you need help with?</label>
+            <textarea id="cf-message" name="message" placeholder="Google ranking, reviews, website..."></textarea>
+          </div>
+          <button type="submit" class="cta-form-submit">Send message →</button>
+          <p class="cta-form-note">No obligation. We'll be in touch within one business day.</p>
+        </form>
+        <div class="cta-form-success" id="contact-success">
+          <div class="cta-form-success-icon">✓</div>
+          <h3>Message received.</h3>
+          <p>Thanks for reaching out. We'll be in touch within one business day. In the meantime, feel free to call or text on <a href="tel:0490422192">0490 422 192</a>.</p>
         </div>
       </div>
     </div>
@@ -3557,6 +3606,38 @@ serviceNumbers.forEach(num => serviceCounterObserver.observe(num));
     dot.addEventListener('click', () => {
       grid.scrollTo({ left: items[0].offsetWidth * i, behavior: 'smooth' });
     });
+  });
+})();
+
+// Homepage contact form
+(function () {
+  const form = document.getElementById('contact-form');
+  const success = document.getElementById('contact-success');
+  if (!form) return;
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    const btn = form.querySelector('.cta-form-submit');
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+    const data = {};
+    new FormData(form).forEach((v, k) => data[k] = v);
+    try {
+      const res = await fetch('https://formspree.io/f/xeelpqge', {
+        method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      if (res.ok) {
+        form.style.display = 'none';
+        success.style.display = 'block';
+        if (typeof gtag !== 'undefined') gtag('event', 'contact_form_submit', { event_category: 'contact' });
+      } else {
+        btn.textContent = 'Something went wrong — try again';
+        btn.disabled = false;
+      }
+    } catch {
+      btn.textContent = 'Something went wrong — try again';
+      btn.disabled = false;
+    }
   });
 })();
 
