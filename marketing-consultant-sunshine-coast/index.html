@@ -606,6 +606,391 @@
   .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
   .reveal.visible { opacity: 1; transform: none; }
 
+  /* ─── MOBILE STICKY BAR ─── */
+  #mob-bar {
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 101;
+    background: var(--ink);
+    border-top: 1px solid rgba(250,248,245,0.08);
+    display: flex; gap: 0.5rem;
+    padding: 0.6rem 1rem;
+    padding-bottom: calc(0.6rem + env(safe-area-inset-bottom, 0px));
+  }
+
+  #mob-bar .mb-call {
+    flex: 1.4; display: flex; align-items: center; justify-content: center; gap: 0.4rem;
+    background: var(--clay); color: var(--ink);
+    padding: 0.75rem 0.5rem;
+    font-size: 0.72rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+    text-decoration: none; -webkit-tap-highlight-color: transparent;
+    transition: background 0.2s;
+  }
+
+  #mob-bar .mb-call:hover { background: var(--ink-soft); }
+
+  #mob-bar .mb-audit {
+    flex: 1; display: flex; align-items: center; justify-content: center;
+    background: transparent; color: rgba(250,248,245,0.72);
+    border: 1px solid rgba(250,248,245,0.18);
+    padding: 0.75rem 0.5rem;
+    font-size: 0.72rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+    text-decoration: none; -webkit-tap-highlight-color: transparent;
+  }
+
+  @media (min-width: 860px) { #mob-bar { display: none; } }
+  @media (max-width: 859px) { body { padding-bottom: calc(60px + env(safe-area-inset-bottom, 0px)); } }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    .loc-split { grid-template-columns: 1fr; gap: 3rem; }
+    .services-grid { grid-template-columns: 1fr; }
+    .stats-band { grid-template-columns: 1fr 1fr; }
+    .stat-item { border-right: none; border-bottom: 1px solid rgba(250,248,245,0.1); }
+    .stat-item:nth-child(odd) { border-right: 1px solid rgba(250,248,245,0.1); }
+    .stat-item:nth-last-child(-n+2) { border-bottom: none; }
+    .areas-grid { grid-template-columns: 1fr 1fr; }
+    .footer-top { grid-template-columns: 1fr 1fr; }
+    .footer-brand { grid-column: 1 / -1; }
+  }
+
+  @media (max-width: 480px) {
+    .loc-actions { flex-direction: column; }
+    .loc-actions a { width: 100%; text-align: center; }
+  }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://www.withhaylo.com/marketing-consultant-sunshine-coast/#service",
+  "name": "Local Marketing Consultant Sunshine Coast",
+  "url": "https://www.withhaylo.com/marketing-consultant-sunshine-coast/",
+  "provider": {
+    "@type": "ProfessionalService",
+    "@id": "https://www.withhaylo.com/#business",
+    "name": "Haylo",
+    "url": "https://www.withhaylo.com/",
+    "telephone": "+61490422192"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Sunshine Coast",
+    "addressRegion": "QLD",
+    "addressCountry": "AU"
+  },
+  "serviceType": "Local Marketing Consulting"
+}
+</script>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a href="/" class="wordmark">haylo.</a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/#services">Services</a></li>
+        <li><a href="/marketing-for-tradies/">Trades</a></li>
+      <li><a href="/#contact">Pricing</a></li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/marketing-for-tradies/">Trades</a></li>
+      <li><a href="/blog/">Blog</a></li>
+    </ul>
+    <a href="tel:0490422192" class="btn-call-nav"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.16 6.16l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>0490 422 192</a>
+      <a href="/google-business-profile-audit/#audit-form" class="btn-header">Free Audit</a>
+    <button class="nav-burger" id="burger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="nav-drawer" id="drawer">
+  <ul>
+    <li><a href="/" class="drawer-link">Home</a></li>
+    <li><a href="/#services" class="drawer-link">Services</a></li>
+    <li><a href="/#contact" class="drawer-link">Pricing</a></li>
+    <li><a href="/about/" class="drawer-link">About</a></li>
+    <li><a href="/marketing-for-tradies/" class="drawer-link">Trades</a></li>
+    <li><a href="/blog/" class="drawer-link">Blog</a></li>
+  </ul>
+  <li><a href="tel:0490422192" class="drawer-link" style="color:var(--clay);font-weight:500;">Call now  ·  0490 422 192</a></li>
+  </ul>
+  <a href="/google-business-profile-audit/#audit-form" class="drawer-cta drawer-link">Get My Free Audit →</a>
+</div>
+
+<!-- HERO -->
+<section class="loc-hero">
+  <div class="loc-hero-bg" id="hero-bg"></div>
+  <div class="loc-hero-overlay"></div>
+  <div class="loc-hero-inner">
+    <div class="loc-crumb"><a href="/">Home</a> / <a href="/#who">Locations</a> / Sunshine Coast</div>
+    <h1 class="loc-h1">Local Marketing Consultant<br><em>Sunshine Coast</em></h1>
+    <p class="loc-sub">Helping cleaners, tradies and local service businesses in <strong>Sunshine Coast</strong> get found on Google, generate more 5-star reviews, and get the phone ringing.</p>
+    <div class="loc-actions">
+      <a href="/google-business-profile-audit/#audit-form" class="btn-primary">Get My Free Audit →</a>
+      <a href="tel:0490422192" class="btn-ghost">0490 422 192</a>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO + MAP -->
+<section class="section section-stone">
+  <div class="section-wrap">
+    <div class="loc-split reveal">
+      <div>
+        <span class="eyebrow">Local Marketing · Sunshine Coast</span>
+        <h2 class="sec-h2">The Sunshine Coast market<br>is competitive. <em>Be first.</em></h2>
+        <div class="sec-body">
+          <p>The Sunshine Coast is one of Queensland's fastest-growing regions  -  and for local service businesses, that means more competition than ever. Whether you're a cleaner working across Maroochydore and Buderim, a tradie covering jobs from Caloundra to Noosa, or a service business established in one suburb and looking to expand, your Google presence determines how much work comes your way.</p>
+          <p>At Haylo, we specialise in local marketing for Sunshine Coast service businesses. We know the suburbs, the search behaviour, and the competition. When someone in Mooloolaba searches for a cleaner, or a homeowner in Sippy Downs needs an electrician, we make sure your business appears  -  and appears well.</p>
+          <p>Our approach is practical and results-focused. We optimise your Google Business Profile, manage your Facebook presence, and deliver monthly reports showing exactly how your visibility is growing. No jargon, no lock-in contracts  -  just more calls.</p>
+        </div>
+      </div>
+      <div>
+        <div class="loc-map">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d228308.08120462848!2d152.90934917834176!3d-26.606387585601084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b937fb66d7d48ed%3A0x302a35af3deaf50!2sSunshine%20Coast%20QLD!5e0!3m2!1sen!2sau!4v1771936457309!5m2!1sen!2sau" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section section-stone-mid">
+  <div class="section-wrap">
+    <div class="reveal">
+      <span class="eyebrow">What We Do in Sunshine Coast</span>
+      <h2 class="sec-h2">Services for <em>Sunshine Coast</em> businesses.</h2>
+    </div>
+    <div class="services-grid reveal">
+      <a href="/google-business-profile/" class="svc-tile">
+        <div class="svc-tile-icon">&#128205;</div>
+        <div class="svc-tile-title">Google Business Profile</div>
+        <div class="svc-tile-desc">Get into the top 3 on Google Maps when Sunshine Coast customers search for your service.</div>
+        <span class="svc-tile-link">Learn More →</span>
+      </a>
+      <a href="/facebook-business-page-management/" class="svc-tile">
+        <div class="svc-tile-icon">&#128216;</div>
+        <div class="svc-tile-title">Facebook Management</div>
+        <div class="svc-tile-desc">Stay active and visible on Facebook so Sunshine Coast locals choose you when they need the job done.</div>
+        <span class="svc-tile-link">Learn More →</span>
+      </a>
+      <a href="/reporting/" class="svc-tile">
+        <div class="svc-tile-icon">&#128202;</div>
+        <div class="svc-tile-title">Visibility Reporting</div>
+        <div class="svc-tile-desc">Monthly plain-English reports showing exactly how your Sunshine Coast online presence is performing.</div>
+        <span class="svc-tile-link">Learn More →</span>
+      </a>
+      <a href="/review-generation/" class="svc-tile">
+        <div class="svc-tile-icon">&#11088;</div>
+        <div class="svc-tile-title">Review Generation</div>
+        <div class="svc-tile-desc">Build a steady stream of 5-star Google reviews from Sunshine Coast customers  -  the fastest way to stand out from competitors.</div>
+        <span class="svc-tile-link">Learn More →</span>
+      </a>
+      <a href="/website-creation-seo/" class="svc-tile">
+        <div class="svc-tile-icon">&#127760;</div>
+        <div class="svc-tile-title">Website Creation & SEO</div>
+        <div class="svc-tile-desc">A fast, search-optimised website built specifically for Sunshine Coast service businesses  -  designed to convert visitors into calls.</div>
+        <span class="svc-tile-link">Learn More →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY IT MATTERS + STATS -->
+<section class="section section-ink">
+  <div class="section-wrap">
+    <div class="reveal">
+      <span class="eyebrow" style="color:rgba(250,248,245,0.35);">Why It Matters in Sunshine Coast</span>
+      <h2 class="sec-h2 sec-h2-light">The Sunshine Coast market<br>is competitive. <em>Be first.</em></h2>
+    </div>
+    <div class="sec-body sec-body-light reveal" style="margin-top:1.5rem;max-width:700px;">
+      <p>Across the Sunshine Coast from Caloundra in the south to Noosa in the north, local service businesses are competing for the same customers. The businesses that win are the ones showing up at the top of Google Maps  -  not because they're the best (though they might be), but because they've invested in their online visibility.</p>
+      <p>Haylo works exclusively with Sunshine Coast businesses. We understand the local market, the seasonal patterns, and the suburbs where competition is fiercest. Let us help you become the go-to business in your area.</p>
+    </div>
+    <div class="stats-band reveal">
+      <div class="stat-item">
+        <div class="stat-num">Top 3</div>
+        <div class="stat-label">Google Maps position is the goal</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">3×</div>
+        <div class="stat-label">Average increase in calls</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">48H</div>
+        <div class="stat-label">To first visible results</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">4.9★</div>
+        <div class="stat-label">Average client rating achieved</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band">
+  <div class="cta-band-inner reveal">
+    <h2 class="cta-h2">Ready to dominate<br><em>Sunshine Coast?</em></h2>
+    <p class="cta-body">Get a free audit of your Google Business Profile and see exactly where local customers aren't finding you.</p>
+    <a href="/google-business-profile-audit/#audit-form" class="btn-primary">Get My Free Sunshine Coast Audit →</a>
+    <div class="cta-contact">Call or text: <a href="tel:0490422192">0490 422 192</a> &nbsp;&middot;&nbsp; <a href="mailto:hello@withhaylo.com">hello@withhaylo.com</a></div>
+  </div>
+</section>
+
+<!-- OTHER AREAS -->
+<section class="section section-stone">
+  <div class="section-wrap">
+    <div class="reveal">
+      <span class="eyebrow">We Also Serve</span>
+      <h2 class="sec-h2">More Sunshine Coast <em>locations.</em></h2>
+    </div>
+    <div class="areas-grid reveal">
+      <a href="/marketing-consultant-caloundra/" class="area-tile">
+        <div class="area-tile-name">Caloundra</div>
+        <div class="area-tile-sub">Southern Sunshine Coast</div>
+      </a>
+      <a href="/marketing-consultant-maroochydore/" class="area-tile">
+        <div class="area-tile-name">Maroochydore</div>
+        <div class="area-tile-sub">Sunshine Coast CBD</div>
+      </a>
+      <a href="/marketing-consultant-buderim/" class="area-tile">
+        <div class="area-tile-name">Buderim</div>
+        <div class="area-tile-sub">Hinterland Hub</div>
+      </a>
+      <a href="/marketing-consultant-noosa/" class="area-tile">
+        <div class="area-tile-name">Noosa</div>
+        <div class="area-tile-sub">Northern Sunshine Coast</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="/" class="footer-wordmark">haylo.</a>
+        <p class="footer-tagline">Local marketing for Sunshine Coast small businesses.</p>
+      </div>
+      <div class="footer-col">
+        <span class="footer-col-label">Services</span>
+        <ul>
+          <li><a href="/google-business-profile/">Google Profile</a></li>
+          <li><a href="/review-generation/">Reviews</a></li>
+          <li><a href="/facebook-business-page-management/">Facebook</a></li>
+          <li><a href="/reporting/">Reporting</a></li>
+          <li><a href="/#contact">Pricing</a></li>
+          <li><a href="/blog/">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <span class="footer-col-label">Trades</span>
+        <ul>
+          <li><a href="/marketing-for-plumbers/">Plumbers</a></li>
+          <li><a href="/marketing-for-electricians/">Electricians</a></li>
+          <li><a href="/marketing-for-roofers/">Roofers</a></li>
+          <li><a href="/marketing-for-tilers/">Tilers</a></li>
+          <li><a href="/marketing-for-concreters/">Concreters</a></li>
+          <li><a href="/marketing-for-painters/">Painters</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <span class="footer-col-label">Locations</span>
+        <ul>
+          <li><a href="/marketing-consultant-sunshine-coast/">Sunshine Coast</a></li>
+          <li><a href="/marketing-consultant-caloundra/">Caloundra</a></li>
+          <li><a href="/marketing-consultant-maroochydore/">Maroochydore</a></li>
+          <li><a href="/marketing-consultant-buderim/">Buderim</a></li>
+          <li><a href="/marketing-consultant-noosa/">Noosa</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">&copy; 2026 Haylo &middot; Sunshine Coast, QLD</div>
+      <div class="footer-contact">
+        <a href="tel:0490422192">0490 422 192</a>
+        <a href="mailto:hello@withhaylo.com">hello@withhaylo.com</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- MOBILE STICKY BAR -->
+<div id="mob-bar">
+  <a href="tel:0490422192" class="mb-call" onclick="gtag('event','phone_click',{'method':'mobile_sticky_bar'})">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.01 1.18 2 2 0 012 .01h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
+    0490 422 192
+  </a>
+  <a href="/google-business-profile-audit/#audit-form" class="mb-audit">Free Audit →</a>
+</div>
+
+<script>
+// Nav burger
+const burger = document.getElementById('burger');
+const drawer = document.getElementById('drawer');
+document.querySelectorAll('.drawer-link').forEach(link => {
+  link.addEventListener('click', () => {
+    burger.classList.remove('open');
+    drawer.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+});
+burger.addEventListener('click', () => {
+  const open = burger.classList.toggle('open');
+  drawer.classList.toggle('open', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+});
+
+// Scroll reveal
+const revealObs = new IntersectionObserver((entries, obs) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) { entry.target.classList.add('visible'); obs.unobserve(entry.target); }
+  });
+}, { threshold: 0, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+// Hero parallax
+const heroBg = document.getElementById('hero-bg');
+if (heroBg) {
+  window.addEventListener('scroll', () => {
+    heroBg.style.transform = 'translateY(' + (window.scrollY * 0.3) + 'px)';
+  }, { passive: true });
+}
+
+// GA contact tracking
+document.addEventListener('click', function(e) {
+  const a = e.target.closest('a');
+  if (!a) return;
+  if (a.href && a.href.indexOf('tel:') === 0) {
+    gtag('event', 'phone_click', { event_category: 'contact', event_label: a.href.replace('tel:', '') });
+  } else if (a.href && a.href.indexOf('mailto:') === 0) {
+    gtag('event', 'email_click', { event_category: 'contact', event_label: a.href.replace('mailto:', '') });
+  }
+});
+</script>
+
+<style>
+  /* ─── CALL NOW  -  DESKTOP NAV ─── */
+  .btn-call-nav {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--clay);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: opacity 0.2s;
+    white-space: nowrap;
+  }
+  .btn-call-nav:hover { opacity: 0.75; color: var(--clay); }
+  .btn-call-nav svg { flex-shrink: 0; }
+
 
   /* ─── WHATSAPP BUTTON ─── */
   .wa-btn {
@@ -631,7 +1016,7 @@
   }
   .wa-btn svg { display: block; }
   @media (max-width: 767px) {
-    .wa-btn { bottom: 1.25rem; right: 1rem; width: 46px; height: 46px; }
+    .wa-btn { bottom: calc(60px + 1rem); right: 1rem; width: 46px; height: 46px; }
   }
 </style>
 <!-- ─── WHATSAPP BUTTON ─── -->
