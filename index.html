@@ -425,17 +425,7 @@
   }
 
   /* ─── SERVICES ─── */
-  .services-scroll-wrapper {
-    position: relative;
-    height: 140vh;
-  }
-
   .services {
-    position: sticky;
-    top: 0;
-    z-index: 1;
-    min-height: 100vh;
-    min-height: 100svh;
     padding: 6rem 0 var(--space-xxl);
     background: var(--stone);
   }
@@ -2139,6 +2129,8 @@
     .nav-toggle {
       display: flex;
     }
+
+    .nav-call-mobile { display: list-item !important; }
   }
 
   @media (max-width: 580px) {
@@ -2217,8 +2209,9 @@
       gap: 0;
       border-top: 1px solid var(--border);
     }
-    .service-item.in-view::before {
+    .service-item::before {
       opacity: 0.32;
+      transform: scale(1);
     }
 
     .services-grid::-webkit-scrollbar { display: none; }
@@ -2566,6 +2559,7 @@
         <li><a href="#faq">FAQ</a></li>
         <li><a href="/blog/">Blog</a></li>
         <li><a href="#contact">Contact</a></li>
+        <li class="nav-call-mobile" style="display:none;"><a href="tel:0490422192" style="color:var(--clay);font-weight:500;">Call now  ·  0490 422 192</a></li>
       </ul>
       <a href="tel:0490422192" class="btn-call-nav"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.16 6.16l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>0490 422 192</a>
       <a href="/google-business-profile-audit/#audit-form" class="btn-header">Free Audit</a>
@@ -2714,7 +2708,6 @@
 </section>
 
 <!-- ─── SERVICES ─── -->
-<div class="services-scroll-wrapper">
 <section class="services" id="services" aria-label="Services">
   <div class="wrap">
     <div class="services-header animate-fade-in">
@@ -2775,7 +2768,6 @@
     </div>
   </div>
 </section>
-</div>
 
 <!-- ─── WORK ─── -->
 <section class="work" id="work" aria-label="Selected work">
@@ -3576,38 +3568,6 @@ serviceNumbers.forEach(num => serviceCounterObserver.observe(num));
   });
 })();
 
-// Services  -  lock section briefly then release; in-view card backgrounds (mobile only)
-(function () {
-  if (!window.matchMedia('(max-width: 767px)').matches) return;
-
-  const wrapper = document.querySelector('.services-scroll-wrapper');
-  const section = document.querySelector('.services');
-  const grid    = document.querySelector('.services-grid');
-  const items   = document.querySelectorAll('.service-item');
-  const dots    = document.querySelectorAll('.services-dot');
-
-  if (!wrapper || !grid || !items.length) return;
-
-  function setActive(i) {
-    items.forEach((el, j) => el.classList.toggle('in-view', j === i));
-    dots.forEach((el, j) => el.classList.toggle('active', j === i));
-  }
-
-  setActive(0);
-
-  // Update active card as user swipes
-  grid.addEventListener('scroll', function () {
-    const cardW = items[0].offsetWidth;
-    setActive(Math.min(Math.round(grid.scrollLeft / cardW), items.length - 1));
-  }, { passive: true });
-
-  // Dot clicks scroll the carousel directly
-  dots.forEach((dot, i) => {
-    dot.addEventListener('click', () => {
-      grid.scrollTo({ left: items[0].offsetWidth * i, behavior: 'smooth' });
-    });
-  });
-})();
 
 // Homepage contact form
 (function () {
@@ -3685,42 +3645,6 @@ serviceNumbers.forEach(num => serviceCounterObserver.observe(num));
   .btn-call-nav:hover { opacity: 0.75; color: var(--clay); }
   .btn-call-nav svg { flex-shrink: 0; }
 
-  /* ─── CALL NOW  -  MOBILE STICKY BAR ─── */
-  .mobile-call-bar {
-    display: none;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 200;
-    background: var(--clay);
-    border-top: 1px solid rgba(0,0,0,0.08);
-    box-shadow: 0 -4px 24px rgba(28,26,23,0.12);
-  }
-  .mobile-call-bar a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.65rem;
-    height: 48px;
-    color: var(--warm-white);
-    text-decoration: none;
-    font-family: var(--font-body);
-    font-size: 0.85rem;
-    font-weight: 500;
-    letter-spacing: 0.07em;
-    text-transform: uppercase;
-  }
-  .mobile-call-bar a:active { opacity: 0.85; }
-  @media (max-width: 767px) {
-    .btn-call-nav { display: none; }
-    .mobile-call-bar { display: block; }
-    body { padding-bottom: 48px; }
-  }
-  @media (min-width: 768px) {
-    .mobile-call-bar { display: none; }
-  }
-
   /* ─── WHATSAPP BUTTON ─── */
   .wa-btn {
     position: fixed;
@@ -3745,7 +3669,7 @@ serviceNumbers.forEach(num => serviceCounterObserver.observe(num));
   }
   .wa-btn svg { display: block; }
   @media (max-width: 767px) {
-    .wa-btn { bottom: calc(48px + 1rem); right: 1rem; width: 46px; height: 46px; }
+    .wa-btn { bottom: 1.25rem; right: 1rem; width: 46px; height: 46px; }
   }
 </style>
 
@@ -3756,12 +3680,5 @@ serviceNumbers.forEach(num => serviceCounterObserver.observe(num));
   </svg>
 </a>
 
-<!-- ─── MOBILE CALL BAR ─── -->
-<div class="mobile-call-bar">
-  <a href="tel:0490422192">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.16 6.16l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-    Call now &nbsp;·&nbsp; 0490 422 192
-  </a>
-</div>
 </body>
 </html>
