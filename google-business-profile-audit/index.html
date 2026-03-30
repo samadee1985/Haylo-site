@@ -572,47 +572,33 @@
     </div>
     <div>
       <form class="audit-form" action="https://formspree.io/f/xeelpqge" method="POST" id="audit-form-el">
+        <input type="hidden" name="_source" value="audit-page">
         <div class="form-row-2">
           <div class="form-row" style="margin-bottom:0;">
             <label for="name">Your name</label>
-            <input type="text" id="name" name="name" placeholder="Sam Davies" required>
+            <input type="text" id="name" name="name" placeholder="Jane Smith" required>
           </div>
           <div class="form-row" style="margin-bottom:0;">
-            <label for="phone">Phone number</label>
+            <label for="business">Business name</label>
+            <input type="text" id="business" name="business" placeholder="Your business name" required>
+          </div>
+        </div>
+        <div class="form-row-2">
+          <div class="form-row" style="margin-bottom:0;">
+            <label for="phone">Mobile number</label>
             <input type="tel" id="phone" name="phone" placeholder="0400 000 000" required>
+          </div>
+          <div class="form-row" style="margin-bottom:0;">
+            <label for="email">Email address</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com">
           </div>
         </div>
         <div class="form-row">
-          <label for="email">Email address</label>
-          <input type="email" id="email" name="email" placeholder="you@yourbusiness.com.au" required>
-        </div>
-        <div class="form-row">
-          <label for="business">Business name</label>
-          <input type="text" id="business" name="business_name" placeholder="Your business name" required>
-        </div>
-        <div class="form-row">
-          <label for="type">Business type</label>
-          <select id="type" name="business_type" required>
-            <option value="" disabled selected>Select your industry</option>
-            <option value="Tradie">Tradie (plumber, electrician, builder, etc.)</option>
-            <option value="Cleaner">Cleaner</option>
-            <option value="Landscaper / Gardener">Landscaper / Gardener</option>
-            <option value="Health & Wellness">Health &amp; Wellness</option>
-            <option value="Auto / Mechanical">Auto / Mechanical</option>
-            <option value="Home Services">Home Services</option>
-            <option value="Other">Other service business</option>
-          </select>
-        </div>
-        <div class="form-row">
-          <label for="suburb">Your suburb</label>
-          <input type="text" id="suburb" name="suburb" placeholder="e.g. Buderim, Maroochydore">
-        </div>
-        <div class="form-row">
-          <label for="message">Anything else you'd like us to know? (optional)</label>
-          <textarea id="message" name="message" placeholder="e.g. I've tried managing my profile before but not sure what's working..."></textarea>
+          <label for="message">What do you want help with?</label>
+          <textarea id="message" name="message" placeholder="Google ranking, reviews, visibility..."></textarea>
         </div>
         <button type="submit" class="form-submit">Send my free audit request</button>
-        <p class="form-note">No obligation. We'll review your profile and get back to you within 48 hours. Sunshine Coast businesses only.</p>
+        <p class="form-note">No obligation. We'll be in touch within one business day.</p>
       </form>
       <div class="form-success" id="form-success">
         <div class="form-success-icon">✓</div>
