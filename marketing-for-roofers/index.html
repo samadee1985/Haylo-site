@@ -71,12 +71,12 @@
   .nav-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
   .nav-links.nav-open { display: flex; position: absolute; top: 100%; right: 0; background: rgba(245,242,238,0.97); backdrop-filter: blur(12px); flex-direction: column; padding: 2rem var(--gutter); border-bottom: 1px solid var(--border); gap: 1.25rem; min-width: 220px; }
 
-  .btn-primary { font-family: var(--font-body); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); background: transparent; border: 1px solid var(--ink); padding: 0.85rem 2rem; text-decoration: none; display: inline-block; transition: all 0.3s ease; cursor: pointer; border-radius: 4px; }
+  .btn-primary { font-family: var(--font-body); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); background: transparent; border: 1px solid var(--ink); padding: 0.85rem 2rem; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; transition: all 0.3s ease; cursor: pointer; border-radius: 4px; }
   .btn-primary:hover { background: var(--ink); color: var(--warm-white); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(28,26,23,0.15); }
-  .btn-outline { font-family: var(--font-body); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); background: transparent; border: 1px solid var(--ink); padding: 0.85rem 2rem; text-decoration: none; display: inline-block; transition: all 0.3s ease; cursor: pointer; border-radius: 4px; }
+  .btn-outline { font-family: var(--font-body); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); background: transparent; border: 1px solid var(--ink); padding: 0.85rem 2rem; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; transition: all 0.3s ease; cursor: pointer; border-radius: 4px; }
   .btn-outline:hover { background: var(--ink); color: var(--warm-white); }
-  .btn-primary-light { font-family: var(--font-body); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); background: var(--warm-white); border: 1px solid var(--warm-white); padding: 0.85rem 2rem; text-decoration: none; display: inline-block; transition: all 0.3s ease; cursor: pointer; border-radius: 4px; }
-  .btn-primary-light:hover { background: var(--clay-light); border-color: var(--clay-light); transform: translateY(-2px); }
+  .btn-primary-light { font-family: var(--font-body); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--warm-white); background: transparent; border: 1px solid rgba(250,248,245,0.65); padding: 0.85rem 2rem; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; transition: all 0.3s ease; cursor: pointer; border-radius: 4px; }
+  .btn-primary-light:hover { background: rgba(250,248,245,0.12); border-color: var(--warm-white); transform: translateY(-2px); }
 
   .ip-hero { background: var(--ink) center/cover no-repeat; min-height: 65vh; padding: calc(4rem + 5rem) 0 6rem; position: relative; }
   .ip-hero-overlay { position: absolute; inset: 0; background: rgba(28,26,23,0.72); }
@@ -302,8 +302,7 @@
       <h1 class="ip-h1">Marketing for<br><em>Roofers</em></h1>
       <p class="ip-sub">After every storm and before every renovation, homeowners search Google for a roofer they can trust. Be the business they find.</p>
       <div class="ip-actions">
-        <a href="/google-business-profile-audit/#audit-form" class="btn-primary-light">Get in touch</a>
-        <a href="tel:0490422192" class="btn-outline" style="border-color:rgba(250,248,245,0.35);color:rgba(250,248,245,0.7);">0490 422 192</a>
+        <a href="/google-business-profile-audit/#audit-form" class="btn-primary-light">Free audit</a>
       </div>
     </div>
   </section>
@@ -543,7 +542,7 @@
     <p class="eyebrow ruled">Get started</p>
     <h2>Be the roofer that homeowners<br><em>find first.</em></h2>
     <p>No lock-in contracts. Consistent local visibility for your roofing business, year round.</p>
-    <a href="/google-business-profile-audit/#audit-form" class="btn-primary">Get in touch</a>
+    <a href="/google-business-profile-audit/#audit-form" class="btn-primary">Get started</a>
     <p class="ip-cta-contact">Or call <a href="tel:0490422192">0490 422 192</a></p>
   </div>
 </section>
