@@ -11,23 +11,21 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Get a free Google Business Profile audit for your Sunshine Coast business. We'll show you exactly where local customers aren't finding you  -  and what to fix.">
+<meta name="description" content="Get a free Google Business Profile audit for your Sunshine Coast business. We'll show you exactly where local customers aren't finding you - and what to fix.">
 <title>Free Google Business Profile Audit | Sunshine Coast | Haylo</title>
 <link rel="canonical" href="https://www.withhaylo.com/google-business-profile-audit/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Free Google Business Profile Audit | Sunshine Coast | Haylo">
-<meta property="og:description" content="Get a free Google Business Profile audit for your Sunshine Coast business. We'll show you exactly where local customers aren't finding you  -  and what to fix.">
+<meta property="og:description" content="Get a free Google Business Profile audit for your Sunshine Coast business. We'll show you exactly where local customers aren't finding you - and what to fix.">
 <meta property="og:url" content="https://www.withhaylo.com/google-business-profile-audit/">
 <meta property="og:image" content="https://www.withhaylo.com/images/homepage/hero-image.jpg">
 <meta property="og:site_name" content="Haylo">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Free Google Business Profile Audit | Sunshine Coast | Haylo">
-<meta name="twitter:description" content="Get a free Google Business Profile audit for your Sunshine Coast business. We'll show you exactly where local customers aren't finding you  -  and what to fix.">
+<meta name="twitter:description" content="Get a free Google Business Profile audit for your Sunshine Coast business. We'll show you exactly where local customers aren't finding you - and what to fix.">
 <meta name="robots" content="index, follow">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/x-icon" href="/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
@@ -51,8 +49,7 @@
     --gutter:      clamp(1.25rem, 4vw, 3rem);
   }
 
-  html { scroll-behavior: smooth;
-    overflow-x: clip; }
+  html { scroll-behavior: smooth; overflow-x: clip; }
 
   body {
     background: var(--stone);
@@ -67,6 +64,25 @@
   a { text-decoration: none; color: inherit; }
   img { display: block; max-width: 100%; }
 
+  /* ─── HEADER / NAV ─── */
+  header { position: sticky; top: 0; z-index: 100; background: rgba(245,242,238,0.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+  .header-inner { display: flex; align-items: center; justify-content: space-between; height: 4rem; max-width: var(--max-width); margin: 0 auto; padding: 0 var(--gutter); }
+  .wordmark { font-family: var(--font-display); font-size: 1.6rem; font-weight: 400; letter-spacing: 0.04em; color: var(--ink); text-decoration: none; }
+  nav { display: flex; align-items: center; gap: 2.25rem; position: relative; }
+  .nav-links { display: flex; gap: 2.25rem; list-style: none; }
+  .nav-links a { font-size: 0.8rem; font-weight: 400; letter-spacing: 0.06em; color: var(--ink-soft); text-decoration: none; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--ink); }
+  .btn-call-nav { font-family: var(--font-body); font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; color: var(--clay); text-decoration: none; display: flex; align-items: center; gap: 0.4rem; transition: opacity 0.2s; white-space: nowrap; }
+  .btn-call-nav:hover { opacity: 0.75; }
+  .btn-call-nav svg { flex-shrink: 0; }
+  .btn-header { font-family: var(--font-body); font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); background: transparent; border: 1px solid var(--ink); padding: 0.5rem 1.25rem; text-decoration: none; transition: background 0.2s, color 0.2s; }
+  .btn-header:hover { background: var(--ink); color: var(--warm-white); }
+  .nav-toggle { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; padding: 4px; }
+  .nav-toggle span { display: block; width: 22px; height: 1px; background: var(--ink); transition: all 0.3s ease; }
+  .nav-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+  .nav-toggle.active span:nth-child(2) { opacity: 0; }
+  .nav-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
+  .nav-links.nav-open { display: flex; position: absolute; top: 100%; right: 0; background: rgba(245,242,238,0.97); backdrop-filter: blur(12px); flex-direction: column; padding: 2rem var(--gutter); border-bottom: 1px solid var(--border); gap: 1.25rem; min-width: 220px; }
 
   /* ─── HERO ─── */
   .audit-hero {
@@ -80,17 +96,16 @@
 
   .audit-hero-bg {
     position: absolute;
-    inset: -15% 0 -15% 0;
+    inset: 0;
     background-image: url('/images/audit/audit-hero.jpg');
     background-size: cover;
     background-position: center 40%;
-    will-change: transform;
   }
 
   .audit-hero-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(28,26,23,0.7);
+    background: rgba(28,26,23,0.68);
   }
 
   .audit-hero-inner {
@@ -116,11 +131,11 @@
 
   .audit-h1 {
     font-family: var(--font-display);
-    font-size: clamp(2.8rem, 6vw, 6.5rem);
+    font-size: clamp(2.8rem, 6vw, 6rem);
     font-weight: 300;
     line-height: 1.02;
     color: var(--warm-white);
-    max-width: 900px;
+    max-width: 860px;
     margin-bottom: 1.5rem;
   }
 
@@ -179,12 +194,9 @@
   }
 
   .sec-h2 em { font-style: italic; color: var(--clay); }
-  .sec-h2-light { color: var(--warm-white); }
-  .sec-h2-light em { color: var(--clay-light); }
 
   .sec-body { font-size: 0.95rem; line-height: 1.9; color: var(--ink-soft); font-weight: 300; }
   .sec-body p + p { margin-top: 1.2rem; }
-  .sec-body-light { color: rgba(250,248,245,0.5); }
 
   /* ─── WHAT'S COVERED ─── */
   .covers-split {
@@ -198,8 +210,8 @@
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 0;
     border-top: 1px solid var(--border);
+    margin-top: 2rem;
   }
 
   .covers-list li {
@@ -229,6 +241,7 @@
     gap: 1px;
     background: var(--border);
     border: 1px solid var(--border);
+    margin-top: 2rem;
   }
 
   .issue-item {
@@ -319,8 +332,6 @@
   .audit-form {
     background: rgba(250,248,245,0.07);
     border: 1px solid rgba(250,248,245,0.14);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
     padding: 2.5rem;
   }
 
@@ -358,7 +369,7 @@
 
   .form-row input:focus,
   .form-row select:focus,
-  .form-row textarea:focus { border-color: var(--clay); outline: none; }
+  .form-row textarea:focus { border-color: var(--clay); }
 
   .form-row select option { background: var(--ink-soft); color: var(--warm-white); }
   .form-row textarea { resize: vertical; min-height: 80px; }
@@ -384,6 +395,9 @@
     cursor: pointer;
     transition: background 0.2s, color 0.2s, border-color 0.2s;
     margin-top: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .form-submit:hover { background: var(--clay); color: var(--warm-white); border-color: var(--clay); }
@@ -401,10 +415,7 @@
     padding: 3rem 1rem;
   }
 
-  .form-success-icon {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-  }
+  .form-success-icon { font-size: 2.5rem; margin-bottom: 1rem; }
 
   .form-success h3 {
     font-family: var(--font-display);
@@ -418,119 +429,254 @@
     font-size: 0.85rem;
     color: rgba(250,248,245,0.4);
     line-height: 1.7;
-    font-weight: 300;
   }
 
   /* ─── FOOTER ─── */
-  footer { background: var(--ink); border-top: 1px solid rgba(250,248,245,0.06); }
-  .footer-inner { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--gutter); }
-
-  .footer-top {
-    display: grid;
-    grid-template-columns: 1.6fr 1fr 1fr 1fr;
-    gap: 3rem;
-    padding: 4rem 0 3rem;
-    border-bottom: 1px solid rgba(250,248,245,0.06);
-  }
-
-  .footer-wordmark {
-    font-family: var(--font-display);
-    font-size: 1.8rem;
-    font-weight: 300;
-    color: var(--warm-white);
-    margin-bottom: 1rem;
-    display: block;
-    text-decoration: none;
-  }
-
-  .footer-tagline {
-    font-size: 0.82rem;
-    line-height: 1.75;
-    color: rgba(250,248,245,0.28);
-    max-width: 220px;
-    font-weight: 300;
-  }
-
-  .footer-col-label {
-    font-size: 0.65rem;
-    font-weight: 500;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: rgba(250,248,245,0.28);
-    display: block;
-    margin-bottom: 1.25rem;
-  }
-
-  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
-
-  .footer-col ul a {
-    font-size: 0.82rem;
-    font-weight: 300;
-    color: rgba(250,248,245,0.38);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
-  .footer-col ul a:hover { color: rgba(250,248,245,0.78); }
-
-  .footer-bottom {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 1rem;
-    padding: 1.5rem 0;
-  }
-
-  .footer-copy { font-size: 0.72rem; color: rgba(250,248,245,0.18); font-weight: 300; }
-  .footer-contact { display: flex; gap: 1.5rem; }
-
-  .footer-contact a {
-    font-size: 0.72rem;
-    color: rgba(250,248,245,0.28);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
-  .footer-contact a:hover { color: rgba(250,248,245,0.65); }
+  footer { background: var(--ink); border-top: 1px solid rgba(250,248,245,0.06); padding: 2.5rem var(--gutter); }
+  .footer-inner { max-width: var(--max-width); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+  .footer-wordmark { font-family: var(--font-display); font-size: 1.25rem; font-weight: 400; color: var(--warm-white); text-decoration: none; letter-spacing: 0.04em; }
+  .footer-links { display: flex; gap: 2rem; list-style: none; flex-wrap: wrap; }
+  .footer-links a { font-size: 0.78rem; color: rgba(250,248,245,0.38); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: rgba(250,248,245,0.78); }
+  .footer-copy { font-size: 0.72rem; color: rgba(250,248,245,0.18); }
 
   /* ─── SCROLL REVEAL ─── */
   .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
   .reveal.visible { opacity: 1; transform: none; }
 
-
   /* ─── WHATSAPP BUTTON ─── */
-  .wa-btn {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    z-index: 199;
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    background: var(--ink);
-    box-shadow: 0 4px 16px rgba(0,0,0,0.18);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    -webkit-tap-highlight-color: transparent;
-  }
-  .wa-btn:hover {
-    transform: scale(1.08);
-    box-shadow: 0 6px 22px rgba(0,0,0,0.22);
-  }
+  .wa-btn { position: fixed; bottom: 2rem; right: 2rem; z-index: 199; width: 52px; height: 52px; border-radius: 50%; background: var(--ink); box-shadow: 0 4px 16px rgba(0,0,0,0.18); display: flex; align-items: center; justify-content: center; text-decoration: none; transition: transform 0.2s ease, box-shadow 0.2s ease; -webkit-tap-highlight-color: transparent; }
+  .wa-btn:hover { transform: scale(1.08); box-shadow: 0 6px 22px rgba(0,0,0,0.22); }
   .wa-btn svg { display: block; }
-  @media (max-width: 767px) {
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .btn-header { display: none; }
+    .btn-call-nav { display: none; }
+    .nav-toggle { display: flex; }
+    .nav-call-mobile { display: list-item !important; }
+    .covers-split { grid-template-columns: 1fr; gap: 3rem; }
+    .form-wrap { grid-template-columns: 1fr; gap: 3rem; }
+  }
+
+  @media (max-width: 580px) {
+    .issues-grid { grid-template-columns: 1fr; }
+    .form-row-2 { grid-template-columns: 1fr; }
+    .footer-inner { flex-direction: column; align-items: flex-start; }
+    .footer-links { gap: 1.25rem; }
     .wa-btn { bottom: 1.25rem; right: 1rem; width: 46px; height: 46px; }
   }
 </style>
-<!-- ─── WHATSAPP BUTTON ─── -->
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="/" class="wordmark">haylo.</a>
+    <nav aria-label="Main navigation">
+      <ul class="nav-links">
+        <li><a href="/#services">Services</a></li>
+        <li><a href="/marketing-for-tradies/">Trades</a></li>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/#pricing">Pricing</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/#contact">Contact</a></li>
+        <li class="nav-call-mobile" style="display:none;"><a href="tel:0490422192" style="color:var(--clay);font-weight:500;">Call now  ·  0490 422 192</a></li>
+      </ul>
+      <a href="tel:0490422192" class="btn-call-nav"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.16 6.16l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>0490 422 192</a>
+      <a href="/google-business-profile-audit/#audit-form" class="btn-header">Free Audit</a>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="audit-hero">
+  <div class="audit-hero-bg"></div>
+  <div class="audit-hero-overlay"></div>
+  <div class="audit-hero-inner">
+    <p class="page-crumb"><a href="/">Home</a> / Free Audit</p>
+    <h1 class="audit-h1">Find out where customers<br><em>aren't finding you.</em></h1>
+    <p class="audit-hero-sub">We'll take a close look at your Google Business Profile and show you exactly what's holding you back from the top three - at no cost, no commitment.</p>
+    <div class="hero-pills">
+      <span class="hero-pill">Free - no obligation</span>
+      <span class="hero-pill">Sunshine Coast businesses only</span>
+      <span class="hero-pill">Response within 48 hours</span>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT'S COVERED -->
+<section class="section section-stone">
+  <div class="section-wrap">
+    <div class="covers-split reveal">
+      <div>
+        <span class="eyebrow">What We Look At</span>
+        <h2 class="sec-h2">A thorough look at your<br><em>Google presence.</em></h2>
+        <div class="sec-body">
+          <p>Your free audit covers everything that influences how Google ranks your business locally - and how customers feel when they find you.</p>
+        </div>
+        <ul class="covers-list">
+          <li>Profile completeness and accuracy</li>
+          <li>Business category selection</li>
+          <li>Photos - quantity, quality and recency</li>
+          <li>Review volume, rating and recency</li>
+          <li>Google Posts activity</li>
+          <li>Services and description optimisation</li>
+          <li>Local search ranking for your key search terms</li>
+          <li>Competitor comparison in your area</li>
+        </ul>
+      </div>
+      <div>
+        <span class="eyebrow">Common Issues We Find</span>
+        <h2 class="sec-h2">What's usually<br><em>holding businesses back.</em></h2>
+        <div class="issues-grid">
+          <div class="issue-item">
+            <div class="issue-title">Wrong categories</div>
+            <div class="issue-body">Incorrect or missing primary and secondary categories are one of the most common ranking factors being missed.</div>
+          </div>
+          <div class="issue-item">
+            <div class="issue-title">Stale reviews</div>
+            <div class="issue-body">A burst of old reviews counts for much less than a steady stream of new ones. Recency matters more than total count.</div>
+          </div>
+          <div class="issue-item">
+            <div class="issue-title">Thin photos</div>
+            <div class="issue-body">Profiles with fewer than 10 photos signal low activity to Google and low professionalism to customers.</div>
+          </div>
+          <div class="issue-item">
+            <div class="issue-title">No Google Posts</div>
+            <div class="issue-body">Regular posts signal an active, engaged business. Most profiles we see have had no activity in months.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORM -->
+<section class="form-section" id="audit-form">
+  <div class="form-wrap reveal">
+    <div class="form-lhs">
+      <span class="eyebrow">Get Your Free Audit</span>
+      <h2 class="form-h2">Let's take a look at<br><em>your profile.</em></h2>
+      <p class="form-body">Fill in the form and we'll review your Google Business Profile and get back to you within 48 hours with a clear summary of where you stand and what we'd recommend.</p>
+      <ul class="receive-list">
+        <li>A plain-English summary of your current profile health</li>
+        <li>Your approximate ranking for your main search terms</li>
+        <li>The key areas holding you back from the top three</li>
+        <li>A clear recommendation on next steps - no pressure, no sales pitch</li>
+      </ul>
+    </div>
+    <div>
+      <form class="audit-form" action="https://formspree.io/f/xeelpqge" method="POST" id="audit-form-el">
+        <div class="form-row-2">
+          <div class="form-row" style="margin-bottom:0;">
+            <label for="name">Your name</label>
+            <input type="text" id="name" name="name" placeholder="Sam Davies" required>
+          </div>
+          <div class="form-row" style="margin-bottom:0;">
+            <label for="phone">Phone number</label>
+            <input type="tel" id="phone" name="phone" placeholder="0400 000 000" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <label for="email">Email address</label>
+          <input type="email" id="email" name="email" placeholder="you@yourbusiness.com.au" required>
+        </div>
+        <div class="form-row">
+          <label for="business">Business name</label>
+          <input type="text" id="business" name="business_name" placeholder="Your business name" required>
+        </div>
+        <div class="form-row">
+          <label for="type">Business type</label>
+          <select id="type" name="business_type" required>
+            <option value="" disabled selected>Select your industry</option>
+            <option value="Tradie">Tradie (plumber, electrician, builder, etc.)</option>
+            <option value="Cleaner">Cleaner</option>
+            <option value="Landscaper / Gardener">Landscaper / Gardener</option>
+            <option value="Health & Wellness">Health &amp; Wellness</option>
+            <option value="Auto / Mechanical">Auto / Mechanical</option>
+            <option value="Home Services">Home Services</option>
+            <option value="Other">Other service business</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="suburb">Your suburb</label>
+          <input type="text" id="suburb" name="suburb" placeholder="e.g. Buderim, Maroochydore">
+        </div>
+        <div class="form-row">
+          <label for="message">Anything else you'd like us to know? (optional)</label>
+          <textarea id="message" name="message" placeholder="e.g. I've tried managing my profile before but not sure what's working..."></textarea>
+        </div>
+        <button type="submit" class="form-submit">Send my free audit request</button>
+        <p class="form-note">No obligation. We'll review your profile and get back to you within 48 hours. Sunshine Coast businesses only.</p>
+      </form>
+      <div class="form-success" id="form-success">
+        <div class="form-success-icon">✓</div>
+        <h3>Thanks - we're on it.</h3>
+        <p>We'll review your Google Business Profile and get back to you within 48 hours with a clear summary and our recommendations.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <a href="/" class="footer-wordmark">haylo.</a>
+    <ul class="footer-links">
+      <li><a href="/google-business-profile/">Google Business Profile</a></li>
+      <li><a href="/review-generation/">Review Generation</a></li>
+      <li><a href="/facebook-business-page-management/">Facebook</a></li>
+      <li><a href="/reporting/">Reporting</a></li>
+      <li><a href="/website-creation-seo/">Website &amp; SEO</a></li>
+      <li><a href="/blog/">Blog</a></li>
+      <li><a href="/privacy-policy/">Privacy</a></li>
+    </ul>
+    <p class="footer-copy">&copy; 2026 Haylo. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- WHATSAPP -->
 <a href="https://wa.me/61490422192?text=Hi%20Sam%2C%20I%27d%20like%20to%20find%20out%20more%20about%20local%20marketing%20for%20my%20business." class="wa-btn" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
   <svg width="26" height="26" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
     <path fill="#fff" d="M16 3C9.373 3 4 8.373 4 15c0 2.385.67 4.61 1.832 6.504L4 29l7.697-1.81A11.94 11.94 0 0 0 16 27c6.627 0 12-5.373 12-12S22.627 3 16 3zm0 2c5.522 0 10 4.478 10 10s-4.478 10-10 10a9.94 9.94 0 0 1-5.09-1.396l-.364-.22-4.573 1.075 1.11-4.457-.24-.377A9.944 9.944 0 0 1 6 15c0-5.522 4.478-10 10-10zm-3.178 5.5c-.232 0-.608.087-.928.432-.32.345-1.22 1.192-1.22 2.907s1.247 3.372 1.42 3.604c.174.232 2.43 3.867 5.975 5.27 2.952 1.165 3.546.933 4.185.875.64-.058 2.062-.843 2.353-1.657.29-.814.29-1.512.203-1.657-.087-.145-.32-.232-.67-.406-.348-.174-2.062-1.017-2.382-1.133-.32-.116-.552-.174-.785.174-.232.347-.9 1.133-1.103 1.366-.203.232-.406.26-.754.087-.348-.174-1.47-.542-2.8-1.727-1.034-.923-1.732-2.063-1.935-2.41-.203-.348-.022-.536.153-.709.157-.156.348-.406.522-.61.174-.203.232-.347.348-.58.116-.231.058-.434-.029-.608-.087-.174-.774-1.899-1.074-2.597-.29-.682-.585-.58-.785-.58l-.694-.013z"/>
   </svg>
 </a>
+
+<script>
+const revealEls = document.querySelectorAll('.reveal');
+const ro = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); ro.unobserve(e.target); } });
+}, { threshold: 0.1 });
+revealEls.forEach(el => ro.observe(el));
+
+const toggle = document.querySelector('.nav-toggle');
+const navLinks = document.querySelector('.nav-links');
+if (toggle && navLinks) {
+  toggle.addEventListener('click', () => {
+    navLinks.classList.toggle('nav-open');
+    toggle.classList.toggle('active');
+  });
+}
+
+// Form submission
+const form = document.getElementById('audit-form-el');
+const success = document.getElementById('form-success');
+if (form) {
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    const res = await fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
+    if (res.ok) {
+      form.style.display = 'none';
+      success.style.display = 'block';
+    }
+  });
+}
+</script>
+
 </body>
 </html>
