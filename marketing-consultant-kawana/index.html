@@ -111,20 +111,18 @@
   .area-tile:hover { background: var(--warm-white); }
   .area-tile-name { font-family: var(--font-display); font-size: 1.3rem; font-weight: 400; color: var(--ink); margin-bottom: 0.35rem; }
   .area-tile-sub { font-size: 0.72rem; color: var(--ink-muted); font-weight: 300; letter-spacing: 0.05em; }
-  footer { background: var(--ink); border-top: 1px solid rgba(250,248,245,0.06); }
-  .footer-inner { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--gutter); }
-  .footer-top { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 3rem; padding: 4rem 0 3rem; border-bottom: 1px solid rgba(250,248,245,0.06); }
-  .footer-wordmark { font-family: var(--font-display); font-size: 1.8rem; font-weight: 300; color: var(--ink); margin-bottom: 1rem; display: block; text-decoration: none; }
-  .footer-tagline { font-size: 0.82rem; line-height: 1.75; color: rgba(250,248,245,0.28); max-width: 220px; font-weight: 300; }
-  .footer-col-label { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(250,248,245,0.28); display: block; margin-bottom: 1.25rem; }
-  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
-  .footer-col ul a { font-size: 0.82rem; font-weight: 300; color: rgba(250,248,245,0.38); text-decoration: none; transition: color 0.2s; }
-  .footer-col ul a:hover { color: rgba(250,248,245,0.78); }
-  .footer-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; padding: 1.5rem 0; }
-  .footer-copy { font-size: 0.72rem; color: rgba(250,248,245,0.18); font-weight: 300; }
-  .footer-contact { display: flex; gap: 1.5rem; }
-  .footer-contact a { font-size: 0.72rem; color: rgba(250,248,245,0.28); text-decoration: none; transition: color 0.2s; }
-  .footer-contact a:hover { color: rgba(250,248,245,0.65); }
+  /* ─── FOOTER ─── */
+  .site-footer { background: var(--ink); padding: 4rem 0 0; }
+  .footer-grid { display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr; gap: 3rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .footer-brand .footer-wordmark { font-family: var(--font-display); font-size: 1.5rem; font-weight: 400; color: #fff; text-decoration: none; letter-spacing: 0.04em; display: block; margin-bottom: 0.75rem; }
+  .footer-tagline { font-size: 0.82rem; color: rgba(255,255,255,0.4); line-height: 1.65; max-width: 24ch; }
+  .footer-col-toggle { display: flex; align-items: center; justify-content: space-between; width: 100%; background: none; border: none; padding: 0 0 1.1rem; font-family: var(--font-body); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.35); cursor: default; pointer-events: none; }
+  .footer-chevron { display: none; }
+  .footer-col-links { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
+  .footer-col-links a { font-size: 0.85rem; color: rgba(255,255,255,0.55); text-decoration: none; transition: color 0.2s; }
+  .footer-col-links a:hover { color: #fff; }
+  .footer-bottom { padding: 1.5rem 0; }
+  .footer-copy { font-size: 0.73rem; color: rgba(255,255,255,0.25); }
   .loc-faq { padding: 5rem var(--gutter); background: var(--stone-mid); }
   .loc-faq-inner { max-width: 760px; }
   .loc-faq-item { border-top: 1px solid var(--border); }
@@ -174,6 +172,17 @@
     .nav-drop-list li a:hover { color: var(--ink); background: none; }
     .nav-dropdown:hover .nav-drop-list { display: none; }
     .nav-dropdown.open .nav-drop-list { display: block; }
+  }
+  @media (max-width: 767px) {
+    .footer-grid { grid-template-columns: 1fr; gap: 0; }
+    .footer-brand { padding-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .footer-col { border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .footer-col-toggle { pointer-events: all; cursor: pointer; padding: 1.1rem 0; color: rgba(255,255,255,0.5); }
+    .footer-chevron { display: block; transition: transform 0.25s; }
+    .footer-col-toggle[aria-expanded="true"] .footer-chevron { transform: rotate(180deg); }
+    .footer-col-links { max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding-bottom 0.3s; gap: 0; }
+    .footer-col-links li { padding: 0.45rem 0; }
+    .footer-col.open .footer-col-links { max-height: 300px; padding-bottom: 1.5rem; }
   }
 </style>
 
@@ -423,55 +432,47 @@
 </section>
 
 <!-- FOOTER -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-top">
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
       <div class="footer-brand">
         <a href="/" class="footer-wordmark">haylo.</a>
-        <p class="footer-tagline">Local marketing for Sunshine Coast small businesses.</p>
+        <p class="footer-tagline">Local marketing for tradespeople &amp; service businesses on the Sunshine Coast.</p>
       </div>
       <div class="footer-col">
-        <span class="footer-col-label">Services</span>
-        <ul>
-          <li><a href="/google-business-profile/">Google Profile</a></li>
-          <li><a href="/review-generation/">Reviews</a></li>
-          <li><a href="/facebook-business-page-management/">Facebook</a></li>
+        <button class="footer-col-toggle" aria-expanded="false">Services <svg class="footer-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <ul class="footer-col-links">
+          <li><a href="/google-business-profile/">Google Business Profile</a></li>
+          <li><a href="/review-generation/">Review Generation</a></li>
+          <li><a href="/facebook-business-page-management/">Facebook Management</a></li>
           <li><a href="/reporting/">Reporting</a></li>
-          <li><a href="/#contact">Pricing</a></li>
+          <li><a href="/website-creation-seo/">Website &amp; SEO</a></li>
+          <li><a href="/google-business-profile-audit/">Free Audit</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <button class="footer-col-toggle" aria-expanded="false">Industries <svg class="footer-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <ul class="footer-col-links">
+          <li><a href="/marketing-for-tradies/">All Tradies</a></li>
+          <li><a href="/google-marketing-for-pest-control/">Pest Control</a></li>
+          <li><a href="/google-marketing-for-pool-services/">Pool Services</a></li>
+          <li><a href="/google-marketing-for-landscapers/">Landscapers</a></li>
+          <li><a href="/google-marketing-for-cleaners/">Cleaners</a></li>
+          <li><a href="/google-marketing-for-home-services/">Home Services</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <button class="footer-col-toggle" aria-expanded="false">Company <svg class="footer-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <ul class="footer-col-links">
+          <li><a href="/about/">About</a></li>
           <li><a href="/blog/">Blog</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <span class="footer-col-label">Trades</span>
-        <ul>
-          <li><a href="/marketing-for-plumbers/">Plumbers</a></li>
-          <li><a href="/marketing-for-electricians/">Electricians</a></li>
-          <li><a href="/marketing-for-roofers/">Roofers</a></li>
-          <li><a href="/marketing-for-tilers/">Tilers</a></li>
-          <li><a href="/marketing-for-concreters/">Concreters</a></li>
-          <li><a href="/marketing-for-painters/">Painters</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <span class="footer-col-label">Locations</span>
-        <ul>
-          <li><a href="/marketing-consultant-sunshine-coast/">Sunshine Coast</a></li>
-          <li><a href="/marketing-consultant-caloundra/">Caloundra</a></li>
-          <li><a href="/marketing-consultant-maroochydore/">Maroochydore</a></li>
-          <li><a href="/marketing-consultant-buderim/">Buderim</a></li>
-          <li><a href="/marketing-consultant-noosa/">Noosa</a></li>
-          <li><a href="/marketing-consultant-nambour/">Nambour</a></li>
-          <li><a href="/marketing-consultant-glass-house-mountains/">Glass House Mountains</a></li>
-          <li><a href="/marketing-consultant-kawana/">Kawana</a></li>
+          <li><a href="/#contact">Contact</a></li>
+          <li><a href="/privacy-policy/">Privacy Policy</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <div class="footer-copy">&copy; 2026 Haylo &middot; Sunshine Coast, QLD</div>
-      <div class="footer-contact">
-        <a href="tel:0490422192">0490 422 192</a>
-        <a href="mailto:hello@withhaylo.com">hello@withhaylo.com</a>
-      </div>
+      <p class="footer-copy">&copy; 2026 Haylo. Sunshine Coast, QLD.</p>
     </div>
   </div>
 </footer>
@@ -524,6 +525,15 @@ if (heroBg) { window.addEventListener('scroll', () => { heroBg.style.transform =
     });
   });
 })();
+
+// Footer accordion (mobile)
+document.querySelectorAll('.footer-col-toggle').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var col=btn.closest('.footer-col');
+    var open=col.classList.toggle('open');
+    btn.setAttribute('aria-expanded',open);
+  });
+});
 </script>
 </body>
 </html>

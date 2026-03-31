@@ -152,13 +152,18 @@
   .trade-chip.active { color: var(--ink); }
   .trade-chip.active::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--clay); }
 
-  footer { border-top: 1px solid var(--border); padding: 2.5rem 0; }
-  .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
-  .footer-wordmark { font-family: var(--font-display); font-size: 1.25rem; font-weight: 400; color: var(--ink); text-decoration: none; letter-spacing: 0.04em; }
-  .footer-links { display: flex; gap: 2rem; list-style: none; flex-wrap: wrap; }
-  .footer-links a { font-size: 0.78rem; color: var(--ink-muted); text-decoration: none; transition: color 0.2s; }
-  .footer-links a:hover { color: var(--ink); }
-  .footer-copy { font-size: 0.75rem; color: var(--ink-muted); }
+  /* ─── FOOTER ─── */
+  .site-footer { background: var(--ink); padding: 4rem 0 0; }
+  .footer-grid { display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr; gap: 3rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .footer-brand .footer-wordmark { font-family: var(--font-display); font-size: 1.5rem; font-weight: 400; color: #fff; text-decoration: none; letter-spacing: 0.04em; display: block; margin-bottom: 0.75rem; }
+  .footer-tagline { font-size: 0.82rem; color: rgba(255,255,255,0.4); line-height: 1.65; max-width: 24ch; }
+  .footer-col-toggle { display: flex; align-items: center; justify-content: space-between; width: 100%; background: none; border: none; padding: 0 0 1.1rem; font-family: var(--font-body); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.35); cursor: default; pointer-events: none; }
+  .footer-chevron { display: none; }
+  .footer-col-links { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
+  .footer-col-links a { font-size: 0.85rem; color: rgba(255,255,255,0.55); text-decoration: none; transition: color 0.2s; }
+  .footer-col-links a:hover { color: #fff; }
+  .footer-bottom { padding: 1.5rem 0; }
+  .footer-copy { font-size: 0.73rem; color: rgba(255,255,255,0.25); }
 
   .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
   .reveal.visible { opacity: 1; transform: none; }
@@ -188,8 +193,6 @@
     .why-grid { grid-template-columns: 1fr; }
     .ip-actions { flex-direction: column; }
     .ip-ctas { flex-direction: column; }
-    .footer-inner { flex-direction: column; align-items: flex-start; }
-    .footer-links { gap: 1.25rem; }
   }
 
   /* ─── DROPDOWN NAV ─── */
@@ -217,6 +220,17 @@
     .nav-drop-list li a:hover { color: var(--ink); background: none; }
     .nav-dropdown:hover .nav-drop-list { display: none; }
     .nav-dropdown.open .nav-drop-list { display: block; }
+  }
+  @media (max-width: 767px) {
+    .footer-grid { grid-template-columns: 1fr; gap: 0; }
+    .footer-brand { padding-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .footer-col { border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .footer-col-toggle { pointer-events: all; cursor: pointer; padding: 1.1rem 0; color: rgba(255,255,255,0.5); }
+    .footer-chevron { display: block; transition: transform 0.25s; }
+    .footer-col-toggle[aria-expanded="true"] .footer-chevron { transform: rotate(180deg); }
+    .footer-col-links { max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding-bottom 0.3s; gap: 0; }
+    .footer-col-links li { padding: 0.45rem 0; }
+    .footer-col.open .footer-col-links { max-height: 300px; padding-bottom: 1.5rem; }
   }
 </style>
 <script type="application/ld+json">
@@ -602,23 +616,50 @@
   </main>
 
   <!-- ─── FOOTER ─── -->
-  <footer>
-    <div class="wrap">
-      <div class="footer-inner">
+  <footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
         <a href="/" class="footer-wordmark">haylo.</a>
-        <ul class="footer-links">
+        <p class="footer-tagline">Local marketing for tradespeople &amp; service businesses on the Sunshine Coast.</p>
+      </div>
+      <div class="footer-col">
+        <button class="footer-col-toggle" aria-expanded="false">Services <svg class="footer-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <ul class="footer-col-links">
           <li><a href="/google-business-profile/">Google Business Profile</a></li>
           <li><a href="/review-generation/">Review Generation</a></li>
-          <li><a href="/facebook-business-page-management/">Facebook</a></li>
+          <li><a href="/facebook-business-page-management/">Facebook Management</a></li>
           <li><a href="/reporting/">Reporting</a></li>
           <li><a href="/website-creation-seo/">Website &amp; SEO</a></li>
-          <li><a href="/blog/">Blog</a></li>
-          <li><a href="/privacy-policy/">Privacy</a></li>
+          <li><a href="/google-business-profile-audit/">Free Audit</a></li>
         </ul>
-        <p class="footer-copy">&copy; 2025 Haylo. All rights reserved.</p>
+      </div>
+      <div class="footer-col">
+        <button class="footer-col-toggle" aria-expanded="false">Industries <svg class="footer-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <ul class="footer-col-links">
+          <li><a href="/marketing-for-tradies/">All Tradies</a></li>
+          <li><a href="/google-marketing-for-pest-control/">Pest Control</a></li>
+          <li><a href="/google-marketing-for-pool-services/">Pool Services</a></li>
+          <li><a href="/google-marketing-for-landscapers/">Landscapers</a></li>
+          <li><a href="/google-marketing-for-cleaners/">Cleaners</a></li>
+          <li><a href="/google-marketing-for-home-services/">Home Services</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <button class="footer-col-toggle" aria-expanded="false">Company <svg class="footer-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <ul class="footer-col-links">
+          <li><a href="/about/">About</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/#contact">Contact</a></li>
+          <li><a href="/privacy-policy/">Privacy Policy</a></li>
+        </ul>
       </div>
     </div>
-  </footer>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 Haylo. Sunshine Coast, QLD.</p>
+    </div>
+  </div>
+</footer>
 
   <script>
     document.querySelectorAll('.faq-question').forEach(btn => {
@@ -718,6 +759,15 @@
     });
   });
 })();
+
+// Footer accordion (mobile)
+document.querySelectorAll('.footer-col-toggle').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var col=btn.closest('.footer-col');
+    var open=col.classList.toggle('open');
+    btn.setAttribute('aria-expanded',open);
+  });
+});
 </script>
 </body>
 </html>
