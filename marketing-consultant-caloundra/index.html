@@ -62,10 +62,13 @@
     line-height: 1.7;
     font-weight: 300;
     -webkit-font-smoothing: antialiased;
+    overflow-x: clip;
   }
 
   a { text-decoration: none; color: inherit; }
   img { display: block; max-width: 100%; }
+  .wrap { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--gutter); }
+
 
   .eyebrow {
     font-family: var(--font-body);
