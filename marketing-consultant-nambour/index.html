@@ -246,24 +246,84 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Service",
-  "@id": "https://www.withhaylo.com/marketing-consultant-nambour/#service",
-  "name": "Local Marketing Consultant Nambour",
-  "url": "https://www.withhaylo.com/marketing-consultant-nambour/",
-  "provider": {
-    "@type": "ProfessionalService",
-    "@id": "https://www.withhaylo.com/#business",
-    "name": "Haylo",
-    "url": "https://www.withhaylo.com/",
-    "telephone": "+61490422192"
-  },
-  "areaServed": {
-    "@type": "City",
-    "name": "Nambour",
-    "addressRegion": "QLD",
-    "addressCountry": "AU"
-  },
-  "serviceType": "Local Marketing Consulting"
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": "https://www.withhaylo.com/marketing-consultant-nambour/#service",
+      "name": "Local Marketing Consultant Nambour",
+      "url": "https://www.withhaylo.com/marketing-consultant-nambour/",
+      "provider": {
+        "@type": "ProfessionalService",
+        "@id": "https://www.withhaylo.com/#business",
+        "name": "Haylo",
+        "url": "https://www.withhaylo.com/",
+        "telephone": "+61490422192"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Nambour",
+        "addressRegion": "QLD",
+        "addressCountry": "AU"
+      },
+      "serviceType": "Local Marketing Consulting"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.withhaylo.com/marketing-consultant-nambour/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.withhaylo.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Local Marketing Consultant Nambour",
+          "item": "https://www.withhaylo.com/marketing-consultant-nambour/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.withhaylo.com/marketing-consultant-nambour/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is local SEO worth it for a Nambour business - is the search volume there?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes - and Nambour is actually well positioned. The town itself has a solid search volume, but the real opportunity comes from the surrounding catchment. Businesses based in Nambour can realistically rank across Yandina, Woombye, Palmwoods, Mapleton, and the wider hinterland corridor. That combined service area represents a substantial market - and because many hinterland businesses have underinvested in Google, the competition for top positions is lower than on the coast."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "My business has been here for years - do I still need to worry about Google?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Especially so. Established businesses often have a reputation that hasn't been captured online - years of happy customers who never left a review, a profile that was set up in 2017 and forgotten, photos that don't reflect the current standard of your work. New residents moving to the Nambour area don't have existing relationships with local tradespeople. If your Google profile doesn't tell your story convincingly, they'll call someone who looks more current."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "I service Nambour and the broader hinterland - can you target both?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolutely. We configure your Google Business Profile service area to cover the full geographic range you actually work in - from the hinterland villages through to the coastal fringes if needed. For most Nambour-based businesses, that means building a profile strong enough to rank across a 20-30km radius, which captures a meaningful slice of the wider Sunshine Coast market."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long before I see results?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Profile improvements and review generation show impact within the first month. Ranking improvements in the Google Maps top 3 typically take 6-12 weeks depending on your starting point and the competitiveness of your category in the area. Nambour's lower digital competition means many businesses see meaningful movement faster than they would in Maroochydore or Noosa."
+          }
+        }
+      ]
+    }
+  ]
 }
 </script>
 </head>

@@ -191,13 +191,84 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Service",
-  "@id": "https://www.withhaylo.com/marketing-consultant-glass-house-mountains/#service",
-  "name": "Local Marketing Consultant Glass House Mountains",
-  "url": "https://www.withhaylo.com/marketing-consultant-glass-house-mountains/",
-  "provider": { "@type": "ProfessionalService", "@id": "https://www.withhaylo.com/#business", "name": "Haylo", "url": "https://www.withhaylo.com/", "telephone": "+61490422192" },
-  "areaServed": { "@type": "City", "name": "Glass House Mountains", "addressRegion": "QLD", "addressCountry": "AU" },
-  "serviceType": "Local Marketing Consulting"
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": "https://www.withhaylo.com/marketing-consultant-glass-house-mountains/#service",
+      "name": "Local Marketing Consultant Glass House Mountains",
+      "url": "https://www.withhaylo.com/marketing-consultant-glass-house-mountains/",
+      "provider": {
+        "@type": "ProfessionalService",
+        "@id": "https://www.withhaylo.com/#business",
+        "name": "Haylo",
+        "url": "https://www.withhaylo.com/",
+        "telephone": "+61490422192"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Glass House Mountains",
+        "addressRegion": "QLD",
+        "addressCountry": "AU"
+      },
+      "serviceType": "Local Marketing Consulting"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.withhaylo.com/marketing-consultant-glass-house-mountains/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.withhaylo.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Local Marketing Consultant Glass House Mountains",
+          "item": "https://www.withhaylo.com/marketing-consultant-glass-house-mountains/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.withhaylo.com/marketing-consultant-glass-house-mountains/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is there enough search volume in the Glass House Mountains area to make this worthwhile?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes - particularly when you account for the full catchment. A business based in Glass House Mountains or Beerwah can rank for searches across a wide area including Beerburrum, Glasshouse, Elimbah, and the northern reaches of the Moreton Bay region. The combined market is significant, and because the digital competition is low, you're likely to rank for a much larger portion of relevant searches than a comparable business in a coastal suburb."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "My customers mostly come from referrals - do I really need Google?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Referrals are great - but Google is what happens after a referral in 2026. When someone recommends your business, the first thing the recipient does is Google you. If your profile is sparse, has outdated photos, or shows four reviews from years ago, that referral second-guesses themselves. Google is your credibility check - and it also reaches the people who don't have anyone to ask."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I rank for both local Glass House Mountains searches and coastal suburbs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "To a degree. We configure your service area to reflect where you actually work. Ranking strongly in Glass House Mountains and the hinterland corridor is realistic with good profile optimisation. Competing for top-3 positions in Caloundra or Maroochydore is harder from this location, but being visible in those areas as a secondary result - particularly for searches that include a service area - is achievable over time."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is there a lock-in contract?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Haylo works month-to-month. You can pause or cancel at any time with 30 days notice. We'd rather earn your business through results than hold you in place with contracts."
+          }
+        }
+      ]
+    }
+  ]
 }
 </script>
 </head>

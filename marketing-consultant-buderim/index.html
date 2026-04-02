@@ -575,24 +575,84 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Service",
-  "@id": "https://www.withhaylo.com/marketing-consultant-buderim/#service",
-  "name": "Local Marketing Consultant Buderim",
-  "url": "https://www.withhaylo.com/marketing-consultant-buderim/",
-  "provider": {
-    "@type": "ProfessionalService",
-    "@id": "https://www.withhaylo.com/#business",
-    "name": "Haylo",
-    "url": "https://www.withhaylo.com/",
-    "telephone": "+61490422192"
-  },
-  "areaServed": {
-    "@type": "City",
-    "name": "Buderim",
-    "addressRegion": "QLD",
-    "addressCountry": "AU"
-  },
-  "serviceType": "Local Marketing Consulting"
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": "https://www.withhaylo.com/marketing-consultant-buderim/#service",
+      "name": "Local Marketing Consultant Buderim",
+      "url": "https://www.withhaylo.com/marketing-consultant-buderim/",
+      "provider": {
+        "@type": "ProfessionalService",
+        "@id": "https://www.withhaylo.com/#business",
+        "name": "Haylo",
+        "url": "https://www.withhaylo.com/",
+        "telephone": "+61490422192"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Buderim",
+        "addressRegion": "QLD",
+        "addressCountry": "AU"
+      },
+      "serviceType": "Local Marketing Consulting"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.withhaylo.com/marketing-consultant-buderim/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.withhaylo.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Local Marketing Consultant Buderim",
+          "item": "https://www.withhaylo.com/marketing-consultant-buderim/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.withhaylo.com/marketing-consultant-buderim/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Buderim feels competitive — can a smaller business realistically rank in the top 3?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes — and more often than you'd expect. Many businesses in Buderim have been trading for years on referrals alone and have neglected their Google profile entirely. A small, well-run operation with a properly optimised profile and 30 genuine 5-star reviews will consistently outrank a larger competitor with a stale, incomplete listing. The top 3 is about profile quality and review momentum, not just business size."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Buderim residents are particular about who they hire — how does this affect my approach?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It actually works in your favour once your profile is strong. Buderim customers do their research — which means when they choose you, they're already pre-sold. A Google profile with detailed, recent reviews, professional photos, and a complete business description signals trustworthiness before the first call is even made. We focus on making your profile look as credible as your actual work."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "I also service Palmwoods, Woombye, and the hinterland — will I show up for those areas too?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolutely. We configure your service area to reflect where you actually work — not just the suburb your pin is in. For Buderim-based businesses, that typically means covering the hinterland towns, Sippy Downs, and parts of the Mooloolaba corridor. Paired with good review volume, most clients rank comfortably across a 15–20km radius."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "My reviews have slowed down — is that hurting my ranking?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Almost certainly. Google favours profiles with consistent, recent review activity — a burst of 20 reviews three years ago counts for less than a steady stream of new ones each month. In a reputation-conscious area like Buderim, customers also notice when a business's most recent review is 14 months old. Review generation is one of the fastest ways to re-activate a stalling profile."
+          }
+        }
+      ]
+    }
+  ]
 }
 </script>
 </head>

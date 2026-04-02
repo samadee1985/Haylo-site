@@ -191,13 +191,84 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Service",
-  "@id": "https://www.withhaylo.com/marketing-consultant-kawana/#service",
-  "name": "Local Marketing Consultant Kawana",
-  "url": "https://www.withhaylo.com/marketing-consultant-kawana/",
-  "provider": { "@type": "ProfessionalService", "@id": "https://www.withhaylo.com/#business", "name": "Haylo", "url": "https://www.withhaylo.com/", "telephone": "+61490422192" },
-  "areaServed": { "@type": "City", "name": "Kawana", "addressRegion": "QLD", "addressCountry": "AU" },
-  "serviceType": "Local Marketing Consulting"
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": "https://www.withhaylo.com/marketing-consultant-kawana/#service",
+      "name": "Local Marketing Consultant Kawana",
+      "url": "https://www.withhaylo.com/marketing-consultant-kawana/",
+      "provider": {
+        "@type": "ProfessionalService",
+        "@id": "https://www.withhaylo.com/#business",
+        "name": "Haylo",
+        "url": "https://www.withhaylo.com/",
+        "telephone": "+61490422192"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Kawana",
+        "addressRegion": "QLD",
+        "addressCountry": "AU"
+      },
+      "serviceType": "Local Marketing Consulting"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.withhaylo.com/marketing-consultant-kawana/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.withhaylo.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Local Marketing Consultant Kawana",
+          "item": "https://www.withhaylo.com/marketing-consultant-kawana/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.withhaylo.com/marketing-consultant-kawana/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is the Kawana area competitive on Google Maps for trades and services?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "More competitive than the hinterland, but less so than Maroochydore or Caloundra CBD — and the search volume is exceptionally high given the population density. For many service categories, the top 3 positions are held by businesses that haven't actively optimised their profiles. A well-optimised profile with a consistent review base can realistically break into the top 3 within a few months."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "I already have a Google Business Profile — why isn't it performing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Having a profile and having an optimised profile are very different things. Most profiles are incomplete — they have the basics filled in but are missing key signals Google uses to determine relevance and authority: correct category selection, service area configuration, keyword-rich descriptions, recent photos, regular posts, and most importantly, a consistent stream of fresh reviews. The audit we offer shows you exactly where the gaps are."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you help me reach both Kawana and the broader Sunshine Coast?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Your service area on Google can be configured to reflect where you actually work. Ranking in the top 3 for Kawana-specific searches is the foundation, and from there we work to extend your visibility into Caloundra, Maroochydore, and the broader Sunshine Coast as your profile authority builds. It's a strategic process — we start with your strongest position and grow outward."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you lock me into a contract?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Haylo works month-to-month. You can pause or cancel at any time with 30 days notice. We'd rather earn your business through results than hold you in place with contracts."
+          }
+        }
+      ]
+    }
+  ]
 }
 </script>
 </head>

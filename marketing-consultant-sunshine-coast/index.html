@@ -557,24 +557,46 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Service",
-  "@id": "https://www.withhaylo.com/marketing-consultant-sunshine-coast/#service",
-  "name": "Local Marketing Consultant Sunshine Coast",
-  "url": "https://www.withhaylo.com/marketing-consultant-sunshine-coast/",
-  "provider": {
-    "@type": "ProfessionalService",
-    "@id": "https://www.withhaylo.com/#business",
-    "name": "Haylo",
-    "url": "https://www.withhaylo.com/",
-    "telephone": "+61490422192"
-  },
-  "areaServed": {
-    "@type": "City",
-    "name": "Sunshine Coast",
-    "addressRegion": "QLD",
-    "addressCountry": "AU"
-  },
-  "serviceType": "Local Marketing Consulting"
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": "https://www.withhaylo.com/marketing-consultant-sunshine-coast/#service",
+      "name": "Local Marketing Consultant Sunshine Coast",
+      "url": "https://www.withhaylo.com/marketing-consultant-sunshine-coast/",
+      "provider": {
+        "@type": "ProfessionalService",
+        "@id": "https://www.withhaylo.com/#business",
+        "name": "Haylo",
+        "url": "https://www.withhaylo.com/",
+        "telephone": "+61490422192"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Sunshine Coast",
+        "addressRegion": "QLD",
+        "addressCountry": "AU"
+      },
+      "serviceType": "Local Marketing Consulting"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.withhaylo.com/marketing-consultant-sunshine-coast/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.withhaylo.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Local Marketing Consultant Sunshine Coast",
+          "item": "https://www.withhaylo.com/marketing-consultant-sunshine-coast/"
+        }
+      ]
+    }
+  ]
 }
 </script>
 </head>
