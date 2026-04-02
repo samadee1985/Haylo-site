@@ -223,6 +223,14 @@
     .footer-col-links li { padding: 0.45rem 0; }
     .footer-col.open .footer-col-links { max-height: 300px; padding-bottom: 1.5rem; }
   }
+
+  /* Related posts section */
+  .related-posts-section { padding: 3.5rem 0; border-top: 1px solid var(--border); }
+  .related-posts-section .eyebrow { margin-bottom: 1.25rem; }
+  .related-post-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.625rem; }
+  .related-post-list li a { color: var(--ink); text-decoration: none; font-size: 0.95rem; font-weight: 500; }
+  .related-post-list li a::before { content: '→ '; color: var(--clay); font-weight: 600; }
+  .related-post-list li a:hover { color: var(--clay); }
 </style>
 <script type="application/ld+json">
 {
@@ -591,6 +599,18 @@
 </section>
 
 <!-- CTA -->
+
+<!-- RELATED READING -->
+<section class="section related-posts-section">
+  <div class="wrap">
+    <p class="eyebrow ruled">From the blog</p>
+    <ul class="related-post-list">
+      <li><a href="/blog/marketing-routine-tradies/">A Simple Monthly Marketing Routine for Sunshine Coast Tradies Who Don't Have Time</a></li>
+      <li><a href="/blog/ai-find-tradies-sunshine-coast/">How Sunshine Coast Customers Use AI to Find Tradies (And How to Show Up)</a></li>
+    </ul>
+  </div>
+</section>
+
 <section class="ip-cta">
   <div class="wrap reveal">
     <p class="eyebrow ruled">Get started</p>
