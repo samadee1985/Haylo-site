@@ -72,20 +72,39 @@
 
   /* Grid */
   .blog-grid-section { padding: 5rem 0 7rem; }
-  .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
 
-  .blog-card { background: var(--stone); display: flex; flex-direction: column; transition: background 0.2s; overflow: hidden; }
-  .blog-card:hover { background: var(--stone-mid); }
+  /* Filter bar */
+  .blog-filters { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+  .blog-filter { font-family: var(--font-body); font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-muted); background: transparent; border: 1px solid var(--border); padding: 0.45rem 1rem; cursor: pointer; transition: all 0.2s; line-height: 1; }
+  .blog-filter:hover { border-color: var(--ink-muted); color: var(--ink); }
+  .blog-filter.active { background: var(--ink); color: var(--warm-white); border-color: var(--ink); }
+
+  /* Featured post */
+  .blog-featured { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--border); margin-bottom: 1.5rem; overflow: hidden; text-decoration: none; color: inherit; transition: background 0.2s, box-shadow 0.2s; background: var(--warm-white); }
+  .blog-featured:hover { background: var(--stone-mid); box-shadow: 0 4px 16px rgba(28,26,23,0.08); }
+  .blog-featured-img-wrap { position: relative; overflow: hidden; }
+  .blog-featured-img { min-height: 340px; background: var(--card-img) center/cover no-repeat; transition: transform 0.4s ease; }
+  .blog-featured:hover .blog-featured-img { transform: scale(1.03); }
+  .blog-featured-body { padding: 3rem; display: flex; flex-direction: column; gap: 0.9rem; justify-content: center; }
+  .blog-featured-label { font-size: 0.62rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--clay); }
+  .blog-featured-badge { position: absolute; top: 1rem; left: 1rem; font-family: var(--font-body); font-size: 0.6rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--warm-white); background: var(--clay); padding: 0.3rem 0.75rem; z-index: 2; }
+  .blog-featured-title { font-family: var(--font-display); font-size: clamp(1.6rem, 2.5vw, 2.4rem); font-weight: 300; line-height: 1.15; color: var(--ink); }
+
+  /* Cards grid */
+  .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 1.5rem; }
+
+  .blog-card { background: var(--warm-white); display: flex; flex-direction: column; transition: background 0.2s, box-shadow 0.2s; overflow: hidden; border: 1px solid var(--border); }
+  .blog-card:hover { background: var(--stone-mid); box-shadow: 0 4px 16px rgba(28,26,23,0.08); }
 
   .blog-card-img {
-    height: 200px;
+    height: 160px;
     background: var(--card-img) center/cover no-repeat;
     transition: transform 0.4s ease;
     flex-shrink: 0;
   }
   .blog-card:hover .blog-card-img { transform: scale(1.04); }
 
-  .blog-card-body { padding: 1.75rem 2rem; display: flex; flex-direction: column; gap: 0.65rem; flex: 1; }
+  .blog-card-body { padding: 1.25rem 1.5rem 1.5rem; display: flex; flex-direction: column; gap: 0.5rem; flex: 1; }
   .blog-card-cat { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--clay); }
   .blog-card-title { font-family: var(--font-display); font-size: clamp(1.2rem, 2vw, 1.55rem); font-weight: 300; line-height: 1.2; color: var(--ink); }
   .blog-card-desc { font-size: 0.82rem; line-height: 1.75; color: var(--ink-muted); flex: 1; }
@@ -120,8 +139,17 @@
     .nav-toggle { display: flex; }
     .nav-call-mobile { display: list-item !important; }
     .blog-grid { grid-template-columns: repeat(2, 1fr); }
+    .blog-featured { grid-template-columns: 1fr; }
+    .blog-featured-img-wrap { min-height: 260px; }
+    .blog-featured-img { min-height: 260px; }
+    .blog-featured-body { padding: 2rem; }
   }
   @media (max-width: 580px) {
+    .blog-grid { grid-template-columns: repeat(2, 1fr); }
+    .blog-featured-img { min-height: 220px; }
+    .blog-featured-title { font-size: 1.5rem; }
+  }
+  @media (max-width: 380px) {
     .blog-grid { grid-template-columns: 1fr; }
   }
 
@@ -261,238 +289,226 @@
 
 <section class="blog-grid-section">
   <div class="wrap">
+
+    <div class="blog-filters" role="group" aria-label="Filter posts by topic">
+      <button class="blog-filter active" data-filter="all">All</button>
+      <button class="blog-filter" data-filter="gbp">Google Business Profile</button>
+      <button class="blog-filter" data-filter="seo">Local SEO</button>
+      <button class="blog-filter" data-filter="reviews">Reviews</button>
+      <button class="blog-filter" data-filter="trades">Tradies</button>
+      <button class="blog-filter" data-filter="ai">AI</button>
+    </div>
+
+    <a href="/blog/sunshine-coast-marketing-agency-test/" class="blog-featured" data-filter="local-marketing" style="--card-img: url('/blog/sunshine-coast-marketing-agency-test/marketing-agency-test-blog.jpg');">
+      <div class="blog-featured-img-wrap">
+        <span class="blog-featured-badge">Featured</span>
+        <div class="blog-featured-img"></div>
+      </div>
+      <div class="blog-featured-body">
+        <span class="blog-featured-label">Local Marketing &middot; 7 min read</span>
+        <h2 class="blog-featured-title">How to Test Any Sunshine Coast Marketing Agency Before You Sign a Thing</h2>
+        <p class="blog-card-meta">31 March 2026</p>
+      </div>
+    </a>
+
     <div class="blog-grid">
-      <a href="/blog/sunshine-coast-marketing-agency-test/" class="blog-card" style="--card-img: url('/blog/sunshine-coast-marketing-agency-test/marketing-agency-test-blog.jpg');">
-        <div class="blog-card-img"></div>
-        <div class="blog-card-body">
-          <p class="blog-card-cat">Local Marketing &middot; 7 min read</p>
-          <h2 class="blog-card-title">How to Test Any Sunshine Coast Marketing Agency Before You Sign a Thing</h2>
-          <p class="blog-card-desc">Six questions that expose whether an agency actually understands local search — or is just selling you a package. Ask these before you sign anything.</p>
-          <p class="blog-card-meta">31 March 2026</p>
-        </div>
-      </a>
-      <a href="/blog/ai-find-tradies-sunshine-coast/" class="blog-card" style="--card-img: url('/blog/ai-find-tradies-sunshine-coast/ai-find-tradies-blog.jpg');">
+      <a href="/blog/ai-find-tradies-sunshine-coast/" class="blog-card" data-filter="ai local-marketing" style="--card-img: url('/blog/ai-find-tradies-sunshine-coast/ai-find-tradies-blog.jpg');">
         <div class="blog-card-img"></div>
         <div class="blog-card-body">
           <p class="blog-card-cat">Local Marketing &middot; 6 min read</p>
           <h2 class="blog-card-title">How Customers Are Using AI to Find Tradies on the Sunshine Coast</h2>
-          <p class="blog-card-desc">People are asking ChatGPT and Gemini to recommend local tradies. Here's what these AI tools pull from — and how to make sure your business shows up.</p>
           <p class="blog-card-meta">24 March 2026</p>
         </div>
       </a>
-      <a href="/blog/ai-local-seo-sunshine-coast/" class="blog-card" style="--card-img: url('/blog/ai-local-seo-sunshine-coast/ai-local-seo-blog.jpg');">
+      <a href="/blog/ai-local-seo-sunshine-coast/" class="blog-card" data-filter="ai seo" style="--card-img: url('/blog/ai-local-seo-sunshine-coast/ai-local-seo-blog.jpg');">
         <div class="blog-card-img"></div>
         <div class="blog-card-body">
           <p class="blog-card-cat">Local SEO &middot; 7 min read</p>
           <h2 class="blog-card-title">Is AI Killing Local SEO? What Sunshine Coast Tradies Need to Know Right Now</h2>
-          <p class="blog-card-desc">Google's AI Overviews are changing what people see before they click. Here's what it actually means for your business — and why the fundamentals matter more than ever.</p>
           <p class="blog-card-meta">17 March 2026</p>
         </div>
       </a>
-      <a href="/blog/cleaners-vs-tradies-google/" class="blog-card" style="--card-img: url('/blog/cleaners-vs-tradies-google/cleaners-vs-tradies-google-blog.jpg');">
+      <a href="/blog/cleaners-vs-tradies-google/" class="blog-card" data-filter="local-marketing trades" style="--card-img: url('/blog/cleaners-vs-tradies-google/cleaners-vs-tradies-google-blog.jpg');">
         <div class="blog-card-img"></div>
         <div class="blog-card-body">
-          <p class="blog-card-cat">Local Marketing Strategy &middot; 7 min read</p>
+          <p class="blog-card-cat">Local Marketing &middot; 7 min read</p>
           <h2 class="blog-card-title">Marketing for Cleaners vs Tradies: Why Google Treats Them Differently</h2>
-          <p class="blog-card-desc">Google treats cleaners and tradies very differently. Here's why - covering search intent, GBP categories, review patterns, seasonal demand and photo strategy.</p>
           <p class="blog-card-meta">10 March 2026</p>
         </div>
       </a>
-      <a href="/blog/google-ranking-stops-updating/" class="blog-card" style="--card-img: url('/blog/google-ranking-stops-updating/google-ranking-stops-updating-blog.jpg');">
+      <a href="/blog/google-ranking-stops-updating/" class="blog-card" data-filter="gbp" style="--card-img: url('/blog/google-ranking-stops-updating/google-ranking-stops-updating-blog.jpg');">
         <div class="blog-card-img"></div>
         <div class="blog-card-body">
           <p class="blog-card-cat">Google Business Profile &middot; 6 min read</p>
           <h2 class="blog-card-title">What Happens to Your Google Ranking When You Stop Updating Your Profile</h2>
-          <p class="blog-card-desc">What happens to your Google Maps ranking when you stop posting, stop getting reviews, and go quiet - and how to recover if you've already let it slip.</p>
           <p class="blog-card-meta">3 March 2026</p>
         </div>
       </a>
-      <a href="/blog/marketing-landscapers/" class="blog-card" style="--card-img: url('/blog/marketing-landscapers/marketing-landscapers-blog.jpg');">
+      <a href="/blog/marketing-landscapers/" class="blog-card" data-filter="trades" style="--card-img: url('/blog/marketing-landscapers/marketing-landscapers-blog.jpg');">
         <div class="blog-card-img"></div>
         <div class="blog-card-body">
           <p class="blog-card-cat">Garden &amp; Outdoor Trades &middot; 6 min read</p>
           <h2 class="blog-card-title">How Sunshine Coast Landscapers and Garden Services Win More Jobs Through Google</h2>
-          <p class="blog-card-desc">Sunshine Coast landscapers and lawn mowing businesses: how to get more jobs through Google with the right profile, photos, categories and review strategy.</p>
           <p class="blog-card-meta">24 February 2026</p>
         </div>
       </a>
-      <a href="/blog/google-maps-buderim/" class="blog-card" style="--card-img: url('/blog/google-maps-buderim/google-maps-buderim-blog.jpg');">
+      <a href="/blog/google-maps-buderim/" class="blog-card" data-filter="gbp" style="--card-img: url('/blog/google-maps-buderim/google-maps-buderim-blog.jpg');">
         <div class="blog-card-img"></div>
         <div class="blog-card-body">
           <p class="blog-card-cat">Google Maps &middot; 6 min read</p>
           <h2 class="blog-card-title">Buderim Business Guide: How to Get Found by Locals on Google Maps</h2>
-          <p class="blog-card-desc">Buderim businesses: how to get found by locals on Google Maps, reach the growing Sippy Downs and surrounds market, and win the community trust that drives calls.</p>
           <p class="blog-card-meta">17 February 2026</p>
         </div>
       </a>
-      <a href="/blog/marketing-maroochydore/" class="blog-card" style="--card-img: url('/blog/marketing-maroochydore/marketing-maroochydore-blog.jpg');">
+      <a href="/blog/marketing-maroochydore/" class="blog-card" data-filter="local-marketing" style="--card-img: url('/blog/marketing-maroochydore/marketing-maroochydore-blog.jpg');">
         <div class="blog-card-img"></div>
         <div class="blog-card-body">
           <p class="blog-card-cat">Local Marketing &middot; 6 min read</p>
           <h2 class="blog-card-title">Why Maroochydore Businesses Are the Most Competitive on the Sunshine Coast</h2>
-          <p class="blog-card-desc">Maroochydore is the most competitive local market on the Sunshine Coast. Here's what it takes to stand out on Google and get more calls than your competitors.</p>
           <p class="blog-card-meta">10 February 2026</p>
         </div>
       </a>
-      <a href="/blog/marketing-noosa/" class="blog-card" style="--card-img: url('/blog/marketing-noosa/marketing-noosa-blog.jpg');">
+      <a href="/blog/marketing-noosa/" class="blog-card" data-filter="local-marketing" style="--card-img: url('/blog/marketing-noosa/marketing-noosa-blog.jpg');">
         <div class="blog-card-img"></div>
         <div class="blog-card-body">
           <p class="blog-card-cat">Local Marketing &middot; 6 min read</p>
           <h2 class="blog-card-title">The Best Marketing Strategy for Small Businesses in Noosa in 2026</h2>
-          <p class="blog-card-desc">The best marketing strategy for small businesses in Noosa in 2026 - covering tourist search patterns, seasonal demand, and how to win both visitors and locals.</p>
           <p class="blog-card-meta">3 February 2026</p>
         </div>
       </a>
-      <a href="/blog/local-seo-vs-google-ads/" class="blog-card" style="--card-img: url('/blog/local-seo-vs-google-ads/local-seo-vs-google-ads-blog.jpg');">
+      <a href="/blog/local-seo-vs-google-ads/" class="blog-card" data-filter="seo" style="--card-img: url('/blog/local-seo-vs-google-ads/local-seo-vs-google-ads-blog.jpg');">
         <div class="blog-card-img"></div>
         <div class="blog-card-body">
           <p class="blog-card-cat">Local Marketing &middot; 6 min read</p>
           <h2 class="blog-card-title">Local SEO vs Google Ads: Which Should Sunshine Coast Tradies Invest in First?</h2>
-          <p class="blog-card-desc">Local SEO or Google Ads first? For most Sunshine Coast tradies and cleaners, the answer is clear - and it's not what agencies selling ads will tell you.</p>
           <p class="blog-card-meta">27 January 2026</p>
         </div>
       </a>
-      <a href="/blog/how-long-local-seo/" class="blog-card" style="--card-img: url('/blog/how-long-local-seo/how-long-local-seo-blog.jpg');">
+      <a href="/blog/how-long-local-seo/" class="blog-card" data-filter="seo" style="--card-img: url('/blog/how-long-local-seo/how-long-local-seo-blog.jpg');">
         <div class="blog-card-img"></div>
         <div class="blog-card-body">
           <p class="blog-card-cat">Local SEO &middot; 7 min read</p>
           <h2 class="blog-card-title">How Long Does Local SEO Take? A Realistic Timeline for Sunshine Coast Businesses</h2>
-          <p class="blog-card-desc">A realistic, week-by-week local SEO timeline for Sunshine Coast businesses - no hype, no vague promises, just what actually happens and when.</p>
           <p class="blog-card-meta">20 January 2026</p>
         </div>
       </a>
-      <a href="/blog/respond-negative-reviews/" class="blog-card" style="--card-img: url('/blog/respond-negative-reviews/respond-negative-reviews-blog.jpg');">
+      <a href="/blog/respond-negative-reviews/" class="blog-card" data-filter="reviews" style="--card-img: url('/blog/respond-negative-reviews/respond-negative-reviews-blog.jpg');">
         <div class="blog-card-img"></div>
         <div class="blog-card-body">
           <p class="blog-card-cat">Google Reviews &middot; 6 min read</p>
           <h2 class="blog-card-title">How to Respond to Negative Google Reviews Without Making It Worse</h2>
-          <p class="blog-card-desc">A bad Google review doesn't have to hurt your business. Here's the exact formula for responding to negative reviews without making things worse.</p>
           <p class="blog-card-meta">13 January 2026</p>
         </div>
       </a>
-      <a href="/blog/electrician-google-maps/" class="blog-card" style="--card-img: url('/blog/electrician-google-maps/electrician-google-maps-blog.jpg');">
+      <a href="/blog/electrician-google-maps/" class="blog-card" data-filter="gbp trades" style="--card-img: url('/blog/electrician-google-maps/electrician-google-maps-blog.jpg');">
         <div class="blog-card-img"></div>
         <div class="blog-card-body">
           <p class="blog-card-cat">Google Maps &middot; 6 min read</p>
           <h2 class="blog-card-title">How Electricians on the Sunshine Coast Get More Calls From Google Maps</h2>
-          <p class="blog-card-desc">Sunshine Coast electricians: here's why competitors rank above you on Google Maps and the exact steps to fix it and get more calls.</p>
           <p class="blog-card-meta">6 January 2026</p>
         </div>
       </a>
-      <a href="/blog/facebook-for-service-businesses/" class="blog-card" style="--card-img: url('/Images/services/facebook-marketing-for-business.jpg');">
+      <a href="/blog/facebook-for-service-businesses/" class="blog-card" data-filter="local-marketing" style="--card-img: url('/blog/facebook-for-service-businesses/facebook-service-business-blog.jpg');">
         <div class="blog-card-img"></div>
         <div class="blog-card-body">
           <p class="blog-card-cat">Facebook</p>
           <h2 class="blog-card-title">Facebook Marketing for Service Businesses Sunshine Coast</h2>
-          <p class="blog-card-desc">The honest answer for Sunshine Coast cleaners and tradies - and why Facebook is still one of the best tools you're probably not using properly.</p>
           <p class="blog-card-meta">30 December 2025</p>
         </div>
       </a>
-      <a href="/blog/google-maps-top-3/" class="blog-card" style="--card-img: url('/Images/services/google-maps-mobile-search.jpg');">
+      <a href="/blog/google-maps-top-3/" class="blog-card" data-filter="gbp" style="--card-img: url('/blog/google-maps-top-3/google-maps-top-3-blog.jpg');">
         <div class="blog-card-img"></div>
         <div class="blog-card-body">
           <p class="blog-card-cat">Google Maps</p>
           <h2 class="blog-card-title">How to Get in the Google Maps Top 3</h2>
-          <p class="blog-card-desc">What it takes to get your Sunshine Coast trade business ranking in the Google Maps top 3 - and why it's more achievable than you think.</p>
           <p class="blog-card-meta">23 December 2025</p>
         </div>
       </a>
-      <a href="/blog/google-reviews/" class="blog-card" style="--card-img: url('/blog/google-reviews/google-reviews-blog.jpg');">
+      <a href="/blog/google-reviews/" class="blog-card" data-filter="reviews" style="--card-img: url('/blog/google-reviews/google-reviews-blog.jpg');">
         <div class="blog-card-img"></div>
         <div class="blog-card-body">
           <p class="blog-card-cat">Google Reviews</p>
           <h2 class="blog-card-title">How to Get More Google Reviews</h2>
-          <p class="blog-card-desc">A practical guide for Sunshine Coast cleaning businesses on building a steady flow of Google reviews without being pushy.</p>
           <p class="blog-card-meta">16 December 2025</p>
         </div>
       </a>
-      <a href="/blog/cleaning-business-google-maps/" class="blog-card" style="--card-img: url('/blog/cleaning-business-google-maps/google-cleaners-blog.jpg');">
+      <a href="/blog/cleaning-business-google-maps/" class="blog-card" data-filter="gbp trades" style="--card-img: url('/blog/cleaning-business-google-maps/google-cleaners-blog.jpg');">
         <div class="blog-card-img"></div>
         <div class="blog-card-body">
           <p class="blog-card-cat">Google Maps &middot; 5 min read</p>
           <h2 class="blog-card-title">Why Your Sunshine Coast Cleaning Business Isn't Getting Calls From Google</h2>
-          <p class="blog-card-desc">Is your cleaning business invisible on Google Maps? Here's why Sunshine Coast cleaners miss out on enquiries - and what to fix first.</p>
           <p class="blog-card-meta">9 December 2025</p>
         </div>
       </a>
-      <a href="/blog/gbp-vs-website-tradies/" class="blog-card" style="--card-img: url('/blog/gbp-vs-website-tradies/gbp-vs-website-blog.avif');">
+      <a href="/blog/gbp-vs-website-tradies/" class="blog-card" data-filter="gbp" style="--card-img: url('/blog/gbp-vs-website-tradies/gbp-vs-website-blog.avif');">
         <div class="blog-card-img"></div>
         <div class="blog-card-body">
           <p class="blog-card-cat">Local Marketing &middot; 5 min read</p>
           <h2 class="blog-card-title">Google Business Profile vs Website: What Gets Sunshine Coast Tradies More Calls?</h2>
-          <p class="blog-card-desc">GBP or website - what actually drives calls for Sunshine Coast tradies? Here's the honest answer and the right order of operations.</p>
           <p class="blog-card-meta">2 December 2025</p>
         </div>
       </a>
-      <a href="/blog/sunshine-coast-growth-suburbs/" class="blog-card" style="--card-img: url('/blog/sunshine-coast-growth-suburbs/sunshine-coast-growth-suburbs.jpg');">
+      <a href="/blog/sunshine-coast-growth-suburbs/" class="blog-card" data-filter="local-marketing" style="--card-img: url('/blog/sunshine-coast-growth-suburbs/sunshine-coast-growth-suburbs.jpg');">
         <div class="blog-card-img"></div>
         <div class="blog-card-body">
           <p class="blog-card-cat">Local Business &middot; 5 min read</p>
           <h2 class="blog-card-title">The Sunshine Coast Suburbs Growing Fastest - What It Means for Local Service Businesses</h2>
-          <p class="blog-card-desc">Aura, Baringa, Little Mountain - the Sunshine Coast's growth suburbs are full of new residents searching for local services. Are you visible?</p>
           <p class="blog-card-meta">25 November 2025</p>
         </div>
       </a>
-      <a href="/blog/what-is-local-seo/" class="blog-card" style="--card-img: url('/blog/what-is-local-seo/what-is-local-seo-blog.jpg');">
+      <a href="/blog/what-is-local-seo/" class="blog-card" data-filter="seo" style="--card-img: url('/blog/what-is-local-seo/what-is-local-seo-blog.jpg');">
         <div class="blog-card-img"></div>
         <div class="blog-card-body">
           <p class="blog-card-cat">Local SEO &middot; 5 min read</p>
           <h2 class="blog-card-title">What Is Local SEO and Why Does It Matter for Sunshine Coast Small Businesses?</h2>
-          <p class="blog-card-desc">Local SEO explained in plain English for Sunshine Coast small businesses - what it is, why it matters, and how it affects your enquiries.</p>
           <p class="blog-card-meta">18 November 2025</p>
         </div>
       </a>
-      <a href="/blog/gbp-description-sunshine-coast/" class="blog-card" style="--card-img: url('/blog/gbp-description-sunshine-coast/gbp-description-sunshine-coast-blog.jpg');">
+      <a href="/blog/gbp-description-sunshine-coast/" class="blog-card" data-filter="gbp" style="--card-img: url('/blog/gbp-description-sunshine-coast/gbp-description-sunshine-coast-blog.jpg');">
         <div class="blog-card-img"></div>
         <div class="blog-card-body">
           <p class="blog-card-cat">Google Business Profile &middot; 4 min read</p>
           <h2 class="blog-card-title">How to Write a Google Business Profile Description That Gets You Found on the Sunshine Coast</h2>
-          <p class="blog-card-desc">Most Google Business Profile descriptions are a wasted opportunity. Here's how to write one that improves your Sunshine Coast local ranking.</p>
           <p class="blog-card-meta">11 November 2025</p>
         </div>
       </a>
-      <a href="/blog/plumber-google-maps/" class="blog-card" style="--card-img: url('/blog/plumber-google-maps/plumber-google-maps-blog.jpg');">
+      <a href="/blog/plumber-google-maps/" class="blog-card" data-filter="gbp trades" style="--card-img: url('/blog/plumber-google-maps/plumber-google-maps-blog.jpg');">
         <div class="blog-card-img"></div>
         <div class="blog-card-body">
           <p class="blog-card-cat">Google Maps &middot; 5 min read</p>
           <h2 class="blog-card-title">The Real Reason Sunshine Coast Plumbers Lose Jobs to Competitors on Google Maps</h2>
-          <p class="blog-card-desc">Why are other plumbers ranking above you on Google Maps on the Sunshine Coast? Here's what they're doing differently - and how to close the gap.</p>
           <p class="blog-card-meta">4 November 2025</p>
         </div>
       </a>
-      <a href="/blog/marketing-routine-tradies/" class="blog-card" style="--card-img: url('/blog/marketing-routine-tradies/marketing-routine-tradies-blog.jpg');">
+      <a href="/blog/marketing-routine-tradies/" class="blog-card" data-filter="local-marketing trades" style="--card-img: url('/blog/marketing-routine-tradies/marketing-routine-tradies-blog.jpg');">
         <div class="blog-card-img"></div>
         <div class="blog-card-body">
           <p class="blog-card-cat">Marketing Tips &middot; 5 min read</p>
           <h2 class="blog-card-title">A Simple Monthly Marketing Routine for Sunshine Coast Tradies Who Don't Have Time</h2>
-          <p class="blog-card-desc">An hour a month is enough to keep your Google presence strong. Here's the simple marketing routine that works for busy Sunshine Coast tradies.</p>
           <p class="blog-card-meta">28 October 2025</p>
         </div>
       </a>
-      <a href="/blog/gbp-categories-tradies/" class="blog-card" style="--card-img: url('/blog/gbp-categories-tradies/gbp-categories-blog.jpg');">
+      <a href="/blog/gbp-categories-tradies/" class="blog-card" data-filter="gbp" style="--card-img: url('/blog/gbp-categories-tradies/gbp-categories-blog.jpg');">
         <div class="blog-card-img"></div>
         <div class="blog-card-body">
           <p class="blog-card-cat">Google Business Profile &middot; 5 min read</p>
           <h2 class="blog-card-title">How to Choose the Right Google Business Profile Categories for Your Trade Business</h2>
-          <p class="blog-card-desc">The wrong GBP category can drop you out of local search entirely. Here's how to get it right for Sunshine Coast trade businesses.</p>
           <p class="blog-card-meta">21 October 2025</p>
         </div>
       </a>
-      <a href="/blog/what-customers-check/" class="blog-card" style="--card-img: url('/blog/what-customers-check/what-customer-check-blog.jpg');">
+      <a href="/blog/what-customers-check/" class="blog-card" data-filter="local-marketing" style="--card-img: url('/blog/what-customers-check/what-customer-check-blog.jpg');">
         <div class="blog-card-img"></div>
         <div class="blog-card-body">
           <p class="blog-card-cat">Local Business &middot; 5 min read</p>
           <h2 class="blog-card-title">What Sunshine Coast Customers Actually Look at Before Calling a Local Business</h2>
-          <p class="blog-card-desc">Before a Sunshine Coast customer calls you, they run a 30-second mental checklist. Here's what's on it - and how to make sure you pass.</p>
           <p class="blog-card-meta">14 October 2025</p>
         </div>
       </a>
-      <a href="/blog/google-posts-local-business/" class="blog-card" style="--card-img: url('/blog/google-posts-local-business/google-posts-visibility-blog.jpg');">
+      <a href="/blog/google-posts-local-business/" class="blog-card" data-filter="gbp" style="--card-img: url('/blog/google-posts-local-business/google-posts-visibility-blog.jpg');">
         <div class="blog-card-img"></div>
         <div class="blog-card-body">
           <p class="blog-card-cat">Google Business Profile &middot; 4 min read</p>
           <h2 class="blog-card-title">How to Use Google Posts to Keep Your Sunshine Coast Business Visible Between Jobs</h2>
-          <p class="blog-card-desc">Google Posts is a free feature most Sunshine Coast businesses never use. Here's what it does, why it helps your ranking, and how to get started in 5 minutes.</p>
           <p class="blog-card-meta">7 October 2025</p>
         </div>
       </a>
@@ -554,6 +570,24 @@
 </footer>
 
 <script>
+// Blog filters
+document.querySelectorAll('.blog-filter').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const filter = btn.dataset.filter;
+    document.querySelectorAll('.blog-filter').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const featured = document.querySelector('.blog-featured');
+    if (featured) {
+      const cats = (featured.dataset.filter || '').split(' ');
+      featured.style.display = (filter === 'all' || cats.includes(filter)) ? '' : 'none';
+    }
+    document.querySelectorAll('.blog-card').forEach(card => {
+      const cats = (card.dataset.filter || '').split(' ');
+      card.style.display = (filter === 'all' || cats.includes(filter)) ? '' : 'none';
+    });
+  });
+});
+
 const navToggle = document.querySelector('.nav-toggle');
 const navLinks  = document.querySelector('.nav-links');
 navToggle.addEventListener('click', () => {
