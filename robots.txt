@@ -1,6 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /_templates/
+Disallow: /brand/
 
 # AI search crawlers — explicitly permitted
 User-agent: GPTBot
