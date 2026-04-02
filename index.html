@@ -286,6 +286,30 @@
     transform: translateY(0);
   }
 
+  .btn-primary-light {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--warm-white);
+    background: transparent;
+    border: 1px solid rgba(250,248,245,0.65);
+    padding: 0.85rem 2rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  .btn-primary-light:hover {
+    background: rgba(250,248,245,0.12);
+    border-color: var(--warm-white);
+    transform: translateY(-2px);
+  }
+
   .link-secondary {
     font-size: 0.85rem;
     color: var(--ink-muted);
@@ -465,7 +489,7 @@
 
   .services-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     border-top: 1px solid var(--border);
   }
 
@@ -563,6 +587,27 @@
     color: var(--clay);
     font-family: var(--font-body);
     font-weight: 500;
+  }
+
+  /* ─── LOCAL SEO FEATURE BAND ─── */
+  .lseo-feature { position: relative; padding: 6rem 0; overflow: hidden; }
+  .lseo-feature-bg { position: absolute; inset: 0; background-size: cover; background-position: center; }
+  .lseo-feature-overlay { position: absolute; inset: 0; background: rgba(28,26,23,0.72); }
+  .lseo-feature .wrap { position: relative; z-index: 1; }
+  .lseo-feature-inner { max-width: 580px; }
+  .lseo-badge { display: inline-block; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--clay); background: rgba(184,150,122,0.15); border: 1px solid rgba(184,150,122,0.4); padding: 0.3rem 0.9rem; border-radius: 100px; margin-bottom: 1.5rem; }
+  .lseo-feature-heading { font-family: var(--font-display); font-size: clamp(2.4rem, 4.5vw, 4.2rem); font-weight: 300; line-height: 1.05; color: var(--warm-white); margin-bottom: 1.25rem; }
+  .lseo-feature-heading em { font-style: italic; color: var(--clay); }
+  .lseo-feature-desc { font-size: 0.95rem; line-height: 1.85; color: rgba(250,248,245,0.6); max-width: 44ch; font-weight: 300; margin-bottom: 2rem; }
+  .lseo-stats { background: var(--stone-mid); border-top: 1px solid var(--border); display: flex; gap: 0; }
+  .lseo-stat { flex: 1; padding: 2rem 2.5rem; border-right: 1px solid var(--border); }
+  .lseo-stat:last-child { border-right: none; }
+  .lseo-stat-num { font-family: var(--font-display); font-size: 2.2rem; font-weight: 300; color: var(--clay); line-height: 1; display: block; margin-bottom: 0.3rem; }
+  .lseo-stat-label { font-size: 0.78rem; color: var(--ink-muted); font-weight: 300; line-height: 1.5; }
+  @media (max-width: 767px) {
+    .lseo-stats { flex-direction: column; }
+    .lseo-stat { border-right: none; border-bottom: 1px solid var(--border); }
+    .lseo-stat:last-child { border-bottom: none; }
   }
 
   /* ─── SECTION PARALLAX BACKGROUNDS ─── */
@@ -2683,6 +2728,7 @@
       </p>
       <div class="hero-actions">
         <a href="/google-business-profile-audit/#audit-form" class="btn-primary">Start a conversation</a>
+        <a href="/local-seo-sunshine-coast/" class="link-secondary" style="align-self:center;margin-top:0.25rem;">Local SEO Sunshine Coast &rarr;</a>
       </div>
     </div>
 
@@ -2824,6 +2870,35 @@
   </div>
 </section>
 
+
+<!-- ─── LOCAL SEO FEATURE ─── -->
+<section class="lseo-feature">
+  <div class="lseo-feature-bg" style="background-image: url('images/homepage/services-local-seo.webp');"></div>
+  <div class="lseo-feature-overlay"></div>
+  <div class="wrap">
+    <div class="lseo-feature-inner">
+      <span class="lseo-badge">Signature Service</span>
+      <h2 class="lseo-feature-heading">Local SEO<br><em>Sunshine Coast</em></h2>
+      <p class="lseo-feature-desc">Get your business ranking on Google when local customers search for your trade or service. The most effective long-term investment a Sunshine Coast small business can make.</p>
+      <a href="/local-seo-sunshine-coast/" class="btn-primary-light">See how it works &rarr;</a>
+    </div>
+  </div>
+</section>
+<div class="lseo-stats">
+  <div class="lseo-stat">
+    <span class="lseo-stat-num">46%</span>
+    <span class="lseo-stat-label">of all Google searches have local intent</span>
+  </div>
+  <div class="lseo-stat">
+    <span class="lseo-stat-num">3&ndash;6 mo</span>
+    <span class="lseo-stat-label">typical timeframe to meaningful ranking improvements</span>
+  </div>
+  <div class="lseo-stat">
+    <span class="lseo-stat-num">No lock-in</span>
+    <span class="lseo-stat-label">month-to-month, cancel anytime</span>
+  </div>
+</div>
+
 <!-- ─── SERVICES ─── -->
 <section class="services" id="services" aria-label="Services">
   <div class="wrap">
@@ -2842,32 +2917,38 @@
     </div>
 
     <div class="services-grid stagger-animation">
-      <a href="/google-business-profile/" class="service-item" style="--service-bg: url('images/homepage/services-google-business-profile.webp');">
+      <a href="/local-seo-sunshine-coast/" class="service-item service-item--featured" style="--service-bg: url('images/homepage/services-local-seo.webp');">
         <p class="service-num">01</p>
+        <h3 class="service-name">Local SEO</h3>
+        <p class="service-desc">Rank on Google when Sunshine Coast customers search for your trade or service. The most powerful long-term investment for local visibility - no paid ads required.</p>
+        <span class="service-tag">Signature service</span>
+      </a>
+      <a href="/google-business-profile/" class="service-item" style="--service-bg: url('images/homepage/services-google-business-profile.webp');">
+        <p class="service-num">02</p>
         <h3 class="service-name">Google Business Profile</h3>
         <p class="service-desc">Most local customers find you here first. We make sure your profile is complete, compelling, and set up to rank when people search nearby.</p>
         <span class="service-tag">Local presence</span>
       </a>
       <a href="/facebook-business-page-management/" class="service-item" style="--service-bg: url('images/homepage/services-visibility.webp');">
-        <p class="service-num">02</p>
+        <p class="service-num">03</p>
         <h3 class="service-name">Facebook Business Page</h3>
         <p class="service-desc">A professional, active Facebook page that builds trust before a customer has even called  -  managed for you every month.</p>
         <span class="service-tag">Social presence</span>
       </a>
-      <a href="/review-generation/" class="service-item" style="--service-bg: url('images/homepage/services-local-seo.webp');">
-        <p class="service-num">03</p>
+      <a href="/review-generation/" class="service-item" style="--service-bg: url('images/services/review-generation-happy-customer.webp');">
+        <p class="service-num">04</p>
         <h3 class="service-name">Review Generation &amp; Management</h3>
         <p class="service-desc">Turn every happy customer into a five-star review. We build your reputation systematically after every job, month after month.</p>
         <span class="service-tag">Reputation</span>
       </a>
       <a href="/reporting/" class="service-item" style="--service-bg: url('images/homepage/services-website.webp');">
-        <p class="service-num">04</p>
+        <p class="service-num">05</p>
         <h3 class="service-name">Local Visibility Reporting</h3>
         <p class="service-desc">Plain-English monthly reports showing your profile views, calls, review growth, and exactly how your local visibility is trending.</p>
         <span class="service-tag">Reporting</span>
       </a>
       <a href="/website-creation-seo/" class="service-item" style="--service-bg: url('images/homepage/macbook-2.webp');">
-        <p class="service-num">05</p>
+        <p class="service-num">06</p>
         <h3 class="service-name">Website Creation &amp; SEO</h3>
         <p class="service-desc">A fast, professional website built to convert local visitors into enquiries  -  optimised for search so the right customers find you first.</p>
         <span class="service-tag">Web &amp; SEO</span>
@@ -2879,6 +2960,7 @@
       <button class="services-dot" aria-label="Card 3"></button>
       <button class="services-dot" aria-label="Card 4"></button>
       <button class="services-dot" aria-label="Card 5"></button>
+      <button class="services-dot" aria-label="Card 6"></button>
     </div>
     <div style="margin-top: 3rem; text-align: center;">
       <a href="/google-business-profile-audit/#audit-form" class="btn-primary">See what's holding you back</a>
