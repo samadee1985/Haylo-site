@@ -2782,8 +2782,6 @@
     </div>
   </div>
 </section>
-
-
 <!-- ─── WHO WE HELP ─── -->
 <section class="who" id="who" aria-label="Who we help">
   <div class="section-parallax-bg" id="who-bg" style="background-image:url('images/homepage/buderim.webp')" aria-hidden="true"></div>
@@ -3856,8 +3854,9 @@ serviceNumbers.forEach(num => serviceCounterObserver.observe(num));
     var vh = window.innerHeight;
     items.forEach(function (i) {
       var rect = i.section.getBoundingClientRect();
-      var topClip    = Math.max(0, rect.top);
-      var bottomClip = Math.max(0, vh - rect.bottom);
+      var preload = 80;
+      var topClip    = Math.max(0, rect.top - preload);
+      var bottomClip = Math.max(0, vh - rect.bottom - preload);
       i.bg.style.clipPath = 'inset(' + topClip + 'px 0px ' + bottomClip + 'px 0px)';
     });
   }
