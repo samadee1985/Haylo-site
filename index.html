@@ -590,10 +590,10 @@
   }
 
   /* ─── LOCAL SEO FEATURE BAND ─── */
-  .lseo-feature { position: relative; padding: 7rem 0 0; overflow: hidden; margin-bottom: 0; display: block; }
+  .lseo-feature { position: relative; padding: 0; min-height: 75vh; overflow: hidden; margin-bottom: 0; display: flex; flex-direction: column; justify-content: flex-end; }
   .lseo-feature-bg { position: absolute; inset: 0; background-size: cover; background-position: 65% center; transform: scale(1.04); }
   .lseo-feature-overlay { position: absolute; inset: 0; background: linear-gradient(105deg, rgba(28,26,23,0.82) 0%, rgba(28,26,23,0.65) 45%, rgba(28,26,23,0.15) 100%); }
-  .lseo-feature .wrap { position: relative; z-index: 1; }
+  .lseo-feature .wrap { position: relative; z-index: 1; padding-bottom: 0; padding-top: 4rem; }
   .lseo-feature-inner { max-width: 600px; }
   .lseo-badge { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--clay); background: rgba(184,150,122,0.12); border: 1px solid rgba(184,150,122,0.35); padding: 0.35rem 1rem; border-radius: 100px; margin-bottom: 2rem; }
   .lseo-badge::before { content: ''; display: block; width: 5px; height: 5px; border-radius: 50%; background: var(--clay); flex-shrink: 0; }
@@ -608,7 +608,7 @@
   .lseo-stat-label { font-size: 0.75rem; color: rgba(250,248,245,0.4); font-weight: 300; line-height: 1.6; }
   @media (max-width: 767px) {
     .lseo-stats { display: none; }
-    .lseo-feature { padding: 5rem 0 4rem; }
+    .lseo-feature { padding: 0; min-height: 75vh; justify-content: flex-end; padding-bottom: 1rem; }
   }
 
   /* ─── SECTION PARALLAX BACKGROUNDS ─── */
@@ -2763,7 +2763,7 @@
       <h2 class="lseo-feature-heading">Local SEO<br><em>Sunshine Coast</em></h2>
       <p class="lseo-feature-desc">Get your business ranking on Google when local customers search for your trade or service. The most effective long-term investment a Sunshine Coast small business can make.</p>
       <div class="lseo-divider"></div>
-      <a href="/local-seo-sunshine-coast/" class="btn-primary-light">See how it works &rarr;</a>
+      <a href="/local-seo-sunshine-coast/" class="btn-primary-light" style="margin-bottom:1rem;">See how it works &rarr;</a>
     </div>
     <div class="lseo-stats">
       <div class="lseo-stat">
