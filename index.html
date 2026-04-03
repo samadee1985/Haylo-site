@@ -590,16 +590,18 @@
   }
 
   /* ─── LOCAL SEO FEATURE BAND ─── */
-  .lseo-feature { position: relative; padding: 6rem 0; overflow: hidden; }
-  .lseo-feature-bg { position: absolute; inset: 0; background-size: cover; background-position: center; }
-  .lseo-feature-overlay { position: absolute; inset: 0; background: rgba(28,26,23,0.72); }
+  .lseo-feature { position: relative; padding: 7rem 0 8rem; overflow: hidden; }
+  .lseo-feature-bg { position: absolute; inset: 0; background-size: cover; background-position: center; transform: scale(1.04); }
+  .lseo-feature-overlay { position: absolute; inset: 0; background: linear-gradient(105deg, rgba(28,26,23,0.88) 0%, rgba(28,26,23,0.55) 60%, rgba(28,26,23,0.25) 100%); }
   .lseo-feature .wrap { position: relative; z-index: 1; }
-  .lseo-feature-inner { max-width: 580px; }
-  .lseo-badge { display: inline-block; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--clay); background: rgba(184,150,122,0.15); border: 1px solid rgba(184,150,122,0.4); padding: 0.3rem 0.9rem; border-radius: 100px; margin-bottom: 1.5rem; }
-  .lseo-feature-heading { font-family: var(--font-display); font-size: clamp(2.4rem, 4.5vw, 4.2rem); font-weight: 300; line-height: 1.05; color: var(--warm-white); margin-bottom: 1.25rem; }
+  .lseo-feature-inner { max-width: 600px; }
+  .lseo-badge { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--clay); background: rgba(184,150,122,0.12); border: 1px solid rgba(184,150,122,0.35); padding: 0.35rem 1rem; border-radius: 100px; margin-bottom: 2rem; }
+  .lseo-badge::before { content: ''; display: block; width: 5px; height: 5px; border-radius: 50%; background: var(--clay); flex-shrink: 0; }
+  .lseo-feature-heading { font-family: var(--font-display); font-size: clamp(3rem, 5.5vw, 5.2rem); font-weight: 300; line-height: 1.0; color: var(--warm-white); margin-bottom: 1.5rem; letter-spacing: -0.01em; }
   .lseo-feature-heading em { font-style: italic; color: var(--clay); }
-  .lseo-feature-desc { font-size: 0.95rem; line-height: 1.85; color: rgba(250,248,245,0.6); max-width: 44ch; font-weight: 300; margin-bottom: 2rem; }
-  .lseo-stats { background: var(--stone-mid); border-top: 1px solid var(--border); display: flex; gap: 0; }
+  .lseo-feature-desc { font-size: 1rem; line-height: 1.85; color: rgba(250,248,245,0.55); max-width: 42ch; font-weight: 300; margin-bottom: 2.5rem; }
+  .lseo-divider { width: 2.5rem; height: 1px; background: rgba(250,248,245,0.2); margin-bottom: 2.5rem; }
+  .lseo-stats { background: var(--stone); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); display: flex; gap: 0; }
   .lseo-stat { flex: 1; padding: 2rem 2.5rem; border-right: 1px solid var(--border); }
   .lseo-stat:last-child { border-right: none; }
   .lseo-stat-num { font-family: var(--font-display); font-size: 2.2rem; font-weight: 300; color: var(--clay); line-height: 1; display: block; margin-bottom: 0.3rem; }
@@ -2752,6 +2754,35 @@
   </div>
 </section>
 
+<!-- ─── LOCAL SEO FEATURE ─── -->
+<section class="lseo-feature">
+  <div class="lseo-feature-bg" style="background-image: url('images/homepage/services-local-seo.webp');"></div>
+  <div class="lseo-feature-overlay"></div>
+  <div class="wrap">
+    <div class="lseo-feature-inner">
+      <span class="lseo-badge">Signature Service</span>
+      <h2 class="lseo-feature-heading">Local SEO<br><em>Sunshine Coast</em></h2>
+      <p class="lseo-feature-desc">Get your business ranking on Google when local customers search for your trade or service. The most effective long-term investment a Sunshine Coast small business can make.</p>
+      <div class="lseo-divider"></div>
+      <a href="/local-seo-sunshine-coast/" class="btn-primary-light">See how it works &rarr;</a>
+    </div>
+  </div>
+</section>
+<div class="lseo-stats">
+  <div class="lseo-stat">
+    <span class="lseo-stat-num">46%</span>
+    <span class="lseo-stat-label">of all Google searches have local intent</span>
+  </div>
+  <div class="lseo-stat">
+    <span class="lseo-stat-num">1&ndash;6 mo</span>
+    <span class="lseo-stat-label">typical timeframe to meaningful ranking improvements</span>
+  </div>
+  <div class="lseo-stat">
+    <span class="lseo-stat-num">No lock-in</span>
+    <span class="lseo-stat-label">month-to-month, cancel anytime</span>
+  </div>
+</div>
+
 <!-- ─── WHO WE HELP ─── -->
 <section class="who" id="who" aria-label="Who we help">
   <div class="section-parallax-bg" id="who-bg" style="background-image:url('images/homepage/buderim.webp')" aria-hidden="true"></div>
@@ -2870,34 +2901,6 @@
   </div>
 </section>
 
-
-<!-- ─── LOCAL SEO FEATURE ─── -->
-<section class="lseo-feature">
-  <div class="lseo-feature-bg" style="background-image: url('images/homepage/services-local-seo.webp');"></div>
-  <div class="lseo-feature-overlay"></div>
-  <div class="wrap">
-    <div class="lseo-feature-inner">
-      <span class="lseo-badge">Signature Service</span>
-      <h2 class="lseo-feature-heading">Local SEO<br><em>Sunshine Coast</em></h2>
-      <p class="lseo-feature-desc">Get your business ranking on Google when local customers search for your trade or service. The most effective long-term investment a Sunshine Coast small business can make.</p>
-      <a href="/local-seo-sunshine-coast/" class="btn-primary-light">See how it works &rarr;</a>
-    </div>
-  </div>
-</section>
-<div class="lseo-stats">
-  <div class="lseo-stat">
-    <span class="lseo-stat-num">46%</span>
-    <span class="lseo-stat-label">of all Google searches have local intent</span>
-  </div>
-  <div class="lseo-stat">
-    <span class="lseo-stat-num">3&ndash;6 mo</span>
-    <span class="lseo-stat-label">typical timeframe to meaningful ranking improvements</span>
-  </div>
-  <div class="lseo-stat">
-    <span class="lseo-stat-num">No lock-in</span>
-    <span class="lseo-stat-label">month-to-month, cancel anytime</span>
-  </div>
-</div>
 
 <!-- ─── SERVICES ─── -->
 <section class="services" id="services" aria-label="Services">
