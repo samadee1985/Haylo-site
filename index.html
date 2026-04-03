@@ -590,7 +590,7 @@
   }
 
   /* ─── LOCAL SEO FEATURE BAND ─── */
-  .lseo-feature { position: relative; padding: 7rem 0 8rem; overflow: hidden; }
+  .lseo-feature { position: relative; padding: 7rem 0 0; overflow: hidden; margin-bottom: 0; display: block; }
   .lseo-feature-bg { position: absolute; inset: 0; background-size: cover; background-position: center; transform: scale(1.04); }
   .lseo-feature-overlay { position: absolute; inset: 0; background: linear-gradient(105deg, rgba(28,26,23,0.88) 0%, rgba(28,26,23,0.55) 60%, rgba(28,26,23,0.25) 100%); }
   .lseo-feature .wrap { position: relative; z-index: 1; }
@@ -601,14 +601,14 @@
   .lseo-feature-heading em { font-style: italic; color: var(--clay); }
   .lseo-feature-desc { font-size: 1rem; line-height: 1.85; color: rgba(250,248,245,0.55); max-width: 42ch; font-weight: 300; margin-bottom: 2.5rem; }
   .lseo-divider { width: 2.5rem; height: 1px; background: rgba(250,248,245,0.2); margin-bottom: 2.5rem; }
-  .lseo-stats { background: var(--stone); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); display: flex; gap: 0; }
-  .lseo-stat { flex: 1; padding: 2rem 2.5rem; border-right: 1px solid var(--border); }
+  .lseo-stats { position: relative; z-index: 1; display: flex; gap: 0; margin-top: 5rem; border-top: 1px solid rgba(250,248,245,0.12); }
+  .lseo-stat { flex: 1; padding: 2rem 2.5rem; border-right: 1px solid rgba(250,248,245,0.1); }
   .lseo-stat:last-child { border-right: none; }
-  .lseo-stat-num { font-family: var(--font-display); font-size: 2.2rem; font-weight: 300; color: var(--clay); line-height: 1; display: block; margin-bottom: 0.3rem; }
-  .lseo-stat-label { font-size: 0.78rem; color: var(--ink-muted); font-weight: 300; line-height: 1.5; }
+  .lseo-stat-num { font-family: var(--font-display); font-size: 2.4rem; font-weight: 300; color: var(--clay); line-height: 1; display: block; margin-bottom: 0.4rem; }
+  .lseo-stat-label { font-size: 0.75rem; color: rgba(250,248,245,0.4); font-weight: 300; line-height: 1.6; }
   @media (max-width: 767px) {
-    .lseo-stats { flex-direction: column; }
-    .lseo-stat { border-right: none; border-bottom: 1px solid var(--border); }
+    .lseo-stats { flex-direction: column; margin-top: 3rem; }
+    .lseo-stat { border-right: none; border-bottom: 1px solid rgba(250,248,245,0.1); }
     .lseo-stat:last-child { border-bottom: none; }
   }
 
@@ -2766,22 +2766,23 @@
       <div class="lseo-divider"></div>
       <a href="/local-seo-sunshine-coast/" class="btn-primary-light">See how it works &rarr;</a>
     </div>
+    <div class="lseo-stats">
+      <div class="lseo-stat">
+        <span class="lseo-stat-num">46%</span>
+        <span class="lseo-stat-label">of all Google searches<br>have local intent</span>
+      </div>
+      <div class="lseo-stat">
+        <span class="lseo-stat-num">1&ndash;6 mo</span>
+        <span class="lseo-stat-label">typical timeframe to<br>meaningful ranking improvements</span>
+      </div>
+      <div class="lseo-stat">
+        <span class="lseo-stat-num">No lock-in</span>
+        <span class="lseo-stat-label">month-to-month,<br>cancel anytime</span>
+      </div>
+    </div>
   </div>
 </section>
-<div class="lseo-stats">
-  <div class="lseo-stat">
-    <span class="lseo-stat-num">46%</span>
-    <span class="lseo-stat-label">of all Google searches have local intent</span>
-  </div>
-  <div class="lseo-stat">
-    <span class="lseo-stat-num">1&ndash;6 mo</span>
-    <span class="lseo-stat-label">typical timeframe to meaningful ranking improvements</span>
-  </div>
-  <div class="lseo-stat">
-    <span class="lseo-stat-num">No lock-in</span>
-    <span class="lseo-stat-label">month-to-month, cancel anytime</span>
-  </div>
-</div>
+
 
 <!-- ─── WHO WE HELP ─── -->
 <section class="who" id="who" aria-label="Who we help">
