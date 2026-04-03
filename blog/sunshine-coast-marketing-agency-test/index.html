@@ -458,7 +458,7 @@ const navLinks  = document.querySelector('.nav-links');
 navToggle.addEventListener('click', () => { navLinks.classList.toggle('nav-open'); navToggle.classList.toggle('active'); });
 document.querySelectorAll('.nav-links a').forEach(a => { a.addEventListener('click', () => { navLinks.classList.remove('nav-open'); navToggle.classList.remove('active'); }); });
 const reveals = document.querySelectorAll('.reveal');
-const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } }); }, { threshold: 0.1 });
+const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } }); }, { threshold: 0.05, rootMargin: "0px 0px -50px 0px" });
 reveals.forEach(el => observer.observe(el));
 </script>
 <style>
