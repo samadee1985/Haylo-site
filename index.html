@@ -454,6 +454,9 @@
   .services {
     padding: 6rem 0 var(--space-xxl);
     background: var(--stone);
+    position: relative;
+    z-index: 10;
+    margin-top: 0;
   }
 
 
@@ -589,11 +592,13 @@
     font-weight: 500;
   }
 
-  /* ─── LOCAL SEO FEATURE BAND ─── */
-  .lseo-feature { position: relative; padding: 0; min-height: 75vh; overflow: hidden; margin-bottom: 0; display: flex; flex-direction: column; justify-content: flex-end; }
-  .lseo-feature-bg { position: absolute; inset: 0; background-size: cover; background-position: 65% center; transform: scale(1.04); }
+  /* ─── LOCAL SEO FEATURE — TWO-PHASE SCROLL PIN ─── */
+  .lseo-scroll-track { height: 185vh; position: relative; margin-bottom: -47vh; }
+  .lseo-feature { position: sticky; top: 0; height: 100vh; overflow: hidden; display: block; background: var(--stone); }
+  .lseo-feature-bg-wrap { position: absolute; inset: 0; overflow: hidden; will-change: transform; }
+  .lseo-feature-bg { position: absolute; inset: 0; background-size: cover; background-position: 65% center; will-change: transform; }
   .lseo-feature-overlay { position: absolute; inset: 0; background: linear-gradient(105deg, rgba(28,26,23,0.82) 0%, rgba(28,26,23,0.65) 45%, rgba(28,26,23,0.15) 100%); }
-  .lseo-feature .wrap { position: relative; z-index: 1; padding-bottom: 0; padding-top: 4rem; }
+  .lseo-feature-content { position: absolute; bottom: 0; left: 0; right: 0; z-index: 2; padding: 0 var(--gutter) 2rem; will-change: transform; }
   .lseo-feature-inner { max-width: 600px; }
   .lseo-badge { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--clay); background: rgba(184,150,122,0.12); border: 1px solid rgba(184,150,122,0.35); padding: 0.35rem 1rem; border-radius: 100px; margin-bottom: 2rem; }
   .lseo-badge::before { content: ''; display: block; width: 5px; height: 5px; border-radius: 50%; background: var(--clay); flex-shrink: 0; }
@@ -601,14 +606,11 @@
   .lseo-feature-heading em { font-style: italic; color: var(--clay); }
   .lseo-feature-desc { font-size: 1rem; line-height: 1.85; color: rgba(250,248,245,0.55); max-width: 42ch; font-weight: 300; margin-bottom: 2.5rem; }
   .lseo-divider { width: 2.5rem; height: 1px; background: rgba(250,248,245,0.2); margin-bottom: 2.5rem; }
-  .lseo-stats { position: relative; z-index: 1; display: flex; gap: 0; margin-top: 5rem; border-top: 1px solid rgba(250,248,245,0.12); }
-  .lseo-stat { flex: 1; padding: 2rem 2.5rem; border-right: 1px solid rgba(250,248,245,0.1); }
-  .lseo-stat:last-child { border-right: none; }
-  .lseo-stat-num { font-family: var(--font-display); font-size: 2.4rem; font-weight: 300; color: var(--clay); line-height: 1; display: block; margin-bottom: 0.4rem; }
-  .lseo-stat-label { font-size: 0.75rem; color: rgba(250,248,245,0.4); font-weight: 300; line-height: 1.6; }
   @media (max-width: 767px) {
-    .lseo-stats { display: none; }
-    .lseo-feature { padding: 0; min-height: 75vh; justify-content: flex-end; padding-bottom: 1rem; }
+    .lseo-scroll-track { margin-bottom: -42vh; }
+    .lseo-feature-content { padding: 0 var(--gutter) 1rem; }
+    .lseo-feature-desc { margin-bottom: 1.5rem; }
+    .lseo-badge { margin-bottom: 1rem; }
   }
 
   /* ─── SECTION PARALLAX BACKGROUNDS ─── */
@@ -2754,33 +2756,22 @@
 </section>
 
 <!-- ─── LOCAL SEO FEATURE ─── -->
-<section class="lseo-feature">
-  <div class="lseo-feature-bg" style="background-image: url('images/homepage/local-seo.webp');"></div>
-  <div class="lseo-feature-overlay"></div>
-  <div class="wrap">
-    <div class="lseo-feature-inner">
-      <span class="lseo-badge">Signature Service</span>
-      <h2 class="lseo-feature-heading">Local SEO<br><em>Sunshine Coast</em></h2>
-      <p class="lseo-feature-desc">Get your business ranking on Google when local customers search for your trade or service. The most effective long-term investment a Sunshine Coast small business can make.</p>
-      <div class="lseo-divider"></div>
-      <a href="/local-seo-sunshine-coast/" class="btn-primary-light" style="margin-bottom:1rem;">See how it works &rarr;</a>
+<div class="lseo-scroll-track">
+  <section class="lseo-feature">
+    <div class="lseo-feature-bg-wrap">
+      <div class="lseo-feature-bg" style="background-image: url('images/homepage/local-seo.webp');"></div>
+      <div class="lseo-feature-overlay"></div>
     </div>
-    <div class="lseo-stats">
-      <div class="lseo-stat">
-        <span class="lseo-stat-num">46%</span>
-        <span class="lseo-stat-label">of all Google searches<br>have local intent</span>
-      </div>
-      <div class="lseo-stat">
-        <span class="lseo-stat-num">1&ndash;6 mo</span>
-        <span class="lseo-stat-label">typical timeframe to<br>meaningful ranking improvements</span>
-      </div>
-      <div class="lseo-stat">
-        <span class="lseo-stat-num">No lock-in</span>
-        <span class="lseo-stat-label">month-to-month,<br>cancel anytime</span>
+    <div class="lseo-feature-content">
+      <div class="lseo-feature-inner">
+        <span class="lseo-badge">Signature Service</span>
+        <h2 class="lseo-feature-heading">Local SEO<br><em>Sunshine Coast</em></h2>
+        <p class="lseo-feature-desc">Get your business ranking on Google when local customers search for your trade or service. The most effective long-term investment a Sunshine Coast small business can make.</p>
+        <a href="/local-seo-sunshine-coast/" class="btn-primary-light">See how it works &rarr;</a>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+</div>
 <!-- ─── SERVICES ─── -->
 <section class="services" id="services" aria-label="Services">
   <div class="wrap">
@@ -3953,6 +3944,57 @@ document.querySelectorAll('.footer-col-toggle').forEach(function(btn){
     btn.setAttribute('aria-expanded',open);
   });
 });
+</script>
+
+<script>
+// ─── LOCAL SEO FEATURE — TWO-PHASE SCROLL PIN ───
+(function () {
+  var track   = document.querySelector('.lseo-scroll-track');
+  var bgWrap  = document.querySelector('.lseo-feature-bg-wrap');
+  var content = document.querySelector('.lseo-feature-content');
+
+  if (!track || !bgWrap || !content) return;
+
+  function update() {
+    var trackTop = track.getBoundingClientRect().top;
+    var trackH   = track.offsetHeight;
+    var vh       = window.innerHeight;
+    var scrolled = -trackTop;
+    // travel: move content up until top of it sits ~80px below nav.
+    // content is position:absolute bottom:0, so top of content = vh - contentH.
+    // we want top to land at 80px, so travel = -(vh - contentH - 80).
+    var contentH = content.getBoundingClientRect().height;
+    var travel   = -(vh - contentH - 80);
+    if (travel > 0) travel = 0;
+    // On mobile cap travel so content stays fully in view
+    if (window.innerWidth <= 767) travel = Math.max(travel, -(vh - contentH - 16));
+
+    var scrollRoom = trackH - vh;  // total usable scroll distance
+    var phase1End  = scrollRoom * 0.55;
+    var phase2End  = scrollRoom;
+
+    if (scrolled <= 0) {
+      content.style.transform = 'translateY(0)';
+      bgWrap.style.transform  = 'translateY(0)';
+    } else if (scrolled < phase1End) {
+      var p = scrolled / phase1End;
+      content.style.transform = 'translateY(' + (p * travel) + 'px)';
+      bgWrap.style.transform  = 'translateY(0)';
+    } else if (scrolled < phase2End) {
+      var p2 = (scrolled - phase1End) / (phase2End - phase1End);
+      content.style.transform = 'translateY(' + travel + 'px)';
+      bgWrap.style.transform  = 'translateY(' + (p2 * travel) + 'px)';
+    } else {
+      // Both caught up — hold position and exit together via sticky
+      content.style.transform = 'translateY(' + travel + 'px)';
+      bgWrap.style.transform  = 'translateY(' + travel + 'px)';
+    }
+  }
+
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update, { passive: true });
+  update();
+})();
 </script>
 </body>
 </html>
