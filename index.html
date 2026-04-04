@@ -632,7 +632,7 @@
 
   /* ─── WHO WE HELP ─── */
   .who {
-    padding: var(--space-xxl) 0;
+    padding: var(--space-xxl) 0 calc(var(--space-xxl) + 3rem);
     position: relative;
   }
 
@@ -751,29 +751,44 @@
     }
 
     .industries {
-      display: flex;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      scroll-behavior: smooth;
-      -webkit-overflow-scrolling: touch;
-      gap: 1rem;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.6rem;
     }
 
-    .industries::-webkit-scrollbar { display: none; }
-
     .industries .industry-card {
-      flex: 0 0 85vw;
-      scroll-snap-align: start;
+      aspect-ratio: 1;
+      padding: 0.5rem;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 0.3rem;
+      opacity: 0;
+      transform: scale(0.8) translateY(20px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    .industries .industry-card.industry-visible {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+
+    .industries .industry-card .industry-desc,
+    .industries .industry-card .industry-link {
+      display: none;
+    }
+
+    .industries .industry-card .industry-icon {
+      font-size: 1.8rem;
+    }
+
+    .industries .industry-card .industry-title {
+      font-size: 0.7rem;
+      line-height: 1.3;
     }
 
     .industries-dots {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 1.5rem 0 0;
+      display: none;
     }
 
     .industries-dot {
@@ -2073,47 +2088,43 @@
     }
 
     .locations-grid {
-      display: flex !important;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      scroll-behavior: smooth;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-      gap: 1rem;
+      display: grid !important;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.6rem;
     }
 
-    .locations-grid::-webkit-scrollbar { display: none; }
+    .locations-grid .location-card {
+      aspect-ratio: 1;
+      padding: 0.5rem;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 0.3rem;
+      opacity: 0;
+      transform: scale(0.8) translateY(20px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
 
-    .location-card {
-      flex: 0 0 85vw;
-      scroll-snap-align: start;
-      padding: 1.75rem 1.5rem;
+    .locations-grid .location-card.location-visible {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+
+    .locations-grid .location-card .location-desc {
+      display: none;
+    }
+
+    .locations-grid .location-card .location-emoji {
+      font-size: 1.8rem;
+    }
+
+    .locations-grid .location-card .location-name {
+      font-size: 0.7rem;
+      line-height: 1.3;
     }
 
     .locations-dots {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 1.5rem 0 0;
-    }
-
-    .locations-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: rgba(28,26,23,0.25);
-      border: none;
-      padding: 0;
-      cursor: pointer;
-      flex-shrink: 0;
-      transition: all 0.25s ease;
-    }
-
-    .locations-dot.active {
-      background: var(--ink);
-      width: 22px;
-      border-radius: 4px;
+      display: none;
     }
 
     .cta-inner {
@@ -2939,7 +2950,7 @@
       </div>
 
       <div class="about-text">
-        <p class="eyebrow ruled">About Haylo</p>
+        <p class="eyebrow ruled" style="margin-bottom: 2.5rem;">About Haylo</p>
         <p class="about-body" style="text-transform: uppercase; letter-spacing: 0.05em; font-size: clamp(1.2rem, 2.5vw, 1.8rem);">
           Haylo was founded at 38,000ft, somewhere over Europe, on a flight from London to Brisbane.
         </p>
@@ -3717,6 +3728,29 @@ serviceNumbers.forEach(num => serviceCounterObserver.observe(num));
   });
 })();
 
+// Industries 3x3 staggered reveal on mobile
+(function () {
+  if (!window.matchMedia('(max-width: 900px)').matches) return;
+  var cards = document.querySelectorAll('.industry-card');
+  if (!cards.length) return;
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        var grid = entry.target.closest('.industries');
+        if (!grid) return;
+        var items = grid.querySelectorAll('.industry-card');
+        items.forEach(function (card, i) {
+          setTimeout(function () {
+            card.classList.add('industry-visible');
+          }, i * 80);
+        });
+        observer.disconnect();
+      }
+    });
+  }, { threshold: 0.2 });
+  observer.observe(cards[0]);
+})();
+
 // Locations carousel dots
 (function () {
   if (!window.matchMedia('(max-width: 767px)').matches) return;
@@ -3743,6 +3777,29 @@ serviceNumbers.forEach(num => serviceCounterObserver.observe(num));
       grid.scrollTo({ left: (cards[0].offsetWidth + 16) * i, behavior: 'smooth' });
     });
   });
+})();
+
+// Locations 3x3 staggered reveal on mobile
+(function () {
+  if (!window.matchMedia('(max-width: 900px)').matches) return;
+  var cards = document.querySelectorAll('.location-card');
+  if (!cards.length) return;
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        var grid = entry.target.closest('.locations-grid');
+        if (!grid) return;
+        var items = grid.querySelectorAll('.location-card');
+        items.forEach(function (card, i) {
+          setTimeout(function () {
+            card.classList.add('location-visible');
+          }, i * 80);
+        });
+        observer.disconnect();
+      }
+    });
+  }, { threshold: 0.2 });
+  observer.observe(cards[0]);
 })();
 
 // Testimonials carousel dots (mobile only)
