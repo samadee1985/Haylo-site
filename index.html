@@ -239,6 +239,42 @@
     color: var(--clay);
   }
 
+  .hero-trust {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    color: var(--ink-muted);
+  }
+
+  .hero-trust > svg {
+    color: var(--ink);
+    flex-shrink: 0;
+  }
+
+  .hero-stars {
+    display: inline-flex;
+    margin-left: 0.3rem;
+  }
+
+  .hero-stars svg {
+    margin-left: -4px;
+    color: var(--ink-muted);
+  }
+
+  .hero-stars svg:first-child {
+    margin-left: 0;
+  }
+
+  .hero-heading-sub {
+    font-weight: 300;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    font-style: normal;
+  }
+
   .wl-word-inline {
     display: inline-block;
     opacity: 1;
@@ -352,6 +388,8 @@
     background: var(--clay-light);
     overflow: hidden;
     position: relative;
+    border-radius: 8px;
+    border: 1px solid rgba(28, 26, 23, 0.08);
   }
 
   .hero-img-main img,
@@ -1883,7 +1921,7 @@
     .hero-actions {
       flex-direction: column;
       align-items: flex-start;
-      gap: 1.5rem;
+      gap: 1rem;
       margin-bottom: 2.5rem;
     }
 
@@ -2758,14 +2796,15 @@
       <p class="eyebrow ruled hero-eyebrow">Marketing &amp; Visibility</p>
       <h1 class="hero-heading">
         Your business,<br>
-        <em class="wl-word-inline" id="wl-word-inline">Found.</em>
+        <em class="wl-word-inline" id="wl-word-inline">Found.</em><br>
+        <span class="hero-heading-sub">by the right people.</span>
       </h1>
       <p class="hero-body">
-        Haylo helps local service businesses show up where it matters  -  online, in search, and in their community. We build the foundations that bring steady, reliable work to your door.
+        Local marketing for trades and service businesses on the Sunshine Coast. More visibility. More enquiries.
       </p>
       <div class="hero-actions">
         <a href="/google-business-profile-audit/#audit-form" class="btn-primary">Start a conversation</a>
-        <a href="/local-seo-sunshine-coast/" class="link-secondary" style="align-self:center;margin-top:0.25rem;">Local SEO Sunshine Coast &rarr;</a>
+        <span class="hero-trust"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>Trusted by Sunshine Coast businesses<span class="hero-stars" aria-label="5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span></span>
       </div>
     </div>
 
