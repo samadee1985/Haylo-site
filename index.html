@@ -239,6 +239,24 @@
     color: var(--clay);
   }
 
+  .wl-word-inline {
+    display: inline-block;
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+  }
+
+  .wl-word-inline.out {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+
+  .wl-word-inline.in {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: none;
+  }
+
   .hero-body {
     font-size: 1.05rem;
     line-height: 1.8;
@@ -364,10 +382,12 @@
     position: absolute;
     bottom: -2rem;
     left: -2rem;
-    width: 42%;
-    aspect-ratio: 1/1;
-    background: var(--clay);
-    border: 6px solid var(--stone);
+    width: 30%;
+    aspect-ratio: 4/3;
+    background: rgba(28, 26, 23, 0.35);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(250, 248, 245, 0.15);
     overflow: hidden;
     z-index: 2;
   }
@@ -772,6 +792,7 @@
       opacity: 1;
       transform: scale(1) translateY(0);
     }
+
 
     .industries .industry-card .industry-desc,
     .industries .industry-card .industry-link {
@@ -2110,6 +2131,7 @@
       transform: scale(1) translateY(0);
     }
 
+
     .locations-grid .location-card .location-desc {
       display: none;
     }
@@ -2736,8 +2758,7 @@
       <p class="eyebrow ruled hero-eyebrow">Marketing &amp; Visibility</p>
       <h1 class="hero-heading">
         Your business,<br>
-        <em>found</em> by the<br>
-        right people.
+        <em class="wl-word-inline" id="wl-word-inline">Found.</em>
       </h1>
       <p class="hero-body">
         Haylo helps local service businesses show up where it matters  -  online, in search, and in their community. We build the foundations that bring steady, reliable work to your door.
@@ -2751,12 +2772,6 @@
     <div class="hero-visual animate-scale-in">
       <div class="hero-img-main">
         <img src="images/homepage/hero-image.webp" alt="Haylo – Sunshine Coast marketing agency helping local trades and service businesses get found online" loading="lazy" />
-      </div>
-      <div class="hero-img-accent">
-        <div class="word-loop">
-          <p class="wl-label">your business,</p>
-          <p class="wl-word" id="wl-word">Found.</p>
-        </div>
       </div>
     </div>
   </div>
@@ -3595,23 +3610,20 @@ navToggle.addEventListener('click', () => {
   }); // end requestAnimationFrame
 })();
 
-// Hero word loop
+// Hero word loop (inline heading)
 (function() {
-  const el = document.getElementById('wl-word');
+  const el = document.getElementById('wl-word-inline');
   if (!el) return;
   const words = ['Found.', 'Called.', 'Booked.'];
   let idx = 0;
 
   function next() {
     idx = (idx + 1) % words.length;
-    // Slide out up
     el.classList.add('out');
     setTimeout(() => {
-      // Jump to below, no transition
       el.classList.remove('out');
       el.classList.add('in');
       el.textContent = words[idx];
-      // Force reflow then slide up into place
       el.getBoundingClientRect();
       el.classList.remove('in');
     }, 370);
@@ -3740,9 +3752,12 @@ serviceNumbers.forEach(num => serviceCounterObserver.observe(num));
         if (!grid) return;
         var items = grid.querySelectorAll('.industry-card');
         items.forEach(function (card, i) {
+          var row = Math.floor(i / 3);
+          var col = i % 3;
+          var diag = row + col;
           setTimeout(function () {
             card.classList.add('industry-visible');
-          }, i * 80);
+          }, diag * 120);
         });
         observer.disconnect();
       }
@@ -3791,9 +3806,12 @@ serviceNumbers.forEach(num => serviceCounterObserver.observe(num));
         if (!grid) return;
         var items = grid.querySelectorAll('.location-card');
         items.forEach(function (card, i) {
+          var row = Math.floor(i / 3);
+          var col = i % 3;
+          var diag = row + col;
           setTimeout(function () {
             card.classList.add('location-visible');
-          }, i * 80);
+          }, diag * 120);
         });
         observer.disconnect();
       }
@@ -3801,6 +3819,7 @@ serviceNumbers.forEach(num => serviceCounterObserver.observe(num));
   }, { threshold: 0.2 });
   observer.observe(cards[0]);
 })();
+
 
 // Testimonials carousel dots (mobile only)
 (function () {
