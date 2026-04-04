@@ -510,7 +510,7 @@
 
   /* ─── SERVICES ─── */
   .services {
-    padding: 6rem 0 var(--space-xxl);
+    padding: 5rem 0;
     background: var(--stone);
     position: relative;
     z-index: 10;
@@ -690,7 +690,7 @@
 
   /* ─── WHO WE HELP ─── */
   .who {
-    padding: var(--space-xxl) 0 calc(var(--space-xxl) + 3rem);
+    padding: 5rem 0 7rem;
     position: relative;
   }
 
@@ -871,7 +871,7 @@
 
   /* ─── WORK ─── */
   .work {
-    padding: var(--space-xxl) 0;
+    padding: 3.5rem 0;
     background: var(--stone-mid);
     position: relative;
     z-index: 2;
@@ -886,7 +886,7 @@
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-    margin-bottom: var(--space-xl);
+    margin-bottom: 3rem;
     gap: 2rem;
   }
 
@@ -1191,7 +1191,7 @@
 
   /* ─── PROCESS ─── */
   .process {
-    padding: var(--space-xxl) 0;
+    padding: 5rem 0;
     background: var(--ink);
     color: var(--warm-white);
   }
@@ -1279,7 +1279,7 @@
 
   /* ─── TESTIMONIALS ─── */
   .testimonials {
-    padding: var(--space-xxl) 0;
+    padding: 5rem 0;
     position: relative;
   }
 
@@ -1399,7 +1399,7 @@
 
   /* ─── FAQ ─── */
   .faq {
-    padding: var(--space-xxl) 0;
+    padding: 4rem 0;
     background: var(--stone-mid);
   }
 
@@ -1407,7 +1407,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
-    margin-bottom: var(--space-xl);
+    margin-bottom: 2.5rem;
     align-items: end;
   }
 
@@ -1485,7 +1485,7 @@
 
   /* ─── LOCATIONS ─── */
   .locations {
-    padding: var(--space-xxl) 0;
+    padding: 3.5rem 0;
     position: relative;
     min-height: 100vh;
     display: flex;
@@ -1583,8 +1583,9 @@
 
   /* ─── FINAL CTA ─── */
   .cta {
-    padding: var(--space-xxl) 0;
+    padding: 5rem 0;
   }
+
 
   .cta-inner {
     display: grid;
@@ -2146,6 +2147,10 @@
       grid-template-columns: 1fr;
     }
 
+    .locations {
+      min-height: unset;
+    }
+
     .locations-grid {
       display: grid !important;
       grid-template-columns: repeat(3, 1fr);
@@ -2164,9 +2169,10 @@
       transition: opacity 0.4s ease, transform 0.4s ease;
     }
 
-    .locations-grid .location-card.location-visible {
-      opacity: 1;
-      transform: scale(1) translateY(0);
+    .locations-grid .location-card.location-visible,
+    .stagger-animation.locations-grid.animate-visible .location-card.location-visible {
+      opacity: 1 !important;
+      transform: scale(1) translateY(0) !important;
     }
 
 
@@ -2232,7 +2238,7 @@
     }
 
     .services {
-      padding: var(--space-xxl) 0;
+      padding: 5rem 0;
     }
 
     .services-grid {
@@ -2343,7 +2349,7 @@
   }
 
   /* ─── PRICING ─── */
-  .pricing-section { background: var(--warm-white); padding: 7rem 0; border-top: 1px solid var(--border); }
+  .pricing-section { background: var(--warm-white); padding: 5rem 0; border-top: 1px solid var(--border); }
   .pricing-intro { font-size: 0.95rem; color: var(--ink-muted); margin-top: 0.75rem; max-width: 480px; }
   .pricing-grid {
     display: grid;
@@ -2796,7 +2802,7 @@
       <p class="eyebrow ruled hero-eyebrow">Marketing &amp; Visibility</p>
       <h1 class="hero-heading">
         Your business,<br>
-        <em class="wl-word-inline" id="wl-word-inline">Found.</em><br>
+        <em class="wl-word-inline" id="wl-word-inline">Found</em><br>
         <span class="hero-heading-sub">by the right people.</span>
       </h1>
       <p class="hero-body">
@@ -2910,10 +2916,10 @@
     <div class="who-content">
     <div class="who-header animate-fade-in">
       <div>
-        <p class="eyebrow ruled">Built for local businesses</p>
-        <h2 class="section-heading">Be the business that people find <em>first</em> in your area.</h2>
+        <p class="eyebrow ruled" style="margin-bottom: 1.5rem;">Built for local businesses</p>
+        <h2 class="section-heading">We work with <em>local service</em> businesses.</h2>
       </div>
-      <p class="services-intro">Every business is different, but the best results come from clarity and consistency. We support the work we know inside-out: local trades, service brands and customer-focused teams.</p>
+      <p class="services-intro">We get tradies, cleaners and home service businesses ranking on Google, generating reviews and converting local searches into real enquiries. The phone rings more. Simple as that.</p>
     </div>
     <div class="industries stagger-animation" id="industries-grid">
       <a href="/google-marketing-for-cleaners/" class="industry-card">
@@ -3154,7 +3160,7 @@
       <button class="testimonials-dot" aria-label="Review 3"></button>
       <button class="testimonials-dot" aria-label="Review 4"></button>
     </div>
-    <div style="margin-top: 3rem; text-align: center;">
+    <div style="margin: 3rem 0 2rem; text-align: center;">
       <a href="/google-business-profile-audit/#audit-form" class="btn-primary">Get results like these</a>
     </div>
   </div>
@@ -3238,66 +3244,6 @@
   </div>
 </section>
 
-<!-- ─── PROCESS ─── -->
-<section class="process" aria-label="How we work">
-  <div class="wrap">
-    <div class="process-header">
-      <div>
-        <p class="eyebrow ruled" style="color: rgba(250,248,245,0.4); margin-bottom:1.5rem;">How we work</p>
-        <h2 class="process-heading">
-          Straightforward,<br>
-          from day <em>one.</em>
-        </h2>
-      </div>
-      <p class="process-intro">
-        We keep things simple because simple is what actually works. No jargon, no complicated onboarding, no surprises. Just clear steps from start to results.
-      </p>
-    </div>
-
-    <div class="process-steps">
-      <div class="process-step">
-        <div class="process-step-header">
-          <div class="process-step-header-left">
-            <p class="step-num">1</p>
-            <h3 class="step-title">We listen first</h3>
-          </div>
-          <span class="step-toggle">+</span>
-        </div>
-        <p class="step-desc">We take time to understand your business, your customers, and what you actually need  -  before we suggest anything.</p>
-      </div>
-      <div class="process-step">
-        <div class="process-step-header">
-          <div class="process-step-header-left">
-            <p class="step-num">2</p>
-            <h3 class="step-title">We build a clear plan</h3>
-          </div>
-          <span class="step-toggle">+</span>
-        </div>
-        <p class="step-desc">A focused strategy based on your market, your goals, and where the real opportunities are. Nothing vague or padded out.</p>
-      </div>
-      <div class="process-step">
-        <div class="process-step-header">
-          <div class="process-step-header-left">
-            <p class="step-num">3</p>
-            <h3 class="step-title">We do the work</h3>
-          </div>
-          <span class="step-toggle">+</span>
-        </div>
-        <p class="step-desc">We handle the detail. Websites, profiles, SEO, content  -  done properly, without you needing to chase or manage everything.</p>
-      </div>
-      <div class="process-step">
-        <div class="process-step-header">
-          <div class="process-step-header-left">
-            <p class="step-num">4</p>
-            <h3 class="step-title">We keep it going</h3>
-          </div>
-          <span class="step-toggle">+</span>
-        </div>
-        <p class="step-desc">Visibility takes time to build and consistency to maintain. We stay involved so your presence keeps working even when you're busy.</p>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ─── PRICING ─── -->
 <section class="pricing-section" id="pricing" aria-label="Pricing">
@@ -3648,7 +3594,7 @@ navToggle.addEventListener('click', () => {
 (function() {
   const el = document.getElementById('wl-word-inline');
   if (!el) return;
-  const words = ['Found.', 'Called.', 'Booked.'];
+  const words = ['Found', 'Called', 'Booked'];
   let idx = 0;
 
   function next() {
@@ -3831,27 +3777,34 @@ serviceNumbers.forEach(num => serviceCounterObserver.observe(num));
 // Locations 3x3 staggered reveal on mobile
 (function () {
   if (!window.matchMedia('(max-width: 900px)').matches) return;
-  var cards = document.querySelectorAll('.location-card');
+  var grid = document.querySelector('.locations-grid');
+  if (!grid) return;
+  var cards = grid.querySelectorAll('.location-card');
   if (!cards.length) return;
+  var revealed = false;
+  function revealCards() {
+    if (revealed) return;
+    revealed = true;
+    cards.forEach(function (card, i) {
+      var row = Math.floor(i / 3);
+      var col = i % 3;
+      var diag = row + col;
+      setTimeout(function () {
+        card.classList.add('location-visible');
+      }, diag * 120);
+    });
+  }
   var observer = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
       if (entry.isIntersecting) {
-        var grid = entry.target.closest('.locations-grid');
-        if (!grid) return;
-        var items = grid.querySelectorAll('.location-card');
-        items.forEach(function (card, i) {
-          var row = Math.floor(i / 3);
-          var col = i % 3;
-          var diag = row + col;
-          setTimeout(function () {
-            card.classList.add('location-visible');
-          }, diag * 120);
-        });
+        revealCards();
         observer.disconnect();
       }
     });
-  }, { threshold: 0.2 });
-  observer.observe(cards[0]);
+  }, { threshold: 0, rootMargin: '0px 0px 50px 0px' });
+  observer.observe(grid);
+  // Safety fallback: ensure cards are visible even if observer doesn't fire
+  setTimeout(function () { revealCards(); }, 3000);
 })();
 
 
