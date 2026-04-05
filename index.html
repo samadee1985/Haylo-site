@@ -682,7 +682,7 @@
     height: 100%;
     background-size: cover;
     background-position: center;
-    transform: translateZ(0);
+    will-change: clip-path;
     z-index: -1;
     clip-path: inset(100% 0 0 0);
     pointer-events: none;
@@ -1490,15 +1490,6 @@
     min-height: 100vh;
     display: flex;
     align-items: center;
-  }
-
-  .locations::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: var(--ink);
-    z-index: -2;
-    pointer-events: none;
   }
 
   .locations::before {
@@ -3914,8 +3905,9 @@ serviceNumbers.forEach(num => serviceCounterObserver.observe(num));
     var vh = window.innerHeight;
     items.forEach(function (i) {
       var rect = i.section.getBoundingClientRect();
-      var topClip    = Math.max(0, rect.top - 80);
-      var bottomClip = Math.max(0, vh - rect.bottom - 80);
+      var preload = 80;
+      var topClip    = Math.max(0, rect.top - preload);
+      var bottomClip = Math.max(0, vh - rect.bottom - preload);
       i.bg.style.clipPath = 'inset(' + topClip + 'px 0px ' + bottomClip + 'px 0px)';
     });
   }
