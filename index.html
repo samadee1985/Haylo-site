@@ -1029,6 +1029,14 @@
     position: relative;
   }
 
+  #about-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(28,26,23,0.55);
+    pointer-events: none;
+  }
+
   .about .wrap {
     position: sticky;
     top: 4rem;
@@ -2982,7 +2990,7 @@
 
 <!-- ─── ABOUT ─── -->
 <section class="about" id="about" aria-label="About Haylo">
-  <div class="section-parallax-bg" id="about-bg" style="background-image:url('images/homepage/sunshine-coast-our-story.webp')" aria-hidden="true"></div>
+  <div class="section-parallax-bg" id="about-bg" style="background-image:url('images/homepage/plane.jpg')" aria-hidden="true"></div>
   <div class="wrap">
     <div class="about-inner">
       <div class="about-visual">
@@ -2993,7 +3001,7 @@
       </div>
 
       <div class="about-text">
-        <p class="eyebrow ruled" style="margin-bottom: 2.5rem;">About Haylo</p>
+        <p class="eyebrow" style="margin-bottom: 2.5rem;">About Haylo</p>
         <p class="about-body" style="text-transform: uppercase; letter-spacing: 0.05em; font-size: clamp(1.2rem, 2.5vw, 1.8rem);">
           Haylo was founded at 38,000ft, somewhere over Europe, on a flight from London to Brisbane.
         </p>
@@ -3237,7 +3245,7 @@
 <section class="pricing-section" id="pricing" aria-label="Pricing">
   <div class="wrap">
     <div class="section-header reveal">
-      <p class="eyebrow ruled">Pricing</p>
+      <p class="eyebrow ruled" style="margin-bottom:1.5rem;">Pricing</p>
       <h2 class="section-heading">Straightforward pricing.<br><em>Real results.</em></h2>
       <p class="pricing-intro">No lock-in contracts. No surprises. Clear investment, consistent local visibility.</p>
     </div>
@@ -3539,17 +3547,19 @@ navToggle.addEventListener('click', () => {
       return spans;
     }
 
+    const eyebrowEl = about.querySelector('.eyebrow');
+    const eyebrowChars = eyebrowEl ? wrapChars(eyebrowEl) : [];
     const headingEl = about.querySelector('.about-heading');
     const headingChars = headingEl ? wrapChars(headingEl) : [];
     const bodyChars = [];
     const allParas = Array.from(about.querySelectorAll('.about-body'));
-    var lastParaStart = headingChars.length;
+    var lastParaStart = eyebrowChars.length + headingChars.length;
     allParas.forEach(function(el, i) {
       const chars = wrapChars(el);
       if (i < allParas.length - 1) lastParaStart += chars.length;
       bodyChars.push.apply(bodyChars, chars);
     });
-    const textChars = headingChars.concat(bodyChars);
+    const textChars = eyebrowChars.concat(headingChars).concat(bodyChars);
     const total     = textChars.length;
     // Image fades in over the first 30 characters of the last paragraph
     const imgFadeOver = 30;
