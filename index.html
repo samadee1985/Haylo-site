@@ -3901,6 +3901,8 @@ serviceNumbers.forEach(num => serviceCounterObserver.observe(num));
     { bg: document.getElementById('locations-bg'), section: document.querySelector('.locations') },
   ].filter(function (i) { return i.bg && i.section; });
 
+  var ticking = false;
+
   function update() {
     var vh = window.innerHeight;
     items.forEach(function (i) {
@@ -3910,10 +3912,18 @@ serviceNumbers.forEach(num => serviceCounterObserver.observe(num));
       var bottomClip = Math.max(0, vh - rect.bottom - preload);
       i.bg.style.clipPath = 'inset(' + topClip + 'px 0px ' + bottomClip + 'px 0px)';
     });
+    ticking = false;
   }
 
-  window.addEventListener('scroll', update, { passive: true });
-  window.addEventListener('resize', update, { passive: true });
+  function onScroll() {
+    if (!ticking) {
+      requestAnimationFrame(update);
+      ticking = true;
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
   requestAnimationFrame(update);
 })();
 
