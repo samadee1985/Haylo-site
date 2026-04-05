@@ -821,14 +821,6 @@
       justify-content: center;
       text-align: center;
       gap: 0.3rem;
-      opacity: 0;
-      transform: scale(0.8) translateY(20px);
-      transition: opacity 0.4s ease, transform 0.4s ease;
-    }
-
-    .industries .industry-card.industry-visible {
-      opacity: 1 !important;
-      transform: scale(1) translateY(0) !important;
     }
 
 
@@ -2160,15 +2152,6 @@
       justify-content: center;
       text-align: center;
       gap: 0.3rem;
-      opacity: 0;
-      transform: scale(0.8) translateY(20px);
-      transition: opacity 0.4s ease, transform 0.4s ease;
-    }
-
-    .locations-grid .location-card.location-visible,
-    .stagger-animation.locations-grid.animate-visible .location-card.location-visible {
-      opacity: 1 !important;
-      transform: scale(1) translateY(0) !important;
     }
 
 
@@ -3620,6 +3603,7 @@ const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('animate-visible');
+      observer.unobserve(entry.target);
     }
   });
 }, observerOptions);
@@ -3635,6 +3619,7 @@ const serviceCounterObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting && !entry.target.classList.contains('count-up')) {
       entry.target.classList.add('count-up');
+      serviceCounterObserver.unobserve(entry.target);
       
       // Extract the target number
       const targetNum = parseInt(entry.target.textContent);
@@ -3718,37 +3703,6 @@ serviceNumbers.forEach(num => serviceCounterObserver.observe(num));
   });
 })();
 
-// Industries 3x3 staggered reveal on mobile
-(function () {
-  if (!window.matchMedia('(max-width: 900px)').matches) return;
-  var grid = document.querySelector('.industries');
-  if (!grid) return;
-  var cards = grid.querySelectorAll('.industry-card');
-  if (!cards.length) return;
-  var revealed = false;
-  function revealCards() {
-    if (revealed) return;
-    revealed = true;
-    cards.forEach(function (card, i) {
-      var row = Math.floor(i / 3);
-      var col = i % 3;
-      var diag = row + col;
-      setTimeout(function () {
-        card.classList.add('industry-visible');
-      }, diag * 120);
-    });
-  }
-  var observer = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
-        revealCards();
-        observer.disconnect();
-      }
-    });
-  }, { threshold: 0, rootMargin: '0px 0px 50px 0px' });
-  observer.observe(grid);
-  setTimeout(function () { revealCards(); }, 3000);
-})();
 
 // Locations carousel dots
 (function () {
@@ -3778,37 +3732,6 @@ serviceNumbers.forEach(num => serviceCounterObserver.observe(num));
   });
 })();
 
-// Locations 3x3 staggered reveal on mobile
-(function () {
-  if (!window.matchMedia('(max-width: 900px)').matches) return;
-  var grid = document.querySelector('.locations-grid');
-  if (!grid) return;
-  var cards = grid.querySelectorAll('.location-card');
-  if (!cards.length) return;
-  var revealed = false;
-  function revealCards() {
-    if (revealed) return;
-    revealed = true;
-    cards.forEach(function (card, i) {
-      var row = Math.floor(i / 3);
-      var col = i % 3;
-      var diag = row + col;
-      setTimeout(function () {
-        card.classList.add('location-visible');
-      }, diag * 120);
-    });
-  }
-  var observer = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
-        revealCards();
-        observer.disconnect();
-      }
-    });
-  }, { threshold: 0, rootMargin: '200px 0px 200px 0px' });
-  observer.observe(grid);
-  setTimeout(function () { revealCards(); }, 1500);
-})();
 
 
 // Testimonials carousel dots (mobile only)
