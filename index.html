@@ -827,8 +827,8 @@
     }
 
     .industries .industry-card.industry-visible {
-      opacity: 1;
-      transform: scale(1) translateY(0);
+      opacity: 1 !important;
+      transform: scale(1) translateY(0) !important;
     }
 
 
@@ -1495,8 +1495,8 @@
   .locations::before {
     content: '';
     position: absolute;
-    inset: -80px 0 0 0;
-    background: linear-gradient(to bottom, rgba(28,26,23,0.55) 0%, rgba(28,26,23,0.35) 15%, rgba(28,26,23,0.35) 100%);
+    inset: 0;
+    background: rgba(28,26,23,0.4);
     pointer-events: none;
     z-index: 1;
   }
@@ -3723,27 +3723,33 @@ serviceNumbers.forEach(num => serviceCounterObserver.observe(num));
 // Industries 3x3 staggered reveal on mobile
 (function () {
   if (!window.matchMedia('(max-width: 900px)').matches) return;
-  var cards = document.querySelectorAll('.industry-card');
+  var grid = document.querySelector('.industries');
+  if (!grid) return;
+  var cards = grid.querySelectorAll('.industry-card');
   if (!cards.length) return;
+  var revealed = false;
+  function revealCards() {
+    if (revealed) return;
+    revealed = true;
+    cards.forEach(function (card, i) {
+      var row = Math.floor(i / 3);
+      var col = i % 3;
+      var diag = row + col;
+      setTimeout(function () {
+        card.classList.add('industry-visible');
+      }, diag * 120);
+    });
+  }
   var observer = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
       if (entry.isIntersecting) {
-        var grid = entry.target.closest('.industries');
-        if (!grid) return;
-        var items = grid.querySelectorAll('.industry-card');
-        items.forEach(function (card, i) {
-          var row = Math.floor(i / 3);
-          var col = i % 3;
-          var diag = row + col;
-          setTimeout(function () {
-            card.classList.add('industry-visible');
-          }, diag * 120);
-        });
+        revealCards();
         observer.disconnect();
       }
     });
-  }, { threshold: 0.2 });
-  observer.observe(cards[0]);
+  }, { threshold: 0, rootMargin: '0px 0px 50px 0px' });
+  observer.observe(grid);
+  setTimeout(function () { revealCards(); }, 3000);
 })();
 
 // Locations carousel dots
@@ -3905,9 +3911,8 @@ serviceNumbers.forEach(num => serviceCounterObserver.observe(num));
     var vh = window.innerHeight;
     items.forEach(function (i) {
       var rect = i.section.getBoundingClientRect();
-      var preload = 80;
-      var topClip    = Math.max(0, rect.top - preload);
-      var bottomClip = Math.max(0, vh - rect.bottom - preload);
+      var topClip    = Math.max(0, rect.top);
+      var bottomClip = Math.max(0, vh - rect.bottom);
       i.bg.style.clipPath = 'inset(' + topClip + 'px 0px ' + bottomClip + 'px 0px)';
     });
   }
