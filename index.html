@@ -2139,10 +2139,6 @@
       grid-template-columns: 1fr;
     }
 
-    .locations {
-      min-height: unset;
-    }
-
     .locations-grid {
       display: grid !important;
       grid-template-columns: repeat(3, 1fr);
@@ -3799,10 +3795,9 @@ serviceNumbers.forEach(num => serviceCounterObserver.observe(num));
         observer.disconnect();
       }
     });
-  }, { threshold: 0, rootMargin: '0px 0px 50px 0px' });
+  }, { threshold: 0, rootMargin: '200px 0px 200px 0px' });
   observer.observe(grid);
-  // Safety fallback: ensure cards are visible even if observer doesn't fire
-  setTimeout(function () { revealCards(); }, 3000);
+  setTimeout(function () { revealCards(); }, 1500);
 })();
 
 
