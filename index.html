@@ -682,7 +682,7 @@
     height: 100%;
     background-size: cover;
     background-position: center;
-    will-change: clip-path;
+    transform: translateZ(0);
     z-index: -1;
     clip-path: inset(100% 0 0 0);
     pointer-events: none;
@@ -1490,6 +1490,15 @@
     min-height: 100vh;
     display: flex;
     align-items: center;
+  }
+
+  .locations::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--ink);
+    z-index: -2;
+    pointer-events: none;
   }
 
   .locations::before {
@@ -3901,29 +3910,18 @@ serviceNumbers.forEach(num => serviceCounterObserver.observe(num));
     { bg: document.getElementById('locations-bg'), section: document.querySelector('.locations') },
   ].filter(function (i) { return i.bg && i.section; });
 
-  var ticking = false;
-
   function update() {
     var vh = window.innerHeight;
     items.forEach(function (i) {
       var rect = i.section.getBoundingClientRect();
-      var preload = 80;
-      var topClip    = Math.max(0, rect.top - preload);
-      var bottomClip = Math.max(0, vh - rect.bottom - preload);
+      var topClip    = Math.max(0, rect.top - 80);
+      var bottomClip = Math.max(0, vh - rect.bottom - 80);
       i.bg.style.clipPath = 'inset(' + topClip + 'px 0px ' + bottomClip + 'px 0px)';
     });
-    ticking = false;
   }
 
-  function onScroll() {
-    if (!ticking) {
-      requestAnimationFrame(update);
-      ticking = true;
-    }
-  }
-
-  window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', onScroll, { passive: true });
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update, { passive: true });
   requestAnimationFrame(update);
 })();
 
