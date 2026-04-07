@@ -714,10 +714,15 @@
   .who-header .section-heading {
     font-size: clamp(2.2rem, 4vw, 3.8rem);
     color: var(--warm-white);
+    text-shadow: 0 2px 12px rgba(0,0,0,0.5);
   }
 
   .who-header .eyebrow {
-    color: rgba(250,248,245,0.6);
+    color: var(--clay);
+  }
+
+  .who-header .eyebrow::before {
+    background: var(--clay);
   }
 
   .who-header .eyebrow::after {
@@ -725,7 +730,8 @@
   }
 
   .who-header .services-intro {
-    color: rgba(250,248,245,0.75);
+    color: rgba(250,248,245,0.95);
+    text-shadow: 0 2px 8px rgba(0,0,0,0.45);
   }
 
   .industries {
@@ -2390,9 +2396,39 @@
     .location-card {
       backdrop-filter: none;
       -webkit-backdrop-filter: none;
-      background: rgba(255, 255, 255, 0.2);
-      border-color: rgba(255, 255, 255, 0.5);
-      box-shadow: 0 4px 24px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.3);
+      background: rgba(22, 20, 18, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-top: 2px solid var(--clay);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+    }
+    .industry-card .industry-title,
+    .location-card .location-name {
+      font-size: 1.3rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      color: var(--warm-white);
+    }
+    .industry-card .industry-desc,
+    .location-card .location-desc {
+      color: rgba(250, 248, 245, 0.92);
+      font-size: 0.92rem;
+    }
+    .industry-card .industry-link,
+    .location-card .location-link {
+      color: var(--clay);
+    }
+    .industry-card:hover,
+    .industry-card:focus,
+    .location-card:hover,
+    .location-card:focus {
+      background: rgba(22, 20, 18, 0.88);
+      border-top-color: var(--clay);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.45);
+      transform: translateY(-4px);
+    }
+    .industry-card:hover .industry-link,
+    .location-card:hover .location-link {
+      color: rgba(250, 248, 245, 0.95);
     }
   }
 
