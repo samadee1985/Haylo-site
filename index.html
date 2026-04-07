@@ -663,12 +663,17 @@
   .lseo-feature-heading { font-family: var(--font-display); font-size: clamp(3rem, 5.5vw, 5.2rem); font-weight: 300; line-height: 1.0; color: var(--warm-white); margin-bottom: 1.5rem; letter-spacing: -0.01em; }
   .lseo-feature-heading em { font-style: italic; color: var(--clay); }
   .lseo-feature-desc { font-size: 1rem; line-height: 1.85; color: rgba(250,248,245,0.55); max-width: 42ch; font-weight: 300; margin-bottom: 2.5rem; }
+  .lseo-points { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2.5rem; margin-top: 2rem; }
+  .lseo-point { font-size: 1rem; line-height: 1.5; color: rgba(250,248,245,0.9); font-weight: 300; padding-left: 1.25rem; border-left: 2px solid var(--clay); }
+  .lseo-point-label { color: var(--warm-white); font-weight: 500; }
   .lseo-divider { width: 2.5rem; height: 1px; background: rgba(250,248,245,0.2); margin-bottom: 2.5rem; }
   @media (max-width: 767px) {
     .lseo-scroll-track { height: 200vh; margin-bottom: 0; }
     .lseo-feature-content { padding: 0 var(--gutter) 1rem; }
     .lseo-feature-heading { font-size: clamp(2rem, 8vw, 3rem); margin-bottom: 1rem; }
     .lseo-feature-desc { font-size: 0.85rem; line-height: 1.65; margin-bottom: 1.25rem; }
+    .lseo-points { gap: 0.75rem; margin-bottom: 1.5rem; }
+    .lseo-point { font-size: 0.85rem; }
     .lseo-badge { margin-bottom: 0.75rem; font-size: 0.55rem; padding: 0.25rem 0.75rem; }
     .lseo-divider { margin-bottom: 1.25rem; }
   }
@@ -2960,9 +2965,13 @@
     <div class="lseo-feature-content">
       <div class="lseo-feature-inner">
         <span class="lseo-badge">Signature Service</span>
-        <h2 class="lseo-feature-heading">Local SEO<br><em>Sunshine Coast</em></h2>
-        <p class="lseo-feature-desc">When someone searches for your business on Google, they call whoever ranks first. That's it. Local SEO puts you there - and keeps you there.</p>
-        <a href="/local-seo-sunshine-coast/" class="btn-primary-light">See how it works &rarr;</a>
+        <h2 class="lseo-feature-heading">Right now, someone's<br>Googling your business.<br><em>Can they find you?</em></h2>
+        <div class="lseo-points">
+          <p class="lseo-point"><span class="lseo-point-label">Google Maps</span> — show up when locals search your business nearby</p>
+          <p class="lseo-point"><span class="lseo-point-label">Google Search</span> — rank for your suburb and service, no ads required</p>
+          <p class="lseo-point"><span class="lseo-point-label">Reviews &amp; click-to-call</span> — showing before they've even hit your site</p>
+        </div>
+        <a href="/local-seo-sunshine-coast/" class="btn-primary-light">Get found first &rarr;</a>
       </div>
     </div>
   </section>
