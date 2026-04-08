@@ -239,6 +239,10 @@
     .footer-col.open .footer-col-links { max-height: 300px; padding-bottom: 1.5rem; }
   }
 
+  @media (max-width: 767px) {
+    .ws-pkg-grid { grid-template-columns: 1fr !important; }
+  }
+
   /* Related posts section */
   .related-posts-section { padding: 3.5rem 0; border-top: 1px solid var(--border); }
   .related-posts-section .eyebrow { margin-bottom: 1.25rem; }
@@ -489,6 +493,16 @@
   </div>
 </section>
 
+<!-- PROOF -->
+<section class="ip-proof" style="background-image: url('../images/homepage/macbook-2.webp');">
+  <div class="ip-proof-overlay"></div>
+  <div class="wrap reveal">
+    <p class="eyebrow ruled ruled-light">Built for locals</p>
+    <h2>A site that ranks, converts,<br><em>and works for your business.</em></h2>
+    <p>Sunshine Coast small businesses working with Haylo get a website that looks professional, loads fast, and brings in real local enquiries from Google.</p>
+  </div>
+</section>
+
 <!-- INCLUDED -->
 <section class="section">
   <div class="wrap">
@@ -543,13 +557,32 @@
   </div>
 </section>
 
-<!-- PROOF -->
-<section class="ip-proof" style="background-image: url('../images/homepage/macbook-2.webp');">
-  <div class="ip-proof-overlay"></div>
-  <div class="wrap reveal">
-    <p class="eyebrow ruled ruled-light">Built for locals</p>
-    <h2>A site that ranks, converts,<br><em>and works for your business.</em></h2>
-    <p>Sunshine Coast small businesses working with Haylo get a website that looks professional, loads fast, and brings in real local enquiries from Google.</p>
+<!-- PRICING -->
+<section style="background: var(--ink); padding: 5rem 0;">
+  <div class="wrap">
+    <div style="margin-bottom: 3rem;">
+      <p class="eyebrow ruled" style="color: var(--clay); margin-bottom: 1.5rem;">Pricing</p>
+      <h2 style="font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 300; line-height: 1.1; color: var(--warm-white); margin-bottom: 1rem; letter-spacing: -0.01em;">Two ways to <em style="color: var(--clay); font-style: italic;">get started.</em></h2>
+      <p style="font-size: 0.95rem; color: rgba(250,248,245,0.6); max-width: 48ch; line-height: 1.75;">No lock-in on the build + manage option. Most clients see measurable changes within 2-8 weeks of going live.</p>
+    </div>
+    <div class="ws-pkg-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+      <div style="border: 2px solid var(--clay); padding: 2.5rem; position: relative;">
+        <span style="font-size: 0.6rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--clay); display: block; margin-bottom: 1rem;">Most popular</span>
+        <p style="font-family: var(--font-display); font-size: 1.2rem; font-weight: 300; color: var(--warm-white); margin-bottom: 0.5rem;">Build + Manage</p>
+        <div style="font-family: var(--font-display); font-size: 2.4rem; font-weight: 300; color: var(--warm-white); line-height: 1;"><sup style="font-size: 1rem; vertical-align: 0.5em;">$</sup>1,500<span style="font-family: var(--font-body); font-size: 0.8rem; font-weight: 300; color: rgba(250,248,245,0.4); margin-left: 0.2rem;">setup</span></div>
+        <p style="font-size: 0.82rem; color: rgba(250,248,245,0.5); margin-top: 0.75rem; line-height: 1.6;">Then $150/mo - hosting, edits, ongoing SEO and monthly GBP sync. Own your asset from day one.</p>
+      </div>
+      <div style="border: 1px solid rgba(250,248,245,0.12); padding: 2.5rem;">
+        <span style="font-size: 0.6rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--clay); display: block; margin-bottom: 1rem;">No upfront cost</span>
+        <p style="font-family: var(--font-display); font-size: 1.2rem; font-weight: 300; color: var(--warm-white); margin-bottom: 0.5rem;">All-in Monthly</p>
+        <div style="font-family: var(--font-display); font-size: 2.4rem; font-weight: 300; color: var(--warm-white); line-height: 1;"><sup style="font-size: 1rem; vertical-align: 0.5em;">$</sup>295<span style="font-family: var(--font-body); font-size: 0.8rem; font-weight: 300; color: rgba(250,248,245,0.4); margin-left: 0.2rem;">/mo</span></div>
+        <p style="font-size: 0.82rem; color: rgba(250,248,245,0.5); margin-top: 0.75rem; line-height: 1.6;">12-month minimum. Everything included - build, hosting, edits, SEO and GBP sync. Ideal for tradies who want to keep cash in the business.</p>
+      </div>
+    </div>
+    <div style="margin-top: 2.5rem; text-align: center;">
+      <a href="/google-business-profile-audit/#audit-form" style="display: inline-block; font-family: var(--font-body); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--warm-white); background: transparent; border: 1px solid var(--warm-white); padding: 0.85rem 2.5rem; text-decoration: none; transition: all 0.2s;">Talk to us about a website &rarr;</a>
+      <p style="font-size: 0.8rem; color: rgba(250,248,245,0.3); margin-top: 1rem;">Free consultation - we'll tell you honestly if you need one.</p>
+    </div>
   </div>
 </section>
 
@@ -609,8 +642,6 @@
     </div>
   </div>
 </section>
-
-<!-- CTA -->
 
 <!-- RELATED READING -->
 <section class="section related-posts-section">

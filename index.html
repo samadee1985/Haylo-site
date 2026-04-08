@@ -846,7 +846,7 @@
     }
 
     .industries .industry-card .industry-title {
-      font-size: 0.7rem;
+      font-size: 0.82rem;
       line-height: 1.3;
     }
 
@@ -2234,7 +2234,7 @@
     }
 
     .locations-grid .location-card .location-name {
-      font-size: 0.7rem;
+      font-size: 0.82rem;
       line-height: 1.3;
     }
 
@@ -2457,26 +2457,26 @@
   }
 
   /* ─── PRICING ─── */
-  .pricing-section { background: var(--warm-white); padding: 5rem 0; border-top: 1px solid var(--border); }
+  .pricing-section { background: var(--stone); padding: 5rem 0; border-top: 1px solid var(--border); }
   .pricing-intro { font-size: 0.95rem; color: var(--ink-muted); margin-top: 0.75rem; max-width: 480px; }
   .pricing-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 0;
+    gap: 1.5rem;
     margin-top: 3.5rem;
-    border: 1px solid var(--border);
+    align-items: start;
   }
   .price-card {
     background: var(--warm-white);
-    padding: 2.5rem 2rem;
+    padding: 3rem 2.5rem;
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    border-right: 1px solid var(--border);
     position: relative;
+    border-top: 2px solid var(--clay);
+    box-shadow: 0 4px 24px rgba(28,26,23,0.08);
   }
-  .price-card:last-child { border-right: none; }
-  .price-card-ink { background: var(--ink); border-color: var(--ink); }
+  .price-card-ink { background: var(--ink); border-color: var(--ink); margin: -1.25rem 0; padding-top: 4.25rem; padding-bottom: 4.25rem; box-shadow: 0 8px 40px rgba(28,26,23,0.18); }
   .price-popular {
     font-size: 0.65rem;
     font-weight: 500;
@@ -2541,10 +2541,46 @@
   .price-btn-light:hover { background: var(--clay-light) !important; border-color: var(--clay-light) !important; transform: translateY(-2px); }
   .pricing-note { text-align: center; margin-top: 2.5rem; font-size: 0.85rem; color: var(--ink-muted); }
   .pricing-note a { color: var(--clay); text-decoration: underline; text-decoration-color: rgba(184,150,122,0.35); text-underline-offset: 3px; }
+
+  /* ─── WEBSITE PACKAGE ─── */
+  .website-pkg { background: var(--ink); padding: 5rem 0; }
+  .website-pkg-heading { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 300; line-height: 1.1; color: var(--warm-white); margin: 1rem 0; letter-spacing: -0.01em; }
+  .website-pkg-heading em { color: var(--clay); font-style: italic; }
+  .website-pkg-sub { font-size: 0.95rem; color: rgba(250,248,245,0.6); margin-bottom: 2rem; max-width: 48ch; line-height: 1.75; }
+  .website-pkg-body { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+  .website-pkg-feats { margin: 0; padding: 0; }
+  .website-pkg-feats .eyebrow { color: var(--clay); }
+  .website-pkg-feats .eyebrow::before { background: var(--clay); }
+  .website-pkg-options { display: flex; flex-direction: column; gap: 1.5rem; margin: 0; padding: 0; }
+  .website-pkg-feats-list { display: flex; flex-direction: column; gap: 1rem; }
+  .website-pkg-feat { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.9rem; color: rgba(250,248,245,0.85); line-height: 1.5; }
+  .website-pkg-feat::before { content: '✓'; color: var(--clay); font-size: 0.8rem; flex-shrink: 0; margin-top: 0.15em; }
+  .website-pkg-feat strong { color: var(--warm-white); font-weight: 500; }
+  .website-pkg-options { display: flex; flex-direction: column; gap: 1.5rem; }
+  .website-pkg-option { border: 1px solid rgba(250,248,245,0.12); padding: 2rem; position: relative; }
+  .website-pkg-option-featured { border-color: var(--clay); }
+  .website-pkg-option-tag { font-size: 0.6rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--clay); margin-bottom: 1rem; display: block; }
+  .website-pkg-option-name { font-family: var(--font-display); font-size: 1.2rem; font-weight: 300; color: var(--warm-white); margin-bottom: 0.5rem; }
+  .website-pkg-option-price { font-family: var(--font-display); font-size: 2.4rem; font-weight: 300; color: var(--warm-white); line-height: 1; }
+  .website-pkg-option-price sup { font-size: 1rem; vertical-align: 0.5em; }
+  .website-pkg-option-price span { font-family: var(--font-body); font-size: 0.8rem; font-weight: 300; color: rgba(250,248,245,0.4); margin-left: 0.2rem; }
+  .website-pkg-option-note { font-size: 0.82rem; color: rgba(250,248,245,0.5); margin-top: 0.5rem; line-height: 1.5; }
+  .website-pkg-cta { margin-top: 3rem; text-align: center; }
+  .website-pkg-cta .btn-primary { display: inline-block; min-width: 320px; }
+  .website-pkg-cta-note { font-size: 0.8rem; color: rgba(250,248,245,0.35); margin-top: 1rem; text-align: center; }
+  @media (max-width: 768px) {
+    .website-pkg-body { grid-template-columns: 1fr; gap: 2rem; }
+    .website-pkg-feats { grid-column: 1; grid-row: 1; }
+    .website-pkg-options { grid-column: 1; grid-row: 2; }
+    .website-pkg-feats-list { gap: 0.6rem; }
+    .website-pkg-sub { margin-bottom: 1.25rem; }
+    .website-pkg-feat { font-size: 0.85rem; display: block; padding-left: 1.25rem; position: relative; }
+    .website-pkg-feat::before { position: absolute; left: 0; top: 0.15em; }
+    .website-pkg-cta .btn-primary { min-width: 0; width: 100%; }
+  }
   @media (max-width: 900px) and (min-width: 768px) {
-    .pricing-grid { grid-template-columns: 1fr; border: none; gap: 1px; background: var(--border); }
-    .price-card { border-right: none; border: 1px solid var(--border); }
-    .price-card-ink { border-color: var(--ink); }
+    .pricing-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .price-card-ink { margin: 0; padding: 3rem 2.5rem; }
   }
   @media (max-width: 767px) {
     .pricing-grid {
@@ -2566,7 +2602,7 @@
       border: 1px solid var(--border) !important;
       border-radius: 6px;
     }
-    .price-card-ink { border-color: var(--ink) !important; }
+    .price-card-ink { border-color: var(--ink) !important; margin: 0; padding: 3rem 2.5rem; }
     .pricing-dots {
       display: flex;
       justify-content: center;
@@ -3066,7 +3102,7 @@
       </a>
       <a href="/marketing-for-tradies/" class="industry-card">
         <div class="industry-icon">🔧</div>
-        <h3 class="industry-title">Trades & Construction</h3>
+        <h3 class="industry-title">Trades</h3>
         <p class="industry-desc">Plumbers, electricians, roofers, tilers, painters and concreters focused on booked jobs, not cold calls.</p>
         <span class="industry-link">Learn more →</span>
       </a>
@@ -3392,8 +3428,8 @@
   <div class="wrap">
     <div class="section-header reveal">
       <p class="eyebrow ruled" style="margin-bottom:1.5rem;">Pricing</p>
-      <h2 class="section-heading">Straightforward pricing.<br><em>Real results.</em></h2>
-      <p class="pricing-intro">No lock-in contracts. No surprises. Clear investment, consistent local visibility.</p>
+      <h2 class="section-heading">Pick your<br><em>starting point.</em></h2>
+      <p class="pricing-intro">No lock-in contracts. No surprises. Most clients report seeing measurable changes within 2-8 weeks.</p>
     </div>
     <div class="pricing-grid">
 
@@ -3418,7 +3454,7 @@
         <p class="price-popular">Most Popular</p>
         <div class="price-card-top">
           <p class="price-name">Growth Accelerator</p>
-          <div class="price-num"><sup>$</sup>1,290<span class="price-freq">once</span></div>
+          <div class="price-num"><sup>$</sup>995<span class="price-freq">once</span></div>
           <p class="price-tag">Turn visibility into actual enquiries</p>
         </div>
         <ul class="price-feats">
@@ -3456,6 +3492,45 @@
       <button class="pricing-dot" aria-label="Card 3"></button>
     </div>
     <p class="pricing-note reveal">Not sure which plan suits you? <a href="tel:0490422192">Book a free 20-minute call</a>  -  we'll work it out together.</p>
+  </div>
+</section>
+
+<!-- ─── WEBSITE PACKAGE ─── -->
+<section class="website-pkg" id="website-package" aria-label="Website package">
+  <div class="wrap">
+    <div class="website-pkg-body">
+      <div class="website-pkg-feats">
+        <p class="eyebrow ruled" style="margin-bottom:1.5rem;">Visibility Engine Setup</p>
+        <h2 class="website-pkg-heading">Most websites look good.<br><em>Ours get found and look good.</em></h2>
+        <p class="website-pkg-sub">Some clients have weak or no websites - which handcuffs our results. So we build them. Fast, mobile-first, structured for Google ranking, and synced to your Google Business Profile from day one.</p>
+        <div class="website-pkg-feats-list">
+          <div class="website-pkg-feat"><strong>High-converting website</strong> - simple, fast, mobile-first</div>
+          <div class="website-pkg-feat"><strong>Built to rank</strong> - service and location structure done properly</div>
+          <div class="website-pkg-feat"><strong>GBP + website alignment</strong> - this is your unfair advantage</div>
+          <div class="website-pkg-feat"><strong>Click-to-call optimisation</strong> - every page drives action</div>
+          <div class="website-pkg-feat"><strong>Hosting, edits and ongoing SEO</strong> - included every month</div>
+          <div class="website-pkg-feat"><strong>Monthly GBP sync</strong> - your site and profile work together, not separately</div>
+        </div>
+      </div>
+      <div class="website-pkg-options">
+        <div class="website-pkg-option website-pkg-option-featured">
+          <span class="website-pkg-option-tag">Most popular</span>
+          <p class="website-pkg-option-name">Build + Manage</p>
+          <div class="website-pkg-option-price"><sup>$</sup>1,500<span>setup</span></div>
+          <p class="website-pkg-option-note">Then $150/mo - hosting, edits, ongoing SEO and monthly GBP sync. Own your asset from day one.</p>
+        </div>
+        <div class="website-pkg-option">
+          <span class="website-pkg-option-tag">No upfront cost</span>
+          <p class="website-pkg-option-name">All-in Monthly</p>
+          <div class="website-pkg-option-price"><sup>$</sup>295<span>/mo</span></div>
+          <p class="website-pkg-option-note">12-month minimum. Everything included - build, hosting, edits, SEO and GBP sync. Ideal for tradies who want to keep cash in the business.</p>
+        </div>
+      </div>
+    </div>
+    <div class="website-pkg-cta">
+      <a href="/google-business-profile-audit/#audit-form" class="btn-primary price-btn price-btn-light">Talk to us about a website &rarr;</a>
+      <p class="website-pkg-cta-note">Free consultation - we'll tell you honestly if you need one.</p>
+    </div>
   </div>
 </section>
 
