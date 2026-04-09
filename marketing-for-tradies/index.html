@@ -12,7 +12,7 @@
   gtag('js', new Date());
   gtag('config', 'G-Y2MFJPRSRL');
 </script>
-<meta name="description" content="Google Business Profile management and local marketing for Sunshine Coast tradies. Get more calls from homeowners without relying on word-of-mouth alone.">
+<meta name="description" content="Local marketing for Sunshine Coast tradies. Haylo gets plumbers, electricians, roofers and more into the Google Maps 3-pack - more calls, no lock-in contracts.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -22,13 +22,13 @@
   <link rel="canonical" href="https://www.withhaylo.com/marketing-for-tradies/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Marketing for Tradies Sunshine Coast | Haylo">
-<meta property="og:description" content="Google Business Profile management and local marketing for Sunshine Coast tradies. Get more calls from homeowners without relying on word-of-mouth alone.">
+<meta property="og:description" content="Local marketing for Sunshine Coast tradies. Haylo gets plumbers, electricians, roofers and more into the Google Maps 3-pack - more calls, no lock-in contracts.">
 <meta property="og:url" content="https://www.withhaylo.com/marketing-for-tradies/">
 <meta property="og:image" content="https://www.withhaylo.com/images/homepage/hero-image.webp">
 <meta property="og:site_name" content="Haylo">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Marketing for Tradies Sunshine Coast | Haylo">
-<meta name="twitter:description" content="Google Business Profile management and local marketing for Sunshine Coast tradies. Get more calls from homeowners without relying on word-of-mouth alone.">
+<meta name="twitter:description" content="Local marketing for Sunshine Coast tradies. Haylo gets plumbers, electricians, roofers and more into the Google Maps 3-pack - more calls, no lock-in contracts.">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
@@ -40,8 +40,7 @@
     --max-width: 1280px;
     --gutter: clamp(1.25rem, 4vw, 3rem);
   }
-  html { scroll-behavior: smooth;
-    overflow-x: clip; }
+  html { scroll-behavior: smooth; overflow-x: clip; }
   body { background: var(--stone); color: var(--ink); font-family: var(--font-body); font-size: 1rem; line-height: 1.7; font-weight: 300; -webkit-font-smoothing: antialiased; }
   a { text-decoration: none; color: inherit; }
   img { display: block; max-width: 100%; }
@@ -76,6 +75,7 @@
   .btn-primary-light { font-family: var(--font-body); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--warm-white); background: transparent; border: 1px solid rgba(250,248,245,0.65); padding: 0.85rem 2rem; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; transition: all 0.3s ease; cursor: pointer; border-radius: 4px; }
   .btn-primary-light:hover { background: rgba(250,248,245,0.12); border-color: var(--warm-white); transform: translateY(-2px); }
 
+  /* Hero */
   .ip-hero { background: var(--ink) center/cover no-repeat; min-height: 65vh; padding: calc(4rem + 5rem) 0 6rem; position: relative; }
   .ip-hero-overlay { position: absolute; inset: 0; background: rgba(28,26,23,0.72); }
   .ip-hero .wrap { display: flex; flex-direction: column; gap: 1.5rem; position: relative; z-index: 1; }
@@ -86,13 +86,27 @@
   .ip-h1 em { font-style: italic; color: var(--clay); }
   .ip-sub { font-size: 1.05rem; line-height: 1.8; color: rgba(250,248,245,0.6); max-width: 540px; font-weight: 300; }
   .ip-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 0.5rem; }
+  .ip-trust { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; font-weight: 400; letter-spacing: 0.03em; color: rgba(250,248,245,0.55); }
+  .ip-trust svg { color: rgba(250,248,245,0.55); flex-shrink: 0; }
+  .ip-trust-stars { display: inline-flex; margin-left: 0.3rem; }
+  .ip-trust-stars svg { margin-left: -4px; color: rgba(250,248,245,0.55); }
+  .ip-trust-stars svg:first-child { margin-left: 0; }
 
+  /* Stats band */
+  .stats-band { background: var(--stone-mid); border-bottom: 1px solid var(--border); }
+  .stats-band-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); }
+  .stat-item { background: var(--stone-mid); padding: 2.5rem 2rem; text-align: center; }
+  .stat-num { font-family: var(--font-display); font-size: 2.6rem; font-weight: 300; color: var(--clay); line-height: 1; }
+  .stat-label { font-size: 0.78rem; color: var(--ink-muted); letter-spacing: 0.04em; margin-top: 0.5rem; line-height: 1.5; max-width: 18ch; margin-left: auto; margin-right: auto; }
+
+  /* Sections */
   .section { padding: 6rem 0; }
   .section--mid { background: var(--stone-mid); }
   .section-header { margin-bottom: 3.5rem; }
   .section-header h2 { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.25rem); font-weight: 300; line-height: 1.1; color: var(--ink); margin-top: 1rem; }
   .section-header h2 em { font-style: italic; color: var(--clay); }
 
+  /* Intro split */
   .ip-split { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
   .ip-body { font-size: 0.95rem; line-height: 1.9; color: var(--ink-muted); }
   .ip-body p + p { margin-top: 1.2rem; }
@@ -106,40 +120,82 @@
   .ip-stat-num { font-family: var(--font-display); font-size: 2.8rem; font-weight: 300; color: var(--clay); line-height: 1; }
   .ip-stat-label { font-size: 0.78rem; color: var(--ink-muted); letter-spacing: 0.05em; }
 
+  /* Why grid */
   .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
-  .why-card { background: var(--stone); padding: 2rem; }
+  .why-card { background: var(--stone-mid); padding: 2.5rem 2rem; border-top: 3px solid transparent; transition: border-color 0.2s, background 0.2s; }
+  .why-card:hover { border-top-color: var(--clay); background: var(--stone); }
+  .why-num { font-family: var(--font-display); font-size: 2.5rem; font-weight: 300; color: var(--border); line-height: 1; margin-bottom: 1.25rem; }
   .why-title { font-family: var(--font-body); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); margin-bottom: 0.6rem; }
   .why-desc { font-size: 0.88rem; line-height: 1.8; color: var(--ink-muted); }
 
+  /* Included grid */
   .included-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
-  .inc-item { background: var(--stone); padding: 1.75rem 2rem; display: flex; gap: 1.25rem; align-items: flex-start; }
-  .inc-check { color: var(--clay); font-size: 1rem; flex-shrink: 0; margin-top: 0.1rem; }
-  .inc-title { font-size: 0.82rem; font-weight: 500; letter-spacing: 0.04em; color: var(--ink); margin-bottom: 0.35rem; }
-  .inc-desc { font-size: 0.82rem; color: var(--ink-muted); line-height: 1.65; }
+  .inc-item { background: var(--stone); padding: 1.75rem 2rem; display: flex; gap: 1.25rem; align-items: flex-start; border-left: 3px solid transparent; transition: background 0.2s, border-color 0.2s; }
+  .inc-item:hover { background: var(--stone-mid); border-left-color: var(--clay); }
+  .inc-check { color: var(--clay); font-size: 1rem; flex-shrink: 0; margin-top: 0.1rem; display: none; }
+  .inc-title { font-size: 0.82rem; font-weight: 500; letter-spacing: 0.04em; color: var(--ink); margin-bottom: 0.35rem; border-left: 3px solid var(--clay); padding-left: 0.75rem; }
+  .inc-desc { font-size: 0.82rem; color: var(--ink-muted); line-height: 1.65; padding-left: 0.75rem; }
 
+  /* Pricing */
+  .tr-pricing { background: var(--stone); padding: 6rem 0; }
+  .tr-pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-top: 3rem; }
+  .tr-price-card { background: var(--warm-white); padding: 2.5rem 2rem; display: flex; flex-direction: column; gap: 1rem; transition: background 0.2s; }
+  .tr-price-card:hover { background: var(--stone); }
+  .tr-price-card--featured { background: var(--ink); }
+  .tr-price-card--featured:hover { background: var(--ink-soft); }
+  .tr-price-badge { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--clay); margin-bottom: 0.25rem; }
+  .tr-price-badge--light { color: var(--clay-light); }
+  .tr-price-name { font-family: var(--font-display); font-size: 1.6rem; font-weight: 300; color: var(--ink); line-height: 1.1; }
+  .tr-price-name--light { color: var(--warm-white); }
+  .tr-price-amount { font-family: var(--font-display); font-size: 3rem; font-weight: 300; color: var(--clay); line-height: 1; }
+  .tr-price-amount--light { color: var(--clay-light); }
+  .tr-price-freq { font-size: 0.78rem; color: var(--ink-muted); }
+  .tr-price-freq--light { color: rgba(250,248,245,0.4); }
+  .tr-price-divider { height: 1px; background: var(--border); margin: 0.5rem 0; }
+  .tr-price-divider--light { background: rgba(250,248,245,0.12); }
+  .tr-price-items { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; flex: 1; }
+  .tr-price-items li { font-size: 0.83rem; color: var(--ink-muted); line-height: 1.5; padding-left: 1.1rem; position: relative; }
+  .tr-price-items li::before { content: '—'; position: absolute; left: 0; color: var(--clay); font-size: 0.7rem; }
+  .tr-price-items--light li { color: rgba(250,248,245,0.55); }
+  .tr-price-items--light li::before { color: var(--clay-light); }
+  .tr-price-cta { margin-top: auto; }
+  .tr-btn-price { display: inline-flex; align-items: center; justify-content: center; width: 100%; font-family: var(--font-body); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.9rem 1.5rem; border: 1px solid var(--ink); color: var(--ink); transition: all 0.25s ease; }
+  .tr-btn-price:hover { background: var(--ink); color: var(--warm-white); }
+  .tr-btn-price--light { border-color: rgba(250,248,245,0.4); color: var(--warm-white); }
+  .tr-btn-price--light:hover { background: rgba(250,248,245,0.12); border-color: var(--warm-white); }
+
+  /* Testimonials */
+  .tr-reviews { background: var(--stone-mid); padding: 6rem 0; }
+  .tr-reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-top: 3rem; }
+  .tr-review-card { background: var(--warm-white); padding: 2rem; display: flex; flex-direction: column; gap: 1rem; }
+  .tr-review-stars { font-size: 0.9rem; color: var(--clay); letter-spacing: 2px; }
+  .tr-review-text { font-size: 0.92rem; line-height: 1.8; color: var(--ink-soft); font-weight: 300; flex: 1; font-style: italic; }
+  .tr-review-author { display: flex; align-items: center; gap: 0.75rem; padding-top: 1rem; border-top: 1px solid var(--border); }
+  .tr-review-avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--clay-light); display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 500; color: var(--ink-soft); flex-shrink: 0; }
+  .tr-review-name { font-size: 0.82rem; font-weight: 500; color: var(--ink); }
+  .tr-review-biz { font-size: 0.78rem; color: var(--ink-muted); }
+
+  /* Proof band */
   .ip-proof { position: relative; padding: 7rem 0; background: var(--ink) center/cover no-repeat; }
   .ip-proof-overlay { position: absolute; inset: 0; background: rgba(28,26,23,0.84); }
   .ip-proof .wrap { position: relative; z-index: 1; max-width: 700px; display: flex; flex-direction: column; gap: 1.5rem; }
-  .ip-proof h2 { font-family: var(--font-display); font-size: clamp(2.2rem, 5vw, 4rem); font-weight: 300; line-height: 1.05; color: var(--warm-white); }
+  .ip-proof h2 { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.25rem); font-weight: 300; line-height: 1.05; color: var(--warm-white); }
   .ip-proof h2 em { font-style: italic; color: var(--clay); }
   .ip-proof p { font-size: 1rem; line-height: 1.8; color: rgba(250,248,245,0.55); max-width: 480px; font-weight: 300; }
+  .ip-proof .eyebrow { font-size: 0.7rem; }
 
-  .trades-link-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
-  .trade-link-card { background: var(--stone); padding: 2rem; display: flex; flex-direction: column; gap: 0.75rem; transition: background 0.2s; }
-  .trade-link-card:hover { background: var(--stone-mid); }
-  .trade-link-card a { text-decoration: none; color: inherit; }
-  .trade-link-name { font-family: var(--font-display); font-size: 1.6rem; font-weight: 300; color: var(--ink); }
-  .trade-link-desc { font-size: 0.83rem; color: var(--ink-muted); line-height: 1.7; }
-  .trade-link-more { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.06em; color: var(--clay); text-transform: uppercase; }
+  /* Trade showcase */
+  .trade-showcase { padding: 6rem 0; background: var(--stone); }
+  .trades-showcase-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; margin-top: 3rem; }
+  .trade-showcase-card { position: relative; background: var(--ink) center/cover no-repeat; aspect-ratio: 4/3; display: flex; align-items: flex-end; text-decoration: none; overflow: hidden; }
+  .trade-showcase-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(28,26,23,0.88) 0%, rgba(28,26,23,0.15) 65%); transition: background 0.35s; }
+  .trade-showcase-card:hover .trade-showcase-overlay { background: linear-gradient(to top, rgba(28,26,23,0.92) 0%, rgba(28,26,23,0.45) 100%); }
+  .trade-showcase-content { position: relative; z-index: 1; padding: 1.5rem; width: 100%; }
+  .trade-showcase-name { font-family: var(--font-display); font-size: 1.5rem; font-weight: 300; color: var(--warm-white); line-height: 1; }
+  .trade-showcase-cta { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; color: var(--clay); text-transform: uppercase; margin-top: 0.4rem; opacity: 0; transform: translateY(6px); transition: opacity 0.25s, transform 0.25s; }
+  .trade-showcase-card:hover .trade-showcase-cta { opacity: 1; transform: translateY(0); }
 
-  .trade-picker { background: var(--warm-white); border-bottom: 1px solid var(--border); padding: 0; }
-  .trade-picker-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-muted); display: block; margin-bottom: 1.25rem; }
-  .trade-picker-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
-  .trade-picker-card { background: var(--warm-white); padding: 1.75rem 1.25rem; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; text-align: center; text-decoration: none; transition: background 0.2s; }
-  .trade-picker-card:hover { background: var(--stone-mid); }
-  .trade-picker-name { font-family: var(--font-display); font-size: 1.35rem; font-weight: 300; color: var(--ink); line-height: 1.1; }
-  .trade-picker-arrow { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.08em; color: var(--clay); text-transform: uppercase; }
-
+  /* FAQ */
   .faq-list { margin-top: 2.5rem; display: flex; flex-direction: column; }
   .faq-item { border-bottom: 1px solid var(--border); }
   .faq-item:first-child { border-top: 1px solid var(--border); }
@@ -151,6 +207,7 @@
   .faq-item.open .faq-answer { display: block; }
   .faq-answer-text { font-size: 0.92rem; line-height: 1.85; color: var(--ink-muted); max-width: 680px; }
 
+  /* CTA band */
   .ip-cta { background: var(--stone-mid); padding: 7rem 0; text-align: center; }
   .ip-cta .wrap { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
   .ip-cta h2 { font-family: var(--font-display); font-size: clamp(2rem, 4.5vw, 3.5rem); font-weight: 300; line-height: 1.1; color: var(--ink); }
@@ -159,7 +216,15 @@
   .ip-cta-contact { font-size: 0.8rem; color: var(--ink-muted); }
   .ip-cta-contact a { color: var(--clay); }
 
-  /* ─── FOOTER ─── */
+  /* Related posts */
+  .related-posts-section { padding: 3.5rem 0; border-top: 1px solid var(--border); }
+  .related-posts-section .eyebrow { margin-bottom: 1.25rem; }
+  .related-post-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.625rem; }
+  .related-post-list li a { color: var(--ink); text-decoration: none; font-size: 0.95rem; font-weight: 500; }
+  .related-post-list li a::before { content: '→ '; color: var(--clay); font-weight: 600; }
+  .related-post-list li a:hover { color: var(--clay); }
+
+  /* Footer */
   .site-footer { background: var(--ink); padding: 4rem 0 0; }
   .footer-grid { display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr; gap: 3rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
   .footer-brand .footer-wordmark { font-family: var(--font-display); font-size: 1.5rem; font-weight: 400; color: #fff; text-decoration: none; letter-spacing: 0.04em; display: block; margin-bottom: 0.75rem; }
@@ -176,22 +241,31 @@
   .reveal.visible { opacity: 1; transform: none; }
 
   @media (max-width: 767px) {
-    .ip-hero {
-      min-height: calc(100svh - 4rem);
-      min-height: calc(100vh - 4rem);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 3rem 0;
-    }
+    .ip-hero { min-height: calc(100svh - 4rem); min-height: calc(100vh - 4rem); display: flex; flex-direction: column; justify-content: flex-end; padding: 3rem 0; }
+    .stats-band-grid { grid-template-columns: repeat(2, 1fr); }
+    .tr-reviews-grid { display: flex !important; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; scrollbar-width: none; gap: 1rem; }
+    .tr-reviews-grid::-webkit-scrollbar { display: none; }
+    .tr-review-card { flex: 0 0 85vw; scroll-snap-align: start; }
+    .tr-reviews-dots { display: flex; justify-content: center; align-items: center; gap: 0.5rem; padding: 1.5rem 0 0; }
+    .tr-reviews-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--border); border: none; padding: 0; cursor: pointer; flex-shrink: 0; transition: all 0.25s ease; }
+    .tr-reviews-dot.active { background: var(--ink); width: 22px; border-radius: 4px; }
+    .tr-pricing-grid { display: flex !important; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; scrollbar-width: none; gap: 1rem; }
+    .tr-pricing-grid::-webkit-scrollbar { display: none; }
+    .tr-price-card { flex: 0 0 85vw; scroll-snap-align: start; }
+    .tr-pricing-dots { display: flex; justify-content: center; align-items: center; gap: 0.5rem; padding: 1.5rem 0 0; }
+    .tr-pricing-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--border); border: none; padding: 0; cursor: pointer; flex-shrink: 0; transition: all 0.25s ease; }
+    .tr-pricing-dot.active { background: var(--ink); width: 22px; border-radius: 4px; }
+  }
+  @media (min-width: 768px) {
+    .tr-reviews-dots { display: none; }
+    .tr-pricing-dots { display: none; }
   }
 
   @media (max-width: 900px) {
     .ip-split { grid-template-columns: 1fr; gap: 3rem; }
     .why-grid { grid-template-columns: repeat(2, 1fr); }
     .included-grid { grid-template-columns: 1fr; }
-    .trades-link-grid { grid-template-columns: repeat(2, 1fr); }
-    .trade-picker-grid { grid-template-columns: repeat(3, 1fr); }
+    .trades-showcase-grid { grid-template-columns: repeat(3, 1fr); }
     .nav-links { display: none; }
     .btn-header { display: block; font-size: 0.7rem; padding: 0.45rem 0.9rem; color: var(--clay); border-color: var(--clay); }
     .btn-header:hover { background: var(--clay); color: var(--warm-white); }
@@ -203,13 +277,12 @@
   }
   @media (max-width: 580px) {
     .why-grid { grid-template-columns: 1fr; }
-    .trades-link-grid { grid-template-columns: 1fr; }
-    .trade-picker-grid { grid-template-columns: repeat(2, 1fr); }
+    .trades-showcase-grid { grid-template-columns: repeat(2, 1fr); }
     .ip-actions { flex-direction: column; }
     .ip-ctas { flex-direction: column; }
   }
 
-  /* ─── DROPDOWN NAV ─── */
+  /* Dropdown nav */
   .nav-links { align-items: center; }
   .nav-links > li { display: flex; align-items: center; }
   .nav-dropdown { position: relative; }
@@ -248,14 +321,6 @@
     .footer-col-links li { padding: 0.45rem 0; }
     .footer-col.open .footer-col-links { max-height: 300px; padding-bottom: 1.5rem; }
   }
-
-  /* Related posts section */
-  .related-posts-section { padding: 3.5rem 0; border-top: 1px solid var(--border); }
-  .related-posts-section .eyebrow { margin-bottom: 1.25rem; }
-  .related-post-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.625rem; }
-  .related-post-list li a { color: var(--ink); text-decoration: none; font-size: 0.95rem; font-weight: 500; }
-  .related-post-list li a::before { content: '→ '; color: var(--clay); font-weight: 600; }
-  .related-post-list li a:hover { color: var(--clay); }
 </style>
 <script type="application/ld+json">
 {
@@ -265,6 +330,7 @@
       "@type": "Service",
       "@id": "https://www.withhaylo.com/marketing-for-tradies/#service",
       "name": "Local Marketing for Tradies Sunshine Coast",
+      "description": "Google Business Profile management, local SEO, and review generation for Sunshine Coast tradies. Haylo gets plumbers, electricians, roofers and all trades into the Google Maps 3-pack.",
       "provider": {
         "@type": "ProfessionalService",
         "@id": "https://www.withhaylo.com/#business",
@@ -284,34 +350,50 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "How long does it take to see results?",
+          "name": "How long does it take to see results from tradie marketing?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Typically 60–90 days for meaningful movement, though some clients see increased profile views within the first 30 days. Local marketing is a compounding effort  -  the longer you're active, the stronger your position becomes."
+            "text": "Most Sunshine Coast tradies start seeing increased profile views and calls within 2-8 weeks. Meaningful ranking movement typically follows within 60-90 days. Local marketing compounds over time - the longer you're active, the stronger your position becomes."
           }
         },
         {
           "@type": "Question",
-          "name": "Do I need a website?",
+          "name": "Do I need a website to get more tradie jobs from Google?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No. A well-optimised Google Business Profile can generate consistent leads without one. Many tradies see strong results from their GBP alone. We can also help with a website if needed to further strengthen your local authority."
+            "text": "No. A well-optimised Google Business Profile can generate consistent leads without a website. Many Sunshine Coast tradies see strong results from their GBP alone. We can also build a website if needed to further strengthen your local authority."
           }
         },
         {
           "@type": "Question",
-          "name": "What trades do you work with?",
+          "name": "What trades does Haylo work with on the Sunshine Coast?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Plumbers, electricians, roofers, tilers, concreters, painters, and most other trades. If you're a local Sunshine Coast tradie, we can help you get found and get more calls from Google."
+            "text": "We work with plumbers, electricians, roofers, tilers, concreters, painters, carpenters, fencers, handymen, plasterers, solar installers, air conditioning technicians, builders, and most other local trades on the Sunshine Coast."
           }
         },
         {
           "@type": "Question",
-          "name": "Is there a contract?",
+          "name": "Is there a lock-in contract for tradie marketing?",
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "No lock-in contracts. Haylo works month-to-month with 30 days notice to cancel. We believe in earning your business every month through results, not contracts."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does tradie marketing cost on the Sunshine Coast?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Haylo offers three plans for Sunshine Coast tradies. Visibility Foundation is a one-time $590 setup covering full Google Business Profile optimisation. Growth Accelerator is a one-time $990 package that adds website SEO and a 60-day growth plan. Growth Partner is $650 per month for ongoing management - Google posts, review monitoring, website improvements, reporting, and a monthly strategy call. All plans are no lock-in."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What suburbs on the Sunshine Coast do you cover for tradie marketing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We cover all Sunshine Coast suburbs including Caloundra, Maroochydore, Buderim, Noosa, Kawana, Sippy Downs, Nambour, Coolum, Peregian, and all surrounding areas. We only work with Sunshine Coast businesses - no national clients."
           }
         }
       ]
@@ -320,24 +402,8 @@
       "@type": "BreadcrumbList",
       "@id": "https://www.withhaylo.com/marketing-for-tradies/#breadcrumb",
       "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://www.withhaylo.com/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Services",
-          "item": "https://www.withhaylo.com/marketing-for-tradies/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "name": "Marketing for Tradies Sunshine Coast",
-          "item": "https://www.withhaylo.com/marketing-for-tradies/"
-        }
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.withhaylo.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Marketing for Tradies Sunshine Coast", "item": "https://www.withhaylo.com/marketing-for-tradies/" }
       ]
     }
   ]
@@ -350,7 +416,7 @@
   <div class="header-inner">
     <a href="/" class="wordmark">haylo.</a>
     <nav aria-label="Main navigation">
-            <ul class="nav-links">
+      <ul class="nav-links">
         <li class="nav-dropdown">
           <button class="nav-drop-btn" aria-expanded="false" aria-haspopup="true">Services <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 1l4 4 4-4"/></svg></button>
           <ul class="nav-drop-list">
@@ -419,71 +485,34 @@
   <div class="wrap">
     <p class="ip-crumb"><a href="/">Home</a> / Marketing for Tradies</p>
     <p class="eyebrow ruled ruled-light">Sunshine Coast Tradies</p>
-    <h1 class="ip-h1">Marketing for <em>Tradies</em></h1>
-    <p class="ip-sub">Your next customer is searching Google right now. We make sure they find you first  -  and call you.</p>
+    <h1 class="ip-h1">Marketing for Tradies<br><em>Sunshine Coast.</em></h1>
+    <p class="ip-sub">When someone searches for a plumber, electrician, or roofer near them - they call whoever shows up first. Haylo makes sure that's you.</p>
     <div class="ip-actions">
-      <a href="/google-business-profile-audit/#audit-form" class="btn-primary-light">Free audit</a>
-      </div>
+      <a href="/google-business-profile-audit/#audit-form" class="btn-primary-light">Get your free audit</a>
+      <a href="tel:0490422192" class="btn-primary-light" style="border-color:rgba(250,248,245,0.3);color:rgba(250,248,245,0.7);">Call 0490 422 192</a>
+    </div>
+    <span class="ip-trust"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>Trusted by Sunshine Coast tradies<span class="ip-trust-stars" aria-label="5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span></span>
   </div>
 </section>
 
-<!-- TRADE PICKER -->
-<div class="trade-picker">
-  <div class="wrap" style="padding-top: 2.5rem; padding-bottom: 2.5rem;">
-    <span class="trade-picker-label">Which trade are you in?</span>
-    <div class="trade-picker-grid">
-      <a href="/marketing-for-plumbers/" class="trade-picker-card">
-        <span class="trade-picker-name">Plumbers</span>
-        <span class="trade-picker-arrow">View page →</span>
-      </a>
-      <a href="/marketing-for-electricians/" class="trade-picker-card">
-        <span class="trade-picker-name">Electricians</span>
-        <span class="trade-picker-arrow">View page →</span>
-      </a>
-      <a href="/marketing-for-roofers/" class="trade-picker-card">
-        <span class="trade-picker-name">Roofers</span>
-        <span class="trade-picker-arrow">View page →</span>
-      </a>
-      <a href="/marketing-for-tilers/" class="trade-picker-card">
-        <span class="trade-picker-name">Tilers</span>
-        <span class="trade-picker-arrow">View page →</span>
-      </a>
-      <a href="/marketing-for-concreters/" class="trade-picker-card">
-        <span class="trade-picker-name">Concreters</span>
-        <span class="trade-picker-arrow">View page →</span>
-      </a>
-      <a href="/marketing-for-painters/" class="trade-picker-card">
-        <span class="trade-picker-name">Painters</span>
-        <span class="trade-picker-arrow">View page →</span>
-      </a>
-      <a href="/marketing-for-carpenters/" class="trade-picker-card">
-        <span class="trade-picker-name">Carpenters</span>
-        <span class="trade-picker-arrow">View page →</span>
-      </a>
-      <a href="/marketing-for-fencers/" class="trade-picker-card">
-        <span class="trade-picker-name">Fencers</span>
-        <span class="trade-picker-arrow">View page →</span>
-      </a>
-      <a href="/marketing-for-handymen/" class="trade-picker-card">
-        <span class="trade-picker-name">Handymen</span>
-        <span class="trade-picker-arrow">View page →</span>
-      </a>
-      <a href="/marketing-for-plasterers/" class="trade-picker-card">
-        <span class="trade-picker-name">Plasterers</span>
-        <span class="trade-picker-arrow">View page →</span>
-      </a>
-      <a href="/marketing-for-solar-installers/" class="trade-picker-card">
-        <span class="trade-picker-name">Solar Installers</span>
-        <span class="trade-picker-arrow">View page →</span>
-      </a>
-      <a href="/marketing-for-air-conditioning/" class="trade-picker-card">
-        <span class="trade-picker-name">Air Conditioning</span>
-        <span class="trade-picker-arrow">View page →</span>
-      </a>
-      <a href="/marketing-for-builders/" class="trade-picker-card">
-        <span class="trade-picker-name">Builders</span>
-        <span class="trade-picker-arrow">View page →</span>
-      </a>
+<!-- STATS BAND -->
+<div class="stats-band">
+  <div class="stats-band-grid">
+    <div class="stat-item">
+      <p class="stat-num">90%</p>
+      <p class="stat-label">of trade searches click a top-3 Google result</p>
+    </div>
+    <div class="stat-item">
+      <p class="stat-num">2-8 wks</p>
+      <p class="stat-label">when most clients first see calls start moving</p>
+    </div>
+    <div class="stat-item">
+      <p class="stat-num">5&#9733;</p>
+      <p class="stat-label">average Google review rating from Haylo clients</p>
+    </div>
+    <div class="stat-item">
+      <p class="stat-num">No lock-in</p>
+      <p class="stat-label">cancel anytime with 30 days notice</p>
     </div>
   </div>
 </div>
@@ -494,27 +523,29 @@
     <div class="ip-split reveal">
       <div>
         <p class="eyebrow ruled">For Sunshine Coast Tradies</p>
-        <h2 class="ip-h2">Local marketing for tradies<br><em>on the Sunshine Coast.</em></h2>
+        <h2 class="ip-h2">Your next customer is on Google.<br><em>Are you showing up?</em></h2>
         <div class="ip-body">
-          <p>Tradies are among the most searched businesses on Google Maps. Every day, Sunshine Coast homeowners open Google to find a plumber in Caloundra, an electrician in Maroochydore, or a roofer in Noosa  -  and they call whoever appears first and looks most trustworthy. If that isn't you, it's your competitor taking the job.</p>
-          <p>Haylo helps Sunshine Coast tradies dominate local search, collect five-star reviews consistently, and maintain a professional online presence that converts curious homeowners into confirmed bookings  -  without you having to lift a finger or rely on word-of-mouth alone.</p>
+          <p>Every day, Sunshine Coast homeowners open Google to find a plumber in Caloundra, an electrician in Maroochydore, or a roofer in Noosa. <strong>They call whoever appears first and looks most trustworthy.</strong> If that isn't you, it's the competitor two listings below picking up the job.</p>
+          <p>Tradies who dominate local search share three things: an optimised Google Business Profile, a growing stream of five-star reviews, and consistent local visibility across their service suburbs. Most of your competitors are missing at least one of these. That's your edge.</p>
+          <p>Haylo handles all of it - setup, optimisation, review generation, and ongoing management - so your phone rings more, without you chasing leads or relying on referrals alone.</p>
         </div>
         <div class="ip-ctas">
-          <a href="/google-business-profile-audit/#audit-form" class="btn-primary">Get started</a>
-          </div>
+          <a href="/google-business-profile-audit/#audit-form" class="btn-primary">Get your free audit</a>
+          <a href="/google-business-profile/" class="btn-outline">Our services</a>
+        </div>
       </div>
       <div class="ip-panel">
         <div class="ip-panel-stat">
           <span class="ip-stat-num">Top 3</span>
-          <span class="ip-stat-label">Google Maps placement where the majority of tradie calls originate</span>
+          <span class="ip-stat-label">Google Maps placement where the majority of tradie calls on the Sunshine Coast originate</span>
         </div>
         <div class="ip-panel-stat">
           <span class="ip-stat-num">5&#9733;</span>
-          <span class="ip-stat-label">Review reputation built systematically  -  job by job, suburb by suburb</span>
+          <span class="ip-stat-label">Review reputation built systematically - job by job, suburb by suburb across the Sunshine Coast</span>
         </div>
         <div class="ip-panel-stat">
           <span class="ip-stat-num">No lock-in</span>
-          <span class="ip-stat-label">Month-to-month. Pause or cancel anytime with 30 days notice</span>
+          <span class="ip-stat-label">Month-to-month. Pause or cancel anytime with 30 days notice - we earn your business every month</span>
         </div>
       </div>
     </div>
@@ -526,32 +557,38 @@
   <div class="wrap">
     <div class="section-header reveal">
       <p class="eyebrow ruled">Why it matters</p>
-      <h2>Six reasons local marketing<br><em>is essential for tradies.</em></h2>
+      <h2>Six reasons tradie marketing<br><em>changes everything.</em></h2>
     </div>
     <div class="why-grid reveal">
       <div class="why-card">
+        <p class="why-num">01</p>
         <p class="why-title">High Local Demand</p>
-        <p class="why-desc">Sunshine Coast residents search for tradies constantly  -  plumbers, electricians, roofers, painters and more. That demand is there every single day.</p>
+        <p class="why-desc">Sunshine Coast residents search for tradies constantly - plumbers, electricians, roofers, painters and more. That demand exists every single day, in every suburb you work in.</p>
       </div>
       <div class="why-card">
+        <p class="why-num">02</p>
         <p class="why-title">Google Maps First</p>
-        <p class="why-desc">The top 3 results in Google Maps get the vast majority of clicks and calls. Getting you there  -  and keeping you there  -  is exactly what we do.</p>
+        <p class="why-desc">The top 3 results in Google Maps get the vast majority of clicks and calls. Getting you there - and keeping you there - is exactly what Haylo does for Sunshine Coast tradies.</p>
       </div>
       <div class="why-card">
-        <p class="why-title">Reviews = Trust</p>
-        <p class="why-desc">More five-star reviews means more homeowners choose you over the competition. We build your review reputation systematically, job by job.</p>
+        <p class="why-num">03</p>
+        <p class="why-title">Reviews Build Trust</p>
+        <p class="why-desc">More five-star reviews means more homeowners choose you over the competition. We build your review reputation systematically after every job, without you having to chase a single customer.</p>
       </div>
       <div class="why-card">
+        <p class="why-num">04</p>
         <p class="why-title">Mobile-First Searches</p>
-        <p class="why-desc">Urgent trade searches happen on phones. Your Google profile must convert fast  -  before a homeowner scrolls past you to the next result.</p>
+        <p class="why-desc">Urgent trade searches happen on phones. Homeowners searching for a plumber in Kawana or an electrician in Buderim need to find you fast - before they scroll past to the next result.</p>
       </div>
       <div class="why-card">
+        <p class="why-num">05</p>
         <p class="why-title">Growth Region</p>
-        <p class="why-desc">The Sunshine Coast is one of Australia's fastest-growing areas. New residents mean new customers  -  and now is the time to establish your local dominance.</p>
+        <p class="why-desc">The Sunshine Coast is one of Australia's fastest-growing regions. New residents mean new customers every month - and now is the time to establish your local search dominance before competitors do.</p>
       </div>
       <div class="why-card">
-        <p class="why-title">Measurable ROI</p>
-        <p class="why-desc">Monthly reports showing calls, profile views and direction requests so you always know exactly what your local marketing investment is delivering.</p>
+        <p class="why-num">06</p>
+        <p class="why-title">Measurable Results</p>
+        <p class="why-desc">Monthly reports showing calls, profile views and direction requests delivered in plain English - no jargon, just the numbers that show exactly what your local marketing is delivering each month.</p>
       </div>
     </div>
   </div>
@@ -562,51 +599,166 @@
   <div class="wrap">
     <div class="section-header reveal">
       <p class="eyebrow ruled">What's included</p>
-      <h2>Everything you need to get found<br><em>and stay booked.</em></h2>
+      <h2>Everything your trade business needs<br><em>to get found and stay booked.</em></h2>
     </div>
     <div class="included-grid reveal">
       <div class="inc-item">
-        <span class="inc-check">&#10003;</span>
         <div>
           <p class="inc-title">Google Business Profile Optimisation</p>
-          <p class="inc-desc">Full setup, categories, photos, service areas and keyword targeting so your profile ranks for the searches that matter most to your trade.</p>
+          <p class="inc-desc">Full setup, categories, photos, service areas and keyword targeting so your profile ranks for the searches that matter most to your trade across the Sunshine Coast.</p>
         </div>
       </div>
       <div class="inc-item">
-        <span class="inc-check">&#10003;</span>
         <div>
           <p class="inc-title">Review Generation System</p>
-          <p class="inc-desc">Automated after-job review requests to build your five-star reputation consistently at scale  -  without you having to chase customers.</p>
+          <p class="inc-desc">Automated after-job review requests to build your five-star reputation consistently at scale - without you having to chase customers or remember to ask after a long day on site.</p>
         </div>
       </div>
       <div class="inc-item">
-        <span class="inc-check">&#10003;</span>
-        <div>
-          <p class="inc-title">Facebook Business Page Management</p>
-          <p class="inc-desc">Professional presence with regular project posts that show off your work and keep your business top of mind in the local community.</p>
-        </div>
-      </div>
-      <div class="inc-item">
-        <span class="inc-check">&#10003;</span>
         <div>
           <p class="inc-title">Local Keyword Targeting</p>
-          <p class="inc-desc">Suburb-by-suburb optimisation for the searches homeowners actually make  -  ensuring you show up where your customers are looking.</p>
+          <p class="inc-desc">Suburb-by-suburb optimisation for the searches Sunshine Coast homeowners actually make - ensuring you show up in Caloundra, Maroochydore, Noosa, Kawana and wherever your customers are searching.</p>
         </div>
       </div>
       <div class="inc-item">
-        <span class="inc-check">&#10003;</span>
+        <div>
+          <p class="inc-title">Facebook Business Page Management</p>
+          <p class="inc-desc">Professional presence with regular project posts that show off your work and keep your trade business top of mind in the local Sunshine Coast community.</p>
+        </div>
+      </div>
+      <div class="inc-item">
         <div>
           <p class="inc-title">Monthly Visibility Reports</p>
-          <p class="inc-desc">Calls, profile views and direction requests delivered in plain English every month  -  no jargon, just the numbers that matter to your business.</p>
+          <p class="inc-desc">Calls, profile views and direction requests delivered in plain English every month - no jargon, no fluff, just the numbers that matter to your business and what we're doing to grow them.</p>
         </div>
       </div>
       <div class="inc-item">
-        <span class="inc-check">&#10003;</span>
         <div>
           <p class="inc-title">Ongoing Profile Management</p>
-          <p class="inc-desc">Regular updates, Q&amp;A management and profile health checks to maintain and grow your local rankings month after month.</p>
+          <p class="inc-desc">Regular Google posts, Q&amp;A management and profile health checks to maintain and grow your local rankings month after month as Google's algorithm evolves.</p>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="tr-pricing">
+  <div class="wrap">
+    <div class="section-header reveal">
+      <p class="eyebrow ruled">Transparent pricing</p>
+      <h2>Pick your<br><em>starting point.</em></h2>
+    </div>
+    <div class="tr-pricing-grid reveal">
+      <div class="tr-price-card">
+        <p class="tr-price-badge">One-time</p>
+        <p class="tr-price-name">Visibility Foundation</p>
+        <p class="tr-price-amount">$590</p>
+        <p class="tr-price-freq">Once - no ongoing commitment</p>
+        <div class="tr-price-divider"></div>
+        <ul class="tr-price-items">
+          <li>Full Google Business Profile optimisation</li>
+          <li>Category and service structure</li>
+          <li>SEO-aligned business description</li>
+          <li>Review strategy framework</li>
+          <li>2 professionally written Google posts</li>
+          <li>30-day priority action roadmap</li>
+        </ul>
+        <div class="tr-price-cta">
+          <a href="/google-business-profile-audit/#audit-form" class="tr-btn-price">Get started</a>
+        </div>
+      </div>
+      <div class="tr-price-card tr-price-card--featured">
+        <p class="tr-price-badge tr-price-badge--light">Most popular</p>
+        <p class="tr-price-name tr-price-name--light">Growth Accelerator</p>
+        <p class="tr-price-amount tr-price-amount--light">$990</p>
+        <p class="tr-price-freq tr-price-freq--light">Once - no ongoing commitment</p>
+        <div class="tr-price-divider tr-price-divider--light"></div>
+        <ul class="tr-price-items tr-price-items--light">
+          <li>Everything in Visibility Foundation</li>
+          <li>Website SEO tune-up</li>
+          <li>Local keyword alignment - Sunshine Coast</li>
+          <li>Conversion review - CTA clarity</li>
+          <li>Click-to-call and contact form optimisation</li>
+          <li>60-day priority growth plan</li>
+        </ul>
+        <div class="tr-price-cta">
+          <a href="/google-business-profile-audit/#audit-form" class="tr-btn-price tr-btn-price--light">Get started</a>
+        </div>
+      </div>
+      <div class="tr-price-card">
+        <p class="tr-price-badge">Monthly</p>
+        <p class="tr-price-name">Growth Partner</p>
+        <p class="tr-price-amount">$650</p>
+        <p class="tr-price-freq">Per month - cancel anytime</p>
+        <div class="tr-price-divider"></div>
+        <ul class="tr-price-items">
+          <li>Google Business Profile management</li>
+          <li>Monthly Google posts &amp; review monitoring</li>
+          <li>Website optimisation updates</li>
+          <li>Competitor monitoring</li>
+          <li>Plain-English performance reporting</li>
+          <li>Monthly strategy call</li>
+        </ul>
+        <div class="tr-price-cta">
+          <a href="/google-business-profile-audit/#audit-form" class="tr-btn-price">Get started</a>
+        </div>
+      </div>
+    </div>
+    <div class="tr-pricing-dots" aria-hidden="true">
+      <button class="tr-pricing-dot active" aria-label="Plan 1"></button>
+      <button class="tr-pricing-dot" aria-label="Plan 2"></button>
+      <button class="tr-pricing-dot" aria-label="Plan 3"></button>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="tr-reviews">
+  <div class="wrap">
+    <div class="section-header reveal">
+      <p class="eyebrow ruled">What clients say</p>
+      <h2>Real results for<br><em>Sunshine Coast tradies.</em></h2>
+    </div>
+    <div class="tr-reviews-grid reveal">
+      <div class="tr-review-card">
+        <div class="tr-review-stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+        <p class="tr-review-text">"We're very happy with the service. Hassle-free, and communication was prompt and professional throughout. Haylo made the whole process of getting our Google Business Profile set up and optimised incredibly straightforward."</p>
+        <div class="tr-review-author">
+          <div class="tr-review-avatar">ST</div>
+          <div>
+            <p class="tr-review-name">Sarah Tappe</p>
+            <p class="tr-review-biz">The Laser Cut Crew, Sunshine Coast</p>
+          </div>
+        </div>
+      </div>
+      <div class="tr-review-card">
+        <div class="tr-review-stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+        <p class="tr-review-text">"Haylo was incredibly helpful in getting our Google Business Profile up and running. The improvement in our local visibility has been noticeable. Well worth it for any trade business wanting to get found online."</p>
+        <div class="tr-review-author">
+          <div class="tr-review-avatar" style="background:#ddd8d0;">KO</div>
+          <div>
+            <p class="tr-review-name">KO Cleaning</p>
+            <p class="tr-review-biz">Cleaning Services, Sunshine Coast</p>
+          </div>
+        </div>
+      </div>
+      <div class="tr-review-card">
+        <div class="tr-review-stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+        <p class="tr-review-text">"Working with Sam has been wonderful. He was incredibly patient and helped optimise my Facebook page and Google Business Profile. My account received a ban, but Sam had it rectified in less than 24 hours. I would highly recommend Haylo to anyone."</p>
+        <div class="tr-review-author">
+          <div class="tr-review-avatar" style="background:#c8d0c2;">TW</div>
+          <div>
+            <p class="tr-review-name">Terri Webb</p>
+            <p class="tr-review-biz">Sunshine Coast Oven Cleaning</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tr-reviews-dots" aria-hidden="true">
+      <button class="tr-reviews-dot active" aria-label="Review 1"></button>
+      <button class="tr-reviews-dot" aria-label="Review 2"></button>
+      <button class="tr-reviews-dot" aria-label="Review 3"></button>
     </div>
   </div>
 </section>
@@ -615,163 +767,194 @@
 <section class="ip-proof" style="background-image: url('../images/services/google-marketing-results-tradies.webp');">
   <div class="ip-proof-overlay"></div>
   <div class="wrap reveal">
-    <p class="eyebrow ruled ruled-light">Real results</p>
-    <h2>Stop relying on referrals.<br><em>Start winning jobs from Google.</em></h2>
-    <p>Sunshine Coast tradies working with Haylo are seeing more profile views, more inbound calls, and fuller job sheets every month.</p>
+    <p class="eyebrow ruled ruled-light">Sunshine Coast only</p>
+    <h2>Tradies who get found on Google<br><em>don't chase work.</em></h2>
+    <p>Haylo works exclusively with Sunshine Coast businesses. We know which trades are most competitive on Google Maps here, which suburbs need the most attention, and how to get a local tradie into the 3-pack faster than a generic marketing agency ever could.</p>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2rem;">
+      <div>
+        <p style="font-family:var(--font-display);font-size:2.4rem;font-weight:300;color:var(--clay);line-height:1;">100%</p>
+        <p style="font-size:0.78rem;color:rgba(250,248,245,0.5);margin-top:0.25rem;max-width:16ch;">Sunshine Coast focused - no national or global clients</p>
+      </div>
+      <div>
+        <p style="font-family:var(--font-display);font-size:2.4rem;font-weight:300;color:var(--clay);line-height:1;">5&#9733;</p>
+        <p style="font-size:0.78rem;color:rgba(250,248,245,0.5);margin-top:0.25rem;max-width:16ch;">Average Google review rating from our Sunshine Coast clients</p>
+      </div>
+      <div>
+        <p style="font-family:var(--font-display);font-size:2.4rem;font-weight:300;color:var(--clay);line-height:1;">13</p>
+        <p style="font-size:0.78rem;color:rgba(250,248,245,0.5);margin-top:0.25rem;max-width:16ch;">Trades we specialise in across the Sunshine Coast</p>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- TRADE LINKS -->
-<section class="section">
+<!-- TRADE SHOWCASE -->
+<section class="trade-showcase">
   <div class="wrap">
     <div class="section-header reveal">
-      <p class="eyebrow ruled">All trades</p>
+      <p class="eyebrow ruled">Your trade</p>
       <h2>We work with every trade<br><em>on the Sunshine Coast.</em></h2>
     </div>
-    <div class="trades-link-grid reveal">
-      <div class="trade-link-card">
-        <a href="/marketing-for-plumbers/">
-          <p class="trade-link-name">Plumbers</p>
-          <p class="trade-link-desc">Get your plumbing business to the top of Google Maps and win more local emergency and renovation jobs.</p>
-          <p class="trade-link-more">Learn more &rarr;</p>
-        </a>
+  </div>
+  <div class="trades-showcase-grid reveal">
+    <a href="/marketing-for-plumbers/" class="trade-showcase-card" style="background-image:url('../images/trades/marketing-for-plumbers-hero.webp');">
+      <div class="trade-showcase-overlay"></div>
+      <div class="trade-showcase-content">
+        <p class="trade-showcase-name">Plumbers</p>
+        <p class="trade-showcase-cta">See how we help &rarr;</p>
       </div>
-      <div class="trade-link-card">
-        <a href="/marketing-for-electricians/">
-          <p class="trade-link-name">Electricians</p>
-          <p class="trade-link-desc">Dominate local search for electrical work across the Sunshine Coast and keep your team fully booked.</p>
-          <p class="trade-link-more">Learn more &rarr;</p>
-        </a>
+    </a>
+    <a href="/marketing-for-electricians/" class="trade-showcase-card" style="background-image:url('../images/trades/marketing-for-electricians-hero.webp');">
+      <div class="trade-showcase-overlay"></div>
+      <div class="trade-showcase-content">
+        <p class="trade-showcase-name">Electricians</p>
+        <p class="trade-showcase-cta">See how we help &rarr;</p>
       </div>
-      <div class="trade-link-card">
-        <a href="/marketing-for-roofers/">
-          <p class="trade-link-name">Roofers</p>
-          <p class="trade-link-desc">Be the first roofer homeowners call after a storm or when they need a new roof on the Sunshine Coast.</p>
-          <p class="trade-link-more">Learn more &rarr;</p>
-        </a>
+    </a>
+    <a href="/marketing-for-roofers/" class="trade-showcase-card" style="background-image:url('../images/trades/marketing-for-roofers-hero.webp');">
+      <div class="trade-showcase-overlay"></div>
+      <div class="trade-showcase-content">
+        <p class="trade-showcase-name">Roofers</p>
+        <p class="trade-showcase-cta">See how we help &rarr;</p>
       </div>
-      <div class="trade-link-card">
-        <a href="/marketing-for-tilers/">
-          <p class="trade-link-name">Tilers</p>
-          <p class="trade-link-desc">Attract more bathroom and kitchen tiling jobs by appearing at the top of Google when homeowners search locally.</p>
-          <p class="trade-link-more">Learn more &rarr;</p>
-        </a>
+    </a>
+    <a href="/marketing-for-tilers/" class="trade-showcase-card" style="background-image:url('../images/trades/marketing-for-tilers-hero.webp');">
+      <div class="trade-showcase-overlay"></div>
+      <div class="trade-showcase-content">
+        <p class="trade-showcase-name">Tilers</p>
+        <p class="trade-showcase-cta">See how we help &rarr;</p>
       </div>
-      <div class="trade-link-card">
-        <a href="/marketing-for-concreters/">
-          <p class="trade-link-name">Concreters</p>
-          <p class="trade-link-desc">Win more driveway, slab and concreting jobs across the Sunshine Coast with a stronger Google presence.</p>
-          <p class="trade-link-more">Learn more &rarr;</p>
-        </a>
+    </a>
+    <a href="/marketing-for-concreters/" class="trade-showcase-card" style="background-image:url('../images/trades/marketing-for-concreters-hero.webp');">
+      <div class="trade-showcase-overlay"></div>
+      <div class="trade-showcase-content">
+        <p class="trade-showcase-name">Concreters</p>
+        <p class="trade-showcase-cta">See how we help &rarr;</p>
       </div>
-      <div class="trade-link-card">
-        <a href="/marketing-for-painters/">
-          <p class="trade-link-name">Painters</p>
-          <p class="trade-link-desc">Fill your schedule with interior and exterior painting jobs from homeowners who find you first on Google.</p>
-          <p class="trade-link-more">Learn more &rarr;</p>
-        </a>
+    </a>
+    <a href="/marketing-for-painters/" class="trade-showcase-card" style="background-image:url('../images/trades/marketing-for-painters-hero.webp');">
+      <div class="trade-showcase-overlay"></div>
+      <div class="trade-showcase-content">
+        <p class="trade-showcase-name">Painters</p>
+        <p class="trade-showcase-cta">See how we help &rarr;</p>
       </div>
-      <div class="trade-link-card">
-        <a href="/marketing-for-carpenters/">
-          <p class="trade-link-name">Carpenters</p>
-          <p class="trade-link-desc">Get more deck, framing, and custom carpentry jobs from Sunshine Coast homeowners searching on Google Maps.</p>
-          <p class="trade-link-more">Learn more &rarr;</p>
-        </a>
+    </a>
+    <a href="/marketing-for-carpenters/" class="trade-showcase-card" style="background-image:url('../images/trades/marketing-for-carpenters-hero.webp');">
+      <div class="trade-showcase-overlay"></div>
+      <div class="trade-showcase-content">
+        <p class="trade-showcase-name">Carpenters</p>
+        <p class="trade-showcase-cta">See how we help &rarr;</p>
       </div>
-      <div class="trade-link-card">
-        <a href="/marketing-for-fencers/">
-          <p class="trade-link-name">Fencers</p>
-          <p class="trade-link-desc">Be the first fencing business homeowners call when they search for fencing on the Sunshine Coast.</p>
-          <p class="trade-link-more">Learn more &rarr;</p>
-        </a>
+    </a>
+    <a href="/marketing-for-fencers/" class="trade-showcase-card" style="background-image:url('../images/trades/marketing-for-fencers-hero.webp');">
+      <div class="trade-showcase-overlay"></div>
+      <div class="trade-showcase-content">
+        <p class="trade-showcase-name">Fencers</p>
+        <p class="trade-showcase-cta">See how we help &rarr;</p>
       </div>
-      <div class="trade-link-card">
-        <a href="/marketing-for-handymen/">
-          <p class="trade-link-name">Handymen</p>
-          <p class="trade-link-desc">Get more local homeowners finding your handyman business on Google Maps for repairs, maintenance, and odd jobs.</p>
-          <p class="trade-link-more">Learn more &rarr;</p>
-        </a>
+    </a>
+    <a href="/marketing-for-handymen/" class="trade-showcase-card" style="background-image:url('../images/trades/marketing-for-handymen-hero.webp');">
+      <div class="trade-showcase-overlay"></div>
+      <div class="trade-showcase-content">
+        <p class="trade-showcase-name">Handymen</p>
+        <p class="trade-showcase-cta">See how we help &rarr;</p>
       </div>
-      <div class="trade-link-card">
-        <a href="/marketing-for-plasterers/">
-          <p class="trade-link-name">Plasterers</p>
-          <p class="trade-link-desc">Get your plastering business in front of Sunshine Coast homeowners and renovators searching for a plasterer right now.</p>
-          <p class="trade-link-more">Learn more &rarr;</p>
-        </a>
+    </a>
+    <a href="/marketing-for-plasterers/" class="trade-showcase-card" style="background-image:url('../images/trades/marketing-for-plasterers-hero.webp');">
+      <div class="trade-showcase-overlay"></div>
+      <div class="trade-showcase-content">
+        <p class="trade-showcase-name">Plasterers</p>
+        <p class="trade-showcase-cta">See how we help &rarr;</p>
       </div>
-      <div class="trade-link-card">
-        <a href="/marketing-for-solar-installers/">
-          <p class="trade-link-name">Solar Installers</p>
-          <p class="trade-link-desc">Help Sunshine Coast homeowners searching for solar find your installation business first on Google Maps.</p>
-          <p class="trade-link-more">Learn more &rarr;</p>
-        </a>
+    </a>
+    <a href="/marketing-for-solar-installers/" class="trade-showcase-card" style="background-image:url('../images/trades/marketing-for-solar-installers-hero.webp');">
+      <div class="trade-showcase-overlay"></div>
+      <div class="trade-showcase-content">
+        <p class="trade-showcase-name">Solar Installers</p>
+        <p class="trade-showcase-cta">See how we help &rarr;</p>
       </div>
-      <div class="trade-link-card">
-        <a href="/marketing-for-air-conditioning/">
-          <p class="trade-link-name">Air Conditioning</p>
-          <p class="trade-link-desc">When locals search for air conditioning on the Sunshine Coast, rank first and win the installation or service call.</p>
-          <p class="trade-link-more">Learn more &rarr;</p>
-        </a>
+    </a>
+    <a href="/marketing-for-air-conditioning/" class="trade-showcase-card" style="background-image:url('../images/trades/marketing-for-air-conditioning-hero.webp');">
+      <div class="trade-showcase-overlay"></div>
+      <div class="trade-showcase-content">
+        <p class="trade-showcase-name">Air Conditioning</p>
+        <p class="trade-showcase-cta">See how we help &rarr;</p>
       </div>
-      <div class="trade-link-card">
-        <a href="/marketing-for-builders/">
-          <p class="trade-link-name">Builders</p>
-          <p class="trade-link-desc">Get your building business in front of homeowners planning new builds, extensions, and renovations on the Sunshine Coast.</p>
-          <p class="trade-link-more">Learn more &rarr;</p>
-        </a>
+    </a>
+    <a href="/marketing-for-builders/" class="trade-showcase-card" style="background-image:url('../images/trades/marketing-for-builders-hero.webp');">
+      <div class="trade-showcase-overlay"></div>
+      <div class="trade-showcase-content">
+        <p class="trade-showcase-name">Builders</p>
+        <p class="trade-showcase-cta">See how we help &rarr;</p>
       </div>
-    </div>
+    </a>
   </div>
 </section>
 
 <!-- FAQ -->
-<section class="section section--mid">
+<section class="section section--mid" id="faq">
   <div class="wrap">
     <div class="section-header reveal">
       <p class="eyebrow ruled">Your questions answered</p>
-      <h2>Common questions about<br><em>marketing for tradies.</em></h2>
+      <h2>Everything you want to know<br><em>about tradie marketing.</em></h2>
     </div>
     <div class="faq-list reveal">
       <div class="faq-item">
-        <button class="faq-question">
-          How long does it take to see results?
+        <button class="faq-question" onclick="toggleFaq(this)">
+          How long does it take to see results from tradie marketing?
           <span class="faq-toggle">+</span>
         </button>
         <div class="faq-answer">
-          <p class="faq-answer-text">Typically 60–90 days for meaningful movement, though some clients see increased profile views within the first 30 days. Local marketing is a compounding effort  -  the longer you're active, the stronger your position becomes.</p>
+          <p class="faq-answer-text">Most Sunshine Coast tradies start seeing increased profile views and calls within 2-8 weeks. Meaningful ranking movement in Google Maps typically follows within 60-90 days. Local marketing compounds over time - the longer you're active, the stronger your position becomes against competitors who aren't investing in it.</p>
         </div>
       </div>
       <div class="faq-item">
-        <button class="faq-question">
-          Do I need a website?
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Do I need a website to get more jobs from Google?
           <span class="faq-toggle">+</span>
         </button>
         <div class="faq-answer">
-          <p class="faq-answer-text">No. A well-optimised Google Business Profile can generate consistent leads without one. Many tradies see strong results from their GBP alone. We can also help with a website if needed to further strengthen your local authority.</p>
+          <p class="faq-answer-text">No. A well-optimised Google Business Profile can generate consistent leads without one. Many Sunshine Coast tradies see strong results from their GBP alone - homeowners call directly from the Maps listing. We can also help build a website if you want to further strengthen your local authority and convert more visitors.</p>
         </div>
       </div>
       <div class="faq-item">
-        <button class="faq-question">
-          What trades do you work with?
+        <button class="faq-question" onclick="toggleFaq(this)">
+          What trades does Haylo work with?
           <span class="faq-toggle">+</span>
         </button>
         <div class="faq-answer">
-          <p class="faq-answer-text">Plumbers, electricians, roofers, tilers, concreters, painters, and most other trades. If you're a local Sunshine Coast tradie, we can help you get found and get more calls from Google.</p>
+          <p class="faq-answer-text">We work with plumbers, electricians, roofers, tilers, concreters, painters, carpenters, fencers, handymen, plasterers, solar installers, air conditioning technicians, builders, and most other local trades on the Sunshine Coast. If you're a local tradie, we can help you get found and get more calls from Google.</p>
         </div>
       </div>
       <div class="faq-item">
-        <button class="faq-question">
-          Is there a contract?
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Is there a lock-in contract?
           <span class="faq-toggle">+</span>
         </button>
         <div class="faq-answer">
-          <p class="faq-answer-text">No lock-in contracts. Haylo works month-to-month with 30 days notice to cancel. We believe in earning your business every month through results, not contracts.</p>
+          <p class="faq-answer-text">No lock-in contracts. Haylo works month-to-month with 30 days notice to cancel. Our one-time packages have no ongoing commitment at all. We believe in earning your business every month through results, not contracts.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          How much does tradie marketing cost?
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-answer">
+          <p class="faq-answer-text">Haylo offers three plans for Sunshine Coast tradies. Visibility Foundation is a one-time $590 setup covering full Google Business Profile optimisation. Growth Accelerator is a one-time $990 package that adds website SEO and a 60-day growth plan. Growth Partner is $650 per month for ongoing management - Google posts, review monitoring, website improvements, reporting, and a monthly strategy call. All plans are no lock-in.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          What suburbs on the Sunshine Coast do you cover?
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-answer">
+          <p class="faq-answer-text">We cover all Sunshine Coast suburbs including Caloundra, Maroochydore, Buderim, Noosa, Kawana, Sippy Downs, Nambour, Coolum, Peregian, Mooloolaba, Alexandra Headland, and all surrounding areas. Haylo only works with Sunshine Coast businesses - no national or global clients, which means we know this market in a way a generic agency never could.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
-
 
 <!-- RELATED READING -->
 <section class="section related-posts-section">
@@ -789,9 +972,9 @@
 <section class="ip-cta">
   <div class="wrap reveal">
     <p class="eyebrow ruled">Get started</p>
-    <h2>Ready to get more jobs<br><em>from Google?</em></h2>
-    <p>No lock-in contracts. Just consistent local visibility for your trade business.</p>
-    <a href="/google-business-profile-audit/#audit-form" class="btn-primary">Get started</a>
+    <h2>Your competitors are on Google.<br><em>You should be first.</em></h2>
+    <p>No lock-in contracts. Just consistent local visibility for your trade business on the Sunshine Coast.</p>
+    <a href="/google-business-profile-audit/#audit-form" class="btn-primary">Get your free audit</a>
     <p class="ip-cta-contact">Or call <a href="tel:0490422192">0490 422 192</a></p>
   </div>
 </section>
@@ -843,20 +1026,17 @@
 </footer>
 
 <script>
-// FAQ accordion
-document.querySelectorAll('.faq-question').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const item = btn.closest('.faq-item');
-    item.classList.toggle('open');
-  });
-});
-// Scroll reveal
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
 const revealEls = document.querySelectorAll('.reveal');
 const ro = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); ro.unobserve(e.target); } });
 }, { threshold: 0.05, rootMargin: "0px 0px -50px 0px" });
 revealEls.forEach(el => ro.observe(el));
-// Mobile nav
 const toggle = document.querySelector('.nav-toggle');
 const navLinks = document.querySelector('.nav-links');
 if (toggle && navLinks) {
@@ -865,73 +1045,57 @@ if (toggle && navLinks) {
     toggle.classList.toggle('active');
   });
 }
+
+// Reviews carousel (mobile only)
+(function () {
+  if (!window.matchMedia('(max-width: 767px)').matches) return;
+  const grid  = document.querySelector('.tr-reviews-grid');
+  const cards = document.querySelectorAll('.tr-review-card');
+  const dots  = document.querySelectorAll('.tr-reviews-dot');
+  if (!grid || !cards.length || !dots.length) return;
+  function setActive(i) { dots.forEach((d, j) => d.classList.toggle('active', j === i)); }
+  setActive(0);
+  grid.addEventListener('scroll', function () {
+    setActive(Math.min(Math.round(grid.scrollLeft / cards[0].offsetWidth), cards.length - 1));
+  }, { passive: true });
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => { grid.scrollTo({ left: cards[0].offsetWidth * i, behavior: 'smooth' }); });
+  });
+})();
+
+// Pricing carousel (mobile only)
+(function () {
+  if (!window.matchMedia('(max-width: 767px)').matches) return;
+  const grid  = document.querySelector('.tr-pricing-grid');
+  const cards = document.querySelectorAll('.tr-price-card');
+  const dots  = document.querySelectorAll('.tr-pricing-dot');
+  if (!grid || !cards.length || !dots.length) return;
+  function setActive(i) { dots.forEach((d, j) => d.classList.toggle('active', j === i)); }
+  setActive(0);
+  grid.addEventListener('scroll', function () {
+    setActive(Math.min(Math.round(grid.scrollLeft / cards[0].offsetWidth), cards.length - 1));
+  }, { passive: true });
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => { grid.scrollTo({ left: cards[0].offsetWidth * i, behavior: 'smooth' }); });
+  });
+})();
 </script>
 
 <style>
-  /* ─── CALL NOW  -  DESKTOP NAV ─── */
-  .btn-call-nav {
-    font-family: var(--font-body);
-    font-size: 0.75rem;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    color: var(--clay);
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-    transition: opacity 0.2s;
-    white-space: nowrap;
-  }
+  .btn-call-nav { font-family: var(--font-body); font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; color: var(--clay); text-decoration: none; display: flex; align-items: center; gap: 0.4rem; transition: opacity 0.2s; white-space: nowrap; }
   .btn-call-nav:hover { opacity: 0.75; color: var(--clay); }
   .btn-call-nav svg { flex-shrink: 0; }
-
-  .btn-nav-audit {
-    display: block;
-    width: 100%;
-    text-align: center;
-    background: var(--clay);
-    color: var(--warm-white) !important;
-    font-family: var(--font-body);
-    font-size: 0.85rem;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 0.9rem 1.5rem;
-    margin-top: 0.75rem;
-    transition: background 0.2s, opacity 0.2s;
-  }
+  .btn-nav-audit { display: block; width: 100%; text-align: center; background: var(--clay); color: var(--warm-white) !important; font-family: var(--font-body); font-size: 0.85rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; padding: 0.9rem 1.5rem; margin-top: 0.75rem; transition: background 0.2s, opacity 0.2s; }
   .btn-nav-audit:hover { opacity: 0.88; }
 
-
-  /* ─── WHATSAPP BUTTON ─── */
-  .wa-btn {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    z-index: 199;
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    background: var(--ink);
-    box-shadow: 0 4px 16px rgba(0,0,0,0.18);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    -webkit-tap-highlight-color: transparent;
-  }
-  .wa-btn:hover {
-    transform: scale(1.08);
-    box-shadow: 0 6px 22px rgba(0,0,0,0.22);
-  }
+  /* WhatsApp */
+  .wa-btn { position: fixed; bottom: 2rem; right: 2rem; z-index: 199; width: 52px; height: 52px; border-radius: 50%; background: var(--ink); box-shadow: 0 4px 16px rgba(0,0,0,0.18); display: flex; align-items: center; justify-content: center; text-decoration: none; transition: transform 0.2s ease, box-shadow 0.2s ease; -webkit-tap-highlight-color: transparent; }
+  .wa-btn:hover { transform: scale(1.08); box-shadow: 0 6px 22px rgba(0,0,0,0.22); }
   .wa-btn svg { display: block; }
-  @media (max-width: 767px) {
-    .wa-btn { bottom: 1.25rem; right: 1rem; width: 46px; height: 46px; }
-  }
+  @media (max-width: 767px) { .wa-btn { bottom: 1.25rem; right: 1rem; width: 46px; height: 46px; } }
 </style>
-<!-- ─── WHATSAPP BUTTON ─── -->
+
+<!-- WhatsApp -->
 <a href="https://wa.me/61490422192?text=Hi%20Sam%2C%20I%27d%20like%20to%20find%20out%20more%20about%20local%20marketing%20for%20my%20business." class="wa-btn" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
   <svg width="26" height="26" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
     <path fill="#fff" d="M16 3C9.373 3 4 8.373 4 15c0 2.385.67 4.61 1.832 6.504L4 29l7.697-1.81A11.94 11.94 0 0 0 16 27c6.627 0 12-5.373 12-12S22.627 3 16 3zm0 2c5.522 0 10 4.478 10 10s-4.478 10-10 10a9.94 9.94 0 0 1-5.09-1.396l-.364-.22-4.573 1.075 1.11-4.457-.24-.377A9.944 9.944 0 0 1 6 15c0-5.522 4.478-10 10-10zm-3.178 5.5c-.232 0-.608.087-.928.432-.32.345-1.22 1.192-1.22 2.907s1.247 3.372 1.42 3.604c.174.232 2.43 3.867 5.975 5.27 2.952 1.165 3.546.933 4.185.875.64-.058 2.062-.843 2.353-1.657.29-.814.29-1.512.203-1.657-.087-.145-.32-.232-.67-.406-.348-.174-2.062-1.017-2.382-1.133-.32-.116-.552-.174-.785.174-.232.347-.9 1.133-1.103 1.366-.203.232-.406.26-.754.087-.348-.174-1.47-.542-2.8-1.727-1.034-.923-1.732-2.063-1.935-2.41-.203-.348-.022-.536.153-.709.157-.156.348-.406.522-.61.174-.203.232-.347.348-.58.116-.231.058-.434-.029-.608-.087-.174-.774-1.899-1.074-2.597-.29-.682-.585-.58-.785-.58l-.694-.013z"/>
@@ -961,7 +1125,6 @@ if (toggle && navLinks) {
   });
 })();
 
-// Footer accordion (mobile)
 document.querySelectorAll('.footer-col-toggle').forEach(function(btn){
   btn.addEventListener('click',function(){
     var col=btn.closest('.footer-col');
