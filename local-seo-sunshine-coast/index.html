@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Local SEO Sunshine Coast | Get Found on Google | Haylo</title>
+<meta name="description" content="Local SEO Sunshine Coast - get your business into the Google Maps 3-pack and ranking for the suburbs you work in. Haylo specialises in local SEO for Sunshine Coast tradies and service businesses. Month-to-month, no lock-in.">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y2MFJPRSRL"></script>
 <script>
@@ -12,7 +13,6 @@
   gtag('js', new Date());
   gtag('config', 'G-Y2MFJPRSRL');
 </script>
-<meta name="description" content="Local SEO services for Sunshine Coast small businesses and tradies. Rank higher on Google, get more calls, and beat your local competitors. No lock-in contracts.">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,7 +23,10 @@
 <meta property="og:title" content="Local SEO Sunshine Coast | Get Found on Google | Haylo">
 <meta property="og:description" content="Local SEO services for Sunshine Coast small businesses and tradies. Rank higher on Google, get more calls, and beat your local competitors. No lock-in contracts.">
 <meta property="og:url" content="https://www.withhaylo.com/local-seo-sunshine-coast/">
-<meta property="og:image" content="https://www.withhaylo.com/images/homepage/services-local-seo.webp">
+<meta property="og:image" content="https://www.withhaylo.com/images/homepage/local-seo.webp">
+<meta property="og:image:width" content="1800">
+<meta property="og:image:height" content="1056">
+<meta property="og:image:type" content="image/webp">
 <meta property="og:site_name" content="Haylo">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Local SEO Sunshine Coast | Get Found on Google | Haylo">
@@ -109,16 +112,19 @@
 
   /* Why cards */
   .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
-  .why-card { background: var(--stone); padding: 2rem; }
-  .why-title { font-family: var(--font-body); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); margin-bottom: 0.6rem; }
+  .why-card { background: var(--stone-mid); padding: 2.25rem 2rem; border-top: 2px solid transparent; transition: border-color 0.2s; }
+  .why-card:hover { border-top-color: var(--clay); }
+  .why-num { font-family: var(--font-display); font-size: 1.6rem; font-weight: 300; color: var(--clay); opacity: 0.5; margin-bottom: 0.75rem; line-height: 1; }
+  .why-title { font-family: var(--font-body); font-size: 0.82rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink); margin-bottom: 0.6rem; }
   .why-desc { font-size: 0.88rem; line-height: 1.8; color: var(--ink-muted); }
 
   /* Included grid */
   .included-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-top: 0; }
-  .inc-item { background: var(--stone); padding: 1.75rem 2rem; display: flex; gap: 1.25rem; align-items: flex-start; }
-  .inc-check { color: var(--clay); font-size: 1rem; flex-shrink: 0; margin-top: 0.1rem; }
-  .inc-title { font-size: 0.82rem; font-weight: 500; letter-spacing: 0.04em; color: var(--ink); margin-bottom: 0.35rem; }
-  .inc-desc { font-size: 0.82rem; color: var(--ink-muted); line-height: 1.65; }
+  .inc-item { background: var(--warm-white); padding: 2rem; display: flex; gap: 1.25rem; align-items: flex-start; transition: background 0.2s; }
+  .inc-item:hover { background: var(--stone); }
+  .inc-check { color: var(--clay); font-size: 1rem; flex-shrink: 0; margin-top: 0.15rem; }
+  .inc-title { font-size: 0.85rem; font-weight: 500; letter-spacing: 0.02em; color: var(--ink); margin-bottom: 0.4rem; border-left: 2px solid var(--clay); padding-left: 0.6rem; }
+  .inc-desc { font-size: 0.83rem; color: var(--ink-muted); line-height: 1.7; }
 
   /* Proof band */
   .ip-proof { position: relative; padding: 7rem 0; background: var(--ink) center/cover no-repeat; }
@@ -268,6 +274,57 @@
   }
   .btn-nav-audit:hover { opacity: 0.88; }
 
+  /* ─── PRICING ─── */
+  .lseo-pricing { background: var(--stone-mid); padding: 6rem 0; border-top: 1px solid var(--border); }
+  .lseo-pricing-intro { font-size: 0.95rem; color: var(--ink-muted); margin-top: 0.75rem; max-width: 480px; }
+  .lseo-pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3.5rem; align-items: start; }
+  .lseo-price-card { background: var(--warm-white); padding: 3rem 2.5rem; display: flex; flex-direction: column; gap: 2rem; position: relative; border-top: 2px solid var(--clay); box-shadow: 0 4px 24px rgba(28,26,23,0.08); }
+  .lseo-price-card-ink { background: var(--ink); border-color: var(--ink); margin: -1.25rem 0; padding-top: 4.25rem; padding-bottom: 4.25rem; box-shadow: 0 8px 40px rgba(28,26,23,0.18); }
+  .lseo-price-popular { font-size: 0.6rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--clay); margin-bottom: -1rem; }
+  .lseo-price-card-top { border-bottom: 1px solid var(--border); padding-bottom: 1.75rem; }
+  .lseo-price-card-ink .lseo-price-card-top { border-color: rgba(250,248,245,0.1); }
+  .lseo-price-name { font-family: var(--font-display); font-size: 1.35rem; font-weight: 300; color: var(--ink); margin-bottom: 0.6rem; }
+  .lseo-price-card-ink .lseo-price-name { color: var(--warm-white); }
+  .lseo-price-num { font-family: var(--font-display); font-size: 3rem; font-weight: 300; color: var(--ink); line-height: 1; margin-bottom: 0.5rem; }
+  .lseo-price-num sup { font-size: 1.1rem; vertical-align: 0.5em; }
+  .lseo-price-num span { font-family: var(--font-body); font-size: 0.82rem; font-weight: 300; color: var(--ink-muted); margin-left: 0.2rem; }
+  .lseo-price-card-ink .lseo-price-num { color: var(--warm-white); }
+  .lseo-price-card-ink .lseo-price-num span { color: rgba(250,248,245,0.4); }
+  .lseo-price-tag { font-size: 0.82rem; color: var(--ink-muted); line-height: 1.5; }
+  .lseo-price-card-ink .lseo-price-tag { color: rgba(250,248,245,0.55); }
+  .lseo-price-feats { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+  .lseo-price-feats li { font-size: 0.88rem; color: var(--ink-soft); display: flex; gap: 0.6rem; align-items: flex-start; line-height: 1.5; }
+  .lseo-price-feats li::before { content: '✓'; color: var(--clay); font-size: 0.78rem; flex-shrink: 0; margin-top: 0.15em; }
+  .lseo-price-card-ink .lseo-price-feats li { color: rgba(250,248,245,0.65); }
+  .lseo-price-btn { font-family: var(--font-body); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); background: transparent; border: 1px solid var(--ink); padding: 0.85rem 2rem; text-decoration: none; display: block; text-align: center; transition: all 0.3s ease; margin-top: auto; }
+  .lseo-price-btn:hover { background: var(--ink); color: var(--warm-white); }
+  .lseo-price-btn-light { color: var(--warm-white); border-color: rgba(250,248,245,0.4); }
+  .lseo-price-btn-light:hover { background: rgba(250,248,245,0.12); border-color: var(--warm-white); }
+  .lseo-pricing-note { font-size: 0.85rem; color: var(--ink-muted); text-align: center; margin-top: 2.5rem; }
+  .lseo-pricing-note a { color: var(--clay); }
+  @media (max-width: 900px) and (min-width: 768px) {
+    .lseo-pricing-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .lseo-price-card-ink { margin: 0; padding: 3rem 2.5rem; }
+  }
+  @media (max-width: 767px) {
+    .lseo-pricing-grid { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; gap: 1rem; padding-bottom: 1rem; }
+    .lseo-pricing-grid::-webkit-scrollbar { display: none; }
+    .lseo-price-card { min-width: 80vw; scroll-snap-align: start; }
+    .lseo-price-card-ink { margin: 0; padding: 3rem 2.5rem; }
+  }
+
+  /* ─── TESTIMONIALS ─── */
+  .lseo-reviews { background: var(--stone); padding: 6rem 0; }
+  .lseo-reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+  .lseo-review-card { background: var(--warm-white); border: 1px solid var(--border); padding: 2rem; display: flex; flex-direction: column; gap: 1rem; }
+  .lseo-review-stars { font-size: 0.9rem; color: var(--clay); letter-spacing: 2px; }
+  .lseo-review-text { font-size: 0.92rem; line-height: 1.8; color: var(--ink-soft); font-weight: 300; flex: 1; }
+  .lseo-review-author { display: flex; align-items: center; gap: 0.75rem; padding-top: 1rem; border-top: 1px solid var(--border); }
+  .lseo-review-avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--clay-light); display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 500; color: var(--ink-soft); flex-shrink: 0; }
+  .lseo-review-name { font-size: 0.82rem; font-weight: 500; color: var(--ink); }
+  .lseo-review-biz { font-size: 0.78rem; color: var(--ink-muted); }
+  @media (max-width: 900px) { .lseo-reviews-grid { grid-template-columns: 1fr; } }
+
   /* ─── WHATSAPP BUTTON ─── */
   .wa-btn { position: fixed; bottom: 2rem; right: 2rem; z-index: 199; width: 52px; height: 52px; border-radius: 50%; background: var(--ink); box-shadow: 0 4px 16px rgba(0,0,0,0.18); display: flex; align-items: center; justify-content: center; text-decoration: none; transition: transform 0.2s ease, box-shadow 0.2s ease; -webkit-tap-highlight-color: transparent; }
   .wa-btn:hover { transform: scale(1.08); box-shadow: 0 6px 22px rgba(0,0,0,0.22); }
@@ -301,26 +358,18 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "How long does local SEO take to work?",
+          "name": "How long does local SEO take to work on the Sunshine Coast?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Most Sunshine Coast businesses start seeing meaningful improvements in rankings and enquiries within 3-6 months. Local SEO moves faster than broad national SEO, especially in less competitive suburbs and trades."
+            "text": "Most Sunshine Coast businesses start seeing measurable movement within 2-8 weeks. Significant ranking improvements in competitive trades typically take 3-6 months. Local SEO moves faster than broad national SEO, especially in suburbs with less competition."
           }
         },
         {
           "@type": "Question",
-          "name": "What is local SEO and how is it different from regular SEO?",
+          "name": "What suburbs on the Sunshine Coast do you cover?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Local SEO focuses on getting your business found in Google searches that include a location - like 'plumber Caloundra' or 'electrician near me'. It covers your Google Business Profile, local citations, on-page optimisation, and suburb-level content. Regular SEO often targets national or broad keyword rankings without the local intent focus."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Do I need a website for local SEO?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Not necessarily - your Google Business Profile can rank on its own. But a well-optimised website significantly strengthens your Google rankings and gives customers a place to learn more and contact you directly. The two work best together."
+            "text": "We cover the full Sunshine Coast region - Caloundra, Kawana, Maroochydore, Buderim, Mooloolaba, Noosa, and the hinterland including Maleny, Montville, and Glass House Mountains."
           }
         },
         {
@@ -328,15 +377,31 @@
           "name": "How much does local SEO cost on the Sunshine Coast?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Haylo offers month-to-month local SEO with no lock-in contracts. Pricing depends on your business size, competition level, and goals. Get in touch for a free audit and a straight answer on what it would cost for your specific situation."
+            "text": "Haylo's local SEO Sunshine Coast packages start from $590 for a one-time foundation setup. Ongoing monthly SEO management is $650/month with no lock-in contract. Every engagement starts with a free audit."
           }
         },
         {
           "@type": "Question",
-          "name": "Can I do local SEO myself?",
+          "name": "What is local SEO and how is it different from regular SEO?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "You can handle the basics - keeping your Google Business Profile updated, asking for reviews, and posting regularly. But the technical side - on-page optimisation, citation building, keyword research, and competitor analysis - takes time and expertise most business owners don't have spare. A local specialist will get results faster."
+            "text": "Local SEO targets searches with location intent - like 'plumber Caloundra' or 'electrician near me'. It focuses on your Google Business Profile, Maps ranking, suburb-level content, and local citations. For a service business on the Sunshine Coast, local SEO is almost always the higher ROI investment over broad national SEO."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need a website for local SEO?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not necessarily - your Google Business Profile can rank on its own in Maps. But a well-optimised website significantly strengthens your Google rankings. The combination of a strong GBP and a locally-optimised website is the most powerful local SEO setup you can have."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will local SEO work for my trade or industry?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Local SEO works for any service business where customers search Google to find who to call - plumbers, electricians, cleaners, landscapers, builders, health businesses, auto mechanics, and more. If someone in your suburb could search Google for what you do, local SEO can get you in front of them."
           }
         }
       ]
@@ -437,12 +502,14 @@
   <div class="ip-hero-overlay"></div>
   <div class="wrap">
     <p class="ip-crumb"><a href="/">Home</a> / <a href="/#services">Services</a> / Local SEO</p>
-    <p class="eyebrow ruled ruled-light">Sunshine Coast</p>
-    <h1 class="ip-h1">Local SEO<br><em>Sunshine Coast</em></h1>
-    <p class="ip-sub">Get your business in front of local customers when they search on Google. Local SEO for Sunshine Coast tradies and service businesses - month-to-month, no lock-in.</p>
+    <p class="eyebrow ruled ruled-light">Local SEO &middot; Sunshine Coast</p>
+    <h1 class="ip-h1">Get found on Google.<br><em>Own your suburb.</em></h1>
+    <p class="ip-sub">Haylo specialises in local SEO for Sunshine Coast tradies and service businesses. We get you into the Google Maps 3-pack and ranking for the suburbs you actually work in - month-to-month, no lock-in.</p>
     <div class="ip-actions">
-      <a href="/google-business-profile-audit/#audit-form" class="btn-primary-light">Get a free audit</a>
+      <a href="/google-business-profile-audit/#audit-form" class="btn-primary-light">Get your free audit</a>
+      <a href="tel:0490422192" class="btn-primary-light" style="border-color:rgba(250,248,245,0.3);color:rgba(250,248,245,0.7);">Call 0490 422 192</a>
     </div>
+    <p style="font-size:0.75rem;color:rgba(250,248,245,0.4);margin-top:1.5rem;letter-spacing:0.04em;">Sunshine Coast&nbsp;&nbsp;·&nbsp;&nbsp;No lock-in&nbsp;&nbsp;·&nbsp;&nbsp;Results in 2-8 weeks</p>
   </div>
 </section>
 
@@ -451,29 +518,33 @@
   <div class="wrap">
     <div class="ip-split reveal">
       <div>
-        <p class="eyebrow ruled">Visibility that brings in work</p>
-        <h2 class="ip-h2">Your next customer is searching<br><em>Google right now.</em></h2>
+        <p class="eyebrow ruled">What local SEO actually does</p>
+        <h2 class="ip-h2">Your competitors are showing up.<br><em>You should be too.</em></h2>
         <div class="ip-body">
-          <p>When someone on the Sunshine Coast searches "electrician Buderim" or "plumber near me", Google serves up the businesses it trusts most in that area. If your business isn't showing up in those results, you're invisible - and your competitors are getting the call.</p>
-          <p>Local SEO is the process of making sure Google understands who you are, where you operate, and what you do - so it shows your business to the right people at the right time. <strong>It's not paid ads. It's earned visibility that compounds over time.</strong></p>
-          <p>Haylo specialises in local SEO for Sunshine Coast trades and service businesses. We optimise your Google Business Profile, fix your on-page signals, build your local authority, and track what's actually driving enquiries.</p>
+          <p>Right now, someone on the Sunshine Coast is searching "electrician Buderim" or "plumber near me." Google picks three businesses to show at the top - with their phone number, reviews, and directions. <strong>Those three businesses get the majority of all calls.</strong></p>
+          <p>Local SEO Sunshine Coast is the process of making sure your business is one of them. It's not paid ads that stop the moment you stop paying. It's earned visibility - your Google Business Profile, your website, and your local authority all working together to push you to the top of search results in the suburbs you work in.</p>
+          <p>Haylo works exclusively with Sunshine Coast tradies and service businesses. We know which suburbs are competitive, what keywords your customers actually type, and what it takes to rank here.</p>
         </div>
         <div class="ip-ctas">
-          <a href="/google-business-profile-audit/#audit-form" class="btn-primary">Get started</a>
+          <a href="/google-business-profile-audit/#audit-form" class="btn-primary">Get a free audit</a>
         </div>
       </div>
       <div class="ip-panel">
         <div class="ip-panel-stat">
-          <span class="ip-stat-num">46%</span>
-          <span class="ip-stat-label">of all Google searches have local intent - people looking for businesses near them</span>
+          <span class="ip-stat-num">76%</span>
+          <span class="ip-stat-label">of local mobile searches result in a store visit or call within 24 hours</span>
         </div>
         <div class="ip-panel-stat">
-          <span class="ip-stat-num">3-6 mo</span>
-          <span class="ip-stat-label">typical timeframe to see meaningful ranking improvements with consistent local SEO</span>
+          <span class="ip-stat-num">2-8 wks</span>
+          <span class="ip-stat-label">when most Sunshine Coast clients first report seeing measurable ranking movement</span>
+        </div>
+        <div class="ip-panel-stat">
+          <span class="ip-stat-num">3-pack</span>
+          <span class="ip-stat-label">the Google Maps result that captures most clicks - getting you there is the goal</span>
         </div>
         <div class="ip-panel-stat">
           <span class="ip-stat-num">No lock-in</span>
-          <span class="ip-stat-label">Month-to-month with 30 days notice to cancel - we keep it simple</span>
+          <span class="ip-stat-label">Month-to-month. 30 days notice to cancel. We earn your business every month.</span>
         </div>
       </div>
     </div>
@@ -484,33 +555,39 @@
 <section class="section section--mid">
   <div class="wrap">
     <div class="section-header reveal">
-      <p class="eyebrow ruled">Why local SEO matters</p>
-      <h2>The Sunshine Coast is competitive.<br><em>Visibility is everything.</em></h2>
+      <p class="eyebrow ruled">Why it matters</p>
+      <h2>Every day without local SEO<br><em>is a day your competitors win.</em></h2>
     </div>
     <div class="why-grid reveal">
       <div class="why-card">
-        <p class="why-title">Rank in Google Maps</p>
-        <p class="why-desc">The Google Maps pack dominates local search results. Businesses in the top 3 get the majority of clicks - local SEO is how you get and stay there.</p>
+        <p class="why-num">01</p>
+        <p class="why-title">Dominate Google Maps</p>
+        <p class="why-desc">The Maps 3-pack sits above all organic results. Businesses in those three spots get the vast majority of local clicks. Local SEO is how you get in - and stay in.</p>
       </div>
       <div class="why-card">
-        <p class="why-title">Beat Your Competitors</p>
-        <p class="why-desc">Your competitors are already investing in SEO. Without it, you're relying on word of mouth while they capture every local Google search in your trade.</p>
+        <p class="why-num">02</p>
+        <p class="why-title">Rank for your suburb</p>
+        <p class="why-desc">Caloundra, Buderim, Maroochydore, Noosa, Kawana - we target the specific suburbs you work in so you show up exactly where your customers are searching.</p>
       </div>
       <div class="why-card">
-        <p class="why-title">Suburb-Level Targeting</p>
-        <p class="why-desc">Rank in the specific suburbs you work in - Caloundra, Buderim, Maroochydore, Noosa. Show up when the right customers in the right areas are searching.</p>
+        <p class="why-num">03</p>
+        <p class="why-title">Beat your competitors</p>
+        <p class="why-desc">Your competitors are investing in local SEO right now. Without it, you're invisible while they pick up every Google search in your trade, every single day.</p>
       </div>
       <div class="why-card">
-        <p class="why-title">No Ad Spend Required</p>
-        <p class="why-desc">Unlike Google Ads, organic SEO rankings don't stop the moment you stop paying. Good local SEO builds lasting visibility that keeps working for you.</p>
+        <p class="why-num">04</p>
+        <p class="why-title">High-intent customers</p>
+        <p class="why-desc">Someone searching "plumber Sunshine Coast" isn't browsing - they need someone now. Local SEO puts you in front of people who are ready to book, not just looking.</p>
       </div>
       <div class="why-card">
-        <p class="why-title">High-Intent Traffic</p>
-        <p class="why-desc">People searching "tradie near me" or "plumber Sunshine Coast" are ready to book. Local SEO puts you in front of customers at the exact moment they need you.</p>
+        <p class="why-num">05</p>
+        <p class="why-title">No ongoing ad spend</p>
+        <p class="why-desc">Google Ads stop the moment you stop paying. Good local SEO compounds - rankings you earn keep delivering enquiries long after the work is done.</p>
       </div>
       <div class="why-card">
-        <p class="why-title">Works With Your GBP</p>
-        <p class="why-desc">Your website and Google Business Profile work as a team. Strong on-page SEO sends authority signals that push your Maps ranking higher.</p>
+        <p class="why-num">06</p>
+        <p class="why-title">Website and GBP aligned</p>
+        <p class="why-desc">Your website and Google Business Profile are stronger together. We make sure both are optimised, consistent, and sending the right signals to Google.</p>
       </div>
     </div>
   </div>
@@ -522,48 +599,161 @@
     <div class="section-header reveal">
       <p class="eyebrow ruled">What's included</p>
       <h2>Everything that moves<br><em>your Google ranking.</em></h2>
+      <p style="font-size:0.95rem;color:var(--ink-muted);margin-top:0.75rem;max-width:520px;">No fluff. No padding. Every item below is a direct input into your local SEO Sunshine Coast results.</p>
     </div>
     <div class="included-grid reveal">
       <div class="inc-item">
         <span class="inc-check">&#10003;</span>
         <div>
           <p class="inc-title">Local Keyword Research</p>
-          <p class="inc-desc">We identify the exact search terms Sunshine Coast customers use to find businesses like yours - by suburb, by service, and by intent.</p>
-        </div>
-      </div>
-      <div class="inc-item">
-        <span class="inc-check">&#10003;</span>
-        <div>
-          <p class="inc-title">On-Page SEO Optimisation</p>
-          <p class="inc-desc">Title tags, meta descriptions, headings, and page content optimised around the right local keywords so Google knows exactly what you do and where you do it.</p>
+          <p class="inc-desc">We map out exactly what Sunshine Coast customers type when they need your service - by suburb, trade, and intent - then build your entire SEO strategy around those terms.</p>
         </div>
       </div>
       <div class="inc-item">
         <span class="inc-check">&#10003;</span>
         <div>
           <p class="inc-title">Google Business Profile Optimisation</p>
-          <p class="inc-desc">Your GBP is the most powerful local SEO asset you have. We ensure it's fully optimised - categories, description, photos, posts, and Q&amp;A all working together.</p>
+          <p class="inc-desc">Your GBP is your most powerful local SEO asset. We optimise every element - categories, services, description, photos, posts, and Q&amp;A - so Google trusts and ranks you higher.</p>
         </div>
       </div>
       <div class="inc-item">
         <span class="inc-check">&#10003;</span>
         <div>
-          <p class="inc-title">Local Citation Building</p>
-          <p class="inc-desc">Consistent business name, address, and phone across directories like Yellow Pages, True Local, and industry-specific listings - signals Google uses to verify your location.</p>
+          <p class="inc-title">On-Page SEO Optimisation</p>
+          <p class="inc-desc">Title tags, headings, page content, and internal linking all aligned to your target keywords. Google needs to understand what you do and where - we make that unmistakable.</p>
         </div>
       </div>
       <div class="inc-item">
         <span class="inc-check">&#10003;</span>
         <div>
           <p class="inc-title">Suburb &amp; Service Area Pages</p>
-          <p class="inc-desc">Dedicated pages targeting the suburbs and services you want to rank for - giving you the best chance of appearing in hyper-local searches across the Sunshine Coast.</p>
+          <p class="inc-desc">Dedicated pages for Caloundra, Buderim, Maroochydore, Noosa, and wherever else you work. These are the pages that capture high-intent local searches and drive direct enquiries.</p>
         </div>
       </div>
       <div class="inc-item">
         <span class="inc-check">&#10003;</span>
         <div>
-          <p class="inc-title">Competitor Analysis &amp; Reporting</p>
-          <p class="inc-desc">Monthly reporting on your rankings, traffic, and enquiries - plus a clear picture of what your local competitors are doing so we stay ahead of them.</p>
+          <p class="inc-title">Local Citation Building</p>
+          <p class="inc-desc">Consistent name, address, and phone across Yellow Pages, True Local, and industry directories. These signals tell Google your business is legitimate and where it operates.</p>
+        </div>
+      </div>
+      <div class="inc-item">
+        <span class="inc-check">&#10003;</span>
+        <div>
+          <p class="inc-title">Ranking Reports &amp; Competitor Tracking</p>
+          <p class="inc-desc">Monthly reporting on your Google rankings, profile views, and calls - plus a clear view of what your local competitors are doing so we stay one step ahead of them.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="lseo-pricing" id="pricing">
+  <div class="wrap">
+    <div class="section-header reveal">
+      <p class="eyebrow ruled">Pricing</p>
+      <h2 class="section-header" style="font-family:var(--font-display);font-size:clamp(2rem,4vw,3.25rem);font-weight:300;line-height:1.1;color:var(--ink);margin-top:1rem;">Pick your<br><em style="font-style:italic;color:var(--clay);">starting point.</em></h2>
+      <p class="lseo-pricing-intro">No lock-in contracts. No surprises. Most clients report seeing measurable changes within 2-8 weeks.</p>
+    </div>
+    <div class="lseo-pricing-grid">
+
+      <div class="lseo-price-card reveal">
+        <div class="lseo-price-card-top">
+          <p class="lseo-price-name">Visibility Foundation</p>
+          <div class="lseo-price-num"><sup>$</sup>590<span>once</span></div>
+          <p class="lseo-price-tag">Get found properly on Google Maps</p>
+        </div>
+        <ul class="lseo-price-feats">
+          <li>Full Google Business Profile optimisation</li>
+          <li>Category &amp; service structure refinement</li>
+          <li>Business description rewrite (SEO aligned)</li>
+          <li>Review strategy framework</li>
+          <li>2 professionally written Google posts</li>
+          <li>30-day priority action roadmap</li>
+        </ul>
+        <a href="/google-business-profile-audit/#audit-form" class="lseo-price-btn">Get started</a>
+      </div>
+
+      <div class="lseo-price-card lseo-price-card-ink reveal">
+        <p class="lseo-price-popular">Most Popular</p>
+        <div class="lseo-price-card-top">
+          <p class="lseo-price-name">Growth Accelerator</p>
+          <div class="lseo-price-num"><sup>$</sup>995<span>once</span></div>
+          <p class="lseo-price-tag">Turn visibility into actual enquiries</p>
+        </div>
+        <ul class="lseo-price-feats">
+          <li>Everything in Visibility Foundation</li>
+          <li>Website SEO tune-up (titles, headings, structure)</li>
+          <li>Local keyword alignment - Sunshine Coast</li>
+          <li>Conversion review - CTA clarity &amp; trust signals</li>
+          <li>Click-to-call &amp; contact form optimisation</li>
+          <li>60-day priority growth plan</li>
+        </ul>
+        <a href="/google-business-profile-audit/#audit-form" class="lseo-price-btn lseo-price-btn-light">Get started</a>
+      </div>
+
+      <div class="lseo-price-card reveal">
+        <div class="lseo-price-card-top">
+          <p class="lseo-price-name">Growth Partner</p>
+          <div class="lseo-price-num"><sup>$</sup>650<span>/mo</span></div>
+          <p class="lseo-price-tag">Ongoing visibility &amp; long-term growth</p>
+        </div>
+        <ul class="lseo-price-feats">
+          <li>Ongoing Google Business Profile management</li>
+          <li>Monthly Google posts &amp; review monitoring</li>
+          <li>Website improvements &amp; optimisation tasks</li>
+          <li>Competitor monitoring &amp; local content planning</li>
+          <li>Performance snapshot reporting</li>
+          <li>Monthly strategy call</li>
+        </ul>
+        <a href="/google-business-profile-audit/#audit-form" class="lseo-price-btn">Get started</a>
+      </div>
+
+    </div>
+    <p class="lseo-pricing-note reveal">Not sure which plan suits you? <a href="tel:0490422192">Book a free 20-minute call</a> - we'll work it out together.</p>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="lseo-reviews">
+  <div class="wrap">
+    <div class="section-header reveal">
+      <p class="eyebrow ruled">What clients say</p>
+      <h2 style="font-family:var(--font-display);font-size:clamp(2rem,4vw,3.25rem);font-weight:300;line-height:1.1;color:var(--ink);margin-top:1rem;">Real results for<br><em style="font-style:italic;color:var(--clay);">Sunshine Coast businesses.</em></h2>
+    </div>
+    <div class="lseo-reviews-grid reveal">
+      <div class="lseo-review-card">
+        <div class="lseo-review-stars">★ ★ ★ ★ ★</div>
+        <p class="lseo-review-text">"We're very happy with the service. Hassle-free, and communication was prompt and professional throughout. Haylo made the whole process of getting our Google Business Profile set up and optimised incredibly straightforward."</p>
+        <div class="lseo-review-author">
+          <div class="lseo-review-avatar">ST</div>
+          <div>
+            <p class="lseo-review-name">Sarah Tappe</p>
+            <p class="lseo-review-biz">The Laser Cut Crew, Sunshine Coast</p>
+          </div>
+        </div>
+      </div>
+      <div class="lseo-review-card">
+        <div class="lseo-review-stars">★ ★ ★ ★ ★</div>
+        <p class="lseo-review-text">"Haylo was incredibly helpful in getting our Google Business Profile up and running. The improvement in our local visibility has been noticeable. Well worth it for any cleaning business wanting to get found online."</p>
+        <div class="lseo-review-author">
+          <div class="lseo-review-avatar" style="background:#ddd8d0;">KO</div>
+          <div>
+            <p class="lseo-review-name">KO Cleaning</p>
+            <p class="lseo-review-biz">Cleaning Services, Sunshine Coast</p>
+          </div>
+        </div>
+      </div>
+      <div class="lseo-review-card">
+        <div class="lseo-review-stars">★ ★ ★ ★ ★</div>
+        <p class="lseo-review-text">"Working with Sam has been wonderful. He was incredibly patient and helped optimise my Facebook page and Google Business Profile. My account received a ban, but Sam had it rectified in less than 24 hours. I would highly recommend Haylo to anyone."</p>
+        <div class="lseo-review-author">
+          <div class="lseo-review-avatar" style="background:#c8d0c2;">TW</div>
+          <div>
+            <p class="lseo-review-name">Terri Webb</p>
+            <p class="lseo-review-biz">Sunshine Coast Oven Cleaning</p>
+          </div>
         </div>
       </div>
     </div>
@@ -571,12 +761,26 @@
 </section>
 
 <!-- PROOF -->
-<section class="ip-proof" style="background-image: url('/images/homepage/macbook-2.webp');">
+<section class="ip-proof" style="background-image: url('/images/homepage/local-seo.webp');">
   <div class="ip-proof-overlay"></div>
   <div class="wrap reveal">
-    <p class="eyebrow ruled ruled-light">Built for the Sunshine Coast</p>
-    <h2>Local SEO that's specific<br><em>to your suburb and trade.</em></h2>
-    <p>Haylo works exclusively with Sunshine Coast businesses. We know the local market, the competitive suburbs, and what it takes to rank on Google here - not just in theory, but in practice.</p>
+    <p class="eyebrow ruled ruled-light">Sunshine Coast only</p>
+    <h2>We don't do national SEO.<br><em>We do yours.</em></h2>
+    <p>Haylo works exclusively with Sunshine Coast businesses. We know which suburbs are most competitive, which keywords are worth chasing, and what Google needs to see from a local service business to rank it. This isn't theory - it's what we do every day for businesses in Buderim, Caloundra, Maroochydore, Noosa and everywhere in between.</p>
+    <div style="display:flex;gap:3rem;margin-top:2rem;flex-wrap:wrap;">
+      <div>
+        <p style="font-family:var(--font-display);font-size:2.4rem;font-weight:300;color:var(--clay);line-height:1;">100%</p>
+        <p style="font-size:0.78rem;color:rgba(250,248,245,0.5);margin-top:0.25rem;max-width:16ch;">Sunshine Coast focused - no national or global clients</p>
+      </div>
+      <div>
+        <p style="font-family:var(--font-display);font-size:2.4rem;font-weight:300;color:var(--clay);line-height:1;">5★</p>
+        <p style="font-size:0.78rem;color:rgba(250,248,245,0.5);margin-top:0.25rem;max-width:16ch;">Average Google review rating from Sunshine Coast clients</p>
+      </div>
+      <div>
+        <p style="font-family:var(--font-display);font-size:2.4rem;font-weight:300;color:var(--clay);line-height:1;">2-8 wks</p>
+        <p style="font-size:0.78rem;color:rgba(250,248,245,0.5);margin-top:0.25rem;max-width:16ch;">When most clients first see measurable ranking movement</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -584,35 +788,26 @@
 <section class="section section--mid" id="faq">
   <div class="wrap">
     <div class="section-header reveal">
-      <p class="eyebrow ruled">Your questions answered</p>
-      <h2>Common questions about<br><em>local SEO.</em></h2>
+      <p class="eyebrow ruled">Common questions</p>
+      <h2>Everything you want to know<br><em>about local SEO Sunshine Coast.</em></h2>
     </div>
     <div class="faq-list reveal">
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
-          How long does local SEO take to work?
+          How long does local SEO take to work on the Sunshine Coast?
           <span class="faq-toggle">+</span>
         </button>
         <div class="faq-answer">
-          <p class="faq-answer-text">Most Sunshine Coast businesses start seeing meaningful improvements in rankings and enquiries within 3-6 months. Local SEO moves faster than broad national SEO, especially in less competitive suburbs and trades. Some businesses see movement within the first 4-8 weeks.</p>
+          <p class="faq-answer-text">Most Sunshine Coast businesses start seeing measurable movement within 2-8 weeks - things like more profile views, more calls from Google Maps, and improved positions for their key suburb searches. Significant ranking improvements in competitive trades typically take 3-6 months. Local SEO moves faster than broad national SEO, especially in suburbs with less competition.</p>
         </div>
       </div>
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
-          What is local SEO and how is it different from regular SEO?
+          What suburbs on the Sunshine Coast do you cover?
           <span class="faq-toggle">+</span>
         </button>
         <div class="faq-answer">
-          <p class="faq-answer-text">Local SEO focuses on getting your business found in Google searches that include a location - like "plumber Caloundra" or "electrician near me". It covers your Google Business Profile, local citations, on-page optimisation, and suburb-level content. Regular SEO often targets national or broad keyword rankings without the local intent focus.</p>
-        </div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">
-          Do I need a website for local SEO?
-          <span class="faq-toggle">+</span>
-        </button>
-        <div class="faq-answer">
-          <p class="faq-answer-text">Not necessarily - your Google Business Profile can rank on its own. But a well-optimised website significantly strengthens your Google rankings and gives customers a place to learn more and contact you directly. The two work best together.</p>
+          <p class="faq-answer-text">We cover the full Sunshine Coast region - from Caloundra and Kawana in the south, through Maroochydore, Buderim, and Mooloolaba in the middle, up to Noosa and beyond. We also work with businesses targeting the hinterland - Maleny, Montville, Glass House Mountains. If you're on the Sunshine Coast, we cover your area.</p>
         </div>
       </div>
       <div class="faq-item">
@@ -621,16 +816,34 @@
           <span class="faq-toggle">+</span>
         </button>
         <div class="faq-answer">
-          <p class="faq-answer-text">Haylo offers month-to-month local SEO with no lock-in contracts. Pricing depends on your business size, competition level, and goals. Get in touch for a free audit and a straight answer on what it would cost for your specific situation.</p>
+          <p class="faq-answer-text">Our local SEO Sunshine Coast packages start from $590 for a one-time foundation setup. For ongoing monthly SEO management, the Growth Partner plan is $650/month with no lock-in contract - cancel with 30 days notice, any time. Every engagement starts with a free audit so you know exactly what needs fixing before you commit to anything.</p>
         </div>
       </div>
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
-          Can I do local SEO myself?
+          What is local SEO and how is it different from regular SEO?
           <span class="faq-toggle">+</span>
         </button>
         <div class="faq-answer">
-          <p class="faq-answer-text">You can handle the basics - keeping your Google Business Profile updated, asking for reviews, and posting regularly. But the technical side - on-page optimisation, citation building, keyword research, and competitor analysis - takes time and expertise most business owners don't have spare. A local specialist will get results faster.</p>
+          <p class="faq-answer-text">Local SEO targets searches with location intent - like "plumber Caloundra" or "electrician near me." It focuses on your Google Business Profile, your Maps ranking, suburb-level content, and local citations. Regular SEO targets broad national rankings without the local focus. For a service business operating on the Sunshine Coast, local SEO is almost always the higher ROI investment.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Do I need a website for local SEO?
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-answer">
+          <p class="faq-answer-text">Not necessarily - your Google Business Profile can rank on its own in Maps. But a well-optimised website significantly strengthens your Google rankings and gives customers somewhere to land, read more, and contact you directly. The combination of a strong GBP and a locally-optimised website is the most powerful local SEO setup you can have.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Will local SEO work for my trade or industry?
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-answer">
+          <p class="faq-answer-text">Local SEO works for any service business where customers search Google to find who to call - plumbers, electricians, cleaners, landscapers, builders, health businesses, auto mechanics, and more. If someone in your suburb could search Google for what you do, local SEO can get you in front of them. We've worked with a wide range of trades and service industries across the Sunshine Coast.</p>
         </div>
       </div>
     </div>
@@ -646,6 +859,7 @@
       <li><a href="/blog/local-seo-vs-google-ads/">Local SEO vs Google Ads: Which Should Sunshine Coast Tradies Invest in First?</a></li>
       <li><a href="/blog/ai-local-seo-sunshine-coast/">Is AI Killing Local SEO? What Sunshine Coast Tradies Need to Know</a></li>
       <li><a href="/blog/how-long-local-seo/">How Long Does Local SEO Take? A Realistic Timeline for Sunshine Coast Businesses</a></li>
+      <li><a href="/blog/sunshine-coast-marketing-agency-test/">How to Test Any Sunshine Coast Marketing Agency Before You Sign a Thing</a></li>
     </ul>
   </div>
 </section>
@@ -653,11 +867,11 @@
 <!-- CTA BAND -->
 <section class="ip-cta">
   <div class="wrap reveal">
-    <p class="eyebrow ruled">Get started</p>
-    <h2>Ready to rank higher<br><em>on Google Sunshine Coast?</em></h2>
-    <p>Get a free audit and find out exactly where your business is missing out on local searches.</p>
-    <a href="/google-business-profile-audit/#audit-form" class="btn-primary">Get your free audit</a>
-    <p class="ip-cta-contact">Or call <a href="tel:0490422192">0490 422 192</a></p>
+    <p class="eyebrow ruled">Let's get you ranking</p>
+    <h2>Your competitors are on Google.<br><em>You should be first.</em></h2>
+    <p>Start with a free audit. We'll show you exactly where you're invisible on Google, which suburbs you should be ranking for, and what it would take to fix it - no obligation, no sales pitch.</p>
+    <a href="/google-business-profile-audit/#audit-form" class="btn-primary">Get your free local SEO audit</a>
+    <p class="ip-cta-contact">Rather talk first? Call <a href="tel:0490422192">0490 422 192</a> - we're a real person on the Sunshine Coast.</p>
   </div>
 </section>
 
