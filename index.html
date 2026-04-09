@@ -77,7 +77,7 @@
   }
 
   body {
-    background-color: var(--stone);
+    background-color: var(--ink);
     color: var(--ink);
     font-family: var(--font-body);
     font-size: 1rem;
@@ -512,11 +512,24 @@
 
   /* ─── SERVICES ─── */
   .services {
-    padding: 5rem 0;
-    background: var(--stone);
+    padding: 5rem 0 6rem;
+    background: var(--ink);
     position: relative;
     z-index: 10;
     margin-top: 0;
+    margin-bottom: -1px;
+  }
+
+  .services::after {
+    content: '';
+    position: absolute;
+    bottom: -5rem;
+    left: 0;
+    right: 0;
+    height: 5rem;
+    background: var(--ink);
+    pointer-events: none;
+    z-index: 1;
   }
 
 
@@ -544,7 +557,7 @@
   .services-intro {
     font-size: 1rem;
     line-height: 1.8;
-    color: var(--ink-soft);
+    color: rgba(250,248,245,0.5);
     max-width: 44ch;
     align-self: end;
     font-weight: 300;
@@ -553,19 +566,21 @@
   .services-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    border-top: 1px solid var(--border);
+    gap: 2px;
+    background: rgba(255,255,255,0.04);
   }
 
   .service-item {
-    display: block;
+    display: flex;
+    flex-direction: column;
     text-decoration: none;
     color: inherit;
-    padding: 2.5rem 2rem 2.5rem 1.2rem;
-    border-right: 1px solid var(--border);
+    padding: 3rem 2.5rem;
     position: relative;
     overflow: hidden;
-    background-color: rgba(250,248,245,0.95);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    background-color: var(--ink);
+    box-shadow: inset 0 3px 0 transparent;
+    transition: box-shadow 0.25s ease, background-color 0.25s ease;
   }
 
   .service-item::before {
@@ -573,41 +588,79 @@
     position: absolute;
     inset: 0;
     background: var(--service-bg, none) center/cover no-repeat;
-    opacity: 0;
-    transition: opacity 0.35s ease, transform 0.35s ease;
-    transform: scale(1.08);
+    opacity: 0.30;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    transform: scale(1.05);
     pointer-events: none;
   }
 
   .service-item:hover::before,
   .service-item:focus-within::before {
-    opacity: 0.32;
+    opacity: 0.45;
     transform: scale(1);
   }
 
   .service-item:hover,
   .service-item:focus-within {
-    transform: translateY(-6px);
-    box-shadow: 0 10px 28px rgba(28,26,23,0.16);
+    box-shadow: inset 0 3px 0 var(--clay);
+    background-color: #252220;
   }
 
-  .service-item:hover .service-name,
-  .service-item:focus-within .service-name {
-    color: var(--ink);
+  .service-item--featured {
+    grid-column: span 2;
   }
 
-  .service-item:last-child {
-    border-right: none;
+  .service-item--featured .service-name,
+  .service-item--featured-br .service-name {
+    font-size: clamp(2.5rem, 3.5vw, 3.75rem);
   }
 
+  .service-item--featured-br {
+    grid-column: span 2;
+  }
+
+  .service-filler {
+    cursor: default;
+  }
+
+  .service-filler:hover,
+  .service-filler:focus-within {
+    box-shadow: inset 0 3px 0 transparent;
+    background-color: var(--ink);
+  }
+
+  .suburb-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 1.5rem;
+  }
+
+  .suburb-grid span {
+    font-size: 0.6rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: rgba(250,248,245,0.45);
+    font-family: var(--font-body);
+    font-weight: 400;
+    padding: 0.22rem 0.65rem;
+    border: 1px solid rgba(250,248,245,0.12);
+    border-radius: 100px;
+  }
 
   .service-num {
     font-family: var(--font-display);
-    font-size: 0.9rem;
-    color: var(--ink-muted);
+    font-size: 5rem;
+    color: rgba(250,248,245,0.18);
     font-weight: 300;
-    margin-bottom: 1.5rem;
-    min-height: 1.2em;
+    line-height: 1;
+    margin-bottom: auto;
+    transition: color 0.25s;
+  }
+
+  .service-item:hover .service-num,
+  .service-item:focus-within .service-num {
+    color: rgba(250,248,245,0.28);
   }
 
   .service-num.count-up {
@@ -615,41 +668,45 @@
   }
 
   @keyframes countUp {
-    from {
-      opacity: 0;
-      transform: translateY(-10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 
   .service-name {
     font-family: var(--font-display);
-    font-size: 1.65rem;
-    font-weight: 400;
-    line-height: 1.2;
-    margin-bottom: 1rem;
-    letter-spacing: -0.01em;
+    font-size: clamp(2rem, 2.5vw, 2.75rem);
+    font-weight: 300;
+    line-height: 1.1;
+    margin-bottom: 0;
+    margin-top: 3rem;
+    letter-spacing: -0.02em;
+    color: var(--warm-white);
   }
 
   .service-desc {
-    font-size: 0.88rem;
-    color: var(--ink-soft);
+    font-size: 0.82rem;
+    color: rgba(250,248,245,0.38);
     line-height: 1.75;
     font-weight: 300;
+    margin-top: 0.75rem;
+    max-width: 28ch;
   }
 
   .service-tag {
     display: inline-block;
-    margin-top: 1.5rem;
-    font-size: 0.68rem;
-    letter-spacing: 0.12em;
+    margin-top: 2rem;
+    font-size: 0.65rem;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--clay);
     font-family: var(--font-body);
     font-weight: 500;
+    transition: letter-spacing 0.25s;
+  }
+
+  .service-item:hover .service-tag,
+  .service-item:focus-within .service-tag {
+    letter-spacing: 0.2em;
   }
 
   /* ─── LOCAL SEO FEATURE - TWO-PHASE SCROLL PIN ─── */
@@ -697,8 +754,17 @@
 
   /* ─── WHO WE HELP ─── */
   .who {
-    padding: 5rem 0 7rem;
+    padding: 8rem 0 7rem;
     position: relative;
+  }
+
+  .who::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: var(--stone);
+    z-index: -2;
+    pointer-events: none;
   }
 
   .who .wrap {
@@ -1035,6 +1101,15 @@
     position: relative;
   }
 
+  .about::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: var(--stone);
+    z-index: -2;
+    pointer-events: none;
+  }
+
   #about-bg::after {
     content: '';
     position: absolute;
@@ -1327,6 +1402,7 @@
   .testimonials {
     padding: 5rem 0;
     position: relative;
+    background-color: var(--stone);
   }
 
   .testimonials::before {
@@ -1538,6 +1614,15 @@
     align-items: center;
   }
 
+  .locations::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: var(--stone);
+    z-index: -2;
+    pointer-events: none;
+  }
+
 
   .locations .wrap {
     position: relative;
@@ -1623,6 +1708,7 @@
   /* ─── FINAL CTA ─── */
   .cta {
     padding: 5rem 0;
+    background-color: var(--stone);
   }
 
 
@@ -1981,20 +2067,8 @@
       gap: 1.5rem;
     }
 
-    .services-grid {
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-    }
-
     .service-item {
-      border-right: none;
-      border-bottom: 1px solid var(--border);
-      padding: 2rem 0;
-    }
-
-    .service-item:nth-child(odd) {
-      padding-right: 1rem;
-      border-right: 1px solid var(--border);
+      padding: 2rem 1.75rem;
     }
 
     .work-item {
@@ -2310,20 +2384,7 @@
     }
 
     .services {
-      padding: 5rem 0;
-    }
-
-    .services-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .service-item:nth-child(odd) {
-      border-right: none;
-      padding-right: 0;
-    }
-
-    .service-item {
-      border-bottom: 1px solid var(--border);
+      padding: 6rem 0 5rem;
     }
 
     .work-header {
@@ -2346,68 +2407,88 @@
     }
 
   }
-  /* ─── SERVICES CAROUSEL  -  mobile ─── */
+  /* ─── SERVICES GRID  -  mobile ─── */
   @media (max-width: 767px) {
     .services-header {
-      padding-bottom: 1.5rem;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 0;
       grid-template-columns: 1fr;
       gap: 0.75rem;
+      margin-bottom: 2rem;
+      padding-bottom: 0;
+      border-bottom: none;
     }
 
     .services-grid {
-      display: flex !important;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      scroll-behavior: smooth;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-      gap: 0;
-      border-top: 1px solid var(--border);
+      display: grid !important;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3px;
+      background: var(--ink);
+      border-top: none;
     }
+
+    .service-item {
+      aspect-ratio: 3/4;
+      padding: 0 !important;
+      border-right: none !important;
+      border-bottom: none !important;
+      border-top: none !important;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      position: relative;
+      overflow: hidden;
+      background-color: var(--ink);
+      border-radius: 0;
+    }
+
     .service-item::before {
-      opacity: 0.32;
+      opacity: 0.45;
       transform: scale(1);
     }
 
-    .services-grid::-webkit-scrollbar { display: none; }
+    .service-item::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(28,26,23,0.92) 0%, rgba(28,26,23,0.05) 60%);
+      pointer-events: none;
+    }
 
-    .service-item {
-      flex: 0 0 100%;
-      scroll-snap-align: start;
-      border-right: 1px solid var(--border) !important;
-      border-bottom: none !important;
-      padding: 2rem 1.5rem !important;
+    .service-item .service-num { display: none; }
+
+    .service-item .service-name {
+      position: relative;
+      z-index: 2;
+      font-size: 1.3rem;
+      color: var(--warm-white);
+      padding: 0 1rem 0.25rem;
+      margin-bottom: 0;
+    }
+
+    .service-item .service-desc { display: none; }
+
+    .service-item .service-tag {
+      position: relative;
+      z-index: 2;
+      padding: 0 1rem 1rem;
+      margin-top: 0;
+      opacity: 0;
     }
 
     .service-item:last-child { border-right: none !important; }
 
-    .services-dots {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 1.5rem 0 0;
+    .service-item--featured,
+    .service-item--featured-br {
+      grid-column: span 1;
     }
 
-    .services-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--border);
-      border: none;
-      padding: 0;
-      cursor: pointer;
-      flex-shrink: 0;
-      transition: all 0.25s ease;
+    .service-item--featured .service-name,
+    .service-item--featured-br .service-name {
+      font-size: 1.3rem;
     }
 
-    .services-dot.active {
-      background: var(--ink);
-      width: 22px;
-      border-radius: 4px;
-    }
+    .service-filler { display: none; }
+
+    .services-dots { display: none; }
   }
 
   @media (min-width: 901px) {
@@ -2453,7 +2534,6 @@
   }
 
   @media (min-width: 768px) {
-    .services-dots { display: none; }
     .testimonials-dots { display: none; }
     .locations-dots { display: none; }
   }
@@ -3019,8 +3099,8 @@
   <div class="wrap">
     <div class="services-header animate-fade-in">
       <div>
-        <p class="eyebrow ruled" style="margin-bottom:1.5rem;">What we do</p>
-        <h2 class="section-heading">
+        <p class="eyebrow ruled ruled-light" style="margin-bottom:1.5rem;">What we do</p>
+        <h2 class="section-heading" style="color:var(--warm-white);">
           Everything your<br>
           business needs to<br>
           <em>get found.</em>
@@ -3032,53 +3112,75 @@
     </div>
 
     <div class="services-grid stagger-animation">
-      <a href="/local-seo-sunshine-coast/" class="service-item service-item--featured" style="--service-bg: url('images/homepage/services-local-seo.webp');">
+
+      <!-- Row 1: Local SEO (2-col) + Facebook (1-col) -->
+      <a href="/local-seo-sunshine-coast/" class="service-item service-item--featured" style="--service-bg: url('blog/google-maps-top-3/google-maps-top-3-blog.webp');">
         <p class="service-num">01</p>
-        <h3 class="service-name">Local SEO</h3>
-        <p class="service-desc">Rank on Google when Sunshine Coast customers search for your trade or service. The most powerful long-term investment for local visibility - no paid ads required.</p>
+        <h3 class="service-name">Local SEO<br>Sunshine Coast</h3>
+        <p class="service-desc">Rank in Google Search. No ads. Long-term visibility that compounds.</p>
         <span class="service-tag">Signature service</span>
       </a>
-      <a href="/google-business-profile/" class="service-item" style="--service-bg: url('images/homepage/services-google-business-profile.webp');">
+      <a href="/facebook-business-page-management/" class="service-item" style="--service-bg: url('images/services/social-media-on-mobile.webp');">
         <p class="service-num">02</p>
-        <h3 class="service-name">Google Business Profile</h3>
-        <p class="service-desc">Most local customers find you here first. We make sure your profile is complete, compelling, and set up to rank when people search nearby.</p>
-        <span class="service-tag">Local presence</span>
-      </a>
-      <a href="/facebook-business-page-management/" class="service-item" style="--service-bg: url('images/homepage/services-visibility.webp');">
-        <p class="service-num">03</p>
         <h3 class="service-name">Facebook Business Page</h3>
-        <p class="service-desc">A professional, active Facebook page that builds trust before a customer has even called  -  managed for you every month.</p>
+        <p class="service-desc">Builds trust before a customer has even called. Managed monthly.</p>
         <span class="service-tag">Social presence</span>
       </a>
-      <a href="/review-generation/" class="service-item" style="--service-bg: url('images/services/review-generation-happy-customer.webp');">
-        <p class="service-num">04</p>
+
+      <!-- Row 2: Three equal cards -->
+      <a href="/review-generation/" class="service-item" style="--service-bg: url('images/homepage/services-local-seo.webp');">
+        <p class="service-num">03</p>
         <h3 class="service-name">Review Generation &amp; Management</h3>
-        <p class="service-desc">Turn every happy customer into a five-star review. We build your reputation systematically after every job, month after month.</p>
+        <p class="service-desc">Every happy customer becomes a five-star review. Systematically.</p>
         <span class="service-tag">Reputation</span>
       </a>
       <a href="/reporting/" class="service-item" style="--service-bg: url('images/homepage/services-website.webp');">
-        <p class="service-num">05</p>
+        <p class="service-num">04</p>
         <h3 class="service-name">Local Visibility Reporting</h3>
-        <p class="service-desc">Plain-English monthly reports showing your profile views, calls, review growth, and exactly how your local visibility is trending.</p>
+        <p class="service-desc">Plain-English monthly reports. Calls, views, reviews - what's moving.</p>
         <span class="service-tag">Reporting</span>
       </a>
       <a href="/website-creation-seo/" class="service-item" style="--service-bg: url('images/homepage/macbook-2.webp');">
-        <p class="service-num">06</p>
+        <p class="service-num">05</p>
         <h3 class="service-name">Website Creation &amp; SEO</h3>
-        <p class="service-desc">A fast, professional website built to convert local visitors into enquiries  -  optimised for search so the right customers find you first.</p>
+        <p class="service-desc">Fast, built to convert. Optimised so the right people find you.</p>
         <span class="service-tag">Web &amp; SEO</span>
       </a>
-    </div>
-    <div class="services-dots" aria-hidden="true">
-      <button class="services-dot active" aria-label="Card 1"></button>
-      <button class="services-dot" aria-label="Card 2"></button>
-      <button class="services-dot" aria-label="Card 3"></button>
-      <button class="services-dot" aria-label="Card 4"></button>
-      <button class="services-dot" aria-label="Card 5"></button>
-      <button class="services-dot" aria-label="Card 6"></button>
+
+      <!-- Row 3: Suburb filler (1-col) + Google Business Profile (2-col) -->
+      <div class="service-item service-filler">
+        <p class="service-tag" style="margin-top:0; margin-bottom: auto;">Service area</p>
+        <h3 class="service-name" style="font-size: clamp(1.75rem, 2vw, 2.25rem); margin-top: 1rem;">Sunshine Coast,<br><em>covered.</em></h3>
+        <p class="service-desc">Local SEO and digital marketing for service businesses across the Coast - from Caloundra to Noosa.</p>
+        <div class="suburb-grid">
+          <span>Caloundra</span>
+          <span>Kawana</span>
+          <span>Maroochydore</span>
+          <span>Mooloolaba</span>
+          <span>Buderim</span>
+          <span>Noosa Heads</span>
+          <span>Coolum Beach</span>
+          <span>Nambour</span>
+          <span>Sippy Downs</span>
+          <span>Mountain Creek</span>
+          <span>Alexandra Headland</span>
+          <span>Bli Bli</span>
+          <span>Glass House Mtns</span>
+          <span>Eumundi</span>
+          <span>Tewantin</span>
+          <span>Birtinya</span>
+        </div>
+      </div>
+      <a href="/google-business-profile/" class="service-item service-item--featured-br" style="--service-bg: url('images/homepage/services-google-business-profile.webp');">
+        <p class="service-num">06</p>
+        <h3 class="service-name">Google Business Profile</h3>
+        <p class="service-desc">Where most local searches end. Own the Maps 3-pack and convert browsers into booked jobs.</p>
+        <span class="service-tag">Local presence</span>
+      </a>
+
     </div>
     <div style="margin-top: 3rem; text-align: center;">
-      <a href="/google-business-profile-audit/#audit-form" class="btn-primary">See what's holding you back</a>
+      <a href="/google-business-profile-audit/#audit-form" class="btn-primary-light">See what's holding you back</a>
     </div>
   </div>
 </section>
