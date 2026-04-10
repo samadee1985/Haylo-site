@@ -304,6 +304,8 @@
     flex-shrink: 0;
   }
 
+  .trust-short { display: none; }
+
   .hero-stars {
     display: inline-flex;
     margin-left: 0.3rem;
@@ -2077,8 +2079,17 @@
     }
 
     .hero-photo::before {
-      background: linear-gradient(to top, rgba(246,245,243,0.98) 0%, rgba(246,245,243,0.85) 40%, rgba(246,245,243,0.4) 70%, transparent 100%);
+      background: linear-gradient(to bottom, rgba(28,26,23,0.78) 0%, rgba(28,26,23,0.65) 50%, rgba(28,26,23,0.45) 100%);
     }
+
+    .hero-heading { color: var(--warm-white); }
+    .hero-heading-sub { color: var(--warm-white); }
+    .hero-body { color: rgba(250,248,245,0.8); }
+    .hero-trust { color: rgba(250,248,245,0.7); }
+    .hero-proof { border-top-color: rgba(250,248,245,0.15); }
+    .hero-proof-num { color: var(--warm-white); }
+    .hero-proof-label { color: rgba(250,248,245,0.55); }
+    .hero-eyebrow { color: rgba(250,248,245,0.6); border-color: rgba(250,248,245,0.2); }
 
     .hero-inner {
       grid-column: 1;
@@ -2110,6 +2121,9 @@
       font-size: 1.4rem;
     }
 
+    .trust-long { display: none; }
+    .trust-short { display: inline; }
+
     .word-loop {
       padding: 0.9rem 0.8rem;
     }
@@ -2139,6 +2153,17 @@
       text-align: center;
       padding: 1rem 2rem;
       font-size: 0.9rem;
+    }
+
+    .hero-actions .btn-primary {
+      background: transparent;
+      color: var(--warm-white);
+      border-color: rgba(250,248,245,0.6);
+    }
+
+    .hero-actions .btn-primary:hover {
+      background: rgba(250,248,245,0.1);
+      border-color: var(--warm-white);
     }
 
     .link-secondary {
@@ -2577,7 +2602,6 @@
       opacity: 0;
     }
 
-    .service-item:last-child { border-right: none !important; }
 
     .service-item--featured,
     .service-item--featured-br {
@@ -2592,6 +2616,8 @@
     .service-filler { display: none; }
 
     .services-dots { display: none; }
+
+    .who::before { background-color: transparent; }
   }
 
   @media (min-width: 901px) {
@@ -3167,7 +3193,7 @@
         <a href="/google-business-profile-audit/#audit-form" class="btn-primary">Start a conversation</a>
         <span class="hero-trust">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          Trusted by local Sunshine Coast businesses
+          <span class="trust-long">Trusted by local Sunshine Coast businesses</span><span class="trust-short">Trusted by Sunshine Coast businesses</span>
           <span class="hero-stars" aria-label="5 stars">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
