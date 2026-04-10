@@ -3281,7 +3281,7 @@
 <div class="lseo-scroll-track">
   <section class="lseo-feature">
     <div class="lseo-feature-bg-wrap">
-      <div class="lseo-feature-bg" style="background-image: url('images/homepage/local-seo.webp');"></div>
+      <div class="lseo-feature-bg" data-bg="url('images/homepage/local-seo.webp')"></div>
       <div class="lseo-feature-overlay"></div>
     </div>
     <div class="lseo-feature-content">
@@ -3390,7 +3390,7 @@
 
 <!-- ─── WHO WE HELP ─── -->
 <section class="who" id="who" aria-label="Who we help">
-  <div class="section-parallax-bg" id="who-bg" style="background-image:url('images/homepage/buderim.webp')" aria-hidden="true"></div>
+  <div class="section-parallax-bg" id="who-bg" data-bg="url('images/homepage/buderim.webp')" aria-hidden="true"></div>
   <div class="wrap">
     <div class="who-content">
     <div class="who-header animate-fade-in">
@@ -3471,7 +3471,7 @@
 
 <!-- ─── ABOUT ─── -->
 <section class="about" id="about" aria-label="About Haylo">
-  <div class="section-parallax-bg" id="about-bg" style="background-image:url('images/homepage/plane-under.webp')" aria-hidden="true"></div>
+  <div class="section-parallax-bg" id="about-bg" data-bg="url('images/homepage/plane-under.webp')" aria-hidden="true"></div>
   <div class="wrap">
     <div class="about-inner">
       <div class="about-visual">
@@ -3649,7 +3649,7 @@
 
 <!-- ─── LOCATIONS ─── -->
 <section class="locations" id="locations" aria-label="Service locations">
-  <div class="section-parallax-bg" id="locations-bg" style="background-image:url('/images/homepage/noosa-river-and-town.webp')" aria-hidden="true"></div>
+  <div class="section-parallax-bg" id="locations-bg" data-bg="url('/images/homepage/noosa-river-and-town.webp')" aria-hidden="true"></div>
   <div class="wrap">
     <div class="locations-header animate-fade-in">
       <p class="eyebrow ruled" style="margin-bottom:1.5rem;">Where we work</p>
@@ -4381,6 +4381,27 @@ serviceNumbers.forEach(num => serviceCounterObserver.observe(num));
   window.addEventListener('scroll', update, { passive: true });
   window.addEventListener('resize', update, { passive: true });
   requestAnimationFrame(update);
+})();
+
+// Lazy-load below-fold background images
+(function () {
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        var el = entry.target;
+        var bg = el.getAttribute('data-bg');
+        if (bg) {
+          el.style.backgroundImage = bg;
+          el.removeAttribute('data-bg');
+        }
+        obs.unobserve(el);
+      }
+    });
+  }, { rootMargin: '600px 0px' });
+
+  document.querySelectorAll('[data-bg]').forEach(function (el) {
+    obs.observe(el);
+  });
 })();
 
 </script>
