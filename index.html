@@ -4325,9 +4325,7 @@ serviceNumbers.forEach(num => serviceCounterObserver.observe(num));
         body: JSON.stringify(data)
       });
       if (res.ok) {
-        form.style.display = 'none';
-        success.style.display = 'block';
-        if (typeof gtag !== 'undefined') gtag('event', 'contact_form_submit', { event_category: 'contact' });
+        window.location.href = '/thank-you.html';
       } else {
         btn.textContent = 'Something went wrong - try again';
         btn.disabled = false;

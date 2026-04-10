@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Message Received | Haylo</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"></noscript>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y2MFJPRSRL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-Y2MFJPRSRL');
+
+  // GA4 conversion event - fires on page load
+  gtag('event', 'contact_form_submit', {
+    event_category: 'contact',
+    event_label: 'thank_you_page'
+  });
+
+  /* ── Google Ads conversion tracking ──────────────────────────────
+     Add your conversion ID and label below when ready.
+     Replace AW-XXXXXXXXXX/XXXXXXXXXXXXXXXXXXXX with your values.
+
+  gtag('event', 'conversion', {
+    send_to: 'AW-XXXXXXXXXX/XXXXXXXXXXXXXXXXXXXX'
+  });
+  ─────────────────────────────────────────────────────────────────── */
+</script>
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --stone: #f6f5f3;
+    --ink: #1c1a17;
+    --ink-soft: #4a4540;
+    --ink-muted: #8a8480;
+    --clay: #b8967a;
+    --warm-white: #faf9f8;
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-body: 'DM Sans', system-ui, sans-serif;
+  }
+
+  html, body {
+    height: 100%;
+  }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--stone);
+    color: var(--ink);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  /* ── Nav ── */
+  .nav {
+    padding: 1.5rem 2rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-wordmark {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  /* ── Main ── */
+  .main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem;
+  }
+
+  .container {
+    max-width: 560px;
+    width: 100%;
+  }
+
+  .check {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--ink);
+    color: var(--warm-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .eyebrow {
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--clay);
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  h1 {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 8vw, 5rem);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 1.5rem;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--clay);
+  }
+
+  .body-text {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--ink-soft);
+    font-weight: 300;
+    margin-bottom: 2.5rem;
+    max-width: 44ch;
+  }
+
+  .actions {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--warm-white);
+    background: var(--ink);
+    border: 1.5px solid var(--ink);
+    padding: 0.85rem 2rem;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .btn-primary:hover {
+    background: var(--ink-soft);
+    transform: translateY(-2px);
+  }
+
+  .call-link {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    text-decoration: none;
+    font-weight: 300;
+  }
+
+  .call-link span {
+    color: var(--clay);
+    font-weight: 500;
+  }
+
+  .call-link:hover span {
+    text-decoration: underline;
+  }
+
+  .divider {
+    width: 40px;
+    height: 1px;
+    background: var(--clay);
+    margin: 3rem 0;
+    opacity: 0.4;
+  }
+
+  .next-steps {
+    font-size: 0.82rem;
+    color: var(--ink-muted);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  .next-steps strong {
+    color: var(--ink-soft);
+    font-weight: 500;
+  }
+
+  /* ── Footer ── */
+  .footer {
+    padding: 1.5rem 2rem;
+    font-size: 0.72rem;
+    color: var(--ink-muted);
+    border-top: 1px solid rgba(28,26,23,0.08);
+  }
+
+  @media (max-width: 600px) {
+    .actions {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="/" class="nav-wordmark">Haylo</a>
+</nav>
+
+<main class="main">
+  <div class="container">
+
+    <div class="check" aria-hidden="true">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+
+    <span class="eyebrow">Message received</span>
+
+    <h1>We'll be in<br>touch <em>shortly.</em></h1>
+
+    <p class="body-text">Thanks for reaching out. We review every enquiry personally and will get back to you within one business day - usually much sooner.</p>
+
+    <div class="actions">
+      <a href="/" class="btn-primary">Back to Haylo</a>
+      <a href="tel:0490422192" class="call-link">Or call us now &middot; <span>0490 422 192</span></a>
+    </div>
+
+    <div class="divider"></div>
+
+    <p class="next-steps">
+      <strong>What happens next?</strong><br>
+      We'll review your enquiry, look at your current Google presence, and come back to you with some honest observations and a clear next step - no obligation.
+    </p>
+
+  </div>
+</main>
+
+<footer class="footer">
+  &copy; 2026 Haylo. Sunshine Coast, Queensland.
+</footer>
+
+</body>
+</html>
