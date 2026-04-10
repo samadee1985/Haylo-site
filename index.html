@@ -2642,6 +2642,7 @@
       inset: 0;
       background: linear-gradient(to top, rgba(28,26,23,0.97) 0%, rgba(28,26,23,0.75) 30%, rgba(28,26,23,0.25) 60%, rgba(28,26,23,0.15) 100%);
       pointer-events: none;
+      z-index: 1;
     }
 
     .service-item .service-num { display: none; }
@@ -2665,6 +2666,23 @@
       opacity: 0;
     }
 
+    .service-sig-badge {
+      display: block;
+      position: absolute;
+      top: 0.75rem;
+      left: 0.75rem;
+      background: rgba(184,150,122,0.25);
+      border: 1px solid rgba(184,150,122,0.7);
+      padding: 0.15rem 0.5rem;
+      border-radius: 100px;
+      z-index: 10;
+      font-size: 0.55rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--clay);
+      font-family: var(--font-body);
+    }
 
     .service-item--featured,
     .service-item--featured-br {
@@ -3238,8 +3256,8 @@
       </div>
       <div class="hero-proof">
         <div class="hero-proof-item">
-          <span class="hero-proof-num">47+</span>
-          <span class="hero-proof-label">Local businesses ranked on Google</span>
+          <span class="hero-proof-num">Top 3</span>
+          <span class="hero-proof-label">Google positions achieved</span>
         </div>
         <div class="hero-proof-item">
           <span class="hero-proof-num">4.9</span>
@@ -3296,7 +3314,8 @@
     <div class="services-grid stagger-animation">
 
       <!-- Row 1: Local SEO (2-col) + Facebook (1-col) -->
-      <a href="/local-seo-sunshine-coast/" class="service-item service-item--featured" style="--service-bg: url('blog/google-maps-top-3/google-maps-top-3-blog.webp');">
+      <a href="/local-seo-sunshine-coast/" class="service-item service-item--featured service-item--signature" style="--service-bg: url('blog/google-maps-top-3/google-maps-top-3-blog.webp');">
+        <span class="service-sig-badge">Signature service</span>
         <p class="service-num">01</p>
         <h3 class="service-name">Local SEO<br>Sunshine Coast</h3>
         <p class="service-desc">Rank in Google Search. No ads. Long-term visibility that compounds.</p>
@@ -3653,7 +3672,7 @@
         <p class="location-desc">Kings Beach, Aura, Little Mountain, Mooloolaba and surrounding suburbs.</p>
       </a>
       <a href="/marketing-consultant-maroochydore/" class="location-card">
-        <div class="location-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8c.6.5 1.2 1 2.5 1C7 9 7 7 9.5 7c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2"/><path d="M2 15c.6.5 1.2 1 2.5 1c2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2"/></svg></div>
+        <div class="location-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="8" width="5" height="13"/><rect x="9" y="3" width="6" height="18"/><rect x="16" y="10" width="5" height="11"/><line x1="1" y1="21" x2="23" y2="21"/></svg></div>
         <h3 class="location-name">Maroochydore</h3>
         <p class="location-desc">Alexandra Headland, Cotton Tree, Bli Bli and the central coast area.</p>
       </a>
