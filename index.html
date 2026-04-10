@@ -588,19 +588,15 @@
 
 
   .services-header {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: end;
-    margin-bottom: var(--space-xl);
+    margin-bottom: 3.5rem;
   }
 
   .section-heading {
     font-family: var(--font-display);
-    font-size: clamp(2.2rem, 4vw, 3.8rem);
+    font-size: clamp(2.5rem, 4.5vw, 4.8rem);
     font-weight: 300;
-    line-height: 1.1;
-    letter-spacing: -0.01em;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
   }
 
   .section-heading em {
@@ -810,7 +806,7 @@
 
   /* ─── WHO WE HELP ─── */
   .who {
-    padding: 8rem 0 7rem;
+    padding: 11rem 0 10rem;
     position: relative;
   }
 
@@ -829,21 +825,19 @@
   }
 
   .who-content {
-    padding: var(--space-lg) 0;
+    padding: 0;
   }
 
   .who-header {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    margin-bottom: var(--space-xl);
-    align-items: end;
+    margin-bottom: 4rem;
   }
 
   .who-header .section-heading {
-    font-size: clamp(2.2rem, 4vw, 3.8rem);
+    font-size: clamp(2.8rem, 5.5vw, 6rem);
     color: var(--warm-white);
-    text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+    text-shadow: 0 2px 24px rgba(0,0,0,0.4);
+    max-width: 16ch;
+    margin-bottom: 1.5rem;
   }
 
   .who-header .eyebrow {
@@ -859,76 +853,100 @@
   }
 
   .who-header .services-intro {
-    color: rgba(250,248,245,0.95);
-    text-shadow: 0 2px 8px rgba(0,0,0,0.45);
+    color: rgba(250,248,245,0.85);
+    max-width: 52ch;
   }
 
   .industries {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1rem;
+    gap: 1.5rem;
   }
 
   .industry-card {
-    background: rgba(255, 255, 255, 0.14);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.35);
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.25), 0 4px 16px rgba(0,0,0,0.15);
-    border-radius: 14px;
-    padding: 1.5rem;
+    background: rgba(18,16,14,0.48);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-top: 2px solid var(--clay);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.25);
+    border-radius: 10px;
+    padding: 1.75rem 1.5rem 1.5rem;
     display: flex;
     flex-direction: column;
-    gap: 0.8rem;
-    transition: all 0.3s ease;
+    gap: 0;
+    transition: all 0.35s ease;
     cursor: pointer;
     text-decoration: none;
     color: inherit;
   }
 
+
+  .industry-icon {
+    color: var(--clay);
+    margin-bottom: 0.9rem;
+  }
+
+  .industry-icon svg {
+    display: block;
+  }
+
+  .industry-card:nth-child(1) .industry-icon { color: #e8b48a; } /* cleaning - warm sandy */
+  .industry-card:nth-child(2) .industry-icon { color: #c47835; } /* trades - deep amber */
+  .industry-card:nth-child(3) .industry-icon { color: #7eba5a; } /* garden - fresh sage */
+  .industry-card:nth-child(4) .industry-icon { color: #d49060; } /* home - clay */
+  .industry-card:nth-child(5) .industry-icon { color: #d4844a; } /* auto - copper */
+  .industry-card:nth-child(6) .industry-icon { color: #d47888; } /* health - dusty rose */
+  .industry-card:nth-child(7) .industry-icon { color: #d4a030; } /* pest - golden */
+  .industry-card:nth-child(8) .industry-icon { color: #60b0c0; } /* pool - teal */
+  .industry-card:nth-child(9) .industry-icon { color: #78b855; } /* landscapers - green */
+
+  .industry-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.2rem, 1.7vw, 1.6rem);
+    font-weight: 400;
+    font-style: italic;
+    letter-spacing: -0.02em;
+    color: var(--warm-white);
+    line-height: 1.2;
+    margin-bottom: 0.65rem;
+  }
+
+  .industry-desc {
+    font-size: 0.88rem;
+    line-height: 1.7;
+    color: rgba(250,248,245,0.65);
+    font-weight: 300;
+    flex: 1;
+  }
+
   .industry-link {
-    font-size: 0.75rem;
+    font-size: 0.68rem;
     font-weight: 500;
-    letter-spacing: 0.06em;
-    color: rgba(255, 255, 255, 0.6);
-    margin-top: auto;
-    padding-top: 0.4rem;
-    transition: color 0.2s;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--clay);
+    margin-top: 1.1rem;
+    display: block;
+    transition: letter-spacing 0.25s ease, color 0.25s ease;
   }
 
   .industry-card:hover .industry-link {
-    color: rgba(255, 255, 255, 0.95);
+    letter-spacing: 0.15em;
+    color: var(--warm-white);
   }
 
   .industry-card:hover,
   .industry-card:focus {
-    transform: translateY(-3px);
-    background: rgba(255, 255, 255, 0.25);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-5px);
+    background: rgba(18,16,14,0.28);
+    border-color: rgba(255,255,255,0.18);
+    border-top-color: var(--clay);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
   }
 
   .industry-card:active {
-    transform: translateY(-1px);
-  }
-
-  .industry-icon {
-    font-size: 1.5rem;
-  }
-
-  .industry-title {
-    font-family: var(--font-display);
-    font-size: 1.05rem;
-    font-weight: 400;
-    letter-spacing: -0.01em;
-    color: var(--warm-white);
-  }
-
-  .industry-desc {
-    font-size: 0.9rem;
-    line-height: 1.7;
-    color: rgba(250, 248, 245, 0.78);
-    font-weight: 300;
+    transform: translateY(-2px);
   }
 
   @media (max-width: 900px) {
@@ -952,13 +970,18 @@
 
     .industries .industry-card {
       aspect-ratio: 1;
-      padding: 0.5rem;
+      padding: 0.75rem;
       align-items: center;
       justify-content: center;
       text-align: center;
-      gap: 0.3rem;
+      gap: 0.4rem;
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-top: 2px solid var(--clay);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), 0 4px 16px rgba(0,0,0,0.2);
     }
-
 
     .industries .industry-card .industry-desc,
     .industries .industry-card .industry-link {
@@ -966,12 +989,18 @@
     }
 
     .industries .industry-card .industry-icon {
-      font-size: 1.8rem;
+      margin-bottom: 0;
+    }
+
+    .industries .industry-card .industry-icon svg {
+      width: 24px;
+      height: 24px;
     }
 
     .industries .industry-card .industry-title {
       font-size: 0.82rem;
-      line-height: 1.3;
+      line-height: 1.2;
+      margin-bottom: 0;
     }
 
     .industries-dots {
@@ -1166,11 +1195,12 @@
     pointer-events: none;
   }
 
+
   #about-bg::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: rgba(28,26,23,0.55);
+    background: rgba(28,26,23,0.35);
     pointer-events: none;
   }
 
@@ -1482,15 +1512,13 @@
   }
 
   .testimonials-header {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
     margin-bottom: var(--space-xl);
-    align-items: end;
   }
 
   .testimonials-header .services-intro {
     color: var(--ink-soft);
+    max-width: 52ch;
+    margin-top: 1.5rem;
   }
 
   .testimonials-grid {
@@ -1691,11 +1719,7 @@
   }
 
   .locations-header {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
     margin-bottom: var(--space-xl);
-    align-items: end;
   }
 
   .locations-grid {
@@ -2622,43 +2646,11 @@
 
   @media (min-width: 901px) {
     .industries-dots { display: none; }
-    .industry-card,
-    .location-card {
-      backdrop-filter: none;
-      -webkit-backdrop-filter: none;
-      background: rgba(22, 20, 18, 0.75);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-top: 2px solid var(--clay);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+    .industry-card {
+      padding: 2rem 1.75rem 1.75rem;
     }
-    .industry-card .industry-title,
-    .location-card .location-name {
-      font-size: 1.3rem;
-      font-weight: 500;
-      letter-spacing: -0.02em;
-      color: var(--warm-white);
-    }
-    .industry-card .industry-desc,
-    .location-card .location-desc {
-      color: rgba(250, 248, 245, 0.92);
-      font-size: 0.92rem;
-    }
-    .industry-card .industry-link,
-    .location-card .location-link {
-      color: var(--clay);
-    }
-    .industry-card:hover,
-    .industry-card:focus,
-    .location-card:hover,
-    .location-card:focus {
-      background: rgba(22, 20, 18, 0.88);
-      border-top-color: var(--clay);
-      box-shadow: 0 12px 40px rgba(0,0,0,0.45);
-      transform: translateY(-4px);
-    }
-    .industry-card:hover .industry-link,
-    .location-card:hover .location-link {
-      color: rgba(250, 248, 245, 0.95);
+    .industry-card .industry-title {
+      font-size: 1.6rem;
     }
   }
 
@@ -3249,16 +3241,14 @@
 <section class="services" id="services" aria-label="Services">
   <div class="wrap">
     <div class="services-header animate-fade-in">
-      <div>
-        <p class="eyebrow ruled" style="margin-bottom:1.5rem;">What we do</p>
-        <h2 class="section-heading services-heading">
-          Everything your<br>
-          business needs to<br>
-          <em>get found.</em>
-        </h2>
-      </div>
-      <p class="services-intro">
-        We focus on the things that actually move the needle for small businesses  -  not vanity metrics or complicated dashboards. Just clear, effective work that brings in more customers.
+      <p class="eyebrow ruled" style="margin-bottom:1.5rem;">What we do</p>
+      <h2 class="section-heading services-heading">
+        Everything your<br>
+        business needs to<br>
+        <em>get found.</em>
+      </h2>
+      <p class="services-intro" style="margin-top:2.5rem;max-width:52ch;">
+        We focus on the things that actually move the needle for small businesses - not vanity metrics or complicated dashboards. Just clear, effective work that brings in more customers.
       </p>
     </div>
 
@@ -3342,66 +3332,64 @@
   <div class="wrap">
     <div class="who-content">
     <div class="who-header animate-fade-in">
-      <div>
-        <p class="eyebrow ruled" style="margin-bottom: 1.5rem;">Built for local businesses</p>
-        <h2 class="section-heading">We work with <em>local service</em> businesses.</h2>
-      </div>
+      <p class="eyebrow ruled" style="margin-bottom: 1.5rem;">Built for local businesses</p>
+      <h2 class="section-heading">We work with <em>local service</em> businesses.</h2>
       <p class="services-intro">We get tradies, cleaners and home service businesses ranking on Google, generating reviews and converting local searches into real enquiries. The phone rings more. Simple as that.</p>
     </div>
     <div class="industries stagger-animation" id="industries-grid">
       <a href="/google-marketing-for-cleaners/" class="industry-card">
-        <div class="industry-icon">🧹</div>
+        <div class="industry-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.5 7.5L21 12l-7.5 1.5L12 21l-1.5-7.5L3 12l7.5-1.5z"/></svg></div>
         <h3 class="industry-title">Cleaning Businesses</h3>
         <p class="industry-desc">Residential, commercial and specialised cleaning services on the Sunshine Coast - helping customers find your crews first.</p>
-        <span class="industry-link">Learn more →</span>
+        <span class="industry-link">Learn more</span>
       </a>
       <a href="/marketing-for-tradies/" class="industry-card">
-        <div class="industry-icon">🔧</div>
+        <div class="industry-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></div>
         <h3 class="industry-title">Trades</h3>
         <p class="industry-desc">Plumbers, electricians, roofers, tilers, painters and concreters focused on booked jobs, not cold calls.</p>
-        <span class="industry-link">Learn more →</span>
+        <span class="industry-link">Learn more</span>
       </a>
       <a href="/google-marketing-for-garden-outdoor/" class="industry-card">
-        <div class="industry-icon">🌿</div>
-        <h3 class="industry-title">Garden & Outdoor</h3>
+        <div class="industry-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 019.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg></div>
+        <h3 class="industry-title">Garden &amp; Outdoor</h3>
         <p class="industry-desc">Landscapers, lawn care and pest control businesses with a local-first strategy for service visibility.</p>
-        <span class="industry-link">Learn more →</span>
+        <span class="industry-link">Learn more</span>
       </a>
       <a href="/google-marketing-for-home-services/" class="industry-card">
-        <div class="industry-icon">🏠</div>
+        <div class="industry-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
         <h3 class="industry-title">Home Services</h3>
         <p class="industry-desc">Movers, handymen, pool services and property care providers who need constant lead flow all year.</p>
-        <span class="industry-link">Learn more →</span>
+        <span class="industry-link">Learn more</span>
       </a>
       <a href="/google-marketing-for-auto-mechanical/" class="industry-card">
-        <div class="industry-icon">🚗</div>
-        <h3 class="industry-title">Auto & Mechanical</h3>
+        <div class="industry-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 17H5a2 2 0 01-2-2V9l2-4h14l2 4v6a2 2 0 01-2 2z"/><path d="M7.5 17a1.5 1.5 0 100 3 1.5 1.5 0 000-3zM16.5 17a1.5 1.5 0 100 3 1.5 1.5 0 000-3z"/></svg></div>
+        <h3 class="industry-title">Automotive</h3>
         <p class="industry-desc">Mechanics, detailers, mobile tyre and repair services growing bookings through local search and reviews.</p>
-        <span class="industry-link">Learn more →</span>
+        <span class="industry-link">Learn more</span>
       </a>
       <a href="/google-marketing-for-health-wellness/" class="industry-card">
-        <div class="industry-icon">💆</div>
-        <h3 class="industry-title">Health & Wellness</h3>
+        <div class="industry-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div>
+        <h3 class="industry-title">Health &amp; Wellness</h3>
         <p class="industry-desc">Physios, therapists and beauty businesses converting local interest into repeat client bookings.</p>
-        <span class="industry-link">Learn more →</span>
+        <span class="industry-link">Learn more</span>
       </a>
       <a href="/google-marketing-for-pest-control/" class="industry-card">
-        <div class="industry-icon">🐛</div>
+        <div class="industry-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
         <h3 class="industry-title">Pest Control</h3>
         <p class="industry-desc">Pest control operators capturing urgent local searches and building the trust that gets homeowners calling first.</p>
-        <span class="industry-link">Learn more →</span>
+        <span class="industry-link">Learn more</span>
       </a>
       <a href="/google-marketing-for-pool-services/" class="industry-card">
-        <div class="industry-icon">🏊</div>
+        <div class="industry-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/></svg></div>
         <h3 class="industry-title">Pool Services</h3>
         <p class="industry-desc">Pool cleaning, maintenance and repair businesses building a full recurring run from local Google visibility.</p>
-        <span class="industry-link">Learn more →</span>
+        <span class="industry-link">Learn more</span>
       </a>
       <a href="/google-marketing-for-landscapers/" class="industry-card">
-        <div class="industry-icon">🌳</div>
+        <div class="industry-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="12 2 22 19 2 19 12 2"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="9" y1="22" x2="15" y2="22"/></svg></div>
         <h3 class="industry-title">Landscapers</h3>
         <p class="industry-desc">Landscaping businesses attracting high-value project enquiries from homeowners searching Google for outdoor transformations.</p>
-        <span class="industry-link">Learn more →</span>
+        <span class="industry-link">Learn more</span>
       </a>
     </div>
     <div class="industries-dots" aria-hidden="true">
@@ -3421,7 +3409,7 @@
 
 <!-- ─── ABOUT ─── -->
 <section class="about" id="about" aria-label="About Haylo">
-  <div class="section-parallax-bg" id="about-bg" style="background-image:url('images/homepage/plane.webp')" aria-hidden="true"></div>
+  <div class="section-parallax-bg" id="about-bg" style="background-image:url('images/homepage/plane-under.jpg')" aria-hidden="true"></div>
   <div class="wrap">
     <div class="about-inner">
       <div class="about-visual">
@@ -3530,15 +3518,13 @@
 <section class="testimonials" id="testimonials" aria-label="Client testimonials">
   <div class="wrap">
     <div class="testimonials-header animate-fade-in">
-      <div>
-        <p class="eyebrow ruled" style="margin-bottom:1.5rem;">Client stories</p>
-        <h2 class="section-heading">
-          Hear it from our<br>
-          <em>clients.</em>
-        </h2>
-      </div>
-      <p class="services-intro">
-        Real feedback from Sunshine Coast businesses we've worked with. These aren't cherry-picked quotes  -  just honest reviews from people who've seen their visibility and enquiries improve.
+      <p class="eyebrow ruled" style="margin-bottom:1.5rem;">Client stories</p>
+      <h2 class="section-heading">
+        Hear it from our<br>
+        <em>clients.</em>
+      </h2>
+      <p class="services-intro" style="margin-top:1.5rem;max-width:52ch;">
+        Real feedback from Sunshine Coast businesses we've worked with. These aren't cherry-picked quotes - just honest reviews from people who've seen their visibility and enquiries improve.
       </p>
     </div>
     <div class="testimonials-grid stagger-animation">
@@ -3604,16 +3590,14 @@
   <div class="section-parallax-bg" id="locations-bg" style="background-image:url('/images/homepage/noosa-river-and-town.webp')" aria-hidden="true"></div>
   <div class="wrap">
     <div class="locations-header animate-fade-in">
-      <div>
-        <p class="eyebrow ruled" style="margin-bottom:1.5rem;">Where we work</p>
-        <h2 class="section-heading">
-          Local marketing<br>
-          across the <em>Sunshine<br>
-          Coast.</em>
-        </h2>
-      </div>
-      <p class="services-intro">
-        We work exclusively with Sunshine Coast service businesses. Whether you're in Caloundra, Maroochydore, Noosa or anywhere in between  -  we know your local market.
+      <p class="eyebrow ruled" style="margin-bottom:1.5rem;">Where we work</p>
+      <h2 class="section-heading">
+        Local marketing<br>
+        across the <em>Sunshine<br>
+        Coast.</em>
+      </h2>
+      <p class="services-intro" style="margin-top:1.5rem;max-width:52ch;">
+        We work exclusively with Sunshine Coast service businesses. Whether you're in Caloundra, Maroochydore, Noosa or anywhere in between - we know your local market.
       </p>
     </div>
     <div class="locations-grid stagger-animation">
