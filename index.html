@@ -864,7 +864,7 @@
   }
 
   .industry-card {
-    background: rgba(18,16,14,0.48);
+    background: rgba(18,16,14,0.65);
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
     border: 1px solid rgba(255,255,255,0.1);
@@ -1734,51 +1734,71 @@
 
   .location-card {
     text-decoration: none;
-    background: rgba(250,248,245,0.15);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(250,248,245,0.35);
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.25), 0 4px 16px rgba(0,0,0,0.15);
-    border-radius: 12px;
-    padding: 1.8rem;
+    background: rgba(18,16,14,0.65);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-top: 2px solid var(--clay);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.25);
+    border-radius: 10px;
+    padding: 1.75rem 1.5rem 1.5rem;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    transition: all 0.3s ease;
+    gap: 0;
+    transition: all 0.35s ease;
     cursor: pointer;
   }
 
   .location-card:hover,
   .location-card:focus {
-    transform: translateY(-3px);
-    background: rgba(250,248,245,0.28);
-    border-color: rgba(250,248,245,0.55);
-    box-shadow: 0 8px 32px rgba(28,26,23,0.15);
+    transform: translateY(-5px);
+    background: rgba(18,16,14,0.38);
+    border-color: rgba(255,255,255,0.18);
+    border-top-color: var(--clay);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
   }
 
   .location-card:active {
-    transform: translateY(-1px);
+    transform: translateY(-2px);
   }
 
-  .location-emoji {
-    font-size: 1.8rem;
-    line-height: 1;
+  .location-icon {
+    color: var(--clay);
+    margin-bottom: 0.9rem;
+  }
+
+  .location-icon svg {
+    display: block;
   }
 
   .location-name {
     font-family: var(--font-display);
-    font-size: 1.2rem;
+    font-size: clamp(1.2rem, 1.7vw, 1.6rem);
     font-weight: 400;
+    font-style: italic;
     color: var(--warm-white);
-    letter-spacing: -0.01em;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    margin-bottom: 0.65rem;
   }
 
   .location-desc {
-    font-size: 0.85rem;
+    font-size: 0.88rem;
     line-height: 1.7;
     color: rgba(250,248,245,0.65);
     font-weight: 300;
+    flex: 1;
   }
+
+  .location-card:nth-child(1) .location-icon { color: #e8c040; }
+  .location-card:nth-child(2) .location-icon { color: #60a8d0; }
+  .location-card:nth-child(3) .location-icon { color: #50b8a8; }
+  .location-card:nth-child(4) .location-icon { color: #78b855; }
+  .location-card:nth-child(5) .location-icon { color: #e8804a; }
+  .location-card:nth-child(6) .location-icon { color: #c49060; }
+  .location-card:nth-child(7) .location-icon { color: #9888c8; }
+  .location-card:nth-child(8) .location-icon { color: #d4a030; }
+  .location-card:nth-child(9) .location-icon { color: #b8a898; }
 
   /* Locations section text colours */
   .locations .eyebrow { color: var(--clay); }
@@ -2429,25 +2449,40 @@
 
     .locations-grid .location-card {
       aspect-ratio: 1;
-      padding: 0.5rem;
+      padding: 0.75rem;
       align-items: center;
       justify-content: center;
       text-align: center;
-      gap: 0.3rem;
+      gap: 0.4rem;
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-top: 2px solid var(--clay);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), 0 4px 16px rgba(0,0,0,0.2);
     }
-
 
     .locations-grid .location-card .location-desc {
       display: none;
     }
 
-    .locations-grid .location-card .location-emoji {
-      font-size: 1.8rem;
+    .locations-grid .location-card .location-icon {
+      margin-bottom: 0;
+    }
+
+    .locations-grid .location-card .location-icon svg {
+      width: 24px;
+      height: 24px;
     }
 
     .locations-grid .location-card .location-name {
-      font-size: 0.82rem;
-      line-height: 1.3;
+      font-size: 1rem;
+      line-height: 1.2;
+      margin-bottom: 0;
+      min-height: 2.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .locations-dots {
@@ -2650,10 +2685,12 @@
 
   @media (min-width: 901px) {
     .industries-dots { display: none; }
-    .industry-card {
+    .industry-card,
+    .location-card {
       padding: 2rem 1.75rem 1.75rem;
     }
-    .industry-card .industry-title {
+    .industry-card .industry-title,
+    .location-card .location-name {
       font-size: 1.6rem;
     }
   }
@@ -3606,47 +3643,47 @@
     </div>
     <div class="locations-grid stagger-animation">
       <a href="/marketing-consultant-sunshine-coast/" class="location-card">
-        <div class="location-emoji">☀️</div>
+        <div class="location-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></div>
         <h3 class="location-name">Sunshine Coast</h3>
         <p class="location-desc">Full region coverage from Caloundra to Noosa, plus everywhere in between.</p>
       </a>
       <a href="/marketing-consultant-caloundra/" class="location-card">
-        <div class="location-emoji">🏖️</div>
+        <div class="location-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2"/><path d="M2 12c.6.5 1.2 1 2.5 1c2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2"/><path d="M2 18c.6.5 1.2 1 2.5 1c2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2"/></svg></div>
         <h3 class="location-name">Caloundra</h3>
         <p class="location-desc">Kings Beach, Aura, Little Mountain, Mooloolaba and surrounding suburbs.</p>
       </a>
       <a href="/marketing-consultant-maroochydore/" class="location-card">
-        <div class="location-emoji">🌊</div>
+        <div class="location-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8c.6.5 1.2 1 2.5 1C7 9 7 7 9.5 7c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2"/><path d="M2 15c.6.5 1.2 1 2.5 1c2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2"/></svg></div>
         <h3 class="location-name">Maroochydore</h3>
         <p class="location-desc">Alexandra Headland, Cotton Tree, Bli Bli and the central coast area.</p>
       </a>
       <a href="/marketing-consultant-buderim/" class="location-card">
-        <div class="location-emoji">🌳</div>
+        <div class="location-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 019.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg></div>
         <h3 class="location-name">Buderim</h3>
         <p class="location-desc">Sippy Downs, Forest Glen, Palmwoods and the hinterland region.</p>
       </a>
       <a href="/marketing-consultant-noosa/" class="location-card">
-        <div class="location-emoji">🥥</div>
+        <div class="location-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
         <h3 class="location-name">Noosa</h3>
         <p class="location-desc">Noosa Heads, Noosaville, Tewantin and Sunshine Beach.</p>
       </a>
       <a href="/marketing-consultant-nambour/" class="location-card">
-        <div class="location-emoji">🏘️</div>
+        <div class="location-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
         <h3 class="location-name">Nambour</h3>
         <p class="location-desc">Woombye, Bli Bli, Yandina and the broader hinterland catchment.</p>
       </a>
       <a href="/marketing-consultant-glass-house-mountains/" class="location-card">
-        <div class="location-emoji">⛰️</div>
+        <div class="location-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="12 2 22 19 2 19 12 2"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="9" y1="22" x2="15" y2="22"/></svg></div>
         <h3 class="location-name">Glass House Mountains</h3>
         <p class="location-desc">Beerwah, Beerburrum, Glasshouse and the southern hinterland corridor.</p>
       </a>
       <a href="/marketing-consultant-kawana/" class="location-card">
-        <div class="location-emoji">🏗️</div>
+        <div class="location-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg></div>
         <h3 class="location-name">Kawana</h3>
         <p class="location-desc">Bokarina, Birtinya, Buddina, Wurtulla and the Kawana growth corridor.</p>
       </a>
       <a href="#contact" class="location-card">
-        <div class="location-emoji">❓</div>
+        <div class="location-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg></div>
         <h3 class="location-name">Somewhere else?</h3>
         <p class="location-desc">We cover the full Sunshine Coast. Get in touch and we'll confirm your area.</p>
       </a>
