@@ -196,26 +196,74 @@
 
   /* ─── HERO ─── */
   .hero {
-    min-height: calc(100vh - 4rem);
-    padding: var(--space-xl) 0 0;
+    min-height: 100vh;
     overflow: hidden;
     position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background: var(--warm-white);
+    display: grid;
+    grid-template-columns: 48% 52%;
+    align-items: start;
+    background: var(--stone);
+  }
+
+  .hero-photo {
+    grid-column: 2;
+    grid-row: 1;
+    min-height: 100vh;
+    align-self: stretch;
+    background: url('images/homepage/hero-image.webp') center / cover no-repeat;
+    pointer-events: none;
+    position: relative;
+  }
+
+  .hero-photo::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, var(--stone) 0%, rgba(246,245,243,0.6) 35%, rgba(246,245,243,0.15) 65%, transparent 100%);
   }
 
   .hero-inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: start;
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 0 var(--gutter);
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: var(--space-xxl) var(--gutter) var(--space-xl) clamp(3rem, 10vw, 10rem);
     position: relative;
     z-index: 1;
+  }
+
+  .hero-proof {
+    display: flex;
+    gap: 2.5rem;
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(28,26,23,0.12);
+  }
+
+  .hero-proof-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .hero-proof-num {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    font-weight: 300;
+    color: var(--clay);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-proof-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    font-weight: 400;
+    max-width: 14ch;
+    line-height: 1.4;
   }
 
   .hero-text {
@@ -228,10 +276,10 @@
 
   .hero-heading {
     font-family: var(--font-display);
-    font-size: clamp(3rem, 6vw, 5.5rem);
+    font-size: clamp(3.5rem, 7.5vw, 8rem);
     font-weight: 300;
-    line-height: 1.05;
-    letter-spacing: -0.01em;
+    line-height: 1.0;
+    letter-spacing: -0.02em;
     color: var(--ink);
     margin-bottom: 2rem;
   }
@@ -248,11 +296,11 @@
     font-size: 0.75rem;
     font-weight: 400;
     letter-spacing: 0.03em;
-    color: var(--ink-muted);
+    color: var(--ink-soft);
   }
 
   .hero-trust > svg {
-    color: var(--ink);
+    color: var(--clay);
     flex-shrink: 0;
   }
 
@@ -263,7 +311,7 @@
 
   .hero-stars svg {
     margin-left: -4px;
-    color: var(--ink-muted);
+    color: var(--clay);
   }
 
   .hero-stars svg:first-child {
@@ -272,7 +320,7 @@
 
   .hero-heading-sub {
     font-weight: 300;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.02em;
     color: var(--ink);
     font-style: normal;
   }
@@ -296,12 +344,12 @@
   }
 
   .hero-body {
-    font-size: 1.05rem;
-    line-height: 1.8;
+    font-size: 1.1rem;
+    line-height: 1.75;
     color: var(--ink-soft);
     max-width: 38ch;
     margin-bottom: 2.75rem;
-    font-weight: 300;
+    font-weight: 400;
   }
 
   .hero-actions {
@@ -381,7 +429,7 @@
   }
 
   .hero-visual {
-    position: relative;
+    display: none;
   }
 
   .hero-img-main {
@@ -511,9 +559,13 @@
   }
 
   /* ─── SERVICES ─── */
+  .services-heading {
+    color: var(--ink);
+  }
+
   .services {
-    padding: 5rem 0 6rem;
-    background: var(--ink);
+    padding: 5rem 0 3rem;
+    background: var(--stone);
     position: relative;
     z-index: 10;
     margin-top: 0;
@@ -523,11 +575,11 @@
   .services::after {
     content: '';
     position: absolute;
-    bottom: -5rem;
+    bottom: -2rem;
     left: 0;
     right: 0;
-    height: 5rem;
-    background: var(--ink);
+    height: 2rem;
+    background: var(--stone);
     pointer-events: none;
     z-index: 1;
   }
@@ -557,7 +609,7 @@
   .services-intro {
     font-size: 1rem;
     line-height: 1.8;
-    color: rgba(250,248,245,0.5);
+    color: var(--ink-soft);
     max-width: 44ch;
     align-self: end;
     font-weight: 300;
@@ -567,7 +619,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 6px;
-    background: var(--ink);
+    background: var(--stone);
   }
 
   .service-item {
@@ -579,7 +631,7 @@
     position: relative;
     overflow: hidden;
     background-color: var(--ink);
-    border: 1px solid rgba(184,150,122,0.45);
+    border: 1px solid var(--clay);
     box-shadow: inset 0 3px 0 transparent;
     transition: box-shadow 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
   }
@@ -589,7 +641,7 @@
     position: absolute;
     inset: 0;
     background: var(--service-bg, none) center/cover no-repeat;
-    opacity: 0.30;
+    opacity: 0.35;
     transition: opacity 0.4s ease, transform 0.4s ease;
     transform: scale(1.05);
     pointer-events: none;
@@ -597,7 +649,7 @@
 
   .service-item:hover::before,
   .service-item:focus-within::before {
-    opacity: 0.45;
+    opacity: 0.5;
     transform: scale(1);
   }
 
@@ -687,7 +739,7 @@
 
   .service-desc {
     font-size: 0.82rem;
-    color: rgba(250,248,245,0.38);
+    color: rgba(250,248,245,0.7);
     line-height: 1.75;
     font-weight: 300;
     margin-top: 0.75rem;
@@ -2007,30 +2059,55 @@
     }
 
     .hero {
-      min-height: calc(100svh - 4rem);
-      min-height: calc(100vh - 4rem);
-      justify-content: flex-start;
-      padding-top: 1.5rem;
+      grid-template-columns: 1fr;
+      min-height: 100svh;
+      min-height: 100vh;
+      align-content: start;
+      padding-bottom: 3rem;
+    }
+
+    .hero-photo {
+      grid-column: 1;
+      grid-row: 1;
+      position: absolute;
+      inset: 0;
+      min-height: auto;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero-photo::before {
+      background: linear-gradient(to top, rgba(246,245,243,0.98) 0%, rgba(246,245,243,0.85) 40%, rgba(246,245,243,0.4) 70%, transparent 100%);
     }
 
     .hero-inner {
-      grid-template-columns: 1fr;
-      gap: 1.25rem;
+      grid-column: 1;
+      grid-row: 1;
+      padding-top: 5rem;
+      justify-content: flex-start;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-heading {
+      font-size: clamp(6.5rem, 19vw, 8rem);
+      line-height: 0.95;
+    }
+
+    .hero-heading em {
+      text-shadow: 0 2px 20px rgba(0,0,0,0.6);
     }
 
     .hero-visual {
-      order: -1;
+      display: none;
     }
 
-    .hero-img-main {
-      aspect-ratio: 4/3;
+    .hero-proof {
+      gap: 1.5rem;
     }
 
-    .hero-img-accent {
-      bottom: -1.5rem;
-      left: auto;
-      right: 1.5rem;
-      width: 36%;
+    .hero-proof-num {
+      font-size: 1.4rem;
     }
 
     .word-loop {
@@ -2047,7 +2124,7 @@
     }
 
     .hero-heading {
-      font-size: clamp(2.6rem, 8vw, 4rem);
+      font-size: clamp(3.5rem, 12vw, 5rem);
     }
 
     .hero-actions {
@@ -2390,7 +2467,7 @@
     }
 
     .services {
-      padding: 6rem 0 5rem;
+      padding: 4rem 0 2rem;
     }
 
     .work-header {
@@ -2415,6 +2492,28 @@
   }
   /* ─── SERVICES GRID  -  mobile ─── */
   @media (max-width: 767px) {
+    .services {
+      background: var(--ink);
+    }
+
+    .services::after {
+      background: var(--ink);
+    }
+
+    .services .btn-primary {
+      background: transparent;
+      color: var(--clay);
+      border-color: var(--clay);
+    }
+
+    .services .section-heading {
+      color: var(--warm-white);
+    }
+
+    .services .services-intro {
+      color: rgba(250,248,245,0.6);
+    }
+
     .services-header {
       grid-template-columns: 1fr;
       gap: 0.75rem;
@@ -2434,7 +2533,7 @@
     .service-item {
       aspect-ratio: 3/4;
       padding: 0 !important;
-      border: 1px solid rgba(184,150,122,0.45) !important;
+      border: 1px solid var(--clay) !important;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
@@ -2445,7 +2544,7 @@
     }
 
     .service-item::before {
-      opacity: 0.45;
+      opacity: 0.7;
       transform: scale(1);
     }
 
@@ -2453,7 +2552,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(28,26,23,0.92) 0%, rgba(28,26,23,0.05) 60%);
+      background: linear-gradient(to top, rgba(28,26,23,0.97) 0%, rgba(28,26,23,0.75) 30%, rgba(28,26,23,0.25) 60%, rgba(28,26,23,0.15) 100%);
       pointer-events: none;
     }
 
@@ -2473,7 +2572,7 @@
     .service-item .service-tag {
       position: relative;
       z-index: 2;
-      padding: 0 1rem 1rem;
+      padding: 0 1rem 0.5rem;
       margin-top: 0;
       opacity: 0;
     }
@@ -3051,11 +3150,13 @@
 
 <!-- ─── HERO ─── -->
 <section class="hero" aria-label="Introduction">
+  <div class="hero-photo" aria-hidden="true"></div>
   <div class="hero-inner">
     <div class="hero-text animate-fade-in-up">
-      <p class="eyebrow ruled hero-eyebrow">Sunshine Coast &middot; Local Marketing</p>
+      <p class="eyebrow ruled ruled-light hero-eyebrow">Sunshine Coast &middot; Local Marketing</p>
       <h1 class="hero-heading">
-        Sunshine Coast businesses,<br>
+        Sunshine Coast<br>
+        businesses,<br>
         <em class="wl-word-inline" id="wl-word-inline">found</em><br>
         <span class="hero-heading-sub">by the right people.</span>
       </h1>
@@ -3064,15 +3165,35 @@
       </p>
       <div class="hero-actions">
         <a href="/google-business-profile-audit/#audit-form" class="btn-primary">Start a conversation</a>
-        <span class="hero-trust"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>Trusted by Sunshine Coast businesses<span class="hero-stars" aria-label="5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span></span>
+        <span class="hero-trust">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Trusted by local Sunshine Coast businesses
+          <span class="hero-stars" aria-label="5 stars">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </span>
+        </span>
+      </div>
+      <div class="hero-proof">
+        <div class="hero-proof-item">
+          <span class="hero-proof-num">47+</span>
+          <span class="hero-proof-label">Local businesses ranked on Google</span>
+        </div>
+        <div class="hero-proof-item">
+          <span class="hero-proof-num">4.9</span>
+          <span class="hero-proof-label">Average client review rating</span>
+        </div>
+        <div class="hero-proof-item">
+          <span class="hero-proof-num">2-8</span>
+          <span class="hero-proof-label">Weeks to first results</span>
+        </div>
       </div>
     </div>
 
-    <div class="hero-visual animate-scale-in">
-      <div class="hero-img-main">
-        <img src="images/homepage/hero-image.webp" alt="Haylo – Sunshine Coast marketing agency helping local trades and service businesses get found online" fetchpriority="high" />
-      </div>
-    </div>
+    <div class="hero-visual" aria-hidden="true"></div>
   </div>
 
 </section>
@@ -3103,8 +3224,8 @@
   <div class="wrap">
     <div class="services-header animate-fade-in">
       <div>
-        <p class="eyebrow ruled ruled-light" style="margin-bottom:1.5rem;">What we do</p>
-        <h2 class="section-heading" style="color:var(--warm-white);">
+        <p class="eyebrow ruled" style="margin-bottom:1.5rem;">What we do</p>
+        <h2 class="section-heading services-heading">
           Everything your<br>
           business needs to<br>
           <em>get found.</em>
@@ -3184,7 +3305,7 @@
 
     </div>
     <div style="margin-top: 3rem; text-align: center;">
-      <a href="/google-business-profile-audit/#audit-form" class="btn-primary-light">See what's holding you back</a>
+      <a href="/google-business-profile-audit/#audit-form" class="btn-primary">See what's holding you back</a>
     </div>
   </div>
 </section>
