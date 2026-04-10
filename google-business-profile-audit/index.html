@@ -831,8 +831,7 @@ if (form) {
     const data = new FormData(form);
     const res = await fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
     if (res.ok) {
-      form.style.display = 'none';
-      success.style.display = 'block';
+      window.location.href = '/thank-you';
     }
   });
 }
