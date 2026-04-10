@@ -4325,7 +4325,7 @@ serviceNumbers.forEach(num => serviceCounterObserver.observe(num));
         body: JSON.stringify(data)
       });
       if (res.ok) {
-        window.location.href = '/thank-you.html';
+        window.location.href = '/thank-you';
       } else {
         btn.textContent = 'Something went wrong - try again';
         btn.disabled = false;
