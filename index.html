@@ -1591,7 +1591,7 @@
     flex-shrink: 0;
   }
 
-  .testimonial-info h4 {
+  .testimonial-info h3 {
     font-family: var(--font-display);
     font-size: 0.95rem;
     font-weight: 400;
@@ -3225,6 +3225,8 @@
   </div>
 </header>
 
+<main>
+
 <!-- ─── HERO ─── -->
 <section class="hero" aria-label="Introduction">
   <div class="hero-photo" aria-hidden="true"></div>
@@ -3452,7 +3454,7 @@
         <span class="industry-link">Learn more</span>
       </a>
     </div>
-    <div class="industries-dots" aria-hidden="true">
+    <div class="industries-dots" role="tablist" aria-label="Industry navigation">
       <button class="industries-dot active" aria-label="Industry 1"></button>
       <button class="industries-dot" aria-label="Industry 2"></button>
       <button class="industries-dot" aria-label="Industry 3"></button>
@@ -3469,12 +3471,12 @@
 
 <!-- ─── ABOUT ─── -->
 <section class="about" id="about" aria-label="About Haylo">
-  <div class="section-parallax-bg" id="about-bg" style="background-image:url('images/homepage/plane-under.jpg')" aria-hidden="true"></div>
+  <div class="section-parallax-bg" id="about-bg" style="background-image:url('images/homepage/plane-under.webp')" aria-hidden="true"></div>
   <div class="wrap">
     <div class="about-inner">
       <div class="about-visual">
         <div class="about-img-wrap">
-          <img src="images/homepage/about-me.webp" alt="Sam, founder of Haylo" loading="lazy" />
+          <img src="images/homepage/about-me.webp" alt="Sam, founder of Haylo" loading="lazy" width="1023" height="1345" />
         </div>
         <p class="about-caption">Sam Davies  -  Founder of haylo</p>
       </div>
@@ -3492,7 +3494,7 @@
         </p>
         <div class="about-signature">
           <div class="about-avatar">
-            <img src="images/homepage/about-me.webp" alt="Sam Davies, founder of Haylo" />
+            <img src="images/homepage/about-me.webp" alt="Sam Davies, founder of Haylo" loading="lazy" width="1023" height="1345" />
           </div>
           <p class="about-caption">Sam Davies  -  Founder of Haylo</p>
         </div>
@@ -3522,7 +3524,7 @@
 
       <div class="work-card">
         <div class="work-card-img">
-          <div class="work-card-imac"><img src="/images/Clients-sites/cleaning-with-kym-imac.webp" alt="Cleaning With Kym website" loading="lazy"></div>
+          <div class="work-card-imac"><img src="/images/Clients-sites/cleaning-with-kym-imac.webp" alt="Cleaning With Kym website" loading="lazy" width="1080" height="1104"></div>
         </div>
         <div class="work-card-body">
           <span class="work-type">Residential Cleaning</span>
@@ -3533,7 +3535,7 @@
 
       <div class="work-card">
         <div class="work-card-img">
-          <div class="work-card-imac"><img src="/images/Clients-sites/oven-cleaning-sunshine-coast-imac.webp" alt="Oven Cleaning Sunshine Coast website" loading="lazy"></div>
+          <div class="work-card-imac"><img src="/images/Clients-sites/oven-cleaning-sunshine-coast-imac.webp" alt="Oven Cleaning Sunshine Coast website" loading="lazy" width="1080" height="1104"></div>
         </div>
         <div class="work-card-body">
           <span class="work-type">Specialist Cleaning</span>
@@ -3544,7 +3546,7 @@
 
       <div class="work-card">
         <div class="work-card-img">
-          <div class="work-card-imac"><img src="/images/Clients-sites/secure-home-solutions-imac.webp" alt="Secure Home Solutions website" loading="lazy"></div>
+          <div class="work-card-imac"><img src="/images/Clients-sites/secure-home-solutions-imac.webp" alt="Secure Home Solutions website" loading="lazy" width="1080" height="1104"></div>
         </div>
         <div class="work-card-body">
           <span class="work-type">Home Security</span>
@@ -3565,7 +3567,7 @@
       </div>
 
     </div>
-    <div class="work-dots" aria-hidden="true">
+    <div class="work-dots" role="tablist" aria-label="Work navigation">
       <button class="work-dot active" aria-label="Work 1"></button>
       <button class="work-dot" aria-label="Work 2"></button>
       <button class="work-dot" aria-label="Work 3"></button>
@@ -3594,7 +3596,7 @@
         <div class="testimonial-author">
           <div class="testimonial-avatar">ST</div>
           <div class="testimonial-info">
-            <h4>Sarah Tappe</h4>
+            <h3 class="testimonial-name">Sarah Tappe</h3>
             <p>The Laser Cut Crew, Sunshine Coast</p>
           </div>
         </div>
@@ -3605,7 +3607,7 @@
         <div class="testimonial-author">
           <div class="testimonial-avatar" style="background: var(--sage-light);">SH</div>
           <div class="testimonial-info">
-            <h4>Secure Home Solutions</h4>
+            <h3 class="testimonial-name">Secure Home Solutions</h3>
             <p>Home Security, Sunshine Coast</p>
           </div>
         </div>
@@ -3616,7 +3618,7 @@
         <div class="testimonial-author">
           <div class="testimonial-avatar" style="background: #ddd8d0;">KO</div>
           <div class="testimonial-info">
-            <h4>KO Cleaning</h4>
+            <h3 class="testimonial-name">KO Cleaning</h3>
             <p>Cleaning Services, Sunshine Coast</p>
           </div>
         </div>
@@ -3627,13 +3629,13 @@
         <div class="testimonial-author">
           <div class="testimonial-avatar" style="background: #c8d0c2;">TW</div>
           <div class="testimonial-info">
-            <h4>Terri Webb</h4>
+            <h3 class="testimonial-name">Terri Webb</h3>
             <p>Sunshine Coast Oven Cleaning</p>
           </div>
         </div>
       </article>
     </div>
-    <div class="testimonials-dots" aria-hidden="true">
+    <div class="testimonials-dots" role="tablist" aria-label="Testimonial navigation">
       <button class="testimonials-dot active" aria-label="Review 1"></button>
       <button class="testimonials-dot" aria-label="Review 2"></button>
       <button class="testimonials-dot" aria-label="Review 3"></button>
@@ -3707,7 +3709,7 @@
         <p class="location-desc">We cover the full Sunshine Coast. Get in touch and we'll confirm your area.</p>
       </a>
     </div>
-    <div class="locations-dots" aria-hidden="true">
+    <div class="locations-dots" role="tablist" aria-label="Location navigation">
       <button class="locations-dot active" aria-label="Location 1"></button>
       <button class="locations-dot" aria-label="Location 2"></button>
       <button class="locations-dot" aria-label="Location 3"></button>
@@ -3785,7 +3787,7 @@
       </div>
 
     </div>
-    <div class="pricing-dots" aria-hidden="true">
+    <div class="pricing-dots" role="tablist" aria-label="Pricing navigation">
       <button class="pricing-dot active" aria-label="Card 1"></button>
       <button class="pricing-dot" aria-label="Card 2"></button>
       <button class="pricing-dot" aria-label="Card 3"></button>
@@ -3952,6 +3954,8 @@
     </div>
   </div>
 </section>
+
+</main>
 
 <!-- ─── FOOTER ─── -->
 <footer class="site-footer">
