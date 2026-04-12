@@ -1852,7 +1852,60 @@
     color: var(--ink-soft);
     font-weight: 300;
     max-width: 42ch;
-    margin-bottom: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-receive-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    margin-bottom: 2rem;
+  }
+
+  .cta-receive-list li {
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+    font-weight: 300;
+    padding-left: 1.25rem;
+    position: relative;
+  }
+
+  .cta-receive-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--clay);
+    font-size: 0.75rem;
+  }
+
+  .cta-testimonial {
+    padding: 1.25rem 1.5rem;
+    border-left: 2px solid var(--clay);
+    background: rgba(184,150,122,0.06);
+  }
+
+  .cta-testimonial-stars {
+    color: var(--clay);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+  }
+
+  .cta-testimonial-text {
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+    font-weight: 300;
+    line-height: 1.7;
+    font-style: italic;
+    margin-bottom: 0.5rem;
+  }
+
+  .cta-testimonial-author {
+    font-size: 0.72rem;
+    color: var(--ink-muted);
+    font-weight: 400;
+    letter-spacing: 0.03em;
   }
 
   .cta-actions {
@@ -3246,7 +3299,7 @@
         We get Sunshine Coast tradies and service businesses found on Google. More calls, more jobs - without chasing.
       </p>
       <div class="hero-actions">
-        <a href="/google-business-profile-audit/#audit-form" class="btn-primary">Start a conversation</a>
+        <a href="/google-business-profile-audit/#audit-form" class="btn-primary">Get my free audit</a>
         <span class="hero-trust">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           <span class="trust-long">Trusted by local Sunshine Coast businesses</span><span class="trust-short">Trusted by Sunshine Coast businesses</span>
@@ -3908,14 +3961,25 @@
   <div class="wrap">
     <div class="cta-inner animate-fade-in">
       <div class="cta-text">
-        <p class="eyebrow ruled">Get in touch</p>
+        <p class="eyebrow ruled">Free audit - no obligation</p>
         <h2 class="cta-heading">
-          Ready when<br>
-          <em>you are.</em>
+          Find out why customers<br>
+          <em>aren't finding you.</em>
         </h2>
         <p class="cta-body">
-          If you're a local business that wants a stronger online presence, start with a free audit. We'll show you exactly why customers aren't finding you  -  no hard sell, no obligation.
+          We'll take a close look at your Google Business Profile and come back with honest observations and clear next steps - no hard sell, no obligation.
         </p>
+        <ul class="cta-receive-list">
+          <li>A plain-English summary of your profile health</li>
+          <li>Your ranking for your main search terms</li>
+          <li>The key areas holding you back from the top three</li>
+          <li>A clear recommendation - no pressure</li>
+        </ul>
+        <div class="cta-testimonial">
+          <div class="cta-testimonial-stars">★ ★ ★ ★ ★</div>
+          <p class="cta-testimonial-text">"Sam took a look at our profile and came back with specific, honest advice. No jargon, no hard sell. Within a few weeks we were getting noticeably more calls."</p>
+          <p class="cta-testimonial-author">Sarah Tappe - The Laser Cut Crew, Sunshine Coast</p>
+        </div>
       </div>
 
       <div class="cta-side">
@@ -3941,12 +4005,8 @@
               <input type="email" id="cf-email" name="email" placeholder="you@example.com">
             </div>
           </div>
-          <div>
-            <label for="cf-message">What do you need help with?</label>
-            <textarea id="cf-message" name="message" placeholder="Google ranking, reviews, website..."></textarea>
-          </div>
-          <button type="submit" class="cta-form-submit">Send message →</button>
-          <p class="cta-form-note">No obligation. We'll be in touch within one business day.</p>
+          <button type="submit" class="cta-form-submit">Get my free audit →</button>
+          <p class="cta-form-note">Sunshine Coast businesses only. We'll be in touch within one business day.</p>
         </form>
         <div class="cta-form-success" id="contact-success">
           <div class="cta-form-success-icon">✓</div>
@@ -4556,6 +4616,90 @@ document.querySelectorAll('.footer-col-toggle').forEach(function(btn){
   window.addEventListener('scroll', update, { passive: true });
   window.addEventListener('resize', update, { passive: true });
   update();
+})();
+</script>
+
+<style>
+  .sticky-audit-bar { display: none; }
+
+  @media (max-width: 767px) {
+    .sticky-audit-bar {
+      display: flex;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 200;
+      background: var(--ink);
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding: 0.9rem 1.25rem;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .sticky-audit-bar-text {
+      font-size: 0.8rem;
+      color: rgba(250,248,245,0.55);
+      font-weight: 300;
+      line-height: 1.3;
+    }
+
+    .sticky-audit-bar-text strong {
+      display: block;
+      color: var(--warm-white);
+      font-weight: 500;
+      font-size: 0.85rem;
+    }
+
+    .sticky-audit-bar-btn {
+      flex-shrink: 0;
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--warm-white);
+      background: var(--clay);
+      border: none;
+      padding: 0.75rem 1.25rem;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    body { padding-bottom: 70px; }
+  }
+</style>
+
+<div class="sticky-audit-bar" id="sticky-audit-bar">
+  <div class="sticky-audit-bar-text">
+    <strong>Free Google Business Audit</strong>
+    Sunshine Coast businesses only
+  </div>
+  <a href="/google-business-profile-audit/#audit-form" class="sticky-audit-bar-btn">Get mine free</a>
+</div>
+
+<script>
+// Show sticky bar only after scrolling past hero, hide once contact form is visible
+(function () {
+  var bar = document.getElementById('sticky-audit-bar');
+  var hero = document.querySelector('.hero');
+  var contact = document.getElementById('contact');
+  if (!bar || !hero) return;
+
+  bar.style.display = 'none';
+
+  var heroObs = new IntersectionObserver(function (entries) {
+    bar.style.display = entries[0].isIntersecting ? 'none' : '';
+  }, { threshold: 0 });
+  heroObs.observe(hero);
+
+  if (contact) {
+    var contactObs = new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting) bar.style.display = 'none';
+    }, { threshold: 0.3 });
+    contactObs.observe(contact);
+  }
 })();
 </script>
 </body>
