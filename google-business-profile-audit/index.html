@@ -119,7 +119,7 @@
   .audit-hero-bg {
     position: absolute;
     inset: 0;
-    background-image: url('/images/audit/audit-hero.webp');
+    background-image: url('/images/homepage/buderim.webp');
     background-size: cover;
     background-position: center 40%;
   }
@@ -192,6 +192,7 @@
   .section { padding: 6rem var(--gutter); }
   .section-stone { background: var(--stone); }
   .section-stone-mid { background: var(--stone-mid); }
+  .section-white { background: #fff; }
   .section-ink { background: var(--ink); }
   .section-wrap { max-width: var(--max-width); margin: 0 auto; }
 
@@ -267,7 +268,7 @@
   }
 
   .issue-item {
-    background: var(--stone-mid);
+    background: var(--stone);
     padding: 1.5rem 1.25rem;
   }
 
@@ -470,6 +471,98 @@
   .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
   .reveal.visible { opacity: 1; transform: none; }
 
+  /* ─── STEPS ─── */
+  .section-steps { padding-top: 5rem; padding-bottom: 5rem; background: var(--stone); }
+
+  .steps-header {
+    margin-bottom: 3rem;
+  }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .step-item {
+    padding: 2rem;
+    background: var(--stone-mid);
+    border-top: 2px solid var(--clay);
+  }
+
+  .step-num {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--clay);
+    opacity: 0.4;
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+
+  .step-title {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 0.6rem;
+  }
+
+  .step-body {
+    font-size: 0.85rem;
+    color: var(--ink-muted);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  /* ─── AUDIT WHO ─── */
+  .audit-who {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    margin-bottom: 1.5rem;
+    padding: 1rem 1.25rem;
+    background: rgba(250,248,245,0.06);
+    border: 1px solid rgba(250,248,245,0.1);
+  }
+
+  .audit-who-photo {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center top;
+    flex-shrink: 0;
+  }
+
+  .audit-who-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .audit-who-text strong {
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--warm-white);
+  }
+
+  .audit-who-text span {
+    font-size: 0.75rem;
+    color: rgba(250,248,245,0.4);
+    font-weight: 300;
+  }
+
+  .form-note-call {
+    color: var(--clay);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .form-note-call:hover {
+    text-decoration: underline;
+  }
+
   /* ─── FORM TESTIMONIAL ─── */
   .form-testimonial {
     margin-top: 2rem;
@@ -569,6 +662,7 @@
     .nav-call-mobile { display: list-item !important; }
     .covers-split { grid-template-columns: 1fr; gap: 3rem; }
     .form-wrap { grid-template-columns: 1fr; gap: 3rem; }
+    .steps-grid { grid-template-columns: 1fr; gap: 1rem; }
   }
 
   @media (max-width: 580px) {
@@ -728,7 +822,7 @@
   <div class="audit-hero-overlay"></div>
   <div class="audit-hero-inner">
     <p class="page-crumb"><a href="/">Home</a> / Free Audit</p>
-    <h1 class="audit-h1">Find out where customers<br><em>aren't finding you.</em></h1>
+    <h1 class="audit-h1">Find out why customers<br><em>aren't finding you.</em></h1>
     <p class="audit-hero-sub">We'll take a close look at your Google Business Profile and show you exactly what's holding you back from the top three - at no cost, no commitment.</p>
     <div class="hero-pills">
       <span class="hero-pill">Free - no obligation</span>
@@ -739,7 +833,7 @@
 </section>
 
 <!-- WHAT'S COVERED -->
-<section class="section section-stone">
+<section class="section section-white">
   <div class="section-wrap">
     <div class="covers-split reveal">
       <div>
@@ -785,6 +879,33 @@
   </div>
 </section>
 
+<!-- WHAT HAPPENS NEXT -->
+<section class="section section-steps">
+  <div class="section-wrap">
+    <div class="steps-header reveal">
+      <span class="eyebrow">What Happens Next</span>
+      <h2 class="sec-h2">Simple as<br><em>three steps.</em></h2>
+    </div>
+    <div class="steps-grid reveal">
+      <div class="step-item">
+        <div class="step-num">01</div>
+        <h3 class="step-title">Fill in the form</h3>
+        <p class="step-body">Takes less than a minute. Just your name, business and phone number - that's all we need to get started.</p>
+      </div>
+      <div class="step-item">
+        <div class="step-num">02</div>
+        <h3 class="step-title">We review your profile</h3>
+        <p class="step-body">Sam personally reviews your Google Business Profile, checks your local rankings and compares you against nearby competitors.</p>
+      </div>
+      <div class="step-item">
+        <div class="step-num">03</div>
+        <h3 class="step-title">You get a clear picture</h3>
+        <p class="step-body">We call or message you with honest findings - what's working, what isn't, and exactly what we'd fix first. No pitch, no pressure.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- FORM -->
 <section class="form-section" id="audit-form">
   <div class="form-wrap reveal">
@@ -805,6 +926,13 @@
       </div>
     </div>
     <div>
+      <div class="audit-who">
+        <img src="/images/homepage/about-me.webp" alt="Sam Davies, founder of Haylo" class="audit-who-photo" width="56" height="56">
+        <div class="audit-who-text">
+          <strong>Sam Davies</strong>
+          <span>Founder, Haylo - Sunshine Coast</span>
+        </div>
+      </div>
       <form class="audit-form" action="https://formspree.io/f/xeelpqge" method="POST" id="audit-form-el">
         <input type="hidden" name="_source" value="audit-page">
         <div class="form-row-2">
@@ -828,7 +956,7 @@
           </div>
         </div>
         <button type="submit" class="form-submit">Send my free audit request</button>
-        <p class="form-note">No obligation. We'll be in touch within one business day.</p>
+        <p class="form-note">No obligation. Or call Sam directly on <a href="tel:0490422192" class="form-note-call">0490 422 192</a></p>
       </form>
       <div class="form-success" id="form-success">
         <div class="form-success-icon">✓</div>
