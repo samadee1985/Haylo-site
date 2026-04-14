@@ -119,6 +119,19 @@
   .footer-bottom { padding: 1.5rem 0; }
   .footer-copy { font-size: 0.73rem; color: rgba(255,255,255,0.25); }
 
+
+  /* Author bio */
+  .author-bio { display: flex; align-items: flex-start; gap: 1.25rem; padding: 1.75rem; background: var(--stone-mid); border: 1px solid var(--border); margin-top: 3rem; }
+  .author-bio-photo { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; object-position: center top; flex-shrink: 0; }
+  .author-bio-text { display: flex; flex-direction: column; gap: 0.35rem; }
+  .author-bio-name { font-size: 0.82rem; font-weight: 500; color: var(--ink); letter-spacing: 0.03em; }
+  .author-bio-role { font-size: 0.75rem; color: var(--ink-muted); font-weight: 300; }
+  .author-bio-desc { font-size: 0.82rem; color: var(--ink-soft); line-height: 1.6; margin-top: 0.2rem; font-weight: 300; }
+  @media (max-width: 480px) {
+    .author-bio { flex-direction: column; gap: 1rem; }
+    .author-bio-photo { width: 48px; height: 48px; }
+  }
+
   .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
   .reveal.visible { opacity: 1; transform: none; }
 
@@ -188,9 +201,9 @@
       "datePublished": "2025-01-01",
       "dateModified": "2025-01-01",
       "author": {
-        "@type": "Organization",
-        "name": "Haylo",
-        "url": "https://www.withhaylo.com/"
+        "@type": "Person",
+        "name": "Sam Davies",
+        "url": "https://www.withhaylo.com/about/"
       },
       "publisher": {
         "@type": "Organization",
@@ -401,6 +414,14 @@
 <p>Traditional SEO focuses on ranking your website pages in the organic (non-map) search results, often for broader or national keywords. Local SEO focuses primarily on your Google Business Profile and ranking in the Map Pack - the 3 business listings that appear with a map on local search results. Local SEO also includes factors that traditional SEO doesn't emphasise as much, like review quantity and quality, NAP (name, address, phone) consistency across directories, and proximity to the searcher. Most small local businesses will see faster results from local SEO than from traditional website SEO.</p>
 <h3>What are the most important local SEO factors for Google Maps rankings?</h3>
 <p>Google's own guidance points to three core factors: relevance (how well your profile matches the search), distance (how close you are to the person searching), and prominence (how well-known and active your business is online). In practice, the most impactful actions are choosing the right primary category on your Google Business Profile, consistently collecting five-star reviews, posting regular updates, and keeping all your business information accurate and complete. Review velocity - how frequently you're getting new reviews - is one of the strongest signals businesses can influence directly.</p>
+      <div class="author-bio">
+        <img src="/images/homepage/about-me.webp" alt="Sam Davies" class="author-bio-photo" width="64" height="64" loading="lazy">
+        <div class="author-bio-text">
+          <span class="author-bio-name">Sam Davies</span>
+          <span class="author-bio-role">Founder, Haylo - Sunshine Coast local marketing specialist</span>
+          <p class="author-bio-desc">Sam has worked with tradies, cleaners, and service businesses across the Sunshine Coast since 2023, helping them get found on Google and turn local searches into booked jobs. He writes about local SEO, Google Business Profile management, and what actually works for small service businesses.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>

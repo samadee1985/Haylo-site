@@ -118,6 +118,19 @@
   .footer-bottom { padding: 1.5rem 0; }
   .footer-copy { font-size: 0.73rem; color: rgba(255,255,255,0.25); }
 
+
+  /* Author bio */
+  .author-bio { display: flex; align-items: flex-start; gap: 1.25rem; padding: 1.75rem; background: var(--stone-mid); border: 1px solid var(--border); margin-top: 3rem; }
+  .author-bio-photo { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; object-position: center top; flex-shrink: 0; }
+  .author-bio-text { display: flex; flex-direction: column; gap: 0.35rem; }
+  .author-bio-name { font-size: 0.82rem; font-weight: 500; color: var(--ink); letter-spacing: 0.03em; }
+  .author-bio-role { font-size: 0.75rem; color: var(--ink-muted); font-weight: 300; }
+  .author-bio-desc { font-size: 0.82rem; color: var(--ink-soft); line-height: 1.6; margin-top: 0.2rem; font-weight: 300; }
+  @media (max-width: 480px) {
+    .author-bio { flex-direction: column; gap: 1rem; }
+    .author-bio-photo { width: 48px; height: 48px; }
+  }
+
   .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
   .reveal.visible { opacity: 1; transform: none; }
 
@@ -187,9 +200,9 @@
       "datePublished": "2025-01-01",
       "dateModified": "2025-01-01",
       "author": {
-        "@type": "Organization",
-        "name": "Haylo",
-        "url": "https://www.withhaylo.com/"
+        "@type": "Person",
+        "name": "Sam Davies",
+        "url": "https://www.withhaylo.com/about/"
       },
       "publisher": {
         "@type": "Organization",
@@ -394,6 +407,14 @@
 <p>The number of reviews needed varies significantly by industry and location. In a low-competition area or niche trade, 10 to 20 reviews might be enough. In a more competitive market like general plumbing or cleaning in a major suburb, you may need 40 to 100 reviews to consistently hold a top-3 position. Rather than fixating on a specific number, focus on reviewing your current top-3 competitors - how many reviews do they have, what's their average rating, and how recently did their reviews come in? Matching and then exceeding those benchmarks is your clearest path to the top 3.</p>
 <h3>Does adding photos to Google Business Profile help rankings?</h3>
 <p>Yes, photos contribute to your profile's overall engagement and completeness, both of which influence your Google Maps ranking. Profiles with more photos tend to receive more views, clicks, and direction requests - and those engagement signals feed back into Google's ranking algorithm. Adding real, high-quality photos of your work, team, and location also builds trust with potential customers who view your profile. Upload photos regularly rather than all at once, and always use authentic images from your actual business rather than stock photos, which Google may flag or deprioritise.</p>
+      <div class="author-bio">
+        <img src="/images/homepage/about-me.webp" alt="Sam Davies" class="author-bio-photo" width="64" height="64" loading="lazy">
+        <div class="author-bio-text">
+          <span class="author-bio-name">Sam Davies</span>
+          <span class="author-bio-role">Founder, Haylo - Sunshine Coast local marketing specialist</span>
+          <p class="author-bio-desc">Sam has worked with tradies, cleaners, and service businesses across the Sunshine Coast since 2023, helping them get found on Google and turn local searches into booked jobs. He writes about local SEO, Google Business Profile management, and what actually works for small service businesses.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>

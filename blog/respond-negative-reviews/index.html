@@ -119,6 +119,19 @@
   .footer-bottom { padding: 1.5rem 0; }
   .footer-copy { font-size: 0.73rem; color: rgba(255,255,255,0.25); }
 
+
+  /* Author bio */
+  .author-bio { display: flex; align-items: flex-start; gap: 1.25rem; padding: 1.75rem; background: var(--stone-mid); border: 1px solid var(--border); margin-top: 3rem; }
+  .author-bio-photo { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; object-position: center top; flex-shrink: 0; }
+  .author-bio-text { display: flex; flex-direction: column; gap: 0.35rem; }
+  .author-bio-name { font-size: 0.82rem; font-weight: 500; color: var(--ink); letter-spacing: 0.03em; }
+  .author-bio-role { font-size: 0.75rem; color: var(--ink-muted); font-weight: 300; }
+  .author-bio-desc { font-size: 0.82rem; color: var(--ink-soft); line-height: 1.6; margin-top: 0.2rem; font-weight: 300; }
+  @media (max-width: 480px) {
+    .author-bio { flex-direction: column; gap: 1rem; }
+    .author-bio-photo { width: 48px; height: 48px; }
+  }
+
   .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
   .reveal.visible { opacity: 1; transform: none; }
 
@@ -188,9 +201,9 @@
       "datePublished": "2025-01-01",
       "dateModified": "2025-01-01",
       "author": {
-        "@type": "Organization",
-        "name": "Haylo",
-        "url": "https://www.withhaylo.com/"
+        "@type": "Person",
+        "name": "Sam Davies",
+        "url": "https://www.withhaylo.com/about/"
       },
       "publisher": {
         "@type": "Organization",
@@ -397,6 +410,14 @@
 
       <h3>What do I say if the negative review is completely false or from a competitor?</h3>
       <p>Respond calmly and briefly: acknowledge that you&rsquo;re unable to find a record of this customer and invite them to contact you directly to resolve any misunderstanding. Do not accuse them publicly of being fake or a competitor - even if it&rsquo;s true, this looks defensive to other readers. Then flag the review separately through Google&rsquo;s reporting process with any evidence you have. Keep your public response professional regardless of what you suspect.</p>
+      <div class="author-bio">
+        <img src="/images/homepage/about-me.webp" alt="Sam Davies" class="author-bio-photo" width="64" height="64" loading="lazy">
+        <div class="author-bio-text">
+          <span class="author-bio-name">Sam Davies</span>
+          <span class="author-bio-role">Founder, Haylo - Sunshine Coast local marketing specialist</span>
+          <p class="author-bio-desc">Sam has worked with tradies, cleaners, and service businesses across the Sunshine Coast since 2023, helping them get found on Google and turn local searches into booked jobs. He writes about local SEO, Google Business Profile management, and what actually works for small service businesses.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
