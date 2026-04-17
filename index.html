@@ -3294,15 +3294,19 @@
   ]
 }
 </script>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18068096040">
-</script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-18068096040');
+  window.addEventListener('load', function() {
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=AW-18068096040';
+    document.head.appendChild(s);
+    s.onload = function() {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-18068096040');
+    };
+  });
 </script>
 </head>
 <body>
@@ -3397,7 +3401,7 @@
         <span class="hero-trust">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           <span class="trust-long">Trusted by local Sunshine Coast businesses</span><span class="trust-short">Trusted by Sunshine Coast businesses</span>
-          <span class="hero-stars" aria-label="5 stars">
+          <span class="hero-stars" role="img" aria-label="5 stars">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
@@ -3605,15 +3609,15 @@
       </a>
     </div>
     <div class="industries-dots" role="tablist" aria-label="Industry navigation">
-      <button class="industries-dot active" aria-label="Industry 1"></button>
-      <button class="industries-dot" aria-label="Industry 2"></button>
-      <button class="industries-dot" aria-label="Industry 3"></button>
-      <button class="industries-dot" aria-label="Industry 4"></button>
-      <button class="industries-dot" aria-label="Industry 5"></button>
-      <button class="industries-dot" aria-label="Industry 6"></button>
-      <button class="industries-dot" aria-label="Industry 7"></button>
-      <button class="industries-dot" aria-label="Industry 8"></button>
-      <button class="industries-dot" aria-label="Industry 9"></button>
+      <button class="industries-dot active" role="tab" aria-label="Industry 1"></button>
+      <button class="industries-dot" role="tab" aria-label="Industry 2"></button>
+      <button class="industries-dot" role="tab" aria-label="Industry 3"></button>
+      <button class="industries-dot" role="tab" aria-label="Industry 4"></button>
+      <button class="industries-dot" role="tab" aria-label="Industry 5"></button>
+      <button class="industries-dot" role="tab" aria-label="Industry 6"></button>
+      <button class="industries-dot" role="tab" aria-label="Industry 7"></button>
+      <button class="industries-dot" role="tab" aria-label="Industry 8"></button>
+      <button class="industries-dot" role="tab" aria-label="Industry 9"></button>
     </div>
     </div>
   </div>
@@ -3718,10 +3722,10 @@
 
     </div>
     <div class="work-dots" role="tablist" aria-label="Work navigation">
-      <button class="work-dot active" aria-label="Work 1"></button>
-      <button class="work-dot" aria-label="Work 2"></button>
-      <button class="work-dot" aria-label="Work 3"></button>
-      <button class="work-dot" aria-label="Work 4"></button>
+      <button class="work-dot active" role="tab" aria-label="Work 1"></button>
+      <button class="work-dot" role="tab" aria-label="Work 2"></button>
+      <button class="work-dot" role="tab" aria-label="Work 3"></button>
+      <button class="work-dot" role="tab" aria-label="Work 4"></button>
     </div>
   </div>
 </section>
@@ -3786,10 +3790,10 @@
       </article>
     </div>
     <div class="testimonials-dots" role="tablist" aria-label="Testimonial navigation">
-      <button class="testimonials-dot active" aria-label="Review 1"></button>
-      <button class="testimonials-dot" aria-label="Review 2"></button>
-      <button class="testimonials-dot" aria-label="Review 3"></button>
-      <button class="testimonials-dot" aria-label="Review 4"></button>
+      <button class="testimonials-dot active" role="tab" aria-label="Review 1"></button>
+      <button class="testimonials-dot" role="tab" aria-label="Review 2"></button>
+      <button class="testimonials-dot" role="tab" aria-label="Review 3"></button>
+      <button class="testimonials-dot" role="tab" aria-label="Review 4"></button>
     </div>
     <div style="margin: 3rem 0 2rem; text-align: center;">
       <a href="/google-business-profile-audit/#audit-form" class="btn-primary">Get results like these</a>
@@ -3860,15 +3864,15 @@
       </a>
     </div>
     <div class="locations-dots" role="tablist" aria-label="Location navigation">
-      <button class="locations-dot active" aria-label="Location 1"></button>
-      <button class="locations-dot" aria-label="Location 2"></button>
-      <button class="locations-dot" aria-label="Location 3"></button>
-      <button class="locations-dot" aria-label="Location 4"></button>
-      <button class="locations-dot" aria-label="Location 5"></button>
-      <button class="locations-dot" aria-label="Location 6"></button>
-      <button class="locations-dot" aria-label="Location 7"></button>
-      <button class="locations-dot" aria-label="Location 8"></button>
-      <button class="locations-dot" aria-label="Location 9"></button>
+      <button class="locations-dot active" role="tab" aria-label="Location 1"></button>
+      <button class="locations-dot" role="tab" aria-label="Location 2"></button>
+      <button class="locations-dot" role="tab" aria-label="Location 3"></button>
+      <button class="locations-dot" role="tab" aria-label="Location 4"></button>
+      <button class="locations-dot" role="tab" aria-label="Location 5"></button>
+      <button class="locations-dot" role="tab" aria-label="Location 6"></button>
+      <button class="locations-dot" role="tab" aria-label="Location 7"></button>
+      <button class="locations-dot" role="tab" aria-label="Location 8"></button>
+      <button class="locations-dot" role="tab" aria-label="Location 9"></button>
     </div>
   </div>
 </section>
@@ -3938,9 +3942,9 @@
 
     </div>
     <div class="pricing-dots" role="tablist" aria-label="Pricing navigation">
-      <button class="pricing-dot active" aria-label="Card 1"></button>
-      <button class="pricing-dot" aria-label="Card 2"></button>
-      <button class="pricing-dot" aria-label="Card 3"></button>
+      <button class="pricing-dot active" role="tab" aria-label="Card 1"></button>
+      <button class="pricing-dot" role="tab" aria-label="Card 2"></button>
+      <button class="pricing-dot" role="tab" aria-label="Card 3"></button>
     </div>
     <p class="pricing-note reveal">Not sure which plan suits you? <a href="tel:0490422192">Book a free 20-minute call</a>  -  we'll work it out together.</p>
   </div>
