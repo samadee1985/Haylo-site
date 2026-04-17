@@ -3390,7 +3390,7 @@
   <div class="hero-photo" aria-hidden="true"></div>
   <div class="hero-inner">
     <div class="hero-text animate-fade-in-up">
-      <p class="eyebrow ruled ruled-light hero-eyebrow">Sunshine Coast &middot; Local Marketing</p>
+      <p class="eyebrow ruled ruled-light hero-eyebrow">Sunshine Coast &middot; Local SEO &middot; Websites</p>
       <h1 class="hero-heading">
         Sunshine Coast<br>
         businesses,<br>
@@ -3434,6 +3434,88 @@
   </div>
 
 </section>
+
+<!-- ─── TICKER STRIP ─── -->
+<div class="ticker-strip" aria-hidden="true">
+  <div class="ticker-track">
+    <div class="ticker-group">
+      <span class="ticker-word">Local SEO</span><span class="ticker-sep">◆</span>
+      <span class="ticker-word ticker-loc">Sunshine Coast</span><span class="ticker-sep">◆</span>
+      <span class="ticker-word">Google Business Profile</span><span class="ticker-sep">◆</span>
+      <span class="ticker-word ticker-loc">Noosa</span><span class="ticker-sep">◆</span>
+      <span class="ticker-word">Website Creation</span><span class="ticker-sep">◆</span>
+      <span class="ticker-word ticker-loc">Maroochydore</span><span class="ticker-sep">◆</span>
+      <span class="ticker-word">Review Generation</span><span class="ticker-sep">◆</span>
+      <span class="ticker-word ticker-loc">Caloundra</span><span class="ticker-sep">◆</span>
+      <span class="ticker-word">Facebook Management</span><span class="ticker-sep">◆</span>
+      <span class="ticker-word ticker-loc">Buderim</span><span class="ticker-sep">◆</span>
+      <span class="ticker-word">Local Marketing</span><span class="ticker-sep">◆</span>
+      <span class="ticker-word ticker-loc">Mooloolaba</span><span class="ticker-sep">◆</span>
+    </div>
+    <div class="ticker-group" aria-hidden="true">
+      <span class="ticker-word">Local SEO</span><span class="ticker-sep">◆</span>
+      <span class="ticker-word ticker-loc">Sunshine Coast</span><span class="ticker-sep">◆</span>
+      <span class="ticker-word">Google Business Profile</span><span class="ticker-sep">◆</span>
+      <span class="ticker-word ticker-loc">Noosa</span><span class="ticker-sep">◆</span>
+      <span class="ticker-word">Website Creation</span><span class="ticker-sep">◆</span>
+      <span class="ticker-word ticker-loc">Maroochydore</span><span class="ticker-sep">◆</span>
+      <span class="ticker-word">Review Generation</span><span class="ticker-sep">◆</span>
+      <span class="ticker-word ticker-loc">Caloundra</span><span class="ticker-sep">◆</span>
+      <span class="ticker-word">Facebook Management</span><span class="ticker-sep">◆</span>
+      <span class="ticker-word ticker-loc">Buderim</span><span class="ticker-sep">◆</span>
+      <span class="ticker-word">Local Marketing</span><span class="ticker-sep">◆</span>
+      <span class="ticker-word ticker-loc">Mooloolaba</span><span class="ticker-sep">◆</span>
+    </div>
+  </div>
+</div>
+<style>
+  .ticker-strip {
+    background: var(--ink);
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+  }
+  .ticker-track {
+    display: flex;
+    width: max-content;
+    animation: ticker-scroll 42s linear infinite;
+  }
+  .ticker-track:hover { animation-play-state: paused; }
+  @keyframes ticker-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  .ticker-group {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    padding: 0.9rem 0;
+  }
+  .ticker-word {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 300;
+    font-style: italic;
+    color: #faf8f5;
+    padding: 0 1.5rem;
+    letter-spacing: 0.015em;
+  }
+  .ticker-word.ticker-loc {
+    font-family: var(--font-body);
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #faf8f5;
+  }
+  .ticker-sep {
+    color: var(--clay);
+    font-size: 0.4rem;
+    opacity: 0.9;
+    flex-shrink: 0;
+  }
+</style>
 
 <!-- ─── LOCAL SEO FEATURE ─── -->
 <div class="lseo-scroll-track">
