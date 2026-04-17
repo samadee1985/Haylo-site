@@ -2165,7 +2165,10 @@
     top: 100%;
     left: 0;
     right: 0;
-    background: rgba(245, 242, 238, 0.95);
+    max-height: calc(100vh - 4rem - 70px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    background: rgba(245, 242, 238, 0.98);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     flex-direction: column;
