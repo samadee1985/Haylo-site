@@ -2722,7 +2722,7 @@
     .service-item {
       aspect-ratio: 3/4;
       padding: 0 !important;
-      border: 1px solid var(--clay) !important;
+      border: none !important;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
@@ -2733,7 +2733,7 @@
     }
 
     .service-item::before {
-      opacity: 0.7;
+      opacity: 1;
       transform: scale(1);
     }
 
@@ -2741,7 +2741,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(28,26,23,0.97) 0%, rgba(28,26,23,0.75) 30%, rgba(28,26,23,0.25) 60%, rgba(28,26,23,0.15) 100%);
+      background: linear-gradient(to top, rgba(28,26,23,0.82) 0%, rgba(28,26,23,0.5) 20%, transparent 45%);
       pointer-events: none;
       z-index: 1;
     }
@@ -2753,18 +2753,14 @@
       z-index: 2;
       font-size: 1.3rem;
       color: var(--warm-white);
-      padding: 0 1rem 0.25rem;
+      padding: 0 1rem 0.5rem;
       margin-bottom: 0;
     }
 
     .service-item .service-desc { display: none; }
 
     .service-item .service-tag {
-      position: relative;
-      z-index: 2;
-      padding: 0 1rem 0.5rem;
-      margin-top: 0;
-      opacity: 0;
+      display: none;
     }
 
     .service-sig-badge {
@@ -3026,6 +3022,34 @@
     .footer-col-links { max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding-bottom 0.3s; gap: 0; }
     .footer-col-links li { padding: 0.45rem 0; }
     .footer-col.open .footer-col-links { max-height: 300px; padding-bottom: 1.5rem; }
+  }
+
+  /* ─── SUBURB PHOTO GRID ─── */
+  .suburb-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 3rem; overflow: hidden; }
+  .suburb-card { position: relative; aspect-ratio: 5/4; overflow: hidden; display: block; text-decoration: none; }
+  .suburb-card-bg { position: absolute; inset: 0; background-size: cover; background-position: center; transition: transform 0.5s ease; }
+  .suburb-card:hover .suburb-card-bg { transform: scale(1.05); }
+  .suburb-card-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(28,26,23,0.88) 0%, rgba(28,26,23,0.15) 60%); transition: background 0.3s; }
+  .suburb-card:hover .suburb-card-overlay { background: linear-gradient(to top, rgba(28,26,23,0.92) 0%, rgba(28,26,23,0.3) 60%); }
+  .suburb-card-content { position: absolute; inset: 0; z-index: 1; display: flex; flex-direction: column; justify-content: flex-end; padding: 1.5rem; }
+  .suburb-card-name { font-family: var(--font-display); font-size: clamp(1.4rem, 2.2vw, 2rem); font-weight: 300; color: var(--warm-white); line-height: 1.1; margin-bottom: 0.35rem; }
+  .suburb-card-sub { font-size: 0.72rem; color: rgba(250,248,245,0.5); letter-spacing: 0.04em; margin-bottom: 0.75rem; }
+  .suburb-card-cta { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--clay-light); opacity: 0; transform: translateY(4px); transition: opacity 0.3s, transform 0.3s; }
+  .suburb-card:hover .suburb-card-cta { opacity: 1; transform: none; }
+  .suburb-card-alt { background: rgba(250,248,245,0.09); border: 1px solid rgba(250,248,245,0.18); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: 1.5rem; text-decoration: none; aspect-ratio: 5/4; transition: background 0.2s; }
+  .suburb-card-alt:hover { background: rgba(250,248,245,0.15); }
+  .suburb-card-alt-title { font-family: var(--font-display); font-size: 1.4rem; font-weight: 300; color: var(--warm-white); margin-bottom: 0.5rem; line-height: 1.2; }
+  .suburb-card-alt-desc { font-size: 0.8rem; color: rgba(250,248,245,0.4); line-height: 1.6; margin-bottom: 1rem; }
+  .suburb-card-alt-link { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--clay); }
+  @media (max-width: 900px) {
+    .suburb-grid { grid-template-columns: repeat(2, 1fr); gap: 2px; }
+    .suburb-card { aspect-ratio: unset; height: 160px; }
+    .suburb-card-alt { aspect-ratio: unset; height: 160px; overflow: hidden; }
+    .suburb-card-alt-desc { display: none; }
+    .suburb-card-alt-title { font-size: 1rem; margin-bottom: 0.4rem; }
+    .suburb-card-name { font-size: 1rem; }
+    .suburb-card-content { position: absolute !important; inset: 0 !important; display: block !important; padding: 108px 0.75rem 0.6rem !important; }
+    .suburb-card-sub { display: none; }
   }
 </style>
 
@@ -3902,63 +3926,75 @@
         We work exclusively with Sunshine Coast service businesses. Whether you're in Caloundra, Maroochydore, Noosa or anywhere in between - we know your local market.
       </p>
     </div>
-    <div class="locations-grid stagger-animation">
-      <a href="/local-seo-sunshine-coast/" class="location-card">
-        <div class="location-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></div>
-        <h3 class="location-name">Sunshine Coast</h3>
-        <p class="location-desc">Full region coverage from Caloundra to Noosa, plus everywhere in between.</p>
+    <div class="suburb-grid">
+      <a href="/local-seo-noosa/" class="suburb-card">
+        <div class="suburb-card-bg" style="background-image:url('/images/suburbs/noosa-river-and-town.webp');"></div>
+        <div class="suburb-card-overlay"></div>
+        <div class="suburb-card-content">
+          <p class="suburb-card-name">Noosa</p>
+          <p class="suburb-card-sub">Noosa Heads · Noosaville · Tewantin</p>
+          <p class="suburb-card-cta">Local SEO Noosa &rarr;</p>
+        </div>
       </a>
-      <a href="/local-seo-caloundra/" class="location-card">
-        <div class="location-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2"/><path d="M2 12c.6.5 1.2 1 2.5 1c2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2"/><path d="M2 18c.6.5 1.2 1 2.5 1c2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2"/></svg></div>
-        <h3 class="location-name">Caloundra</h3>
-        <p class="location-desc">Kings Beach, Aura, Little Mountain, Mooloolaba and surrounding suburbs.</p>
+      <a href="/local-seo-maroochydore/" class="suburb-card">
+        <div class="suburb-card-bg" style="background-image:url('/images/suburbs/maroochydore-sunshine-coast.webp');"></div>
+        <div class="suburb-card-overlay"></div>
+        <div class="suburb-card-content">
+          <p class="suburb-card-name">Maroochydore</p>
+          <p class="suburb-card-sub">Alexandra Headland · Cotton Tree · CBD</p>
+          <p class="suburb-card-cta">Local SEO Maroochydore &rarr;</p>
+        </div>
       </a>
-      <a href="/local-seo-maroochydore/" class="location-card">
-        <div class="location-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="8" width="5" height="13"/><rect x="9" y="3" width="6" height="18"/><rect x="16" y="10" width="5" height="11"/><line x1="1" y1="21" x2="23" y2="21"/></svg></div>
-        <h3 class="location-name">Maroochydore</h3>
-        <p class="location-desc">Alexandra Headland, Cotton Tree, Bli Bli and the central coast area.</p>
+      <a href="/local-seo-buderim/" class="suburb-card">
+        <div class="suburb-card-bg" style="background-image:url('/images/suburbs/buderim-hinterland-green-hills.webp');background-position:center 40%;"></div>
+        <div class="suburb-card-overlay"></div>
+        <div class="suburb-card-content">
+          <p class="suburb-card-name">Buderim</p>
+          <p class="suburb-card-sub">Sippy Downs · Forest Glen · Palmwoods</p>
+          <p class="suburb-card-cta">Local SEO Buderim &rarr;</p>
+        </div>
       </a>
-      <a href="/local-seo-buderim/" class="location-card">
-        <div class="location-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 019.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg></div>
-        <h3 class="location-name">Buderim</h3>
-        <p class="location-desc">Sippy Downs, Forest Glen, Palmwoods and the hinterland region.</p>
+      <a href="/local-seo-caloundra/" class="suburb-card">
+        <div class="suburb-card-bg" style="background-image:url('/images/suburbs/caloundra-sunshine-coast.webp');"></div>
+        <div class="suburb-card-overlay"></div>
+        <div class="suburb-card-content">
+          <p class="suburb-card-name">Caloundra</p>
+          <p class="suburb-card-sub">Kings Beach · Aura · Little Mountain</p>
+          <p class="suburb-card-cta">Local SEO Caloundra &rarr;</p>
+        </div>
       </a>
-      <a href="/local-seo-noosa/" class="location-card">
-        <div class="location-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-        <h3 class="location-name">Noosa</h3>
-        <p class="location-desc">Noosa Heads, Noosaville, Tewantin and Sunshine Beach.</p>
+      <a href="/local-seo-kawana/" class="suburb-card">
+        <div class="suburb-card-bg" style="background-image:url('/images/suburbs/kawana-sunshine-coast.webp');"></div>
+        <div class="suburb-card-overlay"></div>
+        <div class="suburb-card-content">
+          <p class="suburb-card-name">Kawana</p>
+          <p class="suburb-card-sub">Bokarina · Birtinya · Buddina</p>
+          <p class="suburb-card-cta">Local SEO Kawana &rarr;</p>
+        </div>
       </a>
-      <a href="/local-seo-nambour/" class="location-card">
-        <div class="location-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
-        <h3 class="location-name">Nambour</h3>
-        <p class="location-desc">Woombye, Bli Bli, Yandina and the broader hinterland catchment.</p>
+      <a href="/local-seo-nambour/" class="suburb-card">
+        <div class="suburb-card-bg" style="background-image:url('/images/suburbs/nambour-hinterland.webp');"></div>
+        <div class="suburb-card-overlay"></div>
+        <div class="suburb-card-content">
+          <p class="suburb-card-name">Nambour</p>
+          <p class="suburb-card-sub">Woombye · Yandina · Bli Bli</p>
+          <p class="suburb-card-cta">Local SEO Nambour &rarr;</p>
+        </div>
       </a>
-      <a href="/local-seo-glass-house-mountains/" class="location-card">
-        <div class="location-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="12 2 22 19 2 19 12 2"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="9" y1="22" x2="15" y2="22"/></svg></div>
-        <h3 class="location-name">Glass House Mountains</h3>
-        <p class="location-desc">Beerwah, Beerburrum, Glasshouse and the southern hinterland corridor.</p>
+      <a href="/local-seo-glass-house-mountains/" class="suburb-card">
+        <div class="suburb-card-bg" style="background-image:url('/images/suburbs/glass-house-mountains.webp');"></div>
+        <div class="suburb-card-overlay"></div>
+        <div class="suburb-card-content">
+          <p class="suburb-card-name">Glass House Mountains</p>
+          <p class="suburb-card-sub">Beerwah · Beerburrum · Glasshouse</p>
+          <p class="suburb-card-cta">Local SEO Glass House &rarr;</p>
+        </div>
       </a>
-      <a href="/local-seo-kawana/" class="location-card">
-        <div class="location-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg></div>
-        <h3 class="location-name">Kawana</h3>
-        <p class="location-desc">Bokarina, Birtinya, Buddina, Wurtulla and the Kawana growth corridor.</p>
+      <a href="#contact" class="suburb-card-alt">
+        <p class="suburb-card-alt-title">Somewhere else on the Coast?</p>
+        <p class="suburb-card-alt-desc">We cover the full Sunshine Coast region. Get in touch and we'll confirm your area.</p>
+        <p class="suburb-card-alt-link">Get in touch &rarr;</p>
       </a>
-      <a href="#contact" class="location-card">
-        <div class="location-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg></div>
-        <h3 class="location-name">Somewhere else?</h3>
-        <p class="location-desc">We cover the full Sunshine Coast. Get in touch and we'll confirm your area.</p>
-      </a>
-    </div>
-    <div class="locations-dots" role="tablist" aria-label="Location navigation">
-      <button class="locations-dot active" role="tab" aria-label="Location 1"></button>
-      <button class="locations-dot" role="tab" aria-label="Location 2"></button>
-      <button class="locations-dot" role="tab" aria-label="Location 3"></button>
-      <button class="locations-dot" role="tab" aria-label="Location 4"></button>
-      <button class="locations-dot" role="tab" aria-label="Location 5"></button>
-      <button class="locations-dot" role="tab" aria-label="Location 6"></button>
-      <button class="locations-dot" role="tab" aria-label="Location 7"></button>
-      <button class="locations-dot" role="tab" aria-label="Location 8"></button>
-      <button class="locations-dot" role="tab" aria-label="Location 9"></button>
     </div>
   </div>
 </section>
