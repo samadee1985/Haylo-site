@@ -126,12 +126,17 @@
   .why-desc { font-size: 0.88rem; line-height: 1.8; color: rgba(250,248,245,0.65); }
 
   /* Included grid */
-  .included-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-top: 0; }
-  .inc-item { background: var(--warm-white); padding: 2rem; display: flex; gap: 1.25rem; align-items: flex-start; transition: background 0.2s; }
-  .inc-item:hover { background: var(--stone); }
-  .inc-check { color: var(--clay); font-size: 1rem; flex-shrink: 0; margin-top: 0.15rem; }
-  .inc-title { font-size: 0.85rem; font-weight: 500; letter-spacing: 0.02em; color: var(--ink); margin-bottom: 0.4rem; border-left: 2px solid var(--clay); padding-left: 0.6rem; }
-  .inc-desc { font-size: 0.83rem; color: var(--ink-muted); line-height: 1.7; }
+  .accordion { border-top: 1px solid var(--border); margin-top: 2.5rem; }
+  .acc-item { border-bottom: 1px solid var(--border); }
+  .acc-trigger { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; padding: 1.25rem 0; background: none; border: none; cursor: pointer; text-align: left; }
+  .acc-trigger-left { display: flex; align-items: center; gap: 1rem; }
+  .acc-check { color: var(--clay); font-size: 0.9rem; flex-shrink: 0; }
+  .acc-title { font-size: 0.88rem; font-weight: 500; letter-spacing: 0.02em; color: var(--ink); }
+  .acc-icon { flex-shrink: 0; color: var(--clay); transition: transform 0.25s ease; }
+  .acc-item.open .acc-icon { transform: rotate(45deg); }
+  .acc-body { display: none; padding: 0 0 1.25rem 2rem; }
+  .acc-item.open .acc-body { display: block; }
+  .acc-desc { font-size: 0.85rem; color: var(--ink-muted); line-height: 1.75; }
 
   /* Proof band */
   .ip-proof { position: relative; padding: 7rem 0; background: var(--ink) center/cover no-repeat; }
@@ -203,7 +208,6 @@
   @media (max-width: 900px) {
     .ip-split { grid-template-columns: 1fr; gap: 3rem; }
     .why-grid { grid-template-columns: repeat(2, 1fr); }
-    .included-grid { grid-template-columns: 1fr; }
     .nav-links { display: none; }
     .btn-header { display: block; font-size: 0.7rem; padding: 0.45rem 0.9rem; color: var(--clay); border-color: var(--clay); }
     .btn-header:hover { background: var(--clay); color: var(--warm-white); }
@@ -700,48 +704,48 @@
       <h2>Everything that moves<br><em>your Google ranking.</em></h2>
       <p style="font-size:0.95rem;color:var(--ink-muted);margin-top:0.75rem;max-width:520px;">No fluff. No padding. Every item below is a direct input into your local SEO Sunshine Coast results.</p>
     </div>
-    <div class="included-grid reveal">
-      <div class="inc-item">
-        <span class="inc-check">&#10003;</span>
-        <div>
-          <p class="inc-title">Local Keyword Research</p>
-          <p class="inc-desc">We map out exactly what Sunshine Coast customers type when they need your service - by suburb, trade, and intent - then build your entire SEO strategy around those terms.</p>
-        </div>
+    <div class="accordion reveal">
+      <div class="acc-item">
+        <button class="acc-trigger" aria-expanded="false">
+          <span class="acc-trigger-left"><span class="acc-check">&#10003;</span><span class="acc-title">Local Keyword Research</span></span>
+          <span class="acc-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="acc-body"><p class="acc-desc">We map out exactly what Sunshine Coast customers type when they need your service - by suburb, trade, and intent - then build your entire SEO strategy around those terms.</p></div>
       </div>
-      <div class="inc-item">
-        <span class="inc-check">&#10003;</span>
-        <div>
-          <p class="inc-title">Google Business Profile Optimisation</p>
-          <p class="inc-desc">Your GBP is your most powerful local SEO asset. We optimise every element - categories, services, description, photos, posts, and Q&amp;A - so Google trusts and ranks you higher.</p>
-        </div>
+      <div class="acc-item">
+        <button class="acc-trigger" aria-expanded="false">
+          <span class="acc-trigger-left"><span class="acc-check">&#10003;</span><span class="acc-title">Google Business Profile Optimisation</span></span>
+          <span class="acc-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="acc-body"><p class="acc-desc">Your GBP is your most powerful local SEO asset. We optimise every element - categories, services, description, photos, posts, and Q&amp;A - so Google trusts and ranks you higher.</p></div>
       </div>
-      <div class="inc-item">
-        <span class="inc-check">&#10003;</span>
-        <div>
-          <p class="inc-title">On-Page SEO Optimisation</p>
-          <p class="inc-desc">Title tags, headings, page content, and internal linking all aligned to your target keywords. Google needs to understand what you do and where - we make that unmistakable.</p>
-        </div>
+      <div class="acc-item">
+        <button class="acc-trigger" aria-expanded="false">
+          <span class="acc-trigger-left"><span class="acc-check">&#10003;</span><span class="acc-title">On-Page SEO Optimisation</span></span>
+          <span class="acc-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="acc-body"><p class="acc-desc">Title tags, headings, page content, and internal linking all aligned to your target keywords. Google needs to understand what you do and where - we make that unmistakable.</p></div>
       </div>
-      <div class="inc-item">
-        <span class="inc-check">&#10003;</span>
-        <div>
-          <p class="inc-title">Suburb &amp; Service Area Pages</p>
-          <p class="inc-desc">Dedicated pages for Caloundra, Buderim, Maroochydore, Noosa, and wherever else you work. These are the pages that capture high-intent local searches and drive direct enquiries.</p>
-        </div>
+      <div class="acc-item">
+        <button class="acc-trigger" aria-expanded="false">
+          <span class="acc-trigger-left"><span class="acc-check">&#10003;</span><span class="acc-title">Suburb &amp; Service Area Pages</span></span>
+          <span class="acc-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="acc-body"><p class="acc-desc">Dedicated pages for Caloundra, Buderim, Maroochydore, Noosa, and wherever else you work. These capture high-intent local searches and drive direct enquiries.</p></div>
       </div>
-      <div class="inc-item">
-        <span class="inc-check">&#10003;</span>
-        <div>
-          <p class="inc-title">Local Citation Building</p>
-          <p class="inc-desc">Consistent name, address, and phone across Yellow Pages, True Local, and industry directories. These signals tell Google your business is legitimate and where it operates.</p>
-        </div>
+      <div class="acc-item">
+        <button class="acc-trigger" aria-expanded="false">
+          <span class="acc-trigger-left"><span class="acc-check">&#10003;</span><span class="acc-title">Local Citation Building</span></span>
+          <span class="acc-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="acc-body"><p class="acc-desc">Consistent name, address, and phone across Yellow Pages, True Local, and industry directories. These signals tell Google your business is legitimate and where it operates.</p></div>
       </div>
-      <div class="inc-item">
-        <span class="inc-check">&#10003;</span>
-        <div>
-          <p class="inc-title">Ranking Reports &amp; Competitor Tracking</p>
-          <p class="inc-desc">Monthly reporting on your Google rankings, profile views, and calls - plus a clear view of what your local competitors are doing so we stay one step ahead of them.</p>
-        </div>
+      <div class="acc-item">
+        <button class="acc-trigger" aria-expanded="false">
+          <span class="acc-trigger-left"><span class="acc-check">&#10003;</span><span class="acc-title">Ranking Reports &amp; Competitor Tracking</span></span>
+          <span class="acc-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="acc-body"><p class="acc-desc">Monthly reporting on your Google rankings, profile views, and calls - plus a clear view of what your local competitors are doing so we stay one step ahead.</p></div>
       </div>
     </div>
   </div>
@@ -1271,6 +1275,22 @@ if (hero) {
   }, { rootMargin: '600px 0px' });
   document.querySelectorAll('[data-bg]').forEach(function (el) { obs.observe(el); });
 })();
+
+// What's included accordion
+document.querySelectorAll('.acc-trigger').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var item = btn.closest('.acc-item');
+    var isOpen = item.classList.contains('open');
+    document.querySelectorAll('.acc-item.open').forEach(function(el) {
+      el.classList.remove('open');
+      el.querySelector('.acc-trigger').setAttribute('aria-expanded', 'false');
+    });
+    if (!isOpen) {
+      item.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  });
+});
 
 // Footer accordion (mobile)
 document.querySelectorAll('.footer-col-toggle').forEach(function(btn){
