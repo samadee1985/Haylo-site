@@ -49,9 +49,9 @@
   img { display: block; max-width: 100%; }
 
   .wrap { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--gutter); }
-  .eyebrow { font-family: var(--font-body); font-size: 0.7rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-muted); }
+  .eyebrow { font-family: var(--font-body); font-size: 0.7rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--clay); }
   .ruled { display: flex; align-items: center; gap: 1rem; }
-  .ruled::before { content: ''; display: block; width: 2rem; height: 1px; background: var(--ink-muted); flex-shrink: 0; }
+  .ruled::before { content: ''; display: block; width: 2rem; height: 1px; background: var(--clay); flex-shrink: 0; }
   .ruled-light { color: rgba(250,248,245,0.5); }
   .ruled-light::before { background: rgba(250,248,245,0.3); }
 
@@ -110,19 +110,20 @@
   .ip-h2 { font-family: var(--font-display); font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 300; line-height: 1.1; color: var(--ink); margin: 1rem 0 1.5rem; }
   .ip-h2 em { font-style: italic; color: var(--clay); }
   .ip-ctas { margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap; }
-  .ip-panel { background: var(--stone-mid); padding: 3rem; display: flex; flex-direction: column; gap: 1.5rem; }
-  .ip-panel-stat { display: flex; flex-direction: column; gap: 0.25rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
-  .ip-panel-stat:last-child { border-bottom: none; padding-bottom: 0; }
+  .ip-panel { background: var(--stone-mid); padding: 1.5rem 2.5rem; display: flex; flex-direction: column; gap: 0; border-top: 3px solid var(--clay); }
+  .ip-panel-stat { display: flex; align-items: baseline; gap: 1rem; padding: 0.9rem 0; border-bottom: 1px solid var(--border); }
+  .ip-panel-stat:last-child { border-bottom: none; }
+  .ip-stat-num { flex-shrink: 0; }
   .ip-stat-num { font-family: var(--font-display); font-size: 2.8rem; font-weight: 300; color: var(--clay); line-height: 1; }
   .ip-stat-label { font-size: 0.78rem; color: var(--ink-muted); letter-spacing: 0.05em; }
 
   /* Why cards */
-  .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
-  .why-card { background: var(--stone-mid); padding: 2.25rem 2rem; border-top: 2px solid transparent; transition: border-color 0.2s; }
-  .why-card:hover { border-top-color: var(--clay); }
-  .why-num { font-family: var(--font-display); font-size: 1.6rem; font-weight: 300; color: var(--clay); opacity: 0.5; margin-bottom: 0.75rem; line-height: 1; }
-  .why-title { font-family: var(--font-body); font-size: 0.82rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink); margin-bottom: 0.6rem; }
-  .why-desc { font-size: 0.88rem; line-height: 1.8; color: var(--ink-muted); }
+  .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; background: transparent; }
+  .why-card { background: rgba(28,26,23,0.72); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); padding: 2.25rem 2rem; border: 1px solid rgba(250,248,245,0.28); transition: border-color 0.2s; }
+  .why-card:hover { border-color: var(--clay); }
+  .why-num { font-family: var(--font-display); font-size: 1.6rem; font-weight: 300; color: var(--clay); margin-bottom: 0.75rem; line-height: 1; }
+  .why-title { font-family: var(--font-body); font-size: 0.82rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--warm-white); margin-bottom: 0.6rem; }
+  .why-desc { font-size: 0.88rem; line-height: 1.8; color: rgba(250,248,245,0.65); }
 
   /* Included grid */
   .included-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-top: 0; }
@@ -410,6 +411,10 @@
   .wa-btn:hover { transform: scale(1.08); box-shadow: 0 6px 22px rgba(0,0,0,0.22); }
   .wa-btn svg { display: block; }
   @media (max-width: 767px) { .wa-btn { bottom: 1.25rem; right: 1rem; width: 46px; height: 46px; } }
+
+  /* ─── PARALLAX ─── */
+  .section-parallax-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; will-change: clip-path; z-index: -1; clip-path: inset(100% 0 0 0); pointer-events: none; transform: translateZ(0); }
+  .parallax-overlay { position: absolute; inset: 0; pointer-events: none; }
 </style>
 <script type="application/ld+json">
 {
@@ -621,20 +626,20 @@
       </div>
       <div class="ip-panel">
         <div class="ip-panel-stat">
-          <span class="ip-stat-num">76%</span>
-          <span class="ip-stat-label">of local mobile searches result in a store visit or call within 24 hours</span>
+          <span class="ip-stat-num">700%</span>
+          <span class="ip-stat-label">More clicks inside the Google 3-pack</span>
         </div>
         <div class="ip-panel-stat">
-          <span class="ip-stat-num">2-8 wks</span>
-          <span class="ip-stat-label">when most Sunshine Coast clients first report seeing measurable ranking movement</span>
+          <span class="ip-stat-num">4x</span>
+          <span class="ip-stat-label">More views with a fully optimised profile</span>
         </div>
         <div class="ip-panel-stat">
-          <span class="ip-stat-num">3-pack</span>
-          <span class="ip-stat-label">the Google Maps result that captures most clicks - getting you there is the goal</span>
+          <span class="ip-stat-num">46%</span>
+          <span class="ip-stat-label">Of Google searches are looking local</span>
         </div>
         <div class="ip-panel-stat">
-          <span class="ip-stat-num">No lock-in</span>
-          <span class="ip-stat-label">Month-to-month. 30 days notice to cancel. We earn your business every month.</span>
+          <span class="ip-stat-num">Top 3</span>
+          <span class="ip-stat-label">Where 75% of all local clicks go</span>
         </div>
       </div>
     </div>
@@ -642,46 +647,47 @@
 </section>
 
 <!-- WHY -->
-<section class="section section--mid">
-  <div class="wrap">
+<section class="section section--mid" id="why-section" style="position:relative;background:transparent;">
+  <div class="section-parallax-bg" id="why-bg" data-bg="url('/images/homepage/noosa-river-and-town.webp')" aria-hidden="true"></div>
+  <div class="wrap" style="position:relative;z-index:1;">
     <div class="section-header reveal">
-      <p class="eyebrow ruled">Why it matters</p>
-      <h2>Every day without local SEO<br><em>is a day your competitors win.</em></h2>
+      <p class="eyebrow ruled ruled-light">Why it matters</p>
+      <h2 style="color:var(--warm-white);">Every day without local SEO<br><em>is a day your competitors win.</em></h2>
     </div>
     <div class="why-grid reveal">
       <div class="why-card">
         <p class="why-num">01</p>
         <p class="why-title">Dominate Google Maps</p>
-        <p class="why-desc">The Maps 3-pack sits above all organic results. Businesses in those three spots get the vast majority of local clicks. Local SEO is how you get in - and stay in.</p>
+        <p class="why-desc">The 3-pack sits above all organic results. That's where most calls come from - local SEO is how you get in and stay in.</p>
       </div>
       <div class="why-card">
         <p class="why-num">02</p>
         <p class="why-title">Rank for your suburb</p>
-        <p class="why-desc">Caloundra, Buderim, Maroochydore, Noosa, Kawana - we target the specific suburbs you work in so you show up exactly where your customers are searching.</p>
+        <p class="why-desc">We target the exact suburbs you work in - Buderim, Noosa, Caloundra - so you show up where your customers are searching.</p>
       </div>
       <div class="why-card">
         <p class="why-num">03</p>
         <p class="why-title">Beat your competitors</p>
-        <p class="why-desc">Your competitors are investing in local SEO right now. Without it, you're invisible while they pick up every Google search in your trade, every single day.</p>
+        <p class="why-desc">Without local SEO, you're invisible while competitors pick up every Google search in your trade, every single day.</p>
       </div>
       <div class="why-card">
         <p class="why-num">04</p>
         <p class="why-title">High-intent customers</p>
-        <p class="why-desc">Someone searching "plumber Sunshine Coast" isn't browsing - they need someone now. Local SEO puts you in front of people who are ready to book, not just looking.</p>
+        <p class="why-desc">Someone searching "plumber near me" needs someone now - local SEO puts you in front of people ready to book.</p>
       </div>
       <div class="why-card">
         <p class="why-num">05</p>
         <p class="why-title">No ongoing ad spend</p>
-        <p class="why-desc">Google Ads stop the moment you stop paying. Good local SEO compounds - rankings you earn keep delivering enquiries long after the work is done.</p>
+        <p class="why-desc">Ads stop when you stop paying. Good local SEO compounds - rankings keep delivering enquiries long after the work is done.</p>
       </div>
       <div class="why-card">
         <p class="why-num">06</p>
         <p class="why-title">Website and GBP aligned</p>
-        <p class="why-desc">Your website and Google Business Profile are stronger together. We make sure both are optimised, consistent, and sending the right signals to Google.</p>
+        <p class="why-desc">Your website and Google Business Profile are stronger together. We align both to send the right signals to Google.</p>
       </div>
     </div>
     <div style="margin-top:2.5rem;text-align:center;">
-      <a href="/google-business-profile-audit/#audit-form" class="btn-primary">Get my free audit &rarr;</a>
+      <a href="/google-business-profile-audit/#audit-form" class="btn-primary-light">Get my free audit &rarr;</a>
     </div>
   </div>
 </section>
@@ -1220,6 +1226,50 @@ if (hero) {
       if(b)b.setAttribute('aria-expanded','false');
     });
   });
+})();
+
+// Section parallax backgrounds
+(function () {
+  var items = [
+    { bg: document.getElementById('why-bg'),  section: document.getElementById('why-section') },
+  ].filter(function (i) { return i.bg && i.section; });
+  var ticking = false;
+  var vh = window.innerHeight;
+  var pad = 4;
+
+  function update() {
+    items.forEach(function (i) {
+      var rect = i.section.getBoundingClientRect();
+      var topClip    = Math.max(0, rect.top - pad);
+      var bottomClip = Math.max(0, vh - rect.bottom - pad);
+      i.bg.style.clipPath = 'inset(' + topClip + 'px 0px ' + bottomClip + 'px 0px)';
+    });
+    ticking = false;
+  }
+
+  function onScroll() {
+    if (!ticking) {
+      requestAnimationFrame(update);
+      ticking = true;
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', function() { vh = window.innerHeight; onScroll(); }, { passive: true });
+  requestAnimationFrame(update);
+
+  // Lazy-load parallax images
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        var el = entry.target;
+        var bg = el.getAttribute('data-bg');
+        if (bg) { el.style.backgroundImage = bg; el.removeAttribute('data-bg'); }
+        obs.unobserve(el);
+      }
+    });
+  }, { rootMargin: '600px 0px' });
+  document.querySelectorAll('[data-bg]').forEach(function (el) { obs.observe(el); });
 })();
 
 // Footer accordion (mobile)
