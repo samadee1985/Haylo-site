@@ -139,6 +139,13 @@
   .faq-item.open .faq-answer { display: block; }
   .faq-answer-text { font-size: 0.92rem; line-height: 1.85; color: var(--ink-muted); max-width: 680px; }
 
+  .related-posts-section { padding: 3.5rem 0; border-top: 1px solid var(--border); }
+  .related-posts-section .eyebrow { margin-bottom: 1.25rem; }
+  .related-post-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.625rem; }
+  .related-post-list li a { color: var(--ink); text-decoration: none; font-size: 0.95rem; font-weight: 500; }
+  .related-post-list li a::before { content: '→ '; color: var(--clay); font-weight: 600; }
+  .related-post-list li a:hover { color: var(--clay); }
+
   .ip-cta { background: var(--stone-mid); padding: 7rem 0; text-align: center; }
   .ip-cta .wrap { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
   .ip-cta h2 { font-family: var(--font-display); font-size: clamp(2rem, 4.5vw, 3.5rem); font-weight: 300; line-height: 1.1; color: var(--ink); }
@@ -691,6 +698,18 @@
     </div>
   </section>
 
+<!-- RELATED READING -->
+<section class="section related-posts-section">
+  <div class="wrap">
+    <p class="eyebrow ruled">From the blog</p>
+    <ul class="related-post-list">
+      <li><a href="/blog/roofer-google-maps/">How Sunshine Coast Roofers Get Found on Google Maps</a></li>
+      <li><a href="/blog/google-business-profile-guide-tradies/">The Complete Google Business Profile Guide for Sunshine Coast Tradies</a></li>
+      <li><a href="/blog/how-many-google-reviews-to-rank/">How Many Google Reviews Do You Need to Rank in Your Suburb?</a></li>
+    </ul>
+  </div>
+</section>
+
 <!-- CTA BAND -->
 <section class="ip-cta">
   <div class="wrap reveal">
@@ -740,6 +759,7 @@
           <li><a href="/blog/">Blog</a></li>
           <li><a href="/#contact">Contact</a></li>
           <li><a href="/privacy-policy/">Privacy Policy</a></li>
+          <li><a href="https://share.google/OZ8AGhojxleja6j3j" target="_blank" rel="noopener">View on Google</a></li>
         </ul>
       </div>
     </div>
