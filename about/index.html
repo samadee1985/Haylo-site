@@ -467,15 +467,44 @@
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "WebPage",
+      "@type": "AboutPage",
       "@id": "https://www.withhaylo.com/about/#webpage",
       "url": "https://www.withhaylo.com/about/",
       "name": "About Haylo",
       "isPartOf": {
         "@id": "https://www.withhaylo.com/#website"
       },
-      "about": {
-        "@id": "https://www.withhaylo.com/#business"
+      "about": [
+        { "@id": "https://www.withhaylo.com/#business" },
+        { "@id": "https://www.withhaylo.com/#founder" }
+      ],
+      "mainEntity": { "@id": "https://www.withhaylo.com/#founder" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.withhaylo.com/#founder",
+      "name": "Sam Davies",
+      "jobTitle": "Founder",
+      "description": "Founder of Haylo, a Sunshine Coast local marketing agency specialising in Google Business Profile management, local SEO, and review generation for tradies, cleaners, and service businesses.",
+      "url": "https://www.withhaylo.com/about/",
+      "image": "https://www.withhaylo.com/images/general/about-me.webp",
+      "worksFor": { "@id": "https://www.withhaylo.com/#business" },
+      "knowsAbout": [
+        "Google Business Profile",
+        "Local SEO",
+        "Review generation",
+        "Local marketing for tradies",
+        "Sunshine Coast small business marketing"
+      ],
+      "homeLocation": {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Nirimba",
+          "addressRegion": "QLD",
+          "postalCode": "4551",
+          "addressCountry": "AU"
+        }
       }
     },
     {
