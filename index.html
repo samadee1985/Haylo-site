@@ -5833,129 +5833,157 @@ document.querySelectorAll('.footer-col-toggle').forEach(function(btn){
 })();
 </script>
 
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 <script>
-// Local SEO scene - looping phone animation
+// Local SEO scene: GSAP loads lazily when the section approaches viewport.
 (function () {
   var scene = document.querySelector('.lseo-scene');
-  if (!scene || !window.gsap || !window.ScrollTrigger) return;
+  if (!scene) return;
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-  gsap.registerPlugin(ScrollTrigger);
-
-  var typed = scene.querySelector('.lseo-query-typed');
-  var caret = scene.querySelector('.lseo-caret');
-  var serp = scene.querySelector('.lseo-serp');
-  var cards = scene.querySelectorAll('.lseo-card:not(.lseo-card--dim)');
-  var dimCards = scene.querySelectorAll('.lseo-card--dim');
-  var youCard = scene.querySelector('.lseo-card--you');
-  var youPin = scene.querySelector('.lseo-map-pin--you');
-  var callout = scene.querySelector('.lseo-card-callout');
-
-  var fullWidth = 0;
-  var tl;
-
-  function reset() {
-    gsap.set(typed, { width: 0 });
-    gsap.set(caret, { autoAlpha: 1 });
-    gsap.set(serp, { autoAlpha: 0, y: 22 });
-    gsap.set(cards, { autoAlpha: 0, y: 12 });
-    gsap.set(dimCards, { opacity: 0, y: 12 });
-    gsap.set(callout, { autoAlpha: 0, y: 6 });
-    youCard.classList.remove('is-highlighted');
-    if (youPin) youPin.classList.remove('is-active');
+  function loadScript(src) {
+    return new Promise(function (resolve, reject) {
+      var s = document.createElement('script');
+      s.src = src;
+      s.async = true;
+      s.onload = resolve;
+      s.onerror = reject;
+      document.head.appendChild(s);
+    });
   }
 
-  function holdFinalState() {
-    gsap.set(typed, { width: fullWidth });
-    gsap.set(caret, { autoAlpha: 0 });
-    gsap.set(serp, { autoAlpha: 1, y: 0 });
-    gsap.set(cards, { autoAlpha: 1, y: 0 });
-    dimCards.forEach(function (el) {
-      gsap.set(el, { opacity: parseFloat(el.dataset.dim) || 0.3, y: 0 });
-    });
-    gsap.set(callout, { autoAlpha: 1, y: 0 });
-    youCard.classList.add('is-highlighted');
-    if (youPin) youPin.classList.add('is-active');
-  }
+  function initScene() {
+    if (!window.gsap || !window.ScrollTrigger) return;
 
-  function buildTimeline() {
-    if (tl) tl.kill();
-    tl = gsap.timeline({
-      repeat: 2,
-      repeatDelay: 1.4,
-      paused: true,
-      onComplete: holdFinalState
-    });
+    gsap.registerPlugin(ScrollTrigger);
 
-    tl.call(reset);
-    tl.to(typed, { width: fullWidth, duration: 1.2, ease: 'none' }, 0.4);
-    tl.to(caret, { autoAlpha: 0, duration: 0.25 }, '>');
-    tl.to(serp, { autoAlpha: 1, y: 0, duration: 0.55, ease: 'power2.out' }, '<');
-    tl.to(cards, { autoAlpha: 1, y: 0, duration: 0.45, stagger: 0.14, ease: 'power2.out' }, '<0.05');
-    tl.to(dimCards, {
-      opacity: function (i, target) { return parseFloat(target.dataset.dim) || 0.3; },
-      y: 0,
-      duration: 0.45,
-      stagger: 0.1,
-      ease: 'power2.out'
-    }, '<0.35');
-    tl.call(function () {
+    var typed = scene.querySelector('.lseo-query-typed');
+    var caret = scene.querySelector('.lseo-caret');
+    var serp = scene.querySelector('.lseo-serp');
+    var cards = scene.querySelectorAll('.lseo-card:not(.lseo-card--dim)');
+    var dimCards = scene.querySelectorAll('.lseo-card--dim');
+    var youCard = scene.querySelector('.lseo-card--you');
+    var youPin = scene.querySelector('.lseo-map-pin--you');
+    var callout = scene.querySelector('.lseo-card-callout');
+
+    var fullWidth = 0;
+    var tl;
+
+    function reset() {
+      gsap.set(typed, { width: 0 });
+      gsap.set(caret, { autoAlpha: 1 });
+      gsap.set(serp, { autoAlpha: 0, y: 22 });
+      gsap.set(cards, { autoAlpha: 0, y: 12 });
+      gsap.set(dimCards, { opacity: 0, y: 12 });
+      gsap.set(callout, { autoAlpha: 0, y: 6 });
+      youCard.classList.remove('is-highlighted');
+      if (youPin) youPin.classList.remove('is-active');
+    }
+
+    function holdFinalState() {
+      gsap.set(typed, { width: fullWidth });
+      gsap.set(caret, { autoAlpha: 0 });
+      gsap.set(serp, { autoAlpha: 1, y: 0 });
+      gsap.set(cards, { autoAlpha: 1, y: 0 });
+      dimCards.forEach(function (el) {
+        gsap.set(el, { opacity: parseFloat(el.dataset.dim) || 0.3, y: 0 });
+      });
+      gsap.set(callout, { autoAlpha: 1, y: 0 });
       youCard.classList.add('is-highlighted');
       if (youPin) youPin.classList.add('is-active');
-    }, null, '+=0.25');
-    tl.to(callout, { autoAlpha: 1, y: 0, duration: 0.55, ease: 'back.out(1.8)' }, '+=0.35');
-    tl.to(callout, {
-      keyframes: [
-        { y: -10 }, { y: 0 },
-        { y: -7 }, { y: 0 },
-        { y: -4 }, { y: 0 }
-      ],
-      duration: 1.8,
-      ease: 'sine.inOut'
-    }, '+=0.15');
-    tl.to({}, { duration: 0.8 });
-    tl.to([callout, serp], { autoAlpha: 0, duration: 0.5 });
-    tl.to(dimCards, { opacity: 0, duration: 0.5 }, '<');
-    tl.to(typed, { width: 0, duration: 0.5 }, '<');
-  }
+    }
 
-  function start() {
-    fullWidth = typed.offsetWidth;
-    scene.classList.add('is-animating');
-    reset();
-    buildTimeline();
+    function buildTimeline() {
+      if (tl) tl.kill();
+      tl = gsap.timeline({
+        repeat: 2,
+        repeatDelay: 1.4,
+        paused: true,
+        onComplete: holdFinalState
+      });
 
-    ScrollTrigger.create({
-      trigger: scene,
-      start: 'top 85%',
-      end: 'bottom 15%',
-      onToggle: function (self) {
-        if (self.isActive) tl.play();
-        else tl.pause();
-      }
-    });
-  }
+      tl.call(reset);
+      tl.to(typed, { width: fullWidth, duration: 1.2, ease: 'none' }, 0.4);
+      tl.to(caret, { autoAlpha: 0, duration: 0.25 }, '>');
+      tl.to(serp, { autoAlpha: 1, y: 0, duration: 0.55, ease: 'power2.out' }, '<');
+      tl.to(cards, { autoAlpha: 1, y: 0, duration: 0.45, stagger: 0.14, ease: 'power2.out' }, '<0.05');
+      tl.to(dimCards, {
+        opacity: function (i, target) { return parseFloat(target.dataset.dim) || 0.3; },
+        y: 0,
+        duration: 0.45,
+        stagger: 0.1,
+        ease: 'power2.out'
+      }, '<0.35');
+      tl.call(function () {
+        youCard.classList.add('is-highlighted');
+        if (youPin) youPin.classList.add('is-active');
+      }, null, '+=0.25');
+      tl.to(callout, { autoAlpha: 1, y: 0, duration: 0.55, ease: 'back.out(1.8)' }, '+=0.35');
+      tl.to(callout, {
+        keyframes: [
+          { y: -10 }, { y: 0 },
+          { y: -7 }, { y: 0 },
+          { y: -4 }, { y: 0 }
+        ],
+        duration: 1.8,
+        ease: 'sine.inOut'
+      }, '+=0.15');
+      tl.to({}, { duration: 0.8 });
+      tl.to([callout, serp], { autoAlpha: 0, duration: 0.5 });
+      tl.to(dimCards, { opacity: 0, duration: 0.5 }, '<');
+      tl.to(typed, { width: 0, duration: 0.5 }, '<');
+    }
 
-  var resizeTimer;
-  window.addEventListener('resize', function () {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(function () {
-      scene.classList.remove('is-animating');
-      gsap.set(typed, { clearProps: 'width' });
+    function start() {
       fullWidth = typed.offsetWidth;
       scene.classList.add('is-animating');
+      reset();
       buildTimeline();
-      tl.play(0);
-    }, 200);
-  }, { passive: true });
 
-  if (document.fonts && document.fonts.ready) {
-    document.fonts.ready.then(start);
-  } else {
-    window.addEventListener('load', start);
+      ScrollTrigger.create({
+        trigger: scene,
+        start: 'top 85%',
+        end: 'bottom 15%',
+        onToggle: function (self) {
+          if (self.isActive) tl.play();
+          else tl.pause();
+        }
+      });
+    }
+
+    var resizeTimer;
+    window.addEventListener('resize', function () {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function () {
+        scene.classList.remove('is-animating');
+        gsap.set(typed, { clearProps: 'width' });
+        fullWidth = typed.offsetWidth;
+        scene.classList.add('is-animating');
+        buildTimeline();
+        tl.play(0);
+      }, 200);
+    }, { passive: true });
+
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(start);
+    } else {
+      window.addEventListener('load', start);
+    }
   }
+
+  var loaded = false;
+  var obs = new IntersectionObserver(function (entries) {
+    if (loaded) return;
+    if (!entries.some(function (e) { return e.isIntersecting; })) return;
+    loaded = true;
+    obs.disconnect();
+    loadScript('https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js')
+      .then(function () {
+        return loadScript('https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js');
+      })
+      .then(initScene)
+      .catch(function () { /* network fail: leave static fallback in place */ });
+  }, { rootMargin: '600px 0px' });
+  obs.observe(scene);
 })();
 </script>
 </body>
