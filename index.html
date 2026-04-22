@@ -590,6 +590,21 @@
     padding-top: 1rem;
   }
 
+  .hero-eyebrow {
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--clay);
+    text-align: center;
+    margin: 0 0 2rem;
+  }
+  .hero-eyebrow-hash {
+    margin-right: 0.35em;
+    font-weight: 600;
+  }
+
   .hero-heading {
     font-family: var(--font-display);
     font-size: clamp(3.5rem, 6.4vw, 7rem);
@@ -1218,7 +1233,7 @@
     font-family: var(--font-display);
     font-weight: 300;
     color: var(--ink);
-    margin: 0 0 4rem;
+    margin: 0 0 0.75rem;
     line-height: 0.95;
     letter-spacing: -0.03em;
     display: flex;
@@ -1250,6 +1265,14 @@
     text-wrap: balance;
   }
   .lseo-headline-tail em { font-style: italic; color: var(--clay); }
+  .lseo-source {
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    color: var(--ink-muted);
+    margin: 0 0 2.5rem;
+    letter-spacing: 0.02em;
+  }
+  .lseo-source cite { font-style: normal; }
   .lseo-sub {
     font-size: 1.05rem;
     line-height: 1.7;
@@ -1543,6 +1566,476 @@
     .lseo-card-callout { opacity: 1; transform: translateX(-50%); }
   }
 
+  /* ─── CLIMB SCENE (What we do) ─── */
+  .climb-scene {
+    position: relative;
+    background: var(--ink);
+    color: var(--warm-white);
+    padding: clamp(5rem, 10vh, 8rem) 0 clamp(5rem, 10vh, 8rem);
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .climb-scene::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    left: 50%;
+    width: 90vmin;
+    height: 90vmin;
+    transform: translateX(-50%);
+    background: radial-gradient(circle at center, rgba(184,150,122,0.18) 0%, rgba(184,150,122,0) 58%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .climb-scene .wrap {
+    position: relative;
+    z-index: 1;
+    max-width: 1240px;
+  }
+  .climb-header {
+    text-align: center;
+    max-width: 820px;
+    margin: 0 auto clamp(3rem, 6vw, 5rem);
+  }
+  .climb-header .eyebrow { color: var(--clay); justify-content: center; }
+  .climb-header .eyebrow.ruled::before { background: rgba(184,150,122,0.55); }
+  .climb-header .eyebrow.ruled::after {
+    content: '';
+    display: block;
+    width: 2rem;
+    height: 1px;
+    background: rgba(184,150,122,0.55);
+    flex-shrink: 0;
+  }
+  .climb-heading {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(2.2rem, 4.2vw, 4rem);
+    line-height: 1.08;
+    letter-spacing: -0.015em;
+    color: var(--warm-white);
+    margin: 1.5rem 0 1.75rem;
+    text-wrap: balance;
+  }
+  .climb-heading em {
+    font-style: italic;
+    color: var(--clay);
+  }
+  .climb-intro {
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    font-weight: 300;
+    color: rgba(250,249,248,0.72);
+    margin: 0 auto;
+    max-width: 54ch;
+  }
+
+  .climb-grid {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: clamp(2.5rem, 5vw, 5rem);
+    align-items: stretch;
+    position: relative;
+  }
+
+  /* LADDER (left column on desktop) */
+  .climb-ladder-wrap {
+    position: relative;
+    align-self: stretch;
+    height: 100%;
+  }
+  .climb-ladder {
+    position: relative;
+    height: 100%;
+    min-height: 440px;
+    --dot-pos: 14;
+  }
+  .climb-ladder-track {
+    position: absolute;
+    top: 0; bottom: 0;
+    left: 80px;
+    width: 1px;
+    background: linear-gradient(to bottom,
+      rgba(250,249,248,0.28) 0%,
+      rgba(250,249,248,0.28) 18%,
+      rgba(250,249,248,0.12) 18%,
+      rgba(250,249,248,0.12) 100%);
+  }
+  .climb-ladder-zone {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: calc((2 / 13) * 100%);
+    background: linear-gradient(to right, rgba(184,150,122,0.08), rgba(184,150,122,0));
+    pointer-events: none;
+  }
+  .climb-ladder-zone::after {
+    content: 'Top 3';
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    font-family: var(--font-body);
+    font-size: 0.6rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--clay);
+    background: rgba(184,150,122,0.12);
+    padding: 0.25rem 0.6rem;
+    border: 1px solid rgba(184,150,122,0.45);
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  .climb-ladder-marks {
+    position: absolute;
+    inset: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .climb-ladder-mark {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc((var(--p) - 1) * (100% / 13));
+    height: 0;
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: rgba(250,249,248,0.35);
+    transition: color 0.35s ease, opacity 0.35s ease;
+  }
+  .climb-ladder-mark-num {
+    position: absolute;
+    right: calc(100% - 72px);
+    top: 0;
+    transform: translateY(-50%);
+    width: 54px;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    font-size: 0.72rem;
+  }
+  .climb-ladder-mark-tick {
+    position: absolute;
+    left: 73px;
+    top: 0;
+    width: 14px;
+    height: 1px;
+    background: rgba(250,249,248,0.2);
+  }
+  .climb-ladder-mark-label {
+    position: absolute;
+    left: 100px;
+    top: 0;
+    transform: translateY(-50%);
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 0.85rem;
+    color: rgba(250,249,248,0.55);
+    letter-spacing: 0;
+    text-transform: none;
+    white-space: nowrap;
+  }
+  .climb-ladder-mark--highlight { color: var(--clay); }
+  .climb-ladder-mark--highlight .climb-ladder-mark-num { color: var(--clay); }
+  .climb-ladder-mark--highlight .climb-ladder-mark-tick { background: var(--clay); width: 20px; }
+  .climb-ladder-mark--highlight .climb-ladder-mark-label { color: var(--clay); }
+  .climb-ladder-mark--start { color: rgba(250,249,248,0.55); }
+  .climb-ladder-mark--start .climb-ladder-mark-num { color: rgba(250,249,248,0.55); }
+
+  .climb-ladder-dot {
+    position: absolute;
+    left: 80px;
+    top: calc((var(--dot-pos) - 1) * (100% / 13));
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    border-radius: 999px;
+    background: var(--clay);
+    box-shadow: 0 0 0 6px rgba(184,150,122,0.18), 0 0 22px rgba(184,150,122,0.55);
+    z-index: 3;
+  }
+  .climb-ladder-dot::before {
+    content: '';
+    position: absolute;
+    inset: -8px;
+    border-radius: 999px;
+    border: 1px solid rgba(184,150,122,0.3);
+    opacity: 0;
+  }
+  .climb-ladder-dot-label {
+    position: absolute;
+    left: calc(100% + 14px);
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--clay);
+    white-space: nowrap;
+    background: rgba(184,150,122,0.1);
+    padding: 0.3rem 0.65rem;
+    border-radius: 999px;
+    border: 1px solid rgba(184,150,122,0.35);
+  }
+  .climb-ladder.is-locked .climb-ladder-dot {
+    box-shadow: 0 0 0 8px rgba(184,150,122,0.22), 0 0 34px rgba(184,150,122,0.75);
+  }
+  .climb-ladder.is-locked .climb-ladder-dot::before {
+    animation: climbPulse 2.4s ease-out infinite;
+  }
+  @keyframes climbPulse {
+    0% { transform: scale(1); opacity: 0.65; }
+    70% { transform: scale(1.9); opacity: 0; }
+    100% { transform: scale(1.9); opacity: 0; }
+  }
+
+  /* Trail (fading line from start position up to current dot) */
+  .climb-ladder-trail {
+    position: absolute;
+    left: 80px;
+    top: calc((var(--dot-pos) - 1) * (100% / 13));
+    bottom: 0;
+    width: 2px;
+    transform: translateX(-50%);
+    background: linear-gradient(to bottom, var(--clay), rgba(184,150,122,0));
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  /* SERVICES (right column on desktop) */
+  .climb-services {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+  }
+  .climb-service {
+    position: relative;
+    opacity: 0.38;
+    transition: opacity 0.5s ease;
+  }
+  .climb-service.is-active,
+  .climb-service.is-done { opacity: 1; }
+
+  .climb-service-card {
+    display: grid;
+    grid-template-columns: 48px 1fr auto;
+    gap: 1.1rem;
+    align-items: center;
+    padding: 1.05rem 1.4rem;
+    background: rgba(250,249,248,0.03);
+    border: 1px solid rgba(250,249,248,0.08);
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--warm-white);
+    transition: background 0.35s ease, border-color 0.35s ease, transform 0.35s ease;
+  }
+  .climb-service.is-active .climb-service-card,
+  .climb-service.is-done .climb-service-card {
+    background: rgba(250,249,248,0.06);
+    border-color: rgba(184,150,122,0.4);
+  }
+  .climb-service-card:hover,
+  .climb-service-card:focus-visible {
+    background: rgba(250,249,248,0.09);
+    border-color: rgba(184,150,122,0.6);
+    transform: translateX(4px);
+    outline: none;
+  }
+
+  .climb-service-num {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 1.6rem;
+    color: rgba(250,249,248,0.35);
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+    transition: color 0.35s ease;
+  }
+  .climb-service.is-active .climb-service-num,
+  .climb-service.is-done .climb-service-num { color: var(--clay); }
+
+  .climb-service-body { min-width: 0; }
+  .climb-service-name {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 1.15rem;
+    line-height: 1.2;
+    margin: 0 0 0.25rem;
+    color: var(--warm-white);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+  }
+  .climb-service-desc {
+    font-family: var(--font-body);
+    font-weight: 300;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: rgba(250,249,248,0.55);
+    margin: 0;
+  }
+  .climb-service-sig {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--clay);
+    background: rgba(184,150,122,0.12);
+    border: 1px solid rgba(184,150,122,0.35);
+    padding: 0.18rem 0.5rem;
+    border-radius: 999px;
+  }
+  .climb-service-arrow {
+    font-family: var(--font-body);
+    font-weight: 300;
+    color: rgba(250,249,248,0.4);
+    font-size: 1.3rem;
+    transition: color 0.35s ease, transform 0.35s ease;
+  }
+  .climb-service-card:hover .climb-service-arrow,
+  .climb-service-card:focus-visible .climb-service-arrow {
+    color: var(--clay);
+    transform: translateX(4px);
+  }
+
+  /* Position jump pill (shows when active) */
+  .climb-service-jump {
+    position: absolute;
+    top: 50%;
+    right: calc(100% + 1rem);
+    transform: translateY(-50%);
+    font-family: var(--font-body);
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--clay);
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .climb-footer {
+    text-align: center;
+    margin-top: clamp(3rem, 6vw, 4.5rem);
+  }
+  .climb-cta-arrow { margin-left: 0.4em; }
+  .climb-footer .btn-primary {
+    color: var(--warm-white);
+    border-color: rgba(250,249,248,0.5);
+    min-width: 260px;
+  }
+  .climb-footer .btn-primary:hover,
+  .climb-footer .btn-primary:focus {
+    background: var(--clay);
+    color: var(--warm-white);
+    border-color: var(--clay);
+  }
+
+  @media (max-width: 900px) {
+    .climb-scene { padding: clamp(3rem, 7vh, 4.5rem) 0; }
+    .climb-header { margin-bottom: 2rem; }
+    .climb-heading { font-size: clamp(1.55rem, 6.2vw, 2.2rem); margin: 1rem 0 1rem; line-height: 1.15; }
+    .climb-intro { font-size: 0.92rem; line-height: 1.55; max-width: 34ch; }
+
+    .climb-grid {
+      grid-template-columns: 84px 1fr;
+      gap: 0.9rem;
+      align-items: stretch;
+    }
+    .climb-ladder-wrap { width: auto; margin: 0; }
+    .climb-ladder { min-height: 0; }
+    .climb-ladder-track { left: 36px; }
+    .climb-ladder-dot {
+      left: 36px;
+      width: 14px;
+      height: 14px;
+      box-shadow: 0 0 0 4px rgba(184,150,122,0.18), 0 0 18px rgba(184,150,122,0.55);
+    }
+    .climb-ladder.is-locked .climb-ladder-dot {
+      box-shadow: 0 0 0 5px rgba(184,150,122,0.22), 0 0 24px rgba(184,150,122,0.75);
+    }
+    .climb-ladder-trail { left: 36px; width: 1.5px; }
+    .climb-ladder-mark-num {
+      right: calc(100% - 30px);
+      width: 28px;
+      font-size: 0.56rem;
+      letter-spacing: 0.04em;
+    }
+    .climb-ladder-mark-tick { left: 30px; width: 10px; }
+    .climb-ladder-mark--highlight .climb-ladder-mark-tick { width: 14px; }
+    /* Hide text labels and floating pills on mobile to keep the ladder slim */
+    .climb-ladder-mark-label,
+    .climb-ladder-dot-label,
+    .climb-ladder-zone::after { display: none; }
+
+    .climb-services { gap: 0.45rem; }
+    .climb-service-card {
+      grid-template-columns: 30px 1fr;
+      gap: 0.65rem;
+      padding: 0.7rem 0.85rem;
+      border-radius: 8px;
+    }
+    .climb-service-arrow { display: none; }
+    .climb-service-desc { display: none; }
+    .climb-service-num {
+      font-size: 1.2rem;
+      line-height: 1;
+    }
+    .climb-service-body { display: flex; flex-direction: column; gap: 0.15rem; }
+    .climb-service-name {
+      font-size: 0.92rem;
+      line-height: 1.2;
+      margin: 0;
+      gap: 0.4rem;
+    }
+    .climb-service-sig {
+      font-size: 0.5rem;
+      padding: 0.12rem 0.4rem;
+      letter-spacing: 0.12em;
+    }
+    .climb-footer { margin-top: 2rem; }
+    .climb-footer .btn-primary { min-width: 0; width: 100%; }
+    .climb-cta-arrow { display: none; }
+  }
+  @media (max-width: 420px) {
+    .climb-grid { grid-template-columns: 72px 1fr; gap: 0.7rem; }
+    .climb-ladder-track { left: 30px; }
+    .climb-ladder-dot { left: 30px; }
+    .climb-ladder-trail { left: 30px; }
+    .climb-ladder-mark-num { right: calc(100% - 24px); width: 22px; }
+    .climb-ladder-mark-tick { left: 24px; width: 8px; }
+    .climb-ladder-mark--highlight .climb-ladder-mark-tick { width: 12px; }
+    .climb-service-card { padding: 0.6rem 0.75rem; }
+    .climb-service-name { font-size: 0.86rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .climb-ladder { --dot-pos: 2; }
+    .climb-service { opacity: 1; }
+    .climb-service .climb-service-card {
+      background: rgba(250,249,248,0.06);
+      border-color: rgba(184,150,122,0.4);
+    }
+    .climb-service .climb-service-num { color: var(--clay); }
+    .climb-ladder.is-locked .climb-ladder-dot::before { animation: none; }
+  }
+
   /* ─── SECTION PARALLAX BACKGROUNDS ─── */
   .section-parallax-bg {
     position: fixed;
@@ -1618,12 +2111,12 @@
   }
 
   .industry-card {
-    background: rgba(18,16,14,0.65);
+    background: rgba(12,10,9,0.88);
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.08);
     border-top: 2px solid var(--clay);
-    box-shadow: 0 4px 24px rgba(0,0,0,0.25);
+    box-shadow: 0 6px 32px rgba(0,0,0,0.45);
     border-radius: 10px;
     padding: 1.75rem 1.5rem 1.5rem;
     display: flex;
@@ -1637,12 +2130,47 @@
 
 
   .industry-icon {
+    position: relative;
     color: var(--clay);
     margin-bottom: 0.9rem;
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    align-self: flex-start;
+  }
+
+  .industry-icon::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: radial-gradient(circle, currentColor 0%, transparent 65%);
+    transform: translate(-50%, -50%) scale(0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.45s ease, transform 0.45s ease;
+    z-index: 0;
   }
 
   .industry-icon svg {
     display: block;
+    position: relative;
+    z-index: 1;
+  }
+
+  .industry-card:hover .industry-icon::before,
+  .industry-card:focus .industry-icon::before {
+    opacity: 0.45;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+
+  .industries[data-industries-gsap] > .industry-card {
+    opacity: 0;
+    transform: translateY(30px);
+    will-change: opacity, transform;
   }
 
   .industry-card:nth-child(1) .industry-icon { color: #e8b48a; } /* cleaning - warm sandy */
@@ -1693,10 +2221,10 @@
   .industry-card:hover,
   .industry-card:focus {
     transform: translateY(-5px);
-    background: rgba(18,16,14,0.28);
-    border-color: rgba(255,255,255,0.18);
+    background: rgba(20,17,15,0.94);
+    border-color: rgba(255,255,255,0.16);
     border-top-color: var(--clay);
-    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    box-shadow: 0 24px 70px rgba(0,0,0,0.6);
   }
 
   .industry-card:active {
@@ -1729,12 +2257,12 @@
       justify-content: center;
       text-align: center;
       gap: 0.4rem;
-      background: rgba(255,255,255,0.12);
+      background: rgba(12,10,9,0.78);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(255,255,255,0.25);
+      border: 1px solid rgba(255,255,255,0.1);
       border-top: 2px solid var(--clay);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), 0 4px 16px rgba(0,0,0,0.2);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 6px 20px rgba(0,0,0,0.35);
     }
 
     .industries .industry-card .industry-desc,
@@ -1744,6 +2272,14 @@
 
     .industries .industry-card .industry-icon {
       margin-bottom: 0;
+      width: 24px;
+      height: 24px;
+      align-self: auto;
+    }
+
+    .industries .industry-card .industry-icon::before {
+      width: 56px;
+      height: 56px;
     }
 
     .industries .industry-card .industry-icon svg {
@@ -3019,10 +3555,26 @@
       font-size: clamp(1.5rem, 5vw, 2rem);
     }
 
+    .hero-eyebrow {
+      font-size: 0.5rem;
+      letter-spacing: 0.1em;
+      margin: 0 0 1.25rem;
+      opacity: 0.75;
+      white-space: nowrap;
+    }
+
     .hero-heading {
       font-size: clamp(3.25rem, 13vw, 5.5rem);
       line-height: 0.98;
       white-space: normal;
+    }
+
+    .hero-subheadline {
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    .hero-subheadline em {
+      font-size: 1.6em;
     }
 
     .hero-testimonial-attr {
@@ -3921,7 +4473,7 @@
         {
           "@type": "Review",
           "datePublished": "2025-01-15",
-          "author": { "@type": "Organization", "name": "KO Cleaning" },
+          "author": { "@type": "Person", "name": "KO Cleaning" },
           "reviewRating": { "@type": "Rating", "ratingValue": 5, "bestRating": 5 },
           "reviewBody": "Haylo was incredibly helpful in getting our Google Business Profile up and running. The improvement in our local visibility has been noticeable. Well worth it for any cleaning business wanting to get found online."
         },
@@ -4091,24 +4643,6 @@
             "@type": "Answer",
             "text": "Haylo offers Google Business Profile management, local SEO, review generation, Facebook Business Page management, website creation and SEO, and monthly performance reporting  -  all specialising in Sunshine Coast service businesses including tradies, cleaners, and home service providers across Caloundra, Maroochydore, Buderim, Noosa, and surrounding suburbs."
           }
-        }
-      ]
-    },
-    {
-      "@type": "BreadcrumbList",
-      "@id": "https://www.withhaylo.com/#breadcrumb",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://www.withhaylo.com/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Local Marketing for Sunshine Coast Small Businesses",
-          "item": "https://www.withhaylo.com/"
         }
       ]
     }
@@ -4282,6 +4816,7 @@
   </div>
   <div class="hero-inner">
     <div class="hero-text animate-fade-in-up">
+      <p class="hero-eyebrow"><span class="hero-eyebrow-hash">#</span>The honest approach to local SEO on the Sunshine Coast</p>
       <h1 class="hero-heading">
         Stop chasing customers.<br>
         Start getting <em>found.</em>
@@ -4398,9 +4933,10 @@
     <div class="lseo-text">
       <p class="lseo-bridge">Here's what's actually happening on Google.</p>
       <h2 class="lseo-headline">
-        <span class="lseo-headline-num">75<span class="lseo-headline-pct">%</span></span>
-        <span class="lseo-headline-tail">of clicks go to the top three businesses on <em>Google Maps.</em></span>
+        <span class="lseo-headline-num">126<span class="lseo-headline-pct">%</span></span>
+        <span class="lseo-headline-tail">more traffic goes to the top three on <em>Google Maps</em> than positions four to ten.</span>
       </h2>
+      <p class="lseo-source"><cite>Source: Backlinko Local SEO Study</cite></p>
       <p class="lseo-sub">Local SEO is how your business shows up when locals nearby are searching for what you do. On the Coast, someone taps one of three names and the call goes there. Everyone else is invisible. Our job is to get you into that three.</p>
     </div>
     <div class="lseo-phone-stage" aria-hidden="true">
@@ -4473,92 +5009,131 @@
     <a href="/local-seo-sunshine-coast/" class="btn-primary">Show me how I get in that three &rarr;</a>
   </div>
 </section>
-<!-- ─── SERVICES ─── -->
-<section class="services" id="services" aria-label="Services">
+<!-- ─── CLIMB SCENE (What we do) ─── -->
+<section class="climb-scene" id="services" aria-label="What we do">
   <div class="wrap">
-    <div class="services-header animate-fade-in">
+    <div class="climb-header animate-fade-in">
       <p class="eyebrow ruled" style="margin-bottom:1.5rem;">What we do</p>
-      <h2 class="section-heading services-heading">
-        Everything your<br>
-        business needs to<br>
-        <em>get found.</em>
+      <h2 class="climb-heading">
+        Six things that climb you<br>
+        into <em>the top three.</em>
       </h2>
-      <p class="services-intro" style="margin-top:2.5rem;max-width:52ch;">
-        We focus on the things that actually move the needle for small businesses - not vanity metrics or complicated dashboards. Just clear, effective work that brings in more customers.
+      <p class="climb-intro">
+        Getting found on Google isn't one thing. It's six things working together. Here's the stack that moves a Sunshine Coast business from invisible to the Maps 3-pack.
       </p>
     </div>
 
-    <div class="services-grid stagger-animation">
-
-      <!-- Row 1: Local SEO (2-col) + Facebook (1-col) -->
-      <a href="/local-seo-sunshine-coast/" class="service-item service-item--featured service-item--signature" data-bg="url('blog/google-maps-top-3/google-maps-top-3-blog.webp')" data-bg-var="--service-bg">
-        <span class="service-sig-badge">Signature service</span>
-        <p class="service-num">01</p>
-        <h3 class="service-name">Local SEO<br>Sunshine Coast</h3>
-        <p class="service-desc">Rank in Google Search. No ads. Long-term visibility that compounds.</p>
-        <span class="service-tag">Signature service</span>
-      </a>
-      <a href="/facebook-business-page-management/" class="service-item" data-bg="url('images/services/social-media-on-mobile.webp')" data-bg-var="--service-bg">
-        <p class="service-num">02</p>
-        <h3 class="service-name">Facebook Business Page</h3>
-        <p class="service-desc">Builds trust before a customer has even called. Managed monthly.</p>
-        <span class="service-tag">Social presence</span>
-      </a>
-
-      <!-- Row 2: Three equal cards -->
-      <a href="/review-generation/" class="service-item" data-bg="url('images/homepage/services-local-seo.webp')" data-bg-var="--service-bg">
-        <p class="service-num">03</p>
-        <h3 class="service-name">Review Generation &amp; Management</h3>
-        <p class="service-desc">Every happy customer becomes a five-star review. Systematically.</p>
-        <span class="service-tag">Reputation</span>
-      </a>
-      <a href="/reporting/" class="service-item" data-bg="url('images/homepage/services-website.webp')" data-bg-var="--service-bg">
-        <p class="service-num">04</p>
-        <h3 class="service-name">Local Visibility Reporting</h3>
-        <p class="service-desc">Plain-English monthly reports. Calls, views, reviews - what's moving.</p>
-        <span class="service-tag">Reporting</span>
-      </a>
-      <a href="/website-creation-seo/" class="service-item" data-bg="url('images/homepage/macbook-2.webp')" data-bg-var="--service-bg">
-        <p class="service-num">05</p>
-        <h3 class="service-name">Website Creation &amp; SEO</h3>
-        <p class="service-desc">Fast, built to convert. Optimised so the right people find you.</p>
-        <span class="service-tag">Web &amp; SEO</span>
-      </a>
-
-      <!-- Row 3: Suburb filler (1-col) + Google Business Profile (2-col) -->
-      <div class="service-item service-filler">
-        <p class="service-tag" style="margin-top:0; margin-bottom: auto;">Service area</p>
-        <h3 class="service-name" style="font-size: clamp(1.75rem, 2vw, 2.25rem); margin-top: 1rem;">Sunshine Coast,<br><em>covered.</em></h3>
-        <p class="service-desc">Local SEO and digital marketing for service businesses across the Coast - from Caloundra to Noosa.</p>
-        <div class="suburb-grid">
-          <span>Caloundra</span>
-          <span>Kawana</span>
-          <span>Maroochydore</span>
-          <span>Mooloolaba</span>
-          <span>Buderim</span>
-          <span>Noosa Heads</span>
-          <span>Coolum Beach</span>
-          <span>Nambour</span>
-          <span>Sippy Downs</span>
-          <span>Mountain Creek</span>
-          <span>Alexandra Headland</span>
-          <span>Bli Bli</span>
-          <span>Glass House Mtns</span>
-          <span>Eumundi</span>
-          <span>Tewantin</span>
-          <span>Birtinya</span>
+    <div class="climb-grid">
+      <!-- Left: ranking ladder -->
+      <div class="climb-ladder-wrap" aria-hidden="true">
+        <div class="climb-ladder" data-climb-ladder>
+          <div class="climb-ladder-zone"></div>
+          <div class="climb-ladder-track"></div>
+          <ol class="climb-ladder-marks">
+            <li class="climb-ladder-mark climb-ladder-mark--highlight" style="--p:1;">
+              <span class="climb-ladder-mark-num">#1</span>
+              <span class="climb-ladder-mark-tick"></span>
+              <span class="climb-ladder-mark-label">Most calls</span>
+            </li>
+            <li class="climb-ladder-mark" style="--p:2;">
+              <span class="climb-ladder-mark-num">#2</span>
+              <span class="climb-ladder-mark-tick"></span>
+            </li>
+            <li class="climb-ladder-mark climb-ladder-mark--highlight" style="--p:3;">
+              <span class="climb-ladder-mark-num">#3</span>
+              <span class="climb-ladder-mark-tick"></span>
+              <span class="climb-ladder-mark-label">Cut-off line</span>
+            </li>
+            <li class="climb-ladder-mark" style="--p:4;"><span class="climb-ladder-mark-num">#4</span><span class="climb-ladder-mark-tick"></span></li>
+            <li class="climb-ladder-mark" style="--p:5;"><span class="climb-ladder-mark-num">#5</span><span class="climb-ladder-mark-tick"></span></li>
+            <li class="climb-ladder-mark" style="--p:6;"><span class="climb-ladder-mark-num">#6</span><span class="climb-ladder-mark-tick"></span></li>
+            <li class="climb-ladder-mark" style="--p:7;"><span class="climb-ladder-mark-num">#7</span><span class="climb-ladder-mark-tick"></span></li>
+            <li class="climb-ladder-mark" style="--p:8;"><span class="climb-ladder-mark-num">#8</span><span class="climb-ladder-mark-tick"></span></li>
+            <li class="climb-ladder-mark" style="--p:9;"><span class="climb-ladder-mark-num">#9</span><span class="climb-ladder-mark-tick"></span></li>
+            <li class="climb-ladder-mark" style="--p:10;"><span class="climb-ladder-mark-num">#10</span><span class="climb-ladder-mark-tick"></span></li>
+            <li class="climb-ladder-mark" style="--p:11;"><span class="climb-ladder-mark-num">#11</span><span class="climb-ladder-mark-tick"></span></li>
+            <li class="climb-ladder-mark" style="--p:12;"><span class="climb-ladder-mark-num">#12</span><span class="climb-ladder-mark-tick"></span></li>
+            <li class="climb-ladder-mark" style="--p:13;"><span class="climb-ladder-mark-num">#13</span><span class="climb-ladder-mark-tick"></span></li>
+            <li class="climb-ladder-mark climb-ladder-mark--start" style="--p:14;">
+              <span class="climb-ladder-mark-num">#14</span>
+              <span class="climb-ladder-mark-tick"></span>
+              <span class="climb-ladder-mark-label">Invisible</span>
+            </li>
+          </ol>
+          <div class="climb-ladder-trail"></div>
+          <div class="climb-ladder-dot">
+            <span class="climb-ladder-dot-label">You</span>
+          </div>
         </div>
       </div>
-      <a href="/google-business-profile/" class="service-item service-item--featured-br" data-bg="url('images/homepage/services-google-business-profile.webp')" data-bg-var="--service-bg">
-        <p class="service-num">06</p>
-        <h3 class="service-name">Google Business Profile</h3>
-        <p class="service-desc">Where most local searches end. Own the Maps 3-pack and convert browsers into booked jobs.</p>
-        <span class="service-tag">Local presence</span>
-      </a>
 
+      <!-- Right: services list -->
+      <ol class="climb-services" data-climb-services>
+        <li class="climb-service" data-target-pos="12">
+          <a href="/local-seo-sunshine-coast/" class="climb-service-card">
+            <span class="climb-service-num">01</span>
+            <div class="climb-service-body">
+              <h3 class="climb-service-name">Local SEO Sunshine Coast</h3>
+              <p class="climb-service-desc">The work that actually moves your ranking. On-page, content, and local signals, stacked over months.</p>
+            </div>
+            <span class="climb-service-arrow" aria-hidden="true">&rarr;</span>
+          </a>
+        </li>
+        <li class="climb-service" data-target-pos="9">
+          <a href="/google-business-profile/" class="climb-service-card">
+            <span class="climb-service-num">02</span>
+            <div class="climb-service-body">
+              <h3 class="climb-service-name">Google Business Profile</h3>
+              <p class="climb-service-desc">Where most local searches end. We own the Maps 3-pack so browsers turn into booked jobs.</p>
+            </div>
+            <span class="climb-service-arrow" aria-hidden="true">&rarr;</span>
+          </a>
+        </li>
+        <li class="climb-service" data-target-pos="6">
+          <a href="/review-generation/" class="climb-service-card">
+            <span class="climb-service-num">03</span>
+            <div class="climb-service-body">
+              <h3 class="climb-service-name">Review Generation &amp; Management</h3>
+              <p class="climb-service-desc">Every happy customer becomes a five-star review. Systematically, not once a quarter.</p>
+            </div>
+            <span class="climb-service-arrow" aria-hidden="true">&rarr;</span>
+          </a>
+        </li>
+        <li class="climb-service" data-target-pos="4">
+          <a href="/website-creation-seo/" class="climb-service-card">
+            <span class="climb-service-num">04</span>
+            <div class="climb-service-body">
+              <h3 class="climb-service-name">Website Creation &amp; SEO</h3>
+              <p class="climb-service-desc">Fast, built to convert, optimised so the right people find you. No bloated builder sites.</p>
+            </div>
+            <span class="climb-service-arrow" aria-hidden="true">&rarr;</span>
+          </a>
+        </li>
+        <li class="climb-service" data-target-pos="3">
+          <a href="/facebook-business-page-management/" class="climb-service-card">
+            <span class="climb-service-num">05</span>
+            <div class="climb-service-body">
+              <h3 class="climb-service-name">Facebook Business Page</h3>
+              <p class="climb-service-desc">Builds trust before a customer has even called. Managed monthly, so you don't have to think about it.</p>
+            </div>
+            <span class="climb-service-arrow" aria-hidden="true">&rarr;</span>
+          </a>
+        </li>
+        <li class="climb-service" data-target-pos="2">
+          <a href="/reporting/" class="climb-service-card">
+            <span class="climb-service-num">06</span>
+            <div class="climb-service-body">
+              <h3 class="climb-service-name">Local Visibility Reporting</h3>
+              <p class="climb-service-desc">Plain-English monthly reports. Calls, views, reviews - what's moving and what's next.</p>
+            </div>
+            <span class="climb-service-arrow" aria-hidden="true">&rarr;</span>
+          </a>
+        </li>
+      </ol>
     </div>
-    <div style="margin-top: 3rem; text-align: center;">
-      <a href="/google-business-profile-audit/#audit-form" class="btn-primary">See what's holding you back</a>
+
+    <div class="climb-footer">
+      <a href="/google-business-profile-audit/#audit-form" class="btn-primary">See what's holding you back <span class="climb-cta-arrow" aria-hidden="true">&rarr;</span></a>
     </div>
   </div>
 </section>
@@ -4570,7 +5145,7 @@
     <div class="who-content">
     <div class="who-header animate-fade-in">
       <p class="eyebrow ruled" style="margin-bottom: 1.5rem;">Built for local businesses</p>
-      <h2 class="section-heading">We work with <em>local service</em> businesses.</h2>
+      <h2 class="section-heading">The Sunshine Coast's businesses. That's our <em>game.</em></h2>
       <p class="services-intro">We get tradies, cleaners and home service businesses ranking on Google, generating reviews and converting local searches into real enquiries. The phone rings more. Simple as that.</p>
     </div>
     <div class="industries stagger-animation" id="industries-grid">
@@ -5988,6 +6563,241 @@ document.querySelectorAll('.footer-col-toggle').forEach(function(btn){
       .catch(function () { /* network fail: leave static fallback in place */ });
   }, { rootMargin: '600px 0px' });
   obs.observe(scene);
+})();
+</script>
+
+<script>
+// Climb scene: dot climbs a ranking scale as six services activate in sequence.
+(function () {
+  var scene = document.querySelector('.climb-scene');
+  if (!scene) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  var ladder = scene.querySelector('[data-climb-ladder]');
+  var services = Array.prototype.slice.call(scene.querySelectorAll('[data-climb-services] .climb-service'));
+  if (!ladder || !services.length) return;
+
+  var startPos = 14;
+  ladder.style.setProperty('--dot-pos', startPos);
+
+  function loadScript(src) {
+    return new Promise(function (resolve, reject) {
+      var s = document.createElement('script');
+      s.src = src;
+      s.async = true;
+      s.onload = resolve;
+      s.onerror = reject;
+      document.head.appendChild(s);
+    });
+  }
+
+  function initClimb() {
+    if (!window.gsap || !window.ScrollTrigger) return;
+    gsap.registerPlugin(ScrollTrigger);
+
+    var tl;
+    var posState = { v: startPos };
+
+    function setPos(n) {
+      ladder.style.setProperty('--dot-pos', n);
+    }
+
+    function reset() {
+      posState.v = startPos;
+      setPos(startPos);
+      ladder.classList.remove('is-locked');
+      services.forEach(function (el) {
+        el.classList.remove('is-active', 'is-done');
+      });
+    }
+
+    function holdFinalState() {
+      services.forEach(function (el) { el.classList.add('is-done'); });
+      var last = services[services.length - 1];
+      var target = parseFloat(last.getAttribute('data-target-pos')) || 2;
+      posState.v = target;
+      setPos(target);
+      ladder.classList.add('is-locked');
+    }
+
+    function buildTimeline() {
+      if (tl) tl.kill();
+      tl = gsap.timeline({
+        paused: true,
+        onComplete: holdFinalState
+      });
+
+      tl.call(reset);
+      tl.to({}, { duration: 0.3 });
+
+      services.forEach(function (el, i) {
+        var target = parseFloat(el.getAttribute('data-target-pos')) || 2;
+        var isLast = i === services.length - 1;
+
+        // Activate service card
+        tl.call(function () {
+          // mark previous as done, this one as active
+          if (i > 0) services[i - 1].classList.add('is-done');
+          services[i - 1] && services[i - 1].classList.remove('is-active');
+          el.classList.add('is-active');
+        });
+
+        // Climb the dot
+        tl.to(posState, {
+          v: target,
+          duration: 0.75,
+          ease: 'power2.inOut',
+          onUpdate: function () {
+            setPos(posState.v);
+          }
+        }, '<0.15');
+
+        // Pause between steps
+        tl.to({}, { duration: isLast ? 0.1 : 0.55 });
+      });
+
+      // Final: lock in top-3 glow
+      tl.call(function () {
+        services[services.length - 1].classList.add('is-done');
+        services[services.length - 1].classList.remove('is-active');
+        ladder.classList.add('is-locked');
+      });
+      tl.to({}, { duration: 0.6 });
+    }
+
+    function start() {
+      reset();
+      buildTimeline();
+
+      var trigger = scene.querySelector('.climb-grid') || scene;
+      ScrollTrigger.create({
+        trigger: trigger,
+        start: 'top 80%',
+        once: true,
+        onEnter: function () {
+          tl.play();
+        }
+      });
+    }
+
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(start);
+    } else {
+      window.addEventListener('load', start);
+    }
+  }
+
+  var loaded = false;
+  var obs = new IntersectionObserver(function (entries) {
+    if (loaded) return;
+    if (!entries.some(function (e) { return e.isIntersecting; })) return;
+    loaded = true;
+    obs.disconnect();
+    // If GSAP is already loaded by the lseo scene, just init
+    if (window.gsap && window.ScrollTrigger) {
+      initClimb();
+      return;
+    }
+    loadScript('https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js')
+      .then(function () {
+        return loadScript('https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js');
+      })
+      .then(initClimb)
+      .catch(function () { /* leave static fallback */ });
+  }, { rootMargin: '600px 0px' });
+  obs.observe(scene);
+})();
+</script>
+
+<script>
+// Industries grid: diagonal-wave scroll stagger via GSAP.
+// Existing .stagger-animation CSS remains as a no-JS fallback.
+(function () {
+  var grid = document.getElementById('industries-grid');
+  if (!grid) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  // Claim the grid before the generic stagger-animation IO runs.
+  grid.classList.remove('stagger-animation');
+  grid.setAttribute('data-industries-gsap', '1');
+
+  var cards = Array.prototype.slice.call(grid.querySelectorAll('.industry-card'));
+  if (!cards.length) {
+    grid.removeAttribute('data-industries-gsap');
+    return;
+  }
+
+  function showStaticFallback() {
+    grid.removeAttribute('data-industries-gsap');
+    cards.forEach(function (c) {
+      c.style.opacity = '1';
+      c.style.transform = 'translateY(0)';
+    });
+  }
+
+  function loadScript(src) {
+    return new Promise(function (resolve, reject) {
+      var s = document.createElement('script');
+      s.src = src;
+      s.async = true;
+      s.onload = resolve;
+      s.onerror = reject;
+      document.head.appendChild(s);
+    });
+  }
+
+  function initIndustries() {
+    if (!window.gsap || !window.ScrollTrigger) {
+      showStaticFallback();
+      return;
+    }
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.set(cards, { opacity: 0, y: 30 });
+
+    gsap.to(cards, {
+      opacity: 1,
+      y: 0,
+      duration: 0.75,
+      ease: 'power2.out',
+      stagger: {
+        grid: [3, 3],
+        from: 'start',
+        axis: null,
+        each: 0.08
+      },
+      scrollTrigger: {
+        trigger: grid,
+        start: 'top 82%',
+        once: true
+      },
+      onComplete: function () {
+        // Clear inline transform/opacity so CSS :hover transform can take over.
+        gsap.set(cards, { clearProps: 'transform,opacity,willChange' });
+        grid.removeAttribute('data-industries-gsap');
+      }
+    });
+  }
+
+  var loaded = false;
+  var obs = new IntersectionObserver(function (entries) {
+    if (loaded) return;
+    if (!entries.some(function (e) { return e.isIntersecting; })) return;
+    loaded = true;
+    obs.disconnect();
+
+    if (window.gsap && window.ScrollTrigger) {
+      initIndustries();
+      return;
+    }
+    loadScript('https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js')
+      .then(function () {
+        return loadScript('https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js');
+      })
+      .then(initIndustries)
+      .catch(showStaticFallback);
+  }, { rootMargin: '600px 0px' });
+  obs.observe(grid);
 })();
 </script>
 </body>
