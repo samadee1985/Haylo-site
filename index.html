@@ -1574,6 +1574,8 @@
     padding: clamp(5rem, 10vh, 8rem) 0 clamp(5rem, 10vh, 8rem);
     overflow: hidden;
     isolation: isolate;
+    z-index: 10;
+    margin-bottom: -1px;
   }
   .climb-scene::before {
     content: '';
@@ -2061,7 +2063,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background-color: var(--stone);
+    background-color: var(--ink);
     z-index: -2;
     pointer-events: none;
   }
