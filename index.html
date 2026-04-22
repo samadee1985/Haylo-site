@@ -22,8 +22,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"></noscript>
-<link rel="preload" href="/images/homepage/hero-image.webp" as="image" fetchpriority="high" media="(min-width: 768px)">
-<link rel="preload" href="/images/homepage/hero-image-mobile.webp" as="image" fetchpriority="high" media="(max-width: 767px)">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y2MFJPRSRL"></script>
 <script>
@@ -1220,7 +1218,7 @@
     font-family: var(--font-display);
     font-weight: 300;
     color: var(--ink);
-    margin: 0 0 2.25rem;
+    margin: 0 0 4rem;
     line-height: 0.95;
     letter-spacing: -0.03em;
     display: flex;
@@ -1259,8 +1257,6 @@
     max-width: 46ch;
     margin: 0 0 2rem;
     font-weight: 300;
-    padding-top: 1.5rem;
-    border-top: 1px solid var(--border);
   }
 
   /* Phone mockup */
@@ -4495,14 +4491,14 @@
     <div class="services-grid stagger-animation">
 
       <!-- Row 1: Local SEO (2-col) + Facebook (1-col) -->
-      <a href="/local-seo-sunshine-coast/" class="service-item service-item--featured service-item--signature" style="--service-bg: url('blog/google-maps-top-3/google-maps-top-3-blog.webp');">
+      <a href="/local-seo-sunshine-coast/" class="service-item service-item--featured service-item--signature" data-bg="url('blog/google-maps-top-3/google-maps-top-3-blog.webp')" data-bg-var="--service-bg">
         <span class="service-sig-badge">Signature service</span>
         <p class="service-num">01</p>
         <h3 class="service-name">Local SEO<br>Sunshine Coast</h3>
         <p class="service-desc">Rank in Google Search. No ads. Long-term visibility that compounds.</p>
         <span class="service-tag">Signature service</span>
       </a>
-      <a href="/facebook-business-page-management/" class="service-item" style="--service-bg: url('images/services/social-media-on-mobile.webp');">
+      <a href="/facebook-business-page-management/" class="service-item" data-bg="url('images/services/social-media-on-mobile.webp')" data-bg-var="--service-bg">
         <p class="service-num">02</p>
         <h3 class="service-name">Facebook Business Page</h3>
         <p class="service-desc">Builds trust before a customer has even called. Managed monthly.</p>
@@ -4510,19 +4506,19 @@
       </a>
 
       <!-- Row 2: Three equal cards -->
-      <a href="/review-generation/" class="service-item" style="--service-bg: url('images/homepage/services-local-seo.webp');">
+      <a href="/review-generation/" class="service-item" data-bg="url('images/homepage/services-local-seo.webp')" data-bg-var="--service-bg">
         <p class="service-num">03</p>
         <h3 class="service-name">Review Generation &amp; Management</h3>
         <p class="service-desc">Every happy customer becomes a five-star review. Systematically.</p>
         <span class="service-tag">Reputation</span>
       </a>
-      <a href="/reporting/" class="service-item" style="--service-bg: url('images/homepage/services-website.webp');">
+      <a href="/reporting/" class="service-item" data-bg="url('images/homepage/services-website.webp')" data-bg-var="--service-bg">
         <p class="service-num">04</p>
         <h3 class="service-name">Local Visibility Reporting</h3>
         <p class="service-desc">Plain-English monthly reports. Calls, views, reviews - what's moving.</p>
         <span class="service-tag">Reporting</span>
       </a>
-      <a href="/website-creation-seo/" class="service-item" style="--service-bg: url('images/homepage/macbook-2.webp');">
+      <a href="/website-creation-seo/" class="service-item" data-bg="url('images/homepage/macbook-2.webp')" data-bg-var="--service-bg">
         <p class="service-num">05</p>
         <h3 class="service-name">Website Creation &amp; SEO</h3>
         <p class="service-desc">Fast, built to convert. Optimised so the right people find you.</p>
@@ -4553,7 +4549,7 @@
           <span>Birtinya</span>
         </div>
       </div>
-      <a href="/google-business-profile/" class="service-item service-item--featured-br" style="--service-bg: url('images/homepage/services-google-business-profile.webp');">
+      <a href="/google-business-profile/" class="service-item service-item--featured-br" data-bg="url('images/homepage/services-google-business-profile.webp')" data-bg-var="--service-bg">
         <p class="service-num">06</p>
         <h3 class="service-name">Google Business Profile</h3>
         <p class="service-desc">Where most local searches end. Own the Maps 3-pack and convert browsers into booked jobs.</p>
@@ -4843,7 +4839,7 @@
     </div>
     <div class="suburb-grid">
       <a href="/local-seo-noosa/" class="suburb-card">
-        <div class="suburb-card-bg" style="background-image:url('/images/suburbs/noosa-river-and-town.webp');"></div>
+        <div class="suburb-card-bg" data-bg="url('/images/suburbs/noosa-river-and-town.webp')"></div>
         <div class="suburb-card-overlay"></div>
         <div class="suburb-card-content">
           <p class="suburb-card-name">Noosa</p>
@@ -4852,7 +4848,7 @@
         </div>
       </a>
       <a href="/local-seo-maroochydore/" class="suburb-card">
-        <div class="suburb-card-bg" style="background-image:url('/images/suburbs/maroochydore-sunshine-coast.webp');"></div>
+        <div class="suburb-card-bg" data-bg="url('/images/suburbs/maroochydore-sunshine-coast.webp')"></div>
         <div class="suburb-card-overlay"></div>
         <div class="suburb-card-content">
           <p class="suburb-card-name">Maroochydore</p>
@@ -4861,7 +4857,7 @@
         </div>
       </a>
       <a href="/local-seo-mooloolaba/" class="suburb-card">
-        <div class="suburb-card-bg" style="background-image:url('/images/suburbs/mooloolaba-sunshine-coast.webp');"></div>
+        <div class="suburb-card-bg" data-bg="url('/images/suburbs/mooloolaba-sunshine-coast.webp')"></div>
         <div class="suburb-card-overlay"></div>
         <div class="suburb-card-content">
           <p class="suburb-card-name">Mooloolaba</p>
@@ -4870,7 +4866,7 @@
         </div>
       </a>
       <a href="/local-seo-buderim/" class="suburb-card">
-        <div class="suburb-card-bg" style="background-image:url('/images/suburbs/buderim-hinterland-green-hills.webp');background-position:center 40%;"></div>
+        <div class="suburb-card-bg" style="background-position:center 40%;" data-bg="url('/images/suburbs/buderim-hinterland-green-hills.webp')"></div>
         <div class="suburb-card-overlay"></div>
         <div class="suburb-card-content">
           <p class="suburb-card-name">Buderim</p>
@@ -4879,7 +4875,7 @@
         </div>
       </a>
       <a href="/local-seo-caloundra/" class="suburb-card">
-        <div class="suburb-card-bg" style="background-image:url('/images/suburbs/caloundra-sunshine-coast.webp');"></div>
+        <div class="suburb-card-bg" data-bg="url('/images/suburbs/caloundra-sunshine-coast.webp')"></div>
         <div class="suburb-card-overlay"></div>
         <div class="suburb-card-content">
           <p class="suburb-card-name">Caloundra</p>
@@ -4888,7 +4884,7 @@
         </div>
       </a>
       <a href="/local-seo-kawana/" class="suburb-card">
-        <div class="suburb-card-bg" style="background-image:url('/images/suburbs/kawana-sunshine-coast.webp');"></div>
+        <div class="suburb-card-bg" data-bg="url('/images/suburbs/kawana-sunshine-coast.webp')"></div>
         <div class="suburb-card-overlay"></div>
         <div class="suburb-card-content">
           <p class="suburb-card-name">Kawana</p>
@@ -4897,7 +4893,7 @@
         </div>
       </a>
       <a href="/local-seo-nambour/" class="suburb-card">
-        <div class="suburb-card-bg" style="background-image:url('/images/homepage/nambour-big-pineapple.webp');"></div>
+        <div class="suburb-card-bg" data-bg="url('/images/homepage/nambour-big-pineapple.webp')"></div>
         <div class="suburb-card-overlay"></div>
         <div class="suburb-card-content">
           <p class="suburb-card-name">Nambour</p>
@@ -4906,7 +4902,7 @@
         </div>
       </a>
       <a href="/local-seo-glass-house-mountains/" class="suburb-card">
-        <div class="suburb-card-bg" style="background-image:url('/images/suburbs/glass-house-mountains.webp');"></div>
+        <div class="suburb-card-bg" data-bg="url('/images/suburbs/glass-house-mountains.webp')"></div>
         <div class="suburb-card-overlay"></div>
         <div class="suburb-card-content">
           <p class="suburb-card-name">Glass House Mountains</p>
@@ -5586,7 +5582,13 @@ serviceNumbers.forEach(num => serviceCounterObserver.observe(num));
         var el = entry.target;
         var bg = el.getAttribute('data-bg');
         if (bg) {
-          el.style.backgroundImage = bg;
+          var prop = el.getAttribute('data-bg-var');
+          if (prop) {
+            el.style.setProperty(prop, bg);
+            el.removeAttribute('data-bg-var');
+          } else {
+            el.style.backgroundImage = bg;
+          }
           el.removeAttribute('data-bg');
         }
         obs.unobserve(el);
