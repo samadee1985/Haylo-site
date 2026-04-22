@@ -6138,32 +6138,19 @@ serviceNumbers.forEach(num => serviceCounterObserver.observe(num));
     { bg: document.getElementById('locations-bg'), section: document.querySelector('.locations') },
   ].filter(function (i) { return i.bg && i.section; });
 
-  var ticking = false;
-
-  function apply() {
-    ticking = false;
+  function update() {
     var vh = window.innerHeight;
-    // Batch all reads first, then all writes, to avoid layout thrash.
-    var clips = items.map(function (i) {
+    items.forEach(function (i) {
       var rect = i.section.getBoundingClientRect();
       var topClip    = Math.max(0, rect.top);
       var bottomClip = Math.max(0, vh - rect.bottom);
-      return 'inset(' + topClip + 'px 0px ' + bottomClip + 'px 0px)';
+      i.bg.style.clipPath = 'inset(' + topClip + 'px 0px ' + bottomClip + 'px 0px)';
     });
-    for (var n = 0; n < items.length; n++) {
-      items[n].bg.style.clipPath = clips[n];
-    }
   }
 
-  function request() {
-    if (ticking) return;
-    ticking = true;
-    requestAnimationFrame(apply);
-  }
-
-  window.addEventListener('scroll', request, { passive: true });
-  window.addEventListener('resize', request, { passive: true });
-  request();
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update, { passive: true });
+  requestAnimationFrame(update);
 })();
 
 // Lazy-load below-fold background images
