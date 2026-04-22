@@ -1171,7 +1171,7 @@
   .lseo-scene {
     position: relative;
     background: var(--stone);
-    padding: clamp(5rem, 10vh, 8rem) 0 0;
+    padding: clamp(2.5rem, 6vh, 4.5rem) 0 0;
     overflow: hidden;
   }
   .lseo-scene::before {
@@ -1200,18 +1200,18 @@
     font-family: var(--font-display);
     font-style: italic;
     font-weight: 300;
-    font-size: clamp(1rem, 1.25vw, 1.2rem);
+    font-size: clamp(1.35rem, 1.9vw, 1.75rem);
     color: var(--ink-soft);
-    margin: 0 0 1.75rem;
-    line-height: 1.4;
+    margin: 0 0 2rem;
+    line-height: 1.3;
     display: inline-flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 0.9rem;
   }
   .lseo-bridge::before {
     content: '';
     display: inline-block;
-    width: 28px;
+    width: 32px;
     height: 1px;
     background: var(--clay);
     flex-shrink: 0;
@@ -1220,17 +1220,17 @@
     font-family: var(--font-display);
     font-weight: 300;
     color: var(--ink);
-    margin: 0 0 1.5rem;
+    margin: 0 0 2.25rem;
     line-height: 0.95;
     letter-spacing: -0.03em;
     display: flex;
-    align-items: flex-start;
-    gap: 0.4rem;
+    align-items: flex-end;
+    gap: 0.75rem;
   }
   .lseo-headline-num {
     font-size: clamp(6rem, 13vw, 11rem);
     color: var(--clay);
-    line-height: 0.85;
+    line-height: 0.95;
     display: inline-block;
   }
   .lseo-headline-pct {
@@ -1244,11 +1244,11 @@
     font-family: var(--font-display);
     font-size: clamp(1.35rem, 2.2vw, 2rem);
     font-weight: 300;
-    line-height: 1.15;
+    line-height: 1.25;
     color: var(--ink);
     letter-spacing: -0.005em;
-    max-width: 14ch;
-    padding-top: 0.35em;
+    max-width: 20ch;
+    padding-bottom: 0.2em;
     text-wrap: balance;
   }
   .lseo-headline-tail em { font-style: italic; color: var(--clay); }
@@ -1304,6 +1304,17 @@
     flex-direction: column;
     gap: 12px;
     position: relative;
+  }
+  .lseo-phone-screen::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 90px;
+    background: linear-gradient(to bottom, rgba(250,249,248,0) 0%, var(--warm-white) 85%);
+    pointer-events: none;
+    z-index: 2;
   }
   .lseo-search-bar {
     background: var(--stone-mid);
@@ -1411,6 +1422,7 @@
   .lseo-card-name { font-weight: 500; font-family: var(--font-body); }
   .lseo-card-rating { color: var(--ink-soft); font-weight: 400; font-size: 0.66rem; white-space: nowrap; }
   .lseo-card-meta { color: var(--ink-muted); font-size: 0.64rem; }
+  .lseo-card--dim { opacity: 0.5; }
   .lseo-card--you { border-color: var(--clay); }
   .lseo-card--you.is-highlighted {
     border-color: var(--clay);
@@ -1473,14 +1485,41 @@
     position: relative;
     z-index: 2;
   }
+  .lseo-outro-line {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(1.15rem, 1.7vw, 1.5rem);
+    color: var(--ink-soft);
+    margin: 0 0 1.5rem;
+    line-height: 1.3;
+    max-width: 32ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
   .lseo-outro .btn-primary { min-width: 240px; width: auto; }
 
   @media (max-width: 900px) {
     .lseo-grid { grid-template-columns: 1fr; gap: 2.5rem; padding: 2rem var(--gutter) 2rem; }
     .lseo-text { text-align: center; }
-    .lseo-headline { justify-content: center; gap: 0.3rem; }
-    .lseo-headline-num { font-size: clamp(5rem, 22vw, 8rem); }
-    .lseo-headline-tail { font-size: clamp(1.1rem, 4vw, 1.5rem); text-align: left; max-width: 12ch; }
+    .lseo-bridge {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+      align-items: center;
+      max-width: 28ch;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .lseo-bridge::before { width: 40px; }
+    .lseo-headline {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 1.25rem;
+    }
+    .lseo-headline-num { font-size: clamp(5rem, 22vw, 8rem); line-height: 0.9; }
+    .lseo-headline-tail { font-size: clamp(1.1rem, 4vw, 1.5rem); text-align: center; max-width: 22ch; padding-top: 0; }
     .lseo-sub { margin-left: auto; margin-right: auto; }
     .lseo-phone { width: min(260px, 62%); padding: 8px; border-radius: 32px; }
     .lseo-phone-notch { top: 14px; width: 70px; height: 14px; }
@@ -4364,9 +4403,9 @@
       <p class="lseo-bridge">Here's what's actually happening on Google.</p>
       <h2 class="lseo-headline">
         <span class="lseo-headline-num">75<span class="lseo-headline-pct">%</span></span>
-        <span class="lseo-headline-tail">of clicks go to the <em>top three.</em></span>
+        <span class="lseo-headline-tail">of clicks go to the top three businesses on <em>Google Maps.</em></span>
       </h2>
-      <p class="lseo-sub">On the Sunshine Coast, someone taps one of three names and the call goes there. Everyone else is invisible. Local SEO is how you get into that three.</p>
+      <p class="lseo-sub">Local SEO is how your business shows up when locals nearby are searching for what you do. On the Coast, someone taps one of three names and the call goes there. Everyone else is invisible. Our job is to get you into that three.</p>
     </div>
     <div class="lseo-phone-stage" aria-hidden="true">
       <div class="lseo-phone">
@@ -4407,12 +4446,34 @@
               </div>
               <span class="lseo-card-meta">Open · 12 min · Mooloolaba</span>
             </div>
+            <div class="lseo-card lseo-card--dim" data-dim="0.5">
+              <div class="lseo-card-head">
+                <span class="lseo-card-name">Sunshine Plumbers</span>
+                <span class="lseo-card-rating">4.2 ★ (18)</span>
+              </div>
+              <span class="lseo-card-meta">Open · 15 min · Nambour</span>
+            </div>
+            <div class="lseo-card lseo-card--dim" data-dim="0.28">
+              <div class="lseo-card-head">
+                <span class="lseo-card-name">Hinterland Plumbing &amp; Gas</span>
+                <span class="lseo-card-rating">4.0 ★ (9)</span>
+              </div>
+              <span class="lseo-card-meta">Open · 18 min · Palmwoods</span>
+            </div>
+            <div class="lseo-card lseo-card--dim" data-dim="0.14">
+              <div class="lseo-card-head">
+                <span class="lseo-card-name">Quick Fix Plumbing</span>
+                <span class="lseo-card-rating">3.8 ★ (6)</span>
+              </div>
+              <span class="lseo-card-meta">Open · 22 min · Caloundra</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
   <div class="lseo-outro">
+    <p class="lseo-outro-line">If your phone isn't ringing, you're outside the three.</p>
     <a href="/local-seo-sunshine-coast/" class="btn-primary">Show me how I get in that three &rarr;</a>
   </div>
 </section>
@@ -5784,7 +5845,8 @@ document.querySelectorAll('.footer-col-toggle').forEach(function(btn){
   var typed = scene.querySelector('.lseo-query-typed');
   var caret = scene.querySelector('.lseo-caret');
   var serp = scene.querySelector('.lseo-serp');
-  var cards = scene.querySelectorAll('.lseo-card');
+  var cards = scene.querySelectorAll('.lseo-card:not(.lseo-card--dim)');
+  var dimCards = scene.querySelectorAll('.lseo-card--dim');
   var youCard = scene.querySelector('.lseo-card--you');
   var youPin = scene.querySelector('.lseo-map-pin--you');
   var callout = scene.querySelector('.lseo-card-callout');
@@ -5797,20 +5859,46 @@ document.querySelectorAll('.footer-col-toggle').forEach(function(btn){
     gsap.set(caret, { autoAlpha: 1 });
     gsap.set(serp, { autoAlpha: 0, y: 22 });
     gsap.set(cards, { autoAlpha: 0, y: 12 });
+    gsap.set(dimCards, { opacity: 0, y: 12 });
     gsap.set(callout, { autoAlpha: 0, y: 6 });
     youCard.classList.remove('is-highlighted');
     if (youPin) youPin.classList.remove('is-active');
   }
 
+  function holdFinalState() {
+    gsap.set(typed, { width: fullWidth });
+    gsap.set(caret, { autoAlpha: 0 });
+    gsap.set(serp, { autoAlpha: 1, y: 0 });
+    gsap.set(cards, { autoAlpha: 1, y: 0 });
+    dimCards.forEach(function (el) {
+      gsap.set(el, { opacity: parseFloat(el.dataset.dim) || 0.3, y: 0 });
+    });
+    gsap.set(callout, { autoAlpha: 1, y: 0 });
+    youCard.classList.add('is-highlighted');
+    if (youPin) youPin.classList.add('is-active');
+  }
+
   function buildTimeline() {
     if (tl) tl.kill();
-    tl = gsap.timeline({ repeat: -1, repeatDelay: 1.4, paused: true });
+    tl = gsap.timeline({
+      repeat: 2,
+      repeatDelay: 1.4,
+      paused: true,
+      onComplete: holdFinalState
+    });
 
     tl.call(reset);
     tl.to(typed, { width: fullWidth, duration: 1.2, ease: 'none' }, 0.4);
     tl.to(caret, { autoAlpha: 0, duration: 0.25 }, '>');
     tl.to(serp, { autoAlpha: 1, y: 0, duration: 0.55, ease: 'power2.out' }, '<');
     tl.to(cards, { autoAlpha: 1, y: 0, duration: 0.45, stagger: 0.14, ease: 'power2.out' }, '<0.05');
+    tl.to(dimCards, {
+      opacity: function (i, target) { return parseFloat(target.dataset.dim) || 0.3; },
+      y: 0,
+      duration: 0.45,
+      stagger: 0.1,
+      ease: 'power2.out'
+    }, '<0.35');
     tl.call(function () {
       youCard.classList.add('is-highlighted');
       if (youPin) youPin.classList.add('is-active');
@@ -5827,6 +5915,8 @@ document.querySelectorAll('.footer-col-toggle').forEach(function(btn){
     }, '+=0.15');
     tl.to({}, { duration: 0.8 });
     tl.to([callout, serp], { autoAlpha: 0, duration: 0.5 });
+    tl.to(dimCards, { opacity: 0, duration: 0.5 }, '<');
+    tl.to(typed, { width: 0, duration: 0.5 }, '<');
   }
 
   function start() {
