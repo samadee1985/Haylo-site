@@ -5301,19 +5301,20 @@ navToggle.addEventListener('click', () => {
     // Image fades in over the first 30 characters of the last paragraph
     const imgFadeOver = 30;
 
-    function update() {
+    var start = 0, range = 1;
+    function measure() {
       const absTop = about.getBoundingClientRect().top + window.pageYOffset;
-      const start  = absTop - NAV;
-      const end    = absTop + about.offsetHeight - window.innerHeight;
-      const range  = Math.max(1, end - start);
-      const p      = Math.max(0, Math.min(1, (window.pageYOffset - start) / range));
+      start = absTop - NAV;
+      const end = absTop + about.offsetHeight - window.innerHeight;
+      range = Math.max(1, end - start);
+    }
 
+    function update() {
+      const p       = Math.max(0, Math.min(1, (window.pageYOffset - start) / range));
       const visible = Math.floor(p * total);
       textChars.forEach(function(s, i) { s.style.opacity = i < visible ? '1' : '0'; });
 
-      // Signature fades in after all text is typed
       const fadeP    = Math.max(0, Math.min(1, (visible - (total - imgFadeOver)) / imgFadeOver));
-      // Button fades in slightly after signature
       const btnFadeP = Math.max(0, Math.min(1, (visible - (total - imgFadeOver + 15)) / imgFadeOver));
       if (photo)     photo.style.opacity     = fadeP.toFixed(3);
       if (signature) signature.style.opacity = fadeP.toFixed(3);
@@ -5321,6 +5322,9 @@ navToggle.addEventListener('click', () => {
       if (btnD)      btnD.style.opacity      = btnFadeP.toFixed(3);
     }
 
+    measure();
+    window.addEventListener('resize', measure, { passive: true });
+    window.addEventListener('load', measure);
     window.addEventListener('scroll', update, { passive: true });
     update();
 
