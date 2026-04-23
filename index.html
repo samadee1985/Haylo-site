@@ -2373,9 +2373,9 @@
     background: var(--clay-light);
     box-shadow: 0 24px 60px -24px rgba(28,26,23,0.28);
     transform-origin: center top;
-    transition: transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1),
-                opacity 0.55s ease,
-                filter 0.55s ease;
+    transition: transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1),
+                opacity 0.35s ease,
+                filter 0.35s ease;
     will-change: transform, opacity;
   }
 
@@ -2418,31 +2418,40 @@
   }
 
   .work-card[data-pos="0"] {
-    transform: translate3d(0, 0, 0) scale(1);
+    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
     opacity: 1;
     z-index: 3;
     filter: none;
     pointer-events: auto;
   }
   .work-card[data-pos="1"] {
-    transform: translate3d(0, 32px, 0) scale(0.94);
-    opacity: 0.55;
+    transform: translate3d(0, 11%, 0) scale(0.94) rotate(0deg);
+    opacity: 0.7;
     z-index: 2;
-    filter: blur(0.5px);
-    pointer-events: none;
-  }
-  .work-card[data-pos="2"] {
-    transform: translate3d(0, 62px, 0) scale(0.88);
-    opacity: 0.28;
-    z-index: 1;
-    filter: blur(1px);
+    filter: none;
     pointer-events: none;
   }
   .work-card[data-pos="out"] {
-    transform: translate3d(0, -30px, 0) scale(1);
+    transform: translate3d(0, 22%, 0) scale(0.88) rotate(0deg);
     opacity: 0;
-    z-index: 4;
+    z-index: 1;
     pointer-events: none;
+  }
+
+  .work-card.is-leaving {
+    animation: workFlickOff 0.5s cubic-bezier(0.32, 0.08, 0.48, 1) forwards;
+    z-index: 5;
+  }
+
+  @keyframes workFlickOff {
+    0% {
+      transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translate3d(78%, 42%, 0) scale(0.9) rotate(9deg);
+      opacity: 0;
+    }
   }
 
   .work-card-img {
@@ -2660,6 +2669,11 @@
     margin-top: 2.5rem;
   }
 
+  .work-controls-top {
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
   .work-nav {
     background: transparent;
     border: 1px solid rgba(28,26,23,0.2);
@@ -2710,25 +2724,51 @@
   }
 
   @media (max-width: 767px) {
+    .work { padding: 2.5rem 0; }
     .work-stack {
-      padding: 1.25rem 0 2.5rem;
+      padding: 0.5rem 0 1.25rem;
     }
-    .work-card-img { padding: 1.75rem 1.5rem 0; }
-    .work-card-body { padding: 1.25rem 1.5rem 1.75rem; }
+    .work-card-img { padding: 0.85rem 1rem 0; }
+    .work-card-imac { max-width: 190px; }
+    .work-card-body { padding: 0.7rem 1.1rem 1.1rem; }
+    .work-type { font-size: 0.58rem; margin-bottom: 0.3rem; }
+    .work-title { font-size: 1.1rem; margin-bottom: 0.65rem; line-height: 1.2; }
     .work-stats {
       gap: 0;
-      padding: 1rem 0;
+      padding: 0.55rem 0;
+      margin-bottom: 0.65rem;
     }
-    .work-stat { padding: 0 0.3rem; }
+    .work-stat { padding: 0 0.25rem; }
     .work-stat-label {
-      font-size: 0.56rem;
+      font-size: 0.52rem;
       letter-spacing: 0.08em;
       white-space: nowrap;
+      margin-bottom: 0.3rem;
     }
-    .work-stat-value { font-size: clamp(1.4rem, 7vw, 1.9rem); }
-    .work-stat-note, .work-stat-stars { font-size: 0.65rem; }
-    .work-stat-stars { font-size: 0.8rem; }
-    .work-controls { gap: 1rem; margin-top: 2rem; }
+    .work-stat-value { font-size: clamp(1.1rem, 5.2vw, 1.45rem); }
+    .work-stat-note, .work-stat-stars { font-size: 0.58rem; }
+    .work-stat-stars { font-size: 0.7rem; }
+    .work-desc { font-size: 0.76rem; line-height: 1.5; }
+    .work-controls { gap: 0.75rem; margin-top: 1.1rem; }
+    .work-controls-top { margin-top: 0.75rem; margin-bottom: 0.25rem; }
+    .work-card[data-pos="1"] {
+      transform: translate3d(0, 9%, 0) scale(0.94) rotate(0deg);
+      opacity: 0.72;
+      filter: none;
+    }
+    .work-card[data-pos="out"] {
+      transform: translate3d(0, 18%, 0) scale(0.88) rotate(0deg);
+    }
+    @keyframes workFlickOff {
+      0% {
+        transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translate3d(65%, 38%, 0) scale(0.9) rotate(8deg);
+        opacity: 0;
+      }
+    }
   }
 
   /* ─── ABOUT ─── */
@@ -5526,6 +5566,20 @@
       <a href="#contact" class="link-view-all">Want your story here? →</a>
     </div>
 
+    <div class="work-controls work-controls-top">
+      <button class="work-nav work-prev" type="button" aria-label="Previous client">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11L4 7l5-4"/></svg>
+      </button>
+      <div class="work-dots" role="tablist" aria-label="Client navigation">
+        <button class="work-dot active" type="button" role="tab" aria-selected="true" aria-label="Oven Cleaning Sunshine Coast"></button>
+        <button class="work-dot" type="button" role="tab" aria-selected="false" aria-label="Secure Home Solutions"></button>
+        <button class="work-dot" type="button" role="tab" aria-selected="false" aria-label="Cleaning With Kym"></button>
+      </div>
+      <button class="work-nav work-next" type="button" aria-label="Next client">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3l5 4-5 4"/></svg>
+      </button>
+    </div>
+
     <div class="work-stack" id="work-stack">
 
       <article class="work-card" data-pos="0" data-color="sage-dark" aria-roledescription="slide">
@@ -5599,7 +5653,7 @@
         </div>
       </article>
 
-      <article class="work-card" data-pos="2" data-color="clay" aria-roledescription="slide">
+      <article class="work-card" data-pos="out" data-color="clay" aria-roledescription="slide">
         <div class="work-card-img">
           <div class="work-card-imac"><img src="/images/Clients-sites/cleaning-with-kym-imac.webp" alt="Cleaning With Kym website" loading="lazy" width="1080" height="1104"></div>
         </div>
@@ -5634,20 +5688,6 @@
         </div>
       </article>
 
-    </div>
-
-    <div class="work-controls">
-      <button class="work-nav work-prev" type="button" aria-label="Previous client">
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11L4 7l5-4"/></svg>
-      </button>
-      <div class="work-dots" role="tablist" aria-label="Client navigation">
-        <button class="work-dot active" type="button" role="tab" aria-selected="true" aria-label="Oven Cleaning Sunshine Coast"></button>
-        <button class="work-dot" type="button" role="tab" aria-selected="false" aria-label="Secure Home Solutions"></button>
-        <button class="work-dot" type="button" role="tab" aria-selected="false" aria-label="Cleaning With Kym"></button>
-      </div>
-      <button class="work-nav work-next" type="button" aria-label="Next client">
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3l5 4-5 4"/></svg>
-      </button>
     </div>
   </div>
 </section>
@@ -7120,10 +7160,15 @@ document.querySelectorAll('.footer-col-toggle').forEach(function(btn){
   var hasEntered = false;
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  function layout() {
+  function layout(animate) {
     cards.forEach(function (card, i) {
       var offset = (i - active + total) % total;
-      var pos = offset === 0 ? '0' : offset === 1 ? '1' : offset === 2 ? '2' : 'out';
+      var pos = offset === 0 ? '0' : offset === 1 ? '1' : 'out';
+      var prev = card.getAttribute('data-pos');
+      if (animate && prev === '0' && pos === 'out' && !reduced) {
+        card.classList.add('is-leaving');
+        setTimeout(function () { card.classList.remove('is-leaving'); }, 520);
+      }
       card.setAttribute('data-pos', pos);
       card.setAttribute('aria-hidden', offset === 0 ? 'false' : 'true');
     });
@@ -7135,9 +7180,13 @@ document.querySelectorAll('.footer-col-toggle').forEach(function(btn){
   }
 
   function go(n) {
-    active = ((n % total) + total) % total;
-    layout();
+    var next = ((n % total) + total) % total;
+    if (next === active) return;
+    active = next;
+    layout(true);
   }
+
+  layout(false);
 
   prevBtn && prevBtn.addEventListener('click', function () { go(active - 1); });
   nextBtn && nextBtn.addEventListener('click', function () { go(active + 1); });
