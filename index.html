@@ -7011,20 +7011,12 @@ document.querySelectorAll('.footer-col-toggle').forEach(function(btn){
       });
     }
 
-    function holdFinalState() {
-      services.forEach(function (el) { el.classList.add('is-done'); });
-      var last = services[services.length - 1];
-      var target = parseFloat(last.getAttribute('data-target-pos')) || 2;
-      posState.v = target;
-      setPos(target);
-      ladder.classList.add('is-locked');
-    }
-
     function buildTimeline() {
       if (tl) tl.kill();
       tl = gsap.timeline({
         paused: true,
-        onComplete: holdFinalState
+        repeat: -1,
+        repeatDelay: 2.2
       });
 
       tl.call(reset);
@@ -7056,7 +7048,7 @@ document.querySelectorAll('.footer-col-toggle').forEach(function(btn){
         tl.to({}, { duration: isLast ? 0.1 : 0.55 });
       });
 
-      // Final: lock in top-3 glow
+      // Final: lock in top-3 glow (held during repeatDelay, then reset restarts the loop)
       tl.call(function () {
         services[services.length - 1].classList.add('is-done');
         services[services.length - 1].classList.remove('is-active');
@@ -7073,9 +7065,10 @@ document.querySelectorAll('.footer-col-toggle').forEach(function(btn){
       ScrollTrigger.create({
         trigger: trigger,
         start: 'top 80%',
-        once: true,
-        onEnter: function () {
-          tl.play();
+        end: 'bottom 20%',
+        onToggle: function (self) {
+          if (self.isActive) tl.play();
+          else tl.pause();
         }
       });
     }
