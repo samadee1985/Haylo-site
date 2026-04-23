@@ -117,6 +117,66 @@
   .ip-stat-num { font-family: var(--font-display); font-size: 2.8rem; font-weight: 300; color: var(--clay); line-height: 1; white-space: nowrap; }
   .ip-stat-label { font-size: 0.78rem; color: rgba(250,248,245,0.55); letter-spacing: 0.05em; }
 
+  /* ─── RANK PANEL (problem-framing visual) ─── */
+  .ip-rank { background: linear-gradient(135deg, var(--ink) 0%, #2e2a25 60%, #3a2e26 100%); padding: 1.75rem 1.75rem 1.9rem; border-top: 3px solid var(--clay); display: flex; flex-direction: column; gap: 1.25rem; }
+  .ip-rank-query { display: flex; align-items: center; gap: 0.75rem; background: rgba(250,248,245,0.06); border: 1px solid rgba(250,248,245,0.1); border-radius: 999px; padding: 0.7rem 1.1rem; }
+  .ip-rank-query svg { flex-shrink: 0; opacity: 0.55; }
+  .ip-rank-query-text { font-size: 0.88rem; color: rgba(250,248,245,0.8); letter-spacing: 0.01em; display: inline-flex; align-items: center; }
+  .ip-rank-query-typed { display: inline-block; overflow: hidden; white-space: nowrap; color: var(--warm-white); font-weight: 500; vertical-align: bottom; }
+  .ip-rank-caret { display: inline-block; width: 1.5px; height: 13px; background: var(--clay); margin-left: 2px; vertical-align: bottom; animation: lseo-blink 0.75s steps(1) infinite; }
+  .ip-rank-heading { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--clay); margin: 0.25rem 0 -0.25rem; }
+  .ip-rank-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; }
+  .ip-rank-item { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 1rem; padding: 0.9rem 0; border-bottom: 1px solid rgba(250,248,245,0.08); }
+  .ip-rank-item:last-child { border-bottom: none; }
+  .ip-rank-pos { font-family: var(--font-display); font-size: 1.6rem; font-weight: 300; color: var(--clay); line-height: 1; width: 2rem; text-align: center; }
+  .ip-rank-biz { font-size: 0.95rem; color: var(--warm-white); font-weight: 400; }
+  .ip-rank-meta { font-size: 0.75rem; color: rgba(250,248,245,0.55); white-space: nowrap; }
+  .ip-rank-divider { display: flex; align-items: center; gap: 0.75rem; margin: 0.25rem 0; }
+  .ip-rank-divider::before, .ip-rank-divider::after { content: ''; flex: 1; height: 1px; background: rgba(250,248,245,0.1); }
+  .ip-rank-divider span { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(250,248,245,0.45); }
+  .ip-rank-item--you { opacity: 0.78; }
+  .ip-rank-item--you .ip-rank-pos { color: rgba(250,248,245,0.55); }
+  .ip-rank-item--you .ip-rank-biz { color: rgba(250,248,245,0.85); }
+  .ip-rank-item--you .ip-rank-meta { color: var(--clay); font-style: italic; }
+  .ip-rank-caption { font-size: 0.78rem; color: rgba(250,248,245,0.5); line-height: 1.55; margin: 0.25rem 0 0; text-align: center; }
+  .ip-rank-caption strong { color: var(--clay); font-weight: 500; }
+
+  /* ─── INCLUDED TIMELINE ─── */
+  .timeline { position: relative; max-width: 920px; margin: 4rem auto 0; padding-left: clamp(3rem, 8vw, 5.5rem); }
+  .timeline-rail { position: absolute; left: clamp(1rem, 3vw, 1.75rem); top: 0.75rem; bottom: 0.75rem; width: 2px; background: var(--stone-dark); border-radius: 2px; }
+  .timeline-rail-fill { position: absolute; left: 0; top: 0; width: 100%; height: 0; background: linear-gradient(180deg, var(--clay) 0%, var(--terracotta-deep) 100%); border-radius: 2px; }
+  .timeline-dot { position: absolute; left: 50%; top: 0; width: 1rem; height: 1rem; border-radius: 50%; background: var(--clay); transform: translate(-50%, -50%) scale(0); transform-origin: center; opacity: 0; z-index: 3; box-shadow: 0 0 0 4px var(--stone), 0 0 0 6px rgba(184,150,122,0.25), 0 0 24px rgba(184,150,122,0.45); transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); }
+  .timeline-dot.is-active { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  .timeline-dot::before { content: ''; position: absolute; inset: -3px; border-radius: 50%; background: radial-gradient(circle, rgba(184,150,122,0.55) 0%, rgba(184,150,122,0) 70%); animation: timeline-dot-pulse 2.2s ease-in-out infinite; pointer-events: none; }
+  @keyframes timeline-dot-pulse { 0%, 100% { opacity: 0.5; transform: scale(1); } 50% { opacity: 0.9; transform: scale(1.35); } }
+  .phase { position: relative; padding: 3.25rem 0; border-bottom: 1px solid var(--border); }
+  .phase:first-child { padding-top: 0.5rem; }
+  .phase:last-child { border-bottom: none; padding-bottom: 0.5rem; }
+  .phase-marker { position: absolute; left: calc(-1 * clamp(3rem, 8vw, 5.5rem) + clamp(0.6rem, 2.5vw, 1.3rem)); top: 3.5rem; width: 0.95rem; height: 0.95rem; border-radius: 50%; background: var(--stone); border: 2px solid var(--clay); box-shadow: 0 0 0 4px var(--stone); z-index: 1; transition: background 0.4s ease, border-color 0.4s ease; }
+  .phase:first-child .phase-marker { top: 0.8rem; }
+  .phase.is-reached .phase-marker { background: var(--clay); }
+  .phase-row { display: grid; grid-template-columns: 6.5rem 1fr; gap: clamp(1.25rem, 3vw, 2.5rem); align-items: flex-start; }
+  .phase-number { font-family: var(--font-display); font-size: clamp(3rem, 6vw, 4.5rem); font-weight: 300; color: var(--clay); line-height: 0.9; letter-spacing: -0.02em; }
+  .phase-when { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-muted); margin: 0 0 1rem; display: flex; align-items: center; gap: 0.85rem; }
+  .phase-when::after { content: ''; flex: 1; max-width: 3rem; height: 1px; background: var(--border); }
+  .phase-title { font-family: var(--font-display); font-size: clamp(1.7rem, 2.8vw, 2.35rem); font-weight: 300; line-height: 1.15; color: var(--ink); margin: 0 0 0.9rem; letter-spacing: -0.01em; }
+  .phase-title em { font-style: italic; color: var(--clay); }
+  .phase-desc { font-size: 1rem; line-height: 1.75; color: var(--ink-soft); max-width: 58ch; margin: 0 0 1.75rem; }
+  .phase-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem 2rem; }
+  .phase-list li { font-size: 0.92rem; color: var(--ink-soft); padding-left: 1.25rem; position: relative; line-height: 1.55; }
+  .phase-list li::before { content: ''; position: absolute; left: 0; top: 0.55rem; width: 6px; height: 6px; border-radius: 50%; background: var(--clay); }
+  .phase-list li strong { color: var(--ink); font-weight: 500; }
+  @media (max-width: 768px) {
+    .timeline { padding-left: 2.5rem; margin-top: 3rem; }
+    .timeline-rail { left: 0.6rem; }
+    .phase-marker { left: -2.1rem; width: 0.8rem; height: 0.8rem; }
+    .phase-row { grid-template-columns: 1fr; gap: 0.5rem; }
+    .phase-number { font-size: 2.4rem; margin-bottom: 0.25rem; }
+    .phase-list { grid-template-columns: 1fr; gap: 0.7rem; }
+    .phase { padding: 2.5rem 0; }
+    .phase:first-child .phase-marker, .phase:first-child { padding-top: 0.25rem; }
+  }
+
 
   /* Included grid */
   .accordion { border-top: 1px solid var(--border); margin-top: 2.5rem; }
@@ -282,7 +342,7 @@
   /* ─── PRICING ─── */
   .lseo-pricing { background: var(--stone-mid); padding: 6rem 0; border-top: 1px solid var(--border); }
   .lseo-pricing-intro { font-size: 0.95rem; color: var(--ink-muted); margin-top: 0.75rem; max-width: 480px; }
-  .lseo-pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3.5rem; align-items: start; }
+  .lseo-pricing-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 3.5rem; align-items: start; max-width: 920px; margin-left: auto; margin-right: auto; }
   .lseo-price-card { background: var(--warm-white); padding: 3rem 2.5rem; display: flex; flex-direction: column; gap: 2rem; position: relative; border-top: 2px solid var(--clay); box-shadow: 0 4px 24px rgba(28,26,23,0.08); }
   .lseo-price-card-ink { background: var(--ink); border-color: var(--ink); margin: -1.25rem 0; padding-top: 4.25rem; padding-bottom: 4.25rem; box-shadow: 0 8px 40px rgba(28,26,23,0.18); }
   .lseo-price-popular { font-size: 0.6rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--clay); margin-bottom: -1rem; }
@@ -543,7 +603,7 @@
           "name": "How much does local SEO cost on the Sunshine Coast?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Haylo's local SEO Sunshine Coast packages start from $590 for a one-time foundation setup. Ongoing monthly SEO management is $650/month with no lock-in contract. Every engagement starts with a free audit."
+            "text": "Haylo's local SEO Sunshine Coast packages start at $590 for the one-off Foundation Setup. Ongoing monthly local SEO management is $390/month on the Growth Partner plan - no lock-in contract, cancel any time. Every engagement starts with a free audit."
           }
         },
         {
@@ -689,39 +749,52 @@
   </div>
 </section>
 
-<!-- INTRO -->
+<!-- INTRO / PROBLEM -->
 <section class="section">
   <div class="wrap">
     <div class="ip-split reveal">
       <div>
-        <p class="eyebrow ruled">What local SEO actually does</p>
-        <h2 class="ip-h2">What does local SEO on the<br><em>Sunshine Coast actually do?</em></h2>
+        <p class="eyebrow ruled">The problem</p>
+        <h2 class="ip-h2">Being good at your trade<br><em>isn't enough anymore.</em></h2>
         <div class="ip-body">
-          <p>Right now, someone on the Sunshine Coast is searching "electrician Buderim" or "plumber near me." Google picks three businesses to show at the top - with their phone number, reviews, and directions. <strong>Those three businesses get the majority of all calls.</strong></p>
-          <p>Local SEO Sunshine Coast is the process of making sure your business is one of them. It's not paid ads that stop the moment you stop paying. It's earned visibility - your Google Business Profile, your website, and your local authority all working together to push you to the top of search results in the suburbs you work in. It also requires ongoing activity - <a href="/blog/google-ranking-stops-updating/">profiles that go quiet lose position fast</a>, sometimes within weeks.</p>
-          <p>Haylo works exclusively with Sunshine Coast tradies and service businesses. We know which suburbs are competitive, what keywords your customers actually type, and what it takes to rank here.</p>
+          <p>Sunshine Coast customers don't ring the same bloke their mates used anymore. They Google it - and they skim the first three results on the map. The ones with reviews, a phone number, and a tap-to-call button.</p>
+          <p><strong>That's the whole decision. Five seconds. No scrolling. No page 2.</strong></p>
+          <p>If you're not in those top 3 for your suburb, it doesn't matter how long you've been going, how fair your prices are, or how good the work is. The call's already gone to someone else.</p>
         </div>
         <div class="ip-ctas">
-          <a href="/google-business-profile-audit/#audit-form" class="btn-primary">Get a free audit</a>
+          <a href="/google-business-profile-audit/#audit-form" class="btn-primary">See where you rank</a>
         </div>
       </div>
-      <div class="ip-panel">
-        <div class="ip-panel-stat">
-          <span class="ip-stat-num">700%</span>
-          <span class="ip-stat-label">More clicks inside the Google 3-pack</span>
+      <div class="ip-rank" aria-hidden="true">
+        <div class="ip-rank-query">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: rgba(250,248,245,0.55);"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span class="ip-rank-query-text"><span class="ip-rank-query-typed">electrician noosa</span><span class="ip-rank-caret"></span></span>
         </div>
-        <div class="ip-panel-stat">
-          <span class="ip-stat-num">4x</span>
-          <span class="ip-stat-label">More views with a fully optimised profile</span>
+        <p class="ip-rank-heading">Who gets the call</p>
+        <ol class="ip-rank-list">
+          <li class="ip-rank-item">
+            <span class="ip-rank-pos">1</span>
+            <span class="ip-rank-biz">A-Class Electrical</span>
+            <span class="ip-rank-meta">★ 4.8 · 124</span>
+          </li>
+          <li class="ip-rank-item">
+            <span class="ip-rank-pos">2</span>
+            <span class="ip-rank-biz">Noosa Electrical Co.</span>
+            <span class="ip-rank-meta">★ 4.7 · 89</span>
+          </li>
+          <li class="ip-rank-item">
+            <span class="ip-rank-pos">3</span>
+            <span class="ip-rank-biz">Coast Sparkies</span>
+            <span class="ip-rank-meta">★ 4.9 · 56</span>
+          </li>
+        </ol>
+        <div class="ip-rank-divider"><span>Below the 3-pack</span></div>
+        <div class="ip-rank-item ip-rank-item--you">
+          <span class="ip-rank-pos">12</span>
+          <span class="ip-rank-biz">Your business</span>
+          <span class="ip-rank-meta">not getting called</span>
         </div>
-        <div class="ip-panel-stat">
-          <span class="ip-stat-num">46%</span>
-          <span class="ip-stat-label">Of Google searches are looking local</span>
-        </div>
-        <div class="ip-panel-stat">
-          <span class="ip-stat-num">Top 3</span>
-          <span class="ip-stat-label">Where 75% of all local clicks go</span>
-        </div>
+        <p class="ip-rank-caption"><strong>75%</strong> of local clicks go to the top 3. Everyone else shares what's left.</p>
       </div>
     </div>
   </div>
@@ -803,57 +876,88 @@
   </div>
 </section>
 
-<!-- INCLUDED -->
+<!-- INCLUDED / TIMELINE -->
 <section class="section">
   <div class="wrap">
     <div class="section-header reveal">
       <p class="eyebrow ruled">What's included</p>
-      <h2>Everything that moves<br><em>your Google ranking.</em></h2>
-      <p style="font-size:0.95rem;color:var(--ink-muted);margin-top:0.75rem;max-width:520px;">No fluff. No padding. Every item below is a direct input into your local SEO Sunshine Coast results.</p>
+      <h2>Exactly how we get you<br><em>into the top 3.</em></h2>
+      <p style="font-size:0.95rem;color:var(--ink-muted);margin-top:0.75rem;max-width:540px;">No fluff. No padding. Here's the actual sequence that moves a Sunshine Coast business into the Google 3-pack - and keeps it there.</p>
     </div>
-    <div class="accordion reveal">
-      <div class="acc-item">
-        <button class="acc-trigger" aria-expanded="false">
-          <span class="acc-trigger-left"><span class="acc-check">&#10003;</span><span class="acc-title">Local Keyword Research</span></span>
-          <span class="acc-icon" aria-hidden="true">+</span>
-        </button>
-        <div class="acc-body"><p class="acc-desc">We map out exactly what Sunshine Coast customers type when they need your service - by suburb, trade, and intent - then build your entire SEO strategy around those terms.</p></div>
-      </div>
-      <div class="acc-item">
-        <button class="acc-trigger" aria-expanded="false">
-          <span class="acc-trigger-left"><span class="acc-check">&#10003;</span><span class="acc-title">Google Business Profile Optimisation</span></span>
-          <span class="acc-icon" aria-hidden="true">+</span>
-        </button>
-        <div class="acc-body"><p class="acc-desc">Your GBP is your most powerful local SEO asset. We optimise every element - categories, services, description, photos, posts, and Q&amp;A - so Google trusts and ranks you higher.</p></div>
-      </div>
-      <div class="acc-item">
-        <button class="acc-trigger" aria-expanded="false">
-          <span class="acc-trigger-left"><span class="acc-check">&#10003;</span><span class="acc-title">On-Page SEO Optimisation</span></span>
-          <span class="acc-icon" aria-hidden="true">+</span>
-        </button>
-        <div class="acc-body"><p class="acc-desc">Title tags, headings, page content, and internal linking all aligned to your target keywords. Google needs to understand what you do and where - we make that unmistakable.</p></div>
-      </div>
-      <div class="acc-item">
-        <button class="acc-trigger" aria-expanded="false">
-          <span class="acc-trigger-left"><span class="acc-check">&#10003;</span><span class="acc-title">Suburb &amp; Service Area Pages</span></span>
-          <span class="acc-icon" aria-hidden="true">+</span>
-        </button>
-        <div class="acc-body"><p class="acc-desc">Dedicated pages for Caloundra, Buderim, Maroochydore, Noosa, and wherever else you work. These capture high-intent local searches and drive direct enquiries.</p></div>
-      </div>
-      <div class="acc-item">
-        <button class="acc-trigger" aria-expanded="false">
-          <span class="acc-trigger-left"><span class="acc-check">&#10003;</span><span class="acc-title">Local Citation Building</span></span>
-          <span class="acc-icon" aria-hidden="true">+</span>
-        </button>
-        <div class="acc-body"><p class="acc-desc">Consistent name, address, and phone across Yellow Pages, True Local, and industry directories. These signals tell Google your business is legitimate and where it operates.</p></div>
-      </div>
-      <div class="acc-item">
-        <button class="acc-trigger" aria-expanded="false">
-          <span class="acc-trigger-left"><span class="acc-check">&#10003;</span><span class="acc-title">Ranking Reports &amp; Competitor Tracking</span></span>
-          <span class="acc-icon" aria-hidden="true">+</span>
-        </button>
-        <div class="acc-body"><p class="acc-desc">Monthly reporting on your Google rankings, profile views, and calls - plus a clear view of what your local competitors are doing so we stay one step ahead.</p></div>
-      </div>
+    <div class="timeline">
+      <div class="timeline-rail" aria-hidden="true"><span class="timeline-rail-fill"></span><span class="timeline-dot"></span></div>
+
+      <article class="phase reveal" data-phase>
+        <span class="phase-marker" aria-hidden="true"></span>
+        <div class="phase-row">
+          <p class="phase-number">01</p>
+          <div>
+            <p class="phase-when">Week 1</p>
+            <h3 class="phase-title">The <em>foundation.</em></h3>
+            <p class="phase-desc">Before anything ships, we map the board. Your current rankings, your GBP state, your website, and the keywords your actual customers type - by suburb, by service, by intent.</p>
+            <ul class="phase-list">
+              <li><strong>Full rankings audit</strong> - where you sit now, by suburb and service</li>
+              <li><strong>Keyword map</strong> - real terms Sunshine Coast customers type for you</li>
+              <li><strong>GBP + website audit</strong> - every technical and content fix flagged</li>
+              <li><strong>Competitor analysis</strong> - who's ranking and why they're ranking</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="phase reveal" data-phase>
+        <span class="phase-marker" aria-hidden="true"></span>
+        <div class="phase-row">
+          <p class="phase-number">02</p>
+          <div>
+            <p class="phase-when">Weeks 2-4</p>
+            <h3 class="phase-title">The <em>build.</em></h3>
+            <p class="phase-desc">Your profile and pages get rewired for local search. Everything Google needs to rank you properly, done where it needs to be done - not half a job, not templated.</p>
+            <ul class="phase-list">
+              <li><strong>GBP fully optimised</strong> - categories, services, description, photos, Q&amp;A</li>
+              <li><strong>Service + suburb pages</strong> - written for real local intent</li>
+              <li><strong>On-page SEO</strong> - title tags, headings, internal links aligned</li>
+              <li><strong>Weekly Google Posts</strong> - the engagement signal switched on</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="phase reveal" data-phase>
+        <span class="phase-marker" aria-hidden="true"></span>
+        <div class="phase-row">
+          <p class="phase-number">03</p>
+          <div>
+            <p class="phase-when">Month 2-3</p>
+            <h3 class="phase-title">The <em>authority.</em></h3>
+            <p class="phase-desc">Now we stack the signals Google trusts - citations, reviews, consistent content - until rankings move. This is where most clients see their first 3-pack appearance.</p>
+            <ul class="phase-list">
+              <li><strong>Citation build</strong> - consistent NAP across local and industry directories</li>
+              <li><strong>Review generation</strong> - strategy and scripts your customers actually use</li>
+              <li><strong>First 3-pack entries</strong> - on long-tail and suburb-specific searches</li>
+              <li><strong>Calls + profile views climb</strong> - measurable week-on-week</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="phase reveal" data-phase>
+        <span class="phase-marker" aria-hidden="true"></span>
+        <div class="phase-row">
+          <p class="phase-number">04</p>
+          <div>
+            <p class="phase-when">Month 3+ ongoing</p>
+            <h3 class="phase-title">The <em>compound.</em></h3>
+            <p class="phase-desc">Rankings don't hold themselves. <a href="/blog/google-ranking-stops-updating/">Profiles that go quiet lose ground - sometimes in weeks</a>. This is the ongoing layer that keeps you visible and pulls you further ahead of everyone who stops at setup.</p>
+            <ul class="phase-list">
+              <li><strong>Weekly GBP posts + optimisation</strong> - the signal stays strong</li>
+              <li><strong>Ongoing review growth</strong> - rating and count both climbing</li>
+              <li><strong>Monthly reporting</strong> - rankings, calls, and what moved</li>
+              <li><strong>Monthly strategy call</strong> - plain English, no agency jargon</li>
+            </ul>
+          </div>
+        </div>
+      </article>
     </div>
   </div>
 </section>
@@ -870,54 +974,39 @@
 
       <div class="lseo-price-card reveal">
         <div class="lseo-price-card-top">
-          <p class="lseo-price-name">Visibility Foundation</p>
-          <div class="lseo-price-num"><sup>$</sup>590<span>once</span></div>
-          <p class="lseo-price-tag">Get found properly on Google Maps</p>
+          <p class="lseo-price-name">Foundation Setup</p>
+          <div class="lseo-price-num"><sup>$</sup>590<span>one-off</span></div>
+          <p class="lseo-price-tag">Everything you need to get found on Google Maps and social - done properly, once.</p>
         </div>
         <ul class="lseo-price-feats">
-          <li>Full Google Business Profile optimisation</li>
-          <li>Category &amp; service structure refinement</li>
-          <li>Business description rewrite (SEO aligned)</li>
-          <li>Review strategy framework</li>
-          <li>2 professionally written Google posts</li>
-          <li>30-day priority action roadmap</li>
+          <li>Full Google Business Profile setup &amp; optimisation</li>
+          <li>Facebook Business Page setup &amp; alignment</li>
+          <li>Local SEO foundation across key platforms</li>
+          <li>Categories, description and services done right</li>
+          <li>First set of GBP posts written and scheduled</li>
+          <li>Review-request framework and scripts</li>
+          <li>30-day priority roadmap for what comes next</li>
         </ul>
-        <a href="/google-business-profile-audit/#audit-form" class="lseo-price-btn">Get started</a>
+        <a href="/google-business-profile-audit/#audit-form" class="lseo-price-btn">Start the setup</a>
       </div>
 
       <div class="lseo-price-card lseo-price-card-ink reveal">
-        <p class="lseo-price-popular">Most Popular</p>
-        <div class="lseo-price-card-top">
-          <p class="lseo-price-name">Growth Accelerator</p>
-          <div class="lseo-price-num"><sup>$</sup>995<span>once</span></div>
-          <p class="lseo-price-tag">Turn visibility into actual enquiries</p>
-        </div>
-        <ul class="lseo-price-feats">
-          <li>Everything in Visibility Foundation</li>
-          <li>Website SEO tune-up (titles, headings, structure)</li>
-          <li>Local keyword alignment - Sunshine Coast</li>
-          <li>Conversion review - CTA clarity &amp; trust signals</li>
-          <li>Click-to-call &amp; contact form optimisation</li>
-          <li>60-day priority growth plan</li>
-        </ul>
-        <a href="/google-business-profile-audit/#audit-form" class="lseo-price-btn lseo-price-btn-light">Get started</a>
-      </div>
-
-      <div class="lseo-price-card reveal">
+        <p class="lseo-price-popular">Most popular</p>
         <div class="lseo-price-card-top">
           <p class="lseo-price-name">Growth Partner</p>
-          <div class="lseo-price-num"><sup>$</sup>650<span>/mo</span></div>
-          <p class="lseo-price-tag">Ongoing visibility &amp; long-term growth</p>
+          <div class="lseo-price-num"><sup>$</sup>390<span>/month</span></div>
+          <p class="lseo-price-tag">Ongoing local SEO, GBP management and content that keeps you at the top month after month.</p>
         </div>
         <ul class="lseo-price-feats">
-          <li>Ongoing Google Business Profile management</li>
-          <li>Monthly Google posts &amp; review monitoring</li>
-          <li>Website improvements &amp; optimisation tasks</li>
-          <li>Competitor monitoring &amp; local content planning</li>
-          <li>Performance snapshot reporting</li>
-          <li>Monthly strategy call</li>
+          <li>Ongoing GBP management and optimisation</li>
+          <li>Weekly Google posts written for you</li>
+          <li>Review monitoring, replies and growth</li>
+          <li>Competitor tracking across the Sunshine Coast</li>
+          <li>Monthly performance report you can actually read</li>
+          <li>Monthly strategy call - no agency jargon</li>
+          <li>No lock-in contract, cancel any time</li>
         </ul>
-        <a href="/google-business-profile-audit/#audit-form" class="lseo-price-btn">Get started</a>
+        <a href="/google-business-profile-audit/#audit-form" class="lseo-price-btn lseo-price-btn-light">Become a partner</a>
       </div>
 
     </div>
@@ -1163,7 +1252,7 @@
           <span class="faq-toggle">+</span>
         </button>
         <div class="faq-answer">
-          <p class="faq-answer-text">Our local SEO Sunshine Coast packages start from $590 for a one-time foundation setup. For ongoing monthly SEO management, the Growth Partner plan is $650/month with no lock-in contract - cancel with 30 days notice, any time. Every engagement starts with a free audit so you know exactly what needs fixing before you commit to anything.</p>
+          <p class="faq-answer-text">Our local SEO Sunshine Coast packages start at $590 for the one-off Foundation Setup. For ongoing monthly SEO management, the Growth Partner plan is $390/month - no lock-in contract, cancel any time with 30 days notice. Every engagement starts with a free audit so you know exactly what needs fixing before you commit to anything.</p>
         </div>
       </div>
       <div class="faq-item">
@@ -1565,6 +1654,190 @@ document.querySelectorAll('.footer-col-toggle').forEach(function(btn){
       .catch(function () { /* network fail: static fallback */ });
   }, { rootMargin: '600px 0px' });
   obs.observe(scene);
+})();
+
+(function initRankAnim() {
+  var panel = document.querySelector('.ip-rank');
+  if (!panel) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  function loadScript(src) {
+    return new Promise(function (resolve, reject) {
+      var existing = Array.prototype.find.call(document.scripts, function (s) { return s.src === src; });
+      if (existing) { existing.addEventListener('load', resolve); existing.addEventListener('error', reject); if (existing.dataset.loaded === '1') resolve(); return; }
+      var s = document.createElement('script');
+      s.src = src; s.async = true;
+      s.onload = function () { s.dataset.loaded = '1'; resolve(); };
+      s.onerror = reject;
+      document.head.appendChild(s);
+    });
+  }
+
+  function init() {
+    if (!window.gsap || !window.ScrollTrigger) return;
+    gsap.registerPlugin(ScrollTrigger);
+
+    var query = panel.querySelector('.ip-rank-query');
+    var typed = panel.querySelector('.ip-rank-query-typed');
+    var caret = panel.querySelector('.ip-rank-caret');
+    var heading = panel.querySelector('.ip-rank-heading');
+    var items = panel.querySelectorAll('.ip-rank-list .ip-rank-item');
+    var divider = panel.querySelector('.ip-rank-divider');
+    var you = panel.querySelector('.ip-rank-item--you');
+    var caption = panel.querySelector('.ip-rank-caption');
+
+    var fullWidth = typed.offsetWidth;
+
+    gsap.set(query, { autoAlpha: 0, y: 10 });
+    gsap.set(typed, { width: 0 });
+    gsap.set(caret, { autoAlpha: 1 });
+    gsap.set([heading, divider, caption], { autoAlpha: 0, y: 10 });
+    gsap.set(items, { autoAlpha: 0, y: 12 });
+    gsap.set(you, { autoAlpha: 0, y: 14 });
+
+    var tl = gsap.timeline({ paused: true });
+    tl.to(query, { autoAlpha: 1, y: 0, duration: 0.4, ease: 'power2.out' }, 0.1);
+    tl.to(typed, { width: fullWidth, duration: 1.0, ease: 'none' }, '>-0.05');
+    tl.to(caret, { autoAlpha: 0, duration: 0.3 }, '>');
+    tl.to(heading, { autoAlpha: 1, y: 0, duration: 0.4, ease: 'power2.out' }, '<-0.1');
+    tl.to(items, { autoAlpha: 1, y: 0, duration: 0.5, stagger: 0.18, ease: 'power2.out' }, '>-0.05');
+    tl.to(divider, { autoAlpha: 1, y: 0, duration: 0.4, ease: 'power2.out' }, '>0.1');
+    tl.to(you, { autoAlpha: 0.78, y: 0, duration: 0.6, ease: 'back.out(1.4)' }, '>0.05');
+    tl.to(caption, { autoAlpha: 1, y: 0, duration: 0.4, ease: 'power2.out' }, '>0.15');
+
+    function resetWidth() {
+      gsap.set(typed, { width: 'auto' });
+      fullWidth = typed.offsetWidth;
+      gsap.set(typed, { width: fullWidth });
+    }
+    var resizeTimer;
+    window.addEventListener('resize', function () {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(resetWidth, 200);
+    }, { passive: true });
+
+    ScrollTrigger.create({
+      trigger: panel,
+      start: 'top 85%',
+      once: true,
+      onEnter: function () { tl.play(); }
+    });
+  }
+
+  var loaded = false;
+  var obs = new IntersectionObserver(function (entries) {
+    if (loaded) return;
+    if (!entries.some(function (e) { return e.isIntersecting; })) return;
+    loaded = true;
+    obs.disconnect();
+    loadScript('https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js')
+      .then(function () { return loadScript('https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js'); })
+      .then(init)
+      .catch(function () { /* static fallback */ });
+  }, { rootMargin: '400px 0px' });
+  obs.observe(panel);
+})();
+
+(function initTimeline() {
+  var timeline = document.querySelector('.timeline');
+  if (!timeline) return;
+  var rail = timeline.querySelector('.timeline-rail');
+  var fill = timeline.querySelector('.timeline-rail-fill');
+  var dot = timeline.querySelector('.timeline-dot');
+  var phases = timeline.querySelectorAll('.phase');
+  if (!rail || !fill || !dot || !phases.length) return;
+
+  function loadScript(src) {
+    return new Promise(function (resolve, reject) {
+      var existing = Array.prototype.find.call(document.scripts, function (s) { return s.src === src; });
+      if (existing) {
+        if (existing.dataset.loaded === '1') return resolve();
+        existing.addEventListener('load', resolve);
+        existing.addEventListener('error', reject);
+        return;
+      }
+      var s = document.createElement('script');
+      s.src = src; s.async = true;
+      s.onload = function () { s.dataset.loaded = '1'; resolve(); };
+      s.onerror = reject;
+      document.head.appendChild(s);
+    });
+  }
+
+  function init() {
+    if (!window.gsap || !window.ScrollTrigger) return;
+    gsap.registerPlugin(ScrollTrigger);
+
+    var markers = timeline.querySelectorAll('.phase-marker');
+    var firstMarker = markers[0];
+    var lastMarker = markers[markers.length - 1];
+
+    function getBounds() {
+      var railRect = rail.getBoundingClientRect();
+      var firstRect = firstMarker.getBoundingClientRect();
+      var lastRect = lastMarker.getBoundingClientRect();
+      var startY = (firstRect.top + firstRect.height / 2) - railRect.top;
+      var endY = (lastRect.top + lastRect.height / 2) - railRect.top;
+      var railH = railRect.height;
+      return { startPct: (startY / railH) * 100, endPct: (endY / railH) * 100 };
+    }
+
+    function getMarkerPcts() {
+      var railRect = rail.getBoundingClientRect();
+      var railH = railRect.height;
+      return Array.prototype.map.call(markers, function (m) {
+        var r = m.getBoundingClientRect();
+        return ((r.top + r.height / 2) - railRect.top) / railH * 100;
+      });
+    }
+
+    var bounds = getBounds();
+    var markerPcts = getMarkerPcts();
+    var reachThreshold = 0.25;
+
+    var railTrigger = ScrollTrigger.create({
+      trigger: timeline,
+      start: 'top 55%',
+      end: 'bottom 60%',
+      scrub: 0.5,
+      onUpdate: function (self) {
+        var p = self.progress;
+        var topPct = bounds.startPct + (bounds.endPct - bounds.startPct) * p;
+        fill.style.height = topPct + '%';
+        dot.style.top = topPct + '%';
+        phases.forEach(function (phase, i) {
+          var reached = topPct >= markerPcts[i] - reachThreshold;
+          phase.classList.toggle('is-reached', reached);
+        });
+      },
+      onToggle: function (self) {
+        dot.classList.toggle('is-active', self.isActive);
+      }
+    });
+
+    var resizeTimer;
+    window.addEventListener('resize', function () {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function () {
+        bounds = getBounds();
+        markerPcts = getMarkerPcts();
+        ScrollTrigger.refresh();
+      }, 200);
+    }, { passive: true });
+  }
+
+  var loaded = false;
+  var obs = new IntersectionObserver(function (entries) {
+    if (loaded) return;
+    if (!entries.some(function (e) { return e.isIntersecting; })) return;
+    loaded = true;
+    obs.disconnect();
+    loadScript('https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js')
+      .then(function () { return loadScript('https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js'); })
+      .then(init)
+      .catch(function () { /* static fallback */ });
+  }, { rootMargin: '600px 0px' });
+  obs.observe(timeline);
 })();
 </script>
 

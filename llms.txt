@@ -11,7 +11,7 @@
 
 ## Key pages
 - / - Homepage: overview of all services and pricing
-- /google-business-profile/ - GBP management service detail and pricing ($590 one-time, $650/month)
+- /google-business-profile/ - GBP management service detail and pricing ($590 one-off, $390/month)
 - /local-seo-sunshine-coast/ - Local SEO service for Sunshine Coast businesses
 - /review-generation/ - Review generation service
 - /facebook-business-page-management/ - Facebook page management service
@@ -28,9 +28,12 @@ Sunshine Coast, Queensland, Australia - including Caloundra, Maroochydore, Buder
 Tradespeople (plumbers, electricians, builders, painters, roofers, tilers, concreters, carpenters, fencers, handymen, plasterers, solar installers, air conditioning), cleaners, landscapers, pest control, pool services, health and wellness businesses, and other local service businesses on the Sunshine Coast.
 
 ## Pricing
-- Visibility Foundation: $590 AUD one-time (full GBP optimisation)
-- Growth Accelerator: $1,290 AUD one-time (GBP + website SEO + 60-day growth plan)
-- Growth Partner: $650 AUD per month (ongoing management - no lock-in)
+- Foundation Setup: $590 AUD one-off (full GBP + Facebook setup, local SEO foundations, 30-day priority roadmap)
+- Growth Partner: $390 AUD per month (ongoing GBP management, weekly Google posts, review monitoring, competitor tracking, monthly reporting and strategy call - no lock-in, cancel any time)
+
+## Website package
+- All-in Monthly: $290 AUD per month (12-month minimum - build, hosting, edits, ongoing SEO and monthly GBP sync included, no upfront cost)
+- Build + Manage: $1,500 AUD setup + $150 AUD per month (own the site outright from day one, monthly covers hosting, edits, ongoing SEO and GBP sync)
 
 ## Licensing
 Content may be summarised and cited with attribution to Haylo (withhaylo.com).

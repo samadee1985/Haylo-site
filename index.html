@@ -4980,33 +4980,15 @@
         "itemListElement": [
           {
             "@type": "Offer",
-            "name": "Visibility Foundation",
-            "description": "Full Google Business Profile optimisation for Sunshine Coast businesses. Includes category and service structure refinement, SEO-aligned business description, review strategy framework, 2 professionally written Google posts, and a 30-day priority action roadmap.",
+            "name": "Foundation Setup",
+            "description": "One-off setup covering full Google Business Profile and Facebook Business Page setup and optimisation, local SEO foundation across key platforms, categories and services done right, first set of GBP posts written and scheduled, review-request framework, and a 30-day priority roadmap.",
             "price": "590",
             "priceCurrency": "AUD",
             "priceSpecification": {
               "@type": "UnitPriceSpecification",
               "price": "590",
               "priceCurrency": "AUD",
-              "unitText": "one-time"
-            },
-            "areaServed": {
-              "@type": "AdministrativeArea",
-              "name": "Sunshine Coast, Queensland"
-            },
-            "url": "https://www.withhaylo.com/#pricing"
-          },
-          {
-            "@type": "Offer",
-            "name": "Growth Accelerator",
-            "description": "Everything in Visibility Foundation plus website SEO tune-up, local keyword alignment for Sunshine Coast, conversion review, click-to-call and contact form optimisation, and a 60-day priority growth plan.",
-            "price": "1290",
-            "priceCurrency": "AUD",
-            "priceSpecification": {
-              "@type": "UnitPriceSpecification",
-              "price": "1290",
-              "priceCurrency": "AUD",
-              "unitText": "one-time"
+              "unitText": "one-off"
             },
             "areaServed": {
               "@type": "AdministrativeArea",
@@ -5017,12 +4999,12 @@
           {
             "@type": "Offer",
             "name": "Growth Partner",
-            "description": "Ongoing monthly local marketing management for Sunshine Coast service businesses. Includes Google Business Profile management, monthly Google posts and review monitoring, website optimisation, competitor monitoring, performance reporting, and a monthly strategy call.",
-            "price": "650",
+            "description": "Ongoing monthly local SEO and GBP management for Sunshine Coast service businesses. Includes ongoing GBP management and optimisation, weekly Google posts, review monitoring and replies, competitor tracking, monthly performance reporting, and a monthly strategy call. No lock-in contract, cancel any time.",
+            "price": "390",
             "priceCurrency": "AUD",
             "priceSpecification": {
               "@type": "UnitPriceSpecification",
-              "price": "650",
+              "price": "390",
               "priceCurrency": "AUD",
               "unitText": "month"
             },
@@ -5084,7 +5066,7 @@
           "name": "How much does local marketing cost on the Sunshine Coast?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Haylo offers three plans for Sunshine Coast businesses. Visibility Foundation is a one-time $590 setup covering full Google Business Profile optimisation. Growth Accelerator is a one-time $1,290 package that adds website SEO and a 60-day growth plan. Growth Partner is $650 per month for ongoing management  -  Google posts, review monitoring, website improvements, reporting, and a monthly strategy call. All plans are no lock-in and can be cancelled with 30 days notice."
+            "text": "Haylo offers two plans for Sunshine Coast businesses. Foundation Setup is a one-off $590 covering full Google Business Profile and Facebook Business Page setup, local SEO foundations, and a 30-day priority roadmap. Growth Partner is $390 per month for ongoing management - weekly Google posts, review monitoring, competitor tracking, monthly reporting and a strategy call. No lock-in contract, cancel any time with 30 days notice."
           }
         },
         {
@@ -6331,6 +6313,17 @@ navToggle.addEventListener('click', () => {
   // Defer setup until after first paint so layout (sticky, flex, min-height) is fully resolved
   requestAnimationFrame(function () {
 
+    var start = 0, range = 1;
+    function measure() {
+      const absTop = about.getBoundingClientRect().top + window.pageYOffset;
+      start = absTop - NAV;
+      const end = absTop + about.offsetHeight - window.innerHeight;
+      range = Math.max(1, end - start);
+    }
+
+    // Measure BEFORE any DOM mutation so layout is still clean
+    measure();
+
     // Wrap every character in a span with opacity 0
     function wrapChars(el) {
       const spans = [];
@@ -6369,28 +6362,40 @@ navToggle.addEventListener('click', () => {
     // Image fades in over the first 30 characters of the last paragraph
     const imgFadeOver = 30;
 
-    var start = 0, range = 1;
-    function measure() {
-      const absTop = about.getBoundingClientRect().top + window.pageYOffset;
-      start = absTop - NAV;
-      const end = absTop + about.offsetHeight - window.innerHeight;
-      range = Math.max(1, end - start);
-    }
-
+    var prevVisible = -1;
+    var prevFadeP = -1, prevBtnFadeP = -1;
     function update() {
       const p       = Math.max(0, Math.min(1, (window.pageYOffset - start) / range));
       const visible = Math.floor(p * total);
-      textChars.forEach(function(s, i) { s.style.opacity = i < visible ? '1' : '0'; });
+
+      // Only touch chars whose visibility changed since last update
+      if (visible !== prevVisible) {
+        if (prevVisible < 0) {
+          for (var i = 0; i < total; i++) textChars[i].style.opacity = i < visible ? '1' : '0';
+        } else if (visible > prevVisible) {
+          for (var i = prevVisible; i < visible; i++) textChars[i].style.opacity = '1';
+        } else {
+          for (var i = visible; i < prevVisible; i++) textChars[i].style.opacity = '0';
+        }
+        prevVisible = visible;
+      }
 
       const fadeP    = Math.max(0, Math.min(1, (visible - (total - imgFadeOver)) / imgFadeOver));
       const btnFadeP = Math.max(0, Math.min(1, (visible - (total - imgFadeOver + 15)) / imgFadeOver));
-      if (photo)     photo.style.opacity     = fadeP.toFixed(3);
-      if (signature) signature.style.opacity = fadeP.toFixed(3);
-      if (btn)       btn.style.opacity       = btnFadeP.toFixed(3);
-      if (btnD)      btnD.style.opacity      = btnFadeP.toFixed(3);
+      if (fadeP !== prevFadeP) {
+        const fStr = fadeP.toFixed(3);
+        if (photo)     photo.style.opacity     = fStr;
+        if (signature) signature.style.opacity = fStr;
+        prevFadeP = fadeP;
+      }
+      if (btnFadeP !== prevBtnFadeP) {
+        const bStr = btnFadeP.toFixed(3);
+        if (btn)  btn.style.opacity  = bStr;
+        if (btnD) btnD.style.opacity = bStr;
+        prevBtnFadeP = btnFadeP;
+      }
     }
 
-    measure();
     window.addEventListener('resize', measure, { passive: true });
     window.addEventListener('load', measure);
     window.addEventListener('scroll', update, { passive: true });
