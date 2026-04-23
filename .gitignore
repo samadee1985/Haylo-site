@@ -9,3 +9,6 @@
 
 # OS junk
 Thumbs.db
+
+# Local image-processing backups
+_halo-backup/
