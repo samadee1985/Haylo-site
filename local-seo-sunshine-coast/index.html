@@ -117,14 +117,6 @@
   .ip-stat-num { font-family: var(--font-display); font-size: 2.8rem; font-weight: 300; color: var(--clay); line-height: 1; white-space: nowrap; }
   .ip-stat-label { font-size: 0.78rem; color: rgba(250,248,245,0.55); letter-spacing: 0.05em; }
 
-  /* Why cards */
-  #why-section { padding: 9rem 0; }
-  .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; background: transparent; }
-  .why-card { background: rgba(28,26,23,0.72); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); padding: 2.25rem 2rem; border: 1px solid rgba(250,248,245,0.28); transition: border-color 0.2s; }
-  .why-card:hover { border-color: var(--clay); }
-  .why-num { font-family: var(--font-display); font-size: 1.6rem; font-weight: 300; color: var(--clay); margin-bottom: 0.75rem; line-height: 1; }
-  .why-title { font-family: var(--font-body); font-size: 0.82rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--warm-white); margin-bottom: 0.6rem; }
-  .why-desc { font-size: 0.88rem; line-height: 1.8; color: rgba(250,248,245,0.65); }
 
   /* Included grid */
   .accordion { border-top: 1px solid var(--border); margin-top: 2.5rem; }
@@ -208,7 +200,6 @@
   }
   @media (max-width: 900px) {
     .ip-split { grid-template-columns: 1fr; gap: 3rem; }
-    .why-grid { grid-template-columns: repeat(2, 1fr); }
     .nav-links { display: none; }
     .btn-header { display: block; font-size: 0.7rem; padding: 0.45rem 0.9rem; color: var(--ink); border-color: var(--ink); }
     .btn-header:hover { background: var(--ink); color: var(--warm-white); }
@@ -220,8 +211,6 @@
     .btn-call-nav .btn-call-nav-label { display: none; }
   }
   @media (max-width: 580px) {
-    .why-grid { grid-template-columns: repeat(2, 1fr); }
-    .why-card { padding: 1.5rem 1.25rem; }
     .ip-actions { flex-direction: column; }
     .ip-ctas { flex-direction: column; }
   }
@@ -423,6 +412,90 @@
   /* ─── PARALLAX ─── */
   .section-parallax-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; will-change: clip-path; z-index: -1; clip-path: inset(100% 0 0 0); pointer-events: none; transform: translateZ(0); }
   .parallax-overlay { position: absolute; inset: 0; pointer-events: none; }
+  #why-bg::after { content: ''; position: absolute; inset: 0; background: rgba(12, 10, 9, 0.78); pointer-events: none; }
+
+  /* ─── WHY SCENE (phone + copy) ─── */
+  .why-lseo { position: relative; background: transparent; padding: clamp(4.5rem, 9vh, 7rem) 0; overflow: hidden; }
+  .why-lseo-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(3rem, 6vw, 6rem); width: 100%; max-width: 1240px; margin: 0 auto; padding: 0 var(--gutter); align-items: center; position: relative; z-index: 2; }
+  .why-lseo-text { color: var(--warm-white); }
+  .why-lseo-text .eyebrow { color: var(--clay); }
+  .why-lseo-headline { font-family: var(--font-display); font-weight: 300; font-size: clamp(2rem, 4vw, 3.3rem); line-height: 1.1; letter-spacing: -0.02em; color: var(--warm-white); margin: 1rem 0 1.25rem; text-wrap: balance; }
+  .why-lseo-headline em { font-style: italic; color: var(--clay); }
+  .why-lseo-sub { font-size: 1rem; line-height: 1.7; color: rgba(250,248,245,0.72); max-width: 46ch; margin: 0 0 1.75rem; font-weight: 300; }
+  .why-lseo-bullets { list-style: none; padding: 0; margin: 0 0 2rem; display: grid; gap: clamp(1.25rem, 1.8vw, 1.75rem); max-width: 52ch; }
+  .why-lseo-bullets li { position: relative; padding-left: 2rem; font-size: clamp(1.05rem, 1.15vw, 1.3rem); line-height: 1.55; color: var(--warm-white); font-weight: 300; }
+  .why-lseo-bullets li::before { content: ''; position: absolute; left: 0; top: 0.75em; width: 1.1rem; height: 1px; background: var(--clay); }
+  .why-lseo-bullets strong { display: block; color: var(--clay); font-weight: 400; font-family: var(--font-display); font-style: italic; font-size: clamp(1.2rem, 1.6vw, 1.7rem); line-height: 1.2; margin-bottom: 0.3rem; }
+
+  /* Phone mockup */
+  .lseo-phone-stage { display: flex; justify-content: center; align-items: center; position: relative; }
+  .lseo-phone-stage::after { content: ''; position: absolute; left: 50%; bottom: -8%; width: 70%; height: 40px; transform: translateX(-50%); background: radial-gradient(ellipse at center, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0) 70%); filter: blur(14px); z-index: 0; }
+  .lseo-phone { width: min(340px, 100%); aspect-ratio: 9 / 18; background: #0a0907; border-radius: 40px; padding: 12px; box-shadow: 0 40px 80px rgba(0,0,0,0.5), 0 12px 28px rgba(0,0,0,0.3), inset 0 0 0 1.5px rgba(250,248,245,0.08); position: relative; z-index: 1; }
+  .lseo-phone-notch { position: absolute; top: 20px; left: 50%; transform: translateX(-50%); width: 90px; height: 18px; background: #0a0907; border-radius: 100px; z-index: 3; }
+  .lseo-phone-screen { width: 100%; height: 100%; background: var(--warm-white); border-radius: 28px; overflow: hidden; padding: 48px 14px 14px; display: flex; flex-direction: column; gap: 12px; position: relative; }
+  .lseo-phone-screen::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 90px; background: linear-gradient(to bottom, rgba(250,249,248,0) 0%, var(--warm-white) 85%); pointer-events: none; z-index: 2; }
+  .lseo-search-bar { background: var(--stone-mid); border: 1px solid var(--border); border-radius: 100px; padding: 10px 14px; display: flex; align-items: center; gap: 8px; font-family: var(--font-body); font-size: 0.78rem; color: var(--ink-soft); white-space: nowrap; overflow: hidden; }
+  .lseo-search-icon { width: 14px; height: 14px; color: var(--ink-muted); flex-shrink: 0; }
+  .lseo-query { display: inline-flex; align-items: baseline; min-width: 0; flex: 1; }
+  .lseo-query-typed { display: inline-block; overflow: hidden; white-space: nowrap; color: var(--ink); font-weight: 500; vertical-align: bottom; }
+  .why-lseo.is-animating .lseo-query-typed { width: 0; }
+  .lseo-caret { display: inline-block; width: 1.5px; height: 13px; background: var(--clay); margin-left: 2px; vertical-align: bottom; animation: lseo-blink 0.75s steps(1) infinite; }
+  @keyframes lseo-blink { 50% { opacity: 0; } }
+
+  .lseo-serp { display: flex; flex-direction: column; gap: 8px; opacity: 0; transform: translateY(24px); will-change: transform, opacity; }
+  .lseo-map-tile { position: relative; height: 104px; border-radius: 10px; background: linear-gradient(135deg, #dce6d6 0%, #c9d7c4 100%); overflow: hidden; border: 1px solid var(--border); }
+  .lseo-map-roads { position: absolute; inset: 0; background: linear-gradient(88deg, transparent 35%, rgba(255,255,255,0.6) 35%, rgba(255,255,255,0.6) 37%, transparent 37%), linear-gradient(32deg, transparent 55%, rgba(255,255,255,0.55) 55%, rgba(255,255,255,0.55) 57%, transparent 57%), linear-gradient(-48deg, transparent 22%, rgba(255,255,255,0.45) 22%, rgba(255,255,255,0.45) 24%, transparent 24%), linear-gradient(-48deg, transparent 72%, rgba(255,255,255,0.35) 72%, rgba(255,255,255,0.35) 73.5%, transparent 73.5%); }
+  .lseo-map-water { position: absolute; right: -10px; top: -10px; width: 40%; height: 60%; background: rgba(184,205,218,0.55); border-radius: 50% 20% 40% 60%; }
+  .lseo-map-pin { position: absolute; width: 12px; height: 12px; background: var(--ink-soft); border-radius: 50% 50% 50% 0; transform: rotate(-45deg); box-shadow: 0 1px 3px rgba(0,0,0,0.2); }
+  .lseo-map-pin--1 { top: 26%; left: 22%; }
+  .lseo-map-pin--2 { top: 58%; left: 68%; }
+  .lseo-map-pin--you { top: 42%; left: 47%; width: 18px; height: 18px; background: var(--clay); z-index: 2; box-shadow: 0 2px 6px rgba(184,150,122,0.5), 0 0 0 0 rgba(184,150,122,0.4); transition: box-shadow 0.4s; }
+  .lseo-map-pin--you.is-active { animation: lseo-pin-pulse 1.8s ease-in-out infinite; }
+  @keyframes lseo-pin-pulse { 0%,100% { box-shadow: 0 2px 6px rgba(184,150,122,0.5), 0 0 0 0 rgba(184,150,122,0.4); } 50% { box-shadow: 0 2px 6px rgba(184,150,122,0.5), 0 0 0 8px rgba(184,150,122,0); } }
+
+  .lseo-card { background: var(--warm-white); border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; font-size: 0.7rem; display: flex; flex-direction: column; gap: 3px; position: relative; transition: box-shadow 0.45s ease, border-color 0.45s ease, transform 0.45s ease; }
+  .lseo-card-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; color: var(--ink); }
+  .lseo-card-name { font-weight: 500; font-family: var(--font-body); }
+  .lseo-card-rating { color: var(--ink-soft); font-weight: 400; font-size: 0.66rem; white-space: nowrap; }
+  .lseo-card-meta { color: var(--ink-muted); font-size: 0.64rem; }
+  .lseo-card--dim { opacity: 0.5; }
+  .lseo-card--you { border-color: var(--clay); }
+  .lseo-card--you.is-highlighted { border-color: var(--clay); box-shadow: 0 0 0 2px rgba(184,150,122,0.45), 0 16px 36px rgba(184,150,122,0.22); transform: translateY(-2px); }
+  .lseo-card-you-tag { position: absolute; top: -8px; right: 10px; background: var(--clay); color: var(--warm-white); font-family: var(--font-body); font-size: 0.52rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 8px; border-radius: 100px; opacity: 0; transform: translateY(4px); transition: opacity 0.4s 0.15s, transform 0.4s 0.15s; }
+  .lseo-card--you.is-highlighted .lseo-card-you-tag { opacity: 1; transform: translateY(0); }
+  .lseo-card-callout { position: absolute; bottom: calc(100% + 14px); left: 50%; transform: translateX(-50%) translateY(6px); background: var(--clay); color: var(--warm-white); font-family: var(--font-display); font-size: 0.9rem; line-height: 1.2; padding: 8px 14px; border-radius: 8px; white-space: nowrap; box-shadow: 0 14px 32px rgba(184,150,122,0.35), 0 3px 8px rgba(28,26,23,0.14); z-index: 5; pointer-events: none; opacity: 0; letter-spacing: 0; }
+  .lseo-card-callout em { font-style: italic; color: var(--warm-white); }
+  .lseo-card-callout::after { content: ''; position: absolute; top: 100%; left: 50%; width: 0; height: 0; transform: translateX(-50%); border: 7px solid transparent; border-top-color: var(--clay); border-bottom: 0; }
+
+  @media (max-width: 900px) {
+    .why-lseo { padding: 4.5rem 0; }
+    .why-lseo-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .why-lseo-text { text-align: center; }
+    .why-lseo-sub, .why-lseo-bullets { margin-left: auto; margin-right: auto; }
+    .why-lseo-bullets li { text-align: left; }
+    .lseo-phone { width: min(260px, 62%); padding: 8px; border-radius: 32px; }
+    .lseo-phone-notch { top: 14px; width: 70px; height: 14px; }
+    .lseo-phone-screen { border-radius: 24px; padding: 38px 10px 10px; gap: 10px; }
+    .lseo-search-bar { font-size: 0.68rem; padding: 7px 10px; gap: 6px; }
+    .lseo-search-icon { width: 11px; height: 11px; }
+    .lseo-caret { height: 10px; }
+    .lseo-card-callout { font-size: 0.78rem; padding: 7px 12px; }
+  }
+  @media (max-width: 600px) {
+    .lseo-phone { width: 230px; padding: 6px; border-radius: 28px; }
+    .lseo-phone-notch { top: 11px; width: 60px; height: 12px; }
+    .lseo-phone-screen { border-radius: 22px; padding: 34px 9px 9px; }
+    .lseo-search-bar { font-size: 0.64rem; padding: 6px 9px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .lseo-serp { opacity: 1; transform: none; }
+    .lseo-query-typed { width: auto !important; }
+    .lseo-caret { display: none; }
+    .lseo-card--you { box-shadow: 0 0 0 2px rgba(184,150,122,0.35); }
+    .lseo-card--you .lseo-card-you-tag { opacity: 1; transform: none; }
+    .lseo-map-pin--you.is-active { animation: none; }
+    .lseo-card-callout { opacity: 1; transform: translateX(-50%); }
+  }
 </style>
 <script type="application/ld+json">
 {
@@ -655,47 +728,77 @@
 </section>
 
 <!-- WHY -->
-<section class="section section--mid" id="why-section" style="position:relative;background:transparent;">
+<section class="why-lseo" id="why-section" aria-label="Why local SEO matters">
   <div class="section-parallax-bg" id="why-bg" data-bg="url('/images/homepage/local-seo-ghm.webp')" aria-hidden="true"></div>
-  <div class="wrap" style="position:relative;z-index:1;">
-    <div class="section-header reveal">
+  <div class="why-lseo-grid reveal">
+    <div class="why-lseo-text">
       <p class="eyebrow ruled ruled-light">Why it matters</p>
-      <h2 style="color:var(--warm-white);">Every day without local SEO<br><em>is a day your competitors win.</em></h2>
-    </div>
-    <div class="why-grid reveal">
-      <div class="why-card">
-        <p class="why-num">01</p>
-        <p class="why-title">Dominate Google Maps</p>
-        <p class="why-desc">The 3-pack sits above all organic results. That's where most calls come from - local SEO is how you get in and stay in.</p>
-      </div>
-      <div class="why-card">
-        <p class="why-num">02</p>
-        <p class="why-title">Rank for your suburb</p>
-        <p class="why-desc">We target the exact suburbs you work in - Buderim, Noosa, Caloundra - so you show up where your customers are searching.</p>
-      </div>
-      <div class="why-card">
-        <p class="why-num">03</p>
-        <p class="why-title">Beat your competitors</p>
-        <p class="why-desc">Without local SEO, you're invisible while competitors pick up every Google search in your trade, every single day.</p>
-      </div>
-      <div class="why-card">
-        <p class="why-num">04</p>
-        <p class="why-title">High-intent customers</p>
-        <p class="why-desc">Someone searching "plumber near me" needs someone now - local SEO puts you in front of people ready to book.</p>
-      </div>
-      <div class="why-card">
-        <p class="why-num">05</p>
-        <p class="why-title">No ongoing ad spend</p>
-        <p class="why-desc">Ads stop when you stop paying. Good local SEO compounds - rankings keep delivering enquiries long after the work is done.</p>
-      </div>
-      <div class="why-card">
-        <p class="why-num">06</p>
-        <p class="why-title">Website and GBP aligned</p>
-        <p class="why-desc">Your website and Google Business Profile are stronger together. We align both to send the right signals to Google.</p>
-      </div>
-    </div>
-    <div style="margin-top:2.5rem;text-align:center;">
+      <h2 class="why-lseo-headline">One map. Three names.<br>Yours needs to be <em>one of them.</em></h2>
+      <p class="why-lseo-sub">When a Sunshine Coast local searches "plumber near me", Google shows three businesses above everything else. Those three pick up 75% of the calls. Everyone else is a scroll away - which on a phone means invisible. Our job is to get you into that three and keep you there.</p>
+      <ul class="why-lseo-bullets">
+        <li><strong>In the 3-pack.</strong> Above organic results, right where the taps happen.</li>
+        <li><strong>Ranked by suburb.</strong> Buderim. Noosa. Caloundra. You show up where you actually work.</li>
+        <li><strong>High-intent traffic.</strong> Someone typing "plumber Buderim" wants to book now - not browse.</li>
+        <li><strong>Compounds, not rented.</strong> Unlike ads, good rankings keep paying out for months after the work.</li>
+      </ul>
       <a href="/google-business-profile-audit/#audit-form" class="btn-primary-light">Get my free audit &rarr;</a>
+    </div>
+    <div class="lseo-phone-stage" aria-hidden="true">
+      <div class="lseo-phone">
+        <div class="lseo-phone-notch"></div>
+        <div class="lseo-phone-screen">
+          <div class="lseo-search-bar">
+            <svg class="lseo-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <span class="lseo-query"><span class="lseo-query-typed">local plumber near Buderim</span><span class="lseo-caret"></span></span>
+          </div>
+          <div class="lseo-serp">
+            <div class="lseo-map-tile">
+              <div class="lseo-map-roads"></div>
+              <div class="lseo-map-water"></div>
+              <span class="lseo-map-pin lseo-map-pin--1"></span>
+              <span class="lseo-map-pin lseo-map-pin--2"></span>
+              <span class="lseo-map-pin lseo-map-pin--you"></span>
+            </div>
+            <div class="lseo-card">
+              <div class="lseo-card-head">
+                <span class="lseo-card-name">Pacific Coast Plumbing</span>
+                <span class="lseo-card-rating">4.7 &#9733; (62)</span>
+              </div>
+              <span class="lseo-card-meta">Open &middot; 10 min &middot; Maroochydore</span>
+            </div>
+            <div class="lseo-card lseo-card--you">
+              <div class="lseo-card-callout">This is where you need to <em>be.</em></div>
+              <span class="lseo-card-you-tag">You</span>
+              <div class="lseo-card-head">
+                <span class="lseo-card-name">Your business</span>
+                <span class="lseo-card-rating">4.9 &#9733; (47)</span>
+              </div>
+              <span class="lseo-card-meta">Open &middot; 5 min &middot; Buderim</span>
+            </div>
+            <div class="lseo-card">
+              <div class="lseo-card-head">
+                <span class="lseo-card-name">Coast Home Repairs</span>
+                <span class="lseo-card-rating">4.5 &#9733; (28)</span>
+              </div>
+              <span class="lseo-card-meta">Open &middot; 12 min &middot; Mooloolaba</span>
+            </div>
+            <div class="lseo-card lseo-card--dim" data-dim="0.5">
+              <div class="lseo-card-head">
+                <span class="lseo-card-name">Sunshine Plumbers</span>
+                <span class="lseo-card-rating">4.2 &#9733; (18)</span>
+              </div>
+              <span class="lseo-card-meta">Open &middot; 15 min &middot; Nambour</span>
+            </div>
+            <div class="lseo-card lseo-card--dim" data-dim="0.28">
+              <div class="lseo-card-head">
+                <span class="lseo-card-name">Hinterland Plumbing &amp; Gas</span>
+                <span class="lseo-card-rating">4.0 &#9733; (9)</span>
+              </div>
+              <span class="lseo-card-meta">Open &middot; 18 min &middot; Palmwoods</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1324,6 +1427,146 @@ document.querySelectorAll('.footer-col-toggle').forEach(function(btn){
     <path fill="#fff" d="M16 3C9.373 3 4 8.373 4 15c0 2.385.67 4.61 1.832 6.504L4 29l7.697-1.81A11.94 11.94 0 0 0 16 27c6.627 0 12-5.373 12-12S22.627 3 16 3zm0 2c5.522 0 10 4.478 10 10s-4.478 10-10 10a9.94 9.94 0 0 1-5.09-1.396l-.364-.22-4.573 1.075 1.11-4.457-.24-.377A9.944 9.944 0 0 1 6 15c0-5.522 4.478-10 10-10zm-3.178 5.5c-.232 0-.608.087-.928.432-.32.345-1.22 1.192-1.22 2.907s1.247 3.372 1.42 3.604c.174.232 2.43 3.867 5.975 5.27 2.952 1.165 3.546.933 4.185.875.64-.058 2.062-.843 2.353-1.657.29-.814.29-1.512.203-1.657-.087-.145-.32-.232-.67-.406-.348-.174-2.062-1.017-2.382-1.133-.32-.116-.552-.174-.785.174-.232.347-.9 1.133-1.103 1.366-.203.232-.406.26-.754.087-.348-.174-1.47-.542-2.8-1.727-1.034-.923-1.732-2.063-1.935-2.41-.203-.348-.022-.536.153-.709.157-.156.348-.406.522-.61.174-.203.232-.347.348-.58.116-.231.058-.434-.029-.608-.087-.174-.774-1.899-1.074-2.597-.29-.682-.585-.58-.785-.58l-.694-.013z"/>
   </svg>
 </a>
+
+<script>
+// Why-section phone scene: GSAP loads lazily when the section approaches viewport.
+(function () {
+  var scene = document.querySelector('.why-lseo');
+  if (!scene) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  function loadScript(src) {
+    return new Promise(function (resolve, reject) {
+      var s = document.createElement('script');
+      s.src = src;
+      s.async = true;
+      s.onload = resolve;
+      s.onerror = reject;
+      document.head.appendChild(s);
+    });
+  }
+
+  function initScene() {
+    if (!window.gsap || !window.ScrollTrigger) return;
+    gsap.registerPlugin(ScrollTrigger);
+
+    var typed = scene.querySelector('.lseo-query-typed');
+    var caret = scene.querySelector('.lseo-caret');
+    var serp = scene.querySelector('.lseo-serp');
+    var cards = scene.querySelectorAll('.lseo-card:not(.lseo-card--dim)');
+    var dimCards = scene.querySelectorAll('.lseo-card--dim');
+    var youCard = scene.querySelector('.lseo-card--you');
+    var youPin = scene.querySelector('.lseo-map-pin--you');
+    var callout = scene.querySelector('.lseo-card-callout');
+
+    var fullWidth = 0;
+    var tl;
+
+    function reset() {
+      gsap.set(typed, { width: 0 });
+      gsap.set(caret, { autoAlpha: 1 });
+      gsap.set(serp, { autoAlpha: 0, y: 22 });
+      gsap.set(cards, { autoAlpha: 0, y: 12 });
+      gsap.set(dimCards, { opacity: 0, y: 12 });
+      gsap.set(callout, { autoAlpha: 0, y: 6 });
+      youCard.classList.remove('is-highlighted');
+      if (youPin) youPin.classList.remove('is-active');
+    }
+
+    function holdFinalState() {
+      gsap.set(typed, { width: fullWidth });
+      gsap.set(caret, { autoAlpha: 0 });
+      gsap.set(serp, { autoAlpha: 1, y: 0 });
+      gsap.set(cards, { autoAlpha: 1, y: 0 });
+      dimCards.forEach(function (el) {
+        gsap.set(el, { opacity: parseFloat(el.dataset.dim) || 0.3, y: 0 });
+      });
+      gsap.set(callout, { autoAlpha: 1, y: 0 });
+      youCard.classList.add('is-highlighted');
+      if (youPin) youPin.classList.add('is-active');
+    }
+
+    function buildTimeline() {
+      if (tl) tl.kill();
+      tl = gsap.timeline({ repeat: 2, repeatDelay: 1.4, paused: true, onComplete: holdFinalState });
+      tl.call(reset);
+      tl.to(typed, { width: fullWidth, duration: 1.2, ease: 'none' }, 0.4);
+      tl.to(caret, { autoAlpha: 0, duration: 0.25 }, '>');
+      tl.to(serp, { autoAlpha: 1, y: 0, duration: 0.55, ease: 'power2.out' }, '<');
+      tl.to(cards, { autoAlpha: 1, y: 0, duration: 0.45, stagger: 0.14, ease: 'power2.out' }, '<0.05');
+      tl.to(dimCards, {
+        opacity: function (i, target) { return parseFloat(target.dataset.dim) || 0.3; },
+        y: 0,
+        duration: 0.45,
+        stagger: 0.1,
+        ease: 'power2.out'
+      }, '<0.35');
+      tl.call(function () {
+        youCard.classList.add('is-highlighted');
+        if (youPin) youPin.classList.add('is-active');
+      }, null, '+=0.25');
+      tl.to(callout, { autoAlpha: 1, y: 0, duration: 0.55, ease: 'back.out(1.8)' }, '+=0.35');
+      tl.to(callout, {
+        keyframes: [ { y: -10 }, { y: 0 }, { y: -7 }, { y: 0 }, { y: -4 }, { y: 0 } ],
+        duration: 1.8,
+        ease: 'sine.inOut'
+      }, '+=0.15');
+      tl.to({}, { duration: 0.8 });
+      tl.to([callout, serp], { autoAlpha: 0, duration: 0.5 });
+      tl.to(dimCards, { opacity: 0, duration: 0.5 }, '<');
+      tl.to(typed, { width: 0, duration: 0.5 }, '<');
+    }
+
+    function start() {
+      fullWidth = typed.offsetWidth;
+      scene.classList.add('is-animating');
+      reset();
+      buildTimeline();
+      ScrollTrigger.create({
+        trigger: scene,
+        start: 'top 85%',
+        end: 'bottom 15%',
+        onToggle: function (self) {
+          if (self.isActive) tl.play();
+          else tl.pause();
+        }
+      });
+    }
+
+    var resizeTimer;
+    window.addEventListener('resize', function () {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function () {
+        scene.classList.remove('is-animating');
+        gsap.set(typed, { clearProps: 'width' });
+        fullWidth = typed.offsetWidth;
+        scene.classList.add('is-animating');
+        buildTimeline();
+        tl.play(0);
+      }, 200);
+    }, { passive: true });
+
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(start);
+    } else {
+      window.addEventListener('load', start);
+    }
+  }
+
+  var loaded = false;
+  var obs = new IntersectionObserver(function (entries) {
+    if (loaded) return;
+    if (!entries.some(function (e) { return e.isIntersecting; })) return;
+    loaded = true;
+    obs.disconnect();
+    loadScript('https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js')
+      .then(function () { return loadScript('https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js'); })
+      .then(initScene)
+      .catch(function () { /* network fail: static fallback */ });
+  }, { rootMargin: '600px 0px' });
+  obs.observe(scene);
+})();
+</script>
 
 </body>
 </html>

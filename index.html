@@ -1279,6 +1279,70 @@
     font-weight: 300;
   }
 
+  .lseo-text .eyebrow.ruled::after {
+    content: '';
+    display: block;
+    width: 2rem;
+    height: 1px;
+    background: var(--ink-muted);
+    flex-shrink: 0;
+  }
+
+  .why-lseo-headline {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(2rem, 4vw, 3.3rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin: 1rem 0 1.25rem;
+    text-wrap: balance;
+  }
+  .why-lseo-headline em { font-style: italic; color: var(--clay); }
+  .why-lseo-sub {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    max-width: 46ch;
+    margin: 0 0 1.75rem;
+    font-weight: 300;
+  }
+  .why-lseo-bullets {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem;
+    display: grid;
+    gap: clamp(1.25rem, 1.8vw, 1.75rem);
+    max-width: 52ch;
+  }
+  .why-lseo-bullets li {
+    position: relative;
+    padding-left: 2rem;
+    font-size: clamp(1.05rem, 1.15vw, 1.3rem);
+    line-height: 1.55;
+    color: var(--ink);
+    font-weight: 300;
+  }
+  .why-lseo-bullets li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.75em;
+    width: 1.1rem;
+    height: 1px;
+    background: var(--clay);
+  }
+  .why-lseo-bullets strong {
+    display: block;
+    color: var(--terracotta-deep);
+    font-weight: 500;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(1.2rem, 1.6vw, 1.7rem);
+    line-height: 1.2;
+    margin-bottom: 0.3rem;
+  }
+
   /* Phone mockup */
   .lseo-phone-stage { display: flex; justify-content: center; align-items: center; position: relative; }
   .lseo-phone-stage::after {
@@ -1537,6 +1601,9 @@
     .lseo-headline-num { font-size: clamp(5rem, 22vw, 8rem); line-height: 0.9; }
     .lseo-headline-tail { font-size: clamp(1.1rem, 4vw, 1.5rem); text-align: center; max-width: 22ch; padding-top: 0; }
     .lseo-sub { margin-left: auto; margin-right: auto; }
+    .why-lseo-sub, .why-lseo-bullets { margin-left: auto; margin-right: auto; }
+    .why-lseo-bullets li { text-align: left; }
+    .lseo-text .eyebrow { justify-content: center; }
     .lseo-phone { width: min(260px, 62%); padding: 8px; border-radius: 32px; }
     .lseo-phone-notch { top: 14px; width: 70px; height: 14px; }
     .lseo-phone-screen { border-radius: 24px; padding: 38px 10px 10px; gap: 10px; }
@@ -2048,6 +2115,14 @@
     pointer-events: none;
   }
 
+  #who-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(12, 10, 9, 0.74);
+    pointer-events: none;
+  }
+
   /* ─── WHO WE HELP ─── */
   .who {
     padding: 11rem 0 10rem;
@@ -2077,10 +2152,10 @@
   }
 
   .who-header .section-heading {
-    font-size: clamp(2.8rem, 5.5vw, 6rem);
+    font-size: clamp(2.4rem, 5vw, 5.4rem);
     color: var(--warm-white);
     text-shadow: 0 2px 24px rgba(0,0,0,0.4);
-    max-width: 16ch;
+    max-width: 26ch;
     margin-bottom: 1.5rem;
   }
 
@@ -2176,9 +2251,6 @@
   .industry-card:nth-child(4) .industry-icon { color: #d49060; } /* home - clay */
   .industry-card:nth-child(5) .industry-icon { color: #d4844a; } /* auto - copper */
   .industry-card:nth-child(6) .industry-icon { color: #d47888; } /* health - dusty rose */
-  .industry-card:nth-child(7) .industry-icon { color: #d4a030; } /* pest - golden */
-  .industry-card:nth-child(8) .industry-icon { color: #60b0c0; } /* pool - teal */
-  .industry-card:nth-child(9) .industry-icon { color: #78b855; } /* landscapers - green */
 
   .industry-title {
     font-family: var(--font-display);
@@ -2228,6 +2300,43 @@
     transform: translateY(-2px);
   }
 
+  /* Auto-spotlight: GSAP cycles .is-focused through the cards while the grid
+     is in view. Hover still beats focused so pointer input wins. */
+  .industry-card.is-focused {
+    transform: translateY(-4px);
+    background: rgba(22,19,16,0.94);
+    border-color: rgba(255,255,255,0.16);
+    box-shadow: 0 20px 54px rgba(0,0,0,0.55);
+  }
+  .industry-card.is-focused .industry-icon::before {
+    opacity: 0.55;
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+  .industry-card.is-focused .industry-link {
+    letter-spacing: 0.14em;
+    color: var(--warm-white);
+  }
+
+  .industries-also {
+    margin-top: 2.2rem;
+    font-size: 0.85rem;
+    line-height: 1.65;
+    color: rgba(250,248,245,0.55);
+    text-align: center;
+  }
+  .industries-also a {
+    color: rgba(250,248,245,0.85);
+    text-decoration: underline;
+    text-decoration-color: rgba(184,150,122,0.45);
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+    transition: color 0.2s ease, text-decoration-color 0.2s ease;
+  }
+  .industries-also a:hover {
+    color: var(--clay);
+    text-decoration-color: var(--clay);
+  }
+
   @media (max-width: 900px) {
     .who .wrap {
       position: static;
@@ -2243,76 +2352,65 @@
 
     .industries {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0.6rem;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
     }
 
     .industries .industry-card {
-      aspect-ratio: 1;
-      padding: 0.75rem;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      gap: 0.4rem;
+      padding: 1.1rem 0.95rem;
+      align-items: flex-start;
+      justify-content: flex-start;
+      text-align: left;
+      gap: 0.45rem;
       background: rgba(12,10,9,0.92);
       border: 1px solid rgba(255,255,255,0.1);
       border-top: 2px solid var(--clay);
       box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 6px 20px rgba(0,0,0,0.35);
     }
 
-    .industries .industry-card .industry-desc,
-    .industries .industry-card .industry-link {
-      display: none;
-    }
-
     .industries .industry-card .industry-icon {
-      margin-bottom: 0;
-      width: 24px;
-      height: 24px;
-      align-self: auto;
+      margin-bottom: 0.25rem;
+      width: 26px;
+      height: 26px;
+      align-self: flex-start;
     }
 
     .industries .industry-card .industry-icon::before {
-      width: 56px;
-      height: 56px;
+      width: 52px;
+      height: 52px;
     }
 
     .industries .industry-card .industry-icon svg {
-      width: 24px;
-      height: 24px;
+      width: 26px;
+      height: 26px;
     }
 
     .industries .industry-card .industry-title {
-      font-size: 1rem;
-      line-height: 1.2;
-      margin-bottom: 0;
-      min-height: 2.4rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      font-size: 1.02rem;
+      line-height: 1.22;
+      margin-bottom: 0.15rem;
     }
 
-    .industries-dots {
-      display: none;
+    .industries .industry-card .industry-desc {
+      font-size: 0.78rem;
+      line-height: 1.5;
+      margin-bottom: 0.5rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
 
-    .industries-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: rgba(250,248,245,0.3);
-      border: none;
-      padding: 0;
-      cursor: pointer;
-      flex-shrink: 0;
-      transition: all 0.25s ease;
+    .industries .industry-card .industry-link {
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
     }
 
-    .industries-dot.active {
-      background: rgba(250,248,245,0.9);
-      width: 22px;
-      border-radius: 4px;
+    .industries-also {
+      font-size: 0.78rem;
+      margin-top: 1.6rem;
     }
+
   }
 
   /* ─── WORK ─── */
@@ -4426,7 +4524,6 @@
   }
 
   @media (min-width: 901px) {
-    .industries-dots { display: none; }
     .industry-card,
     .location-card {
       padding: 2rem 1.75rem 1.75rem;
@@ -5285,13 +5382,15 @@
 <section class="lseo-scene" aria-label="Local SEO">
   <div class="lseo-grid">
     <div class="lseo-text">
-      <p class="lseo-bridge">Here's what's actually happening on Google.</p>
-      <h2 class="lseo-headline">
-        <span class="lseo-headline-num">126<span class="lseo-headline-pct">%</span></span>
-        <span class="lseo-headline-tail">more traffic goes to the top three on <em>Google Maps</em> than positions four to ten.</span>
-      </h2>
-      <p class="lseo-source"><cite>Source: Backlinko Local SEO Study</cite></p>
-      <p class="lseo-sub">Local SEO is how your business shows up when locals nearby are searching for what you do. On the Coast, someone taps one of three names and the call goes there. Everyone else is invisible. Our job is to get you into that three.</p>
+      <p class="eyebrow ruled" style="margin-bottom:1.5rem;">Local SEO</p>
+      <h2 class="why-lseo-headline">One map. Three names.<br>Yours needs to be <em>one of them.</em></h2>
+      <p class="why-lseo-sub">When a Sunshine Coast local searches "plumber near me", Google shows three businesses above everything else. Those three pick up around three-quarters of the calls. Everyone else is a scroll away - which on a phone means invisible. Our job is to get you into that three and keep you there.</p>
+      <ul class="why-lseo-bullets">
+        <li><strong>In the 3-pack.</strong> Above organic results, right where the taps happen.</li>
+        <li><strong>Ranked by suburb.</strong> Buderim. Noosa. Caloundra. You show up where you actually work.</li>
+        <li><strong>High-intent traffic.</strong> Someone typing "plumber Buderim" wants to book now - not browse.</li>
+        <li><strong>Compounds, not rented.</strong> Unlike ads, good rankings keep paying out for months after the work.</li>
+      </ul>
     </div>
     <div class="lseo-phone-stage" aria-hidden="true">
       <div class="lseo-phone">
@@ -5499,7 +5598,7 @@
     <div class="who-content">
     <div class="who-header animate-fade-in">
       <p class="eyebrow ruled" style="margin-bottom: 1.5rem;">Built for local businesses</p>
-      <h2 class="section-heading">The Sunshine Coast's businesses. That's our <em>game.</em></h2>
+      <h2 class="section-heading">Sunshine Coast locals -<br>that's our <em>game.</em></h2>
       <p class="services-intro">We get tradies, cleaners and home service businesses ranking on Google, generating reviews and converting local searches into real enquiries. The phone rings more. Simple as that.</p>
     </div>
     <div class="industries stagger-animation" id="industries-grid">
@@ -5518,7 +5617,7 @@
       <a href="/google-marketing-for-garden-outdoor/" class="industry-card">
         <div class="industry-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 019.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg></div>
         <h3 class="industry-title">Garden &amp; Outdoor</h3>
-        <p class="industry-desc">Landscapers, lawn care and pest control businesses with a local-first strategy for service visibility.</p>
+        <p class="industry-desc">Landscapers, lawn care and pest control businesses - local-first strategy for year-round service visibility.</p>
         <span class="industry-link">For garden &amp; outdoor &rarr;</span>
       </a>
       <a href="/google-marketing-for-home-services/" class="industry-card">
@@ -5539,36 +5638,8 @@
         <p class="industry-desc">Physios, therapists and beauty businesses converting local interest into repeat client bookings.</p>
         <span class="industry-link">For health &amp; wellness &rarr;</span>
       </a>
-      <a href="/google-marketing-for-pest-control/" class="industry-card">
-        <div class="industry-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-        <h3 class="industry-title">Pest Control</h3>
-        <p class="industry-desc">Pest control operators capturing urgent local searches and building the trust that gets homeowners calling first.</p>
-        <span class="industry-link">For pest control &rarr;</span>
-      </a>
-      <a href="/google-marketing-for-pool-services/" class="industry-card">
-        <div class="industry-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/></svg></div>
-        <h3 class="industry-title">Pool Services</h3>
-        <p class="industry-desc">Pool cleaning, maintenance and repair businesses building a full recurring run from local Google visibility.</p>
-        <span class="industry-link">For pool services &rarr;</span>
-      </a>
-      <a href="/google-marketing-for-landscapers/" class="industry-card">
-        <div class="industry-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="12 2 22 19 2 19 12 2"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="9" y1="22" x2="15" y2="22"/></svg></div>
-        <h3 class="industry-title">Landscapers</h3>
-        <p class="industry-desc">Landscaping businesses attracting high-value project enquiries from homeowners searching Google for outdoor transformations.</p>
-        <span class="industry-link">For landscapers &rarr;</span>
-      </a>
     </div>
-    <div class="industries-dots" role="tablist" aria-label="Industry navigation">
-      <button class="industries-dot active" role="tab" aria-label="Industry 1"></button>
-      <button class="industries-dot" role="tab" aria-label="Industry 2"></button>
-      <button class="industries-dot" role="tab" aria-label="Industry 3"></button>
-      <button class="industries-dot" role="tab" aria-label="Industry 4"></button>
-      <button class="industries-dot" role="tab" aria-label="Industry 5"></button>
-      <button class="industries-dot" role="tab" aria-label="Industry 6"></button>
-      <button class="industries-dot" role="tab" aria-label="Industry 7"></button>
-      <button class="industries-dot" role="tab" aria-label="Industry 8"></button>
-      <button class="industries-dot" role="tab" aria-label="Industry 9"></button>
-    </div>
+    <p class="industries-also">Also helping <a href="/google-marketing-for-landscapers/">landscapers</a>, <a href="/google-marketing-for-pest-control/">pest-control operators</a> and <a href="/google-marketing-for-pool-services/">pool services</a> across the Sunshine Coast.</p>
     </div>
   </div>
 </section>
@@ -6387,35 +6458,6 @@ serviceNumbers.forEach(num => serviceCounterObserver.observe(num));
     });
   });
 })();
-
-// Industries carousel dots
-(function () {
-  if (!window.matchMedia('(max-width: 900px)').matches) return;
-
-  const grid  = document.querySelector('.industries');
-  const cards = document.querySelectorAll('.industry-card');
-  const dots  = document.querySelectorAll('.industries-dot');
-
-  if (!grid || !cards.length || !dots.length) return;
-
-  function setActive(i) {
-    dots.forEach((d, j) => d.classList.toggle('active', j === i));
-  }
-
-  setActive(0);
-
-  grid.addEventListener('scroll', function () {
-    const cardW = cards[0].offsetWidth + 16; // 16px gap
-    setActive(Math.min(Math.round(grid.scrollLeft / cardW), cards.length - 1));
-  }, { passive: true });
-
-  dots.forEach((dot, i) => {
-    dot.addEventListener('click', () => {
-      grid.scrollTo({ left: (cards[0].offsetWidth + 16) * i, behavior: 'smooth' });
-    });
-  });
-})();
-
 
 // Locations carousel dots
 (function () {
@@ -7299,7 +7341,7 @@ document.querySelectorAll('.footer-col-toggle').forEach(function(btn){
       duration: 0.75,
       ease: 'power2.out',
       stagger: {
-        grid: [3, 3],
+        grid: [2, 3],
         from: 'start',
         axis: null,
         each: 0.08
@@ -7313,8 +7355,39 @@ document.querySelectorAll('.footer-col-toggle').forEach(function(btn){
         // Clear inline transform/opacity so CSS :hover transform can take over.
         gsap.set(cards, { clearProps: 'transform,opacity,willChange' });
         grid.removeAttribute('data-industries-gsap');
+        startSpotlight();
       }
     });
+
+    function clearFocus() {
+      cards.forEach(function (c) { c.classList.remove('is-focused'); });
+    }
+
+    // Auto-cycling spotlight: adds .is-focused to one card at a time so each
+    // industry gets a beat of attention. Pauses when scrolled away.
+    function startSpotlight() {
+      var spot = gsap.timeline({ paused: true, repeat: -1, repeatDelay: 0.4 });
+
+      cards.forEach(function (card) {
+        spot.call(function () {
+          clearFocus();
+          card.classList.add('is-focused');
+        });
+        spot.to({}, { duration: 1.8 });
+      });
+      spot.call(clearFocus);
+      spot.to({}, { duration: 0.3 });
+
+      ScrollTrigger.create({
+        trigger: grid,
+        start: 'top 75%',
+        end: 'bottom 25%',
+        onToggle: function (self) {
+          if (self.isActive) spot.play();
+          else { spot.pause(); clearFocus(); }
+        }
+      });
+    }
   }
 
   var loaded = false;
