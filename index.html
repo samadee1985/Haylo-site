@@ -53,6 +53,7 @@
     --sage-light: #c8d0c2;
     --clay: #b8967a;
     --clay-light: #e8d5c4;
+    --terracotta-deep: #9e6547;
     --warm-white: #faf9f8;
     --border: #e2dfdc;
 
@@ -1017,10 +1018,6 @@
   .section-heading em {
     font-style: italic;
     color: var(--clay);
-  }
-
-  .work .section-heading em {
-    color: var(--ink-soft);
   }
 
   .services-intro {
@@ -2357,23 +2354,96 @@
     border-color: var(--ink);
   }
 
-  .work-cards {
+  .work-stack {
+    position: relative;
+    max-width: 780px;
+    margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
+    grid-template-columns: 1fr;
+    perspective: 1400px;
+    padding: 2rem 0 3.5rem;
   }
 
   .work-card {
-    border-radius: 16px;
+    grid-area: 1 / 1;
+    border-radius: 20px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    background: var(--clay-light);
+    box-shadow: 0 24px 60px -24px rgba(28,26,23,0.28);
+    transform-origin: center top;
+    transition: transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1),
+                opacity 0.55s ease,
+                filter 0.55s ease;
+    will-change: transform, opacity;
   }
 
-  .work-card:nth-child(1) { background: var(--clay-light); }
-  .work-card:nth-child(2) { background: var(--sage-light); }
-  .work-card:nth-child(3) { background: var(--stone-dark); }
-  .work-card:nth-child(4) { background: var(--clay); }
+  .work-card[data-color="sage"] { background: var(--sage-light); }
+  .work-card[data-color="stone"] { background: var(--stone-dark); }
+  .work-card[data-color="clay"] { background: var(--clay-light); }
+  .work-card[data-color="sage-dark"] { background: var(--sage); }
+  .work-card[data-color="terracotta-deep"] { background: var(--terracotta-deep); }
+
+  .work-card[data-color="terracotta-deep"] .work-type { color: var(--warm-white); opacity: 0.85; }
+  .work-card[data-color="terracotta-deep"] .work-title { color: var(--warm-white); }
+  .work-card[data-color="terracotta-deep"] .work-stat-label { color: rgba(246,245,243,0.7); }
+  .work-card[data-color="terracotta-deep"] .work-stat-value { color: var(--warm-white); }
+  .work-card[data-color="terracotta-deep"] .work-stat-unit { color: rgba(246,245,243,0.75); }
+  .work-card[data-color="terracotta-deep"] .work-stat-note { color: rgba(246,245,243,0.85); }
+  .work-card[data-color="terracotta-deep"] .work-desc { color: rgba(246,245,243,0.95); }
+  .work-card[data-color="terracotta-deep"] .work-stat-arrow { color: var(--warm-white); }
+  .work-card[data-color="terracotta-deep"] .work-stat-stars .star-pop { color: var(--warm-white); }
+  .work-card[data-color="terracotta-deep"] .work-stats {
+    border-top-color: rgba(246,245,243,0.25);
+    border-bottom-color: rgba(246,245,243,0.25);
+  }
+  .work-card[data-color="terracotta-deep"] .work-stat + .work-stat {
+    border-left-color: rgba(246,245,243,0.2);
+  }
+
+  .work-card[data-color="sage-dark"] .work-type { color: var(--warm-white); opacity: 0.85; }
+  .work-card[data-color="sage-dark"] .work-title { color: var(--warm-white); }
+  .work-card[data-color="sage-dark"] .work-stat-label { color: rgba(246,245,243,0.65); }
+  .work-card[data-color="sage-dark"] .work-stat-value { color: var(--warm-white); }
+  .work-card[data-color="sage-dark"] .work-stat-unit { color: rgba(246,245,243,0.7); }
+  .work-card[data-color="sage-dark"] .work-stat-note { color: rgba(246,245,243,0.8); }
+  .work-card[data-color="sage-dark"] .work-desc { color: rgba(246,245,243,0.92); }
+  .work-card[data-color="sage-dark"] .work-stats {
+    border-top-color: rgba(246,245,243,0.22);
+    border-bottom-color: rgba(246,245,243,0.22);
+  }
+  .work-card[data-color="sage-dark"] .work-stat + .work-stat {
+    border-left-color: rgba(246,245,243,0.18);
+  }
+
+  .work-card[data-pos="0"] {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 1;
+    z-index: 3;
+    filter: none;
+    pointer-events: auto;
+  }
+  .work-card[data-pos="1"] {
+    transform: translate3d(0, 32px, 0) scale(0.94);
+    opacity: 0.55;
+    z-index: 2;
+    filter: blur(0.5px);
+    pointer-events: none;
+  }
+  .work-card[data-pos="2"] {
+    transform: translate3d(0, 62px, 0) scale(0.88);
+    opacity: 0.28;
+    z-index: 1;
+    filter: blur(1px);
+    pointer-events: none;
+  }
+  .work-card[data-pos="out"] {
+    transform: translate3d(0, -30px, 0) scale(1);
+    opacity: 0;
+    z-index: 4;
+    pointer-events: none;
+  }
 
   .work-card-img {
     padding: 2.5rem 2.5rem 0;
@@ -2387,10 +2457,6 @@
     max-width: 340px;
   }
 
-  .work-card:nth-child(1) .work-card-imac { background: var(--clay-light); }
-  .work-card:nth-child(2) .work-card-imac { background: var(--sage-light); }
-  .work-card:nth-child(3) .work-card-imac { background: var(--stone-dark); }
-
   .work-card-imac img {
     width: 100%;
     height: auto;
@@ -2399,7 +2465,7 @@
   }
 
   .work-card-body {
-    padding: 1.75rem 2rem 2rem;
+    padding: 1.75rem 2rem 2.25rem;
   }
 
   .work-type {
@@ -2414,63 +2480,255 @@
 
   .work-title {
     font-family: var(--font-display);
-    font-size: 1.5rem;
+    font-size: clamp(1.5rem, 2.8vw, 2rem);
     font-weight: 400;
-    line-height: 1.2;
+    line-height: 1.15;
     color: var(--ink);
-    margin-bottom: 0.75rem;
+    margin-bottom: 1.25rem;
+  }
+
+  /* Stats */
+  .work-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    padding: 1.25rem 0;
+    border-top: 1px solid rgba(28,26,23,0.12);
+    border-bottom: 1px solid rgba(28,26,23,0.12);
+    margin-bottom: 1.25rem;
+  }
+
+  .work-stat {
+    text-align: center;
+    padding: 0 0.75rem;
+  }
+
+  .work-stat + .work-stat {
+    border-left: 1px solid rgba(28,26,23,0.1);
+  }
+
+  .work-stat-label {
+    display: block;
+    font-size: 0.64rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 500;
+    margin-bottom: 0.55rem;
+  }
+
+  .work-stat-value {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 300;
+    color: var(--ink);
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.2rem;
+    min-height: 1em;
+  }
+
+  .work-stat-number {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* SVG arrow: shaft then head stroke-draw in sequence */
+  .work-stat-arrow {
+    width: 0.6em;
+    height: 0.8em;
+    display: inline-block;
+    color: var(--clay);
+    stroke: currentColor;
+    stroke-width: 2;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    flex-shrink: 0;
+    align-self: center;
+    margin-right: 0.15em;
+  }
+
+  .work-stat-arrow path {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    transition: stroke-dashoffset 0.5s cubic-bezier(0.3, 0.7, 0.2, 1);
+  }
+  .work-stat-arrow .arrow-shaft { transition-delay: 0.35s; }
+  .work-stat-arrow .arrow-head  { transition-delay: 0.65s; }
+
+  .work-card.is-animating .work-stat-arrow path {
+    stroke-dashoffset: 0;
+  }
+
+  /* Odometer number reel. Row height is generous enough to clear
+     Cormorant's ascenders/descenders without clipping. JS uses the
+     measured pixel height for the transform so maths stays consistent. */
+  .odo {
+    display: inline-block;
+    height: 1.15em;
+    line-height: 1.15;
+    overflow: hidden;
+    vertical-align: baseline;
+  }
+  .odo-reel {
+    display: block;
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
+  }
+  .odo-row {
+    display: block;
+    height: 1.15em;
+    line-height: 1.15;
+  }
+
+
+  /* SVG star pop-in with scale overshoot */
+  .work-stat-stars .star-pop {
+    width: 0.85em;
+    height: 0.85em;
+    display: inline-block;
+    margin: 0 0.05em;
+    color: var(--clay);
+    fill: currentColor;
+    transform: scale(0);
+    opacity: 0;
+    transform-origin: center;
+  }
+  .work-stat-stars .star-pop.is-in {
+    animation: work-star-pop 0.5s cubic-bezier(0.3, 1.7, 0.45, 1) forwards;
+  }
+
+  @keyframes work-star-pop {
+    0%   { transform: scale(0);    opacity: 0; }
+    55%  { transform: scale(1.28); opacity: 1; }
+    100% { transform: scale(1);    opacity: 1; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .work-stat-arrow path { stroke-dashoffset: 0 !important; transition: none; }
+    .odo-reel { transition: none !important; }
+    .work-stat-stars .star-pop { animation: none; opacity: 1; transform: scale(1); }
+    .work-stat-value::after { transition: none; }
+  }
+
+  .work-stat-unit {
+    font-size: 0.42em;
+    font-weight: 400;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-left: 0.25rem;
+  }
+
+  .work-stat-note {
+    display: block;
+    font-size: 0.7rem;
+    color: var(--ink-soft);
+    margin-top: 0.55rem;
+    font-weight: 300;
+    line-height: 1.35;
+    min-height: 2.7em;
+  }
+
+  .work-stat-stars {
+    display: block;
+    margin-top: 0.55rem;
+    font-size: 0.95rem;
+    letter-spacing: 0.12em;
+    color: var(--clay);
+    font-weight: 400;
+    line-height: 1;
+    min-height: 1em;
   }
 
   .work-desc {
-    font-size: 0.88rem;
+    font-size: 0.9rem;
     color: var(--ink-soft);
-    line-height: 1.75;
+    line-height: 1.7;
     font-weight: 300;
+    max-width: 62ch;
+  }
+
+  /* Controls */
+  .work-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+
+  .work-nav {
+    background: transparent;
+    border: 1px solid rgba(28,26,23,0.2);
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ink);
+    padding: 0;
+    transition: background 0.2s, border-color 0.2s, color 0.2s;
+  }
+
+  .work-nav:hover {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--warm-white);
+  }
+
+  .work-dots {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .work-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: rgba(28,26,23,0.22);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+  }
+
+  .work-dot:hover {
+    background: rgba(28,26,23,0.4);
+  }
+
+  .work-dot.active {
+    background: var(--ink);
+    width: 22px;
+    border-radius: 4px;
   }
 
   @media (max-width: 767px) {
-    .work-cards {
-      display: flex !important;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      scroll-behavior: smooth;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-      gap: 1rem;
+    .work-stack {
+      padding: 1.25rem 0 2.5rem;
     }
-    .work-cards::-webkit-scrollbar { display: none; }
-    .work-card {
-      flex: 0 0 80vw;
-      scroll-snap-align: start;
+    .work-card-img { padding: 1.75rem 1.5rem 0; }
+    .work-card-body { padding: 1.25rem 1.5rem 1.75rem; }
+    .work-stats {
+      gap: 0;
+      padding: 1rem 0;
     }
-    .work-card-img { padding: 2rem 2rem 0; }
-    .work-dots {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 1.5rem 0 0;
+    .work-stat { padding: 0 0.3rem; }
+    .work-stat-label {
+      font-size: 0.56rem;
+      letter-spacing: 0.08em;
+      white-space: nowrap;
     }
-    .work-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--border);
-      border: none;
-      padding: 0;
-      cursor: pointer;
-      flex-shrink: 0;
-      transition: all 0.25s ease;
-    }
-    .work-dot.active {
-      background: var(--ink);
-      width: 22px;
-      border-radius: 4px;
-    }
-  }
-
-  @media (min-width: 768px) {
-    .work-dots { display: none; }
+    .work-stat-value { font-size: clamp(1.4rem, 7vw, 1.9rem); }
+    .work-stat-note, .work-stat-stars { font-size: 0.65rem; }
+    .work-stat-stars { font-size: 0.8rem; }
+    .work-controls { gap: 1rem; margin-top: 2rem; }
   }
 
   /* ─── ABOUT ─── */
@@ -5265,61 +5523,131 @@
           <em>real results.</em>
         </h2>
       </div>
-      <a href="#contact" class="link-view-all">Start your project →</a>
+      <a href="#contact" class="link-view-all">Want your story here? →</a>
     </div>
 
-    <div class="work-cards">
+    <div class="work-stack" id="work-stack">
 
-      <div class="work-card">
-        <div class="work-card-img">
-          <div class="work-card-imac"><img src="/images/Clients-sites/cleaning-with-kym-imac.webp" alt="Cleaning With Kym website" loading="lazy" width="1080" height="1104"></div>
-        </div>
-        <div class="work-card-body">
-          <span class="work-type">Residential Cleaning</span>
-          <h3 class="work-title">Cleaning With Kym</h3>
-          <p class="work-desc">Optimising Kym's Facebook Business Page and launching a Google Business Profile drove an immediate lift in messages and enquiries - new customers finding her before the ink was dry.</p>
-        </div>
-      </div>
-
-      <div class="work-card">
+      <article class="work-card" data-pos="0" data-color="sage-dark" aria-roledescription="slide">
         <div class="work-card-img">
           <div class="work-card-imac"><img src="/images/Clients-sites/oven-cleaning-sunshine-coast-imac.webp" alt="Oven Cleaning Sunshine Coast website" loading="lazy" width="1080" height="1104"></div>
         </div>
         <div class="work-card-body">
           <span class="work-type">Specialist Cleaning</span>
           <h3 class="work-title">Oven Cleaning Sunshine Coast</h3>
-          <p class="work-desc">Terri was starting to feel discouraged with her business - within two weeks of working together her workload picked up and she found a new enthusiasm for it. Sometimes visibility is all it takes.</p>
+          <div class="work-stats">
+            <div class="work-stat">
+              <span class="work-stat-label">Google rank</span>
+              <div class="work-stat-value">
+                <svg class="work-stat-arrow" viewBox="0 0 16 20" aria-hidden="true" focusable="false"><path class="arrow-shaft" d="M8 18 L8 5" pathLength="1"/><path class="arrow-head" d="M3 9 L8 4 L13 9" pathLength="1"/></svg>
+                <span class="work-stat-number" data-count-prefix="#" data-count-from="40" data-count-to="1">#1</span>
+              </div>
+              <span class="work-stat-note">for oven cleaning across the Coast</span>
+            </div>
+            <div class="work-stat">
+              <span class="work-stat-label">5-star reviews</span>
+              <div class="work-stat-value">
+                <span class="work-stat-number" data-count-from="0" data-count-to="5">5</span>
+              </div>
+              <span class="work-stat-stars" data-stars="5"></span>
+            </div>
+            <div class="work-stat">
+              <span class="work-stat-label">To first leads</span>
+              <div class="work-stat-value">
+                <span class="work-stat-number" data-count-from="0" data-count-to="4">4</span><span class="work-stat-unit">wks</span>
+              </div>
+              <span class="work-stat-note">new jobs booked</span>
+            </div>
+          </div>
+          <p class="work-desc">Terri had multiple conflicting Google profiles and was feeling discouraged. We consolidated into one properly optimised profile and launched a Facebook Business Page - and within a month she was ranking #1 for oven cleaning across the Coast, with five new five-star reviews and jobs booked in.</p>
         </div>
-      </div>
+      </article>
 
-      <div class="work-card">
+      <article class="work-card" data-pos="1" data-color="terracotta-deep" aria-roledescription="slide">
         <div class="work-card-img">
           <div class="work-card-imac"><img src="/images/Clients-sites/secure-home-solutions-imac.webp" alt="Secure Home Solutions website" loading="lazy" width="1080" height="1104"></div>
         </div>
         <div class="work-card-body">
           <span class="work-type">Home Security</span>
           <h3 class="work-title">Secure Home Solutions</h3>
-          <p class="work-desc">Arno came to Haylo invisible on Google Maps. Within three weeks he was ranking top 3 across multiple suburbs and keywords. Within four weeks he had his first jobs through Google - no ads, no shortcuts.</p>
+          <div class="work-stats">
+            <div class="work-stat">
+              <span class="work-stat-label">Google rank</span>
+              <div class="work-stat-value">
+                <svg class="work-stat-arrow" viewBox="0 0 16 20" aria-hidden="true" focusable="false"><path class="arrow-shaft" d="M8 18 L8 5" pathLength="1"/><path class="arrow-head" d="M3 9 L8 4 L13 9" pathLength="1"/></svg>
+                <span class="work-stat-number" data-count-prefix="#" data-count-from="40" data-count-to="1">#1</span>
+              </div>
+              <span class="work-stat-note">for CCTV across the Coast</span>
+            </div>
+            <div class="work-stat">
+              <span class="work-stat-label">Keywords at #1</span>
+              <div class="work-stat-value">
+                <svg class="work-stat-arrow" viewBox="0 0 16 20" aria-hidden="true" focusable="false"><path class="arrow-shaft" d="M8 18 L8 5" pathLength="1"/><path class="arrow-head" d="M3 9 L8 4 L13 9" pathLength="1"/></svg>
+                <span class="work-stat-number" data-count-from="0" data-count-to="4">4</span>
+              </div>
+              <span class="work-stat-note">CCTV, home theatre, security, smart home</span>
+            </div>
+            <div class="work-stat">
+              <span class="work-stat-label">To first leads</span>
+              <div class="work-stat-value">
+                <span class="work-stat-number" data-count-from="0" data-count-to="4">4</span><span class="work-stat-unit">wks</span>
+              </div>
+              <span class="work-stat-note">first jobs landed</span>
+            </div>
+          </div>
+          <p class="work-desc">Arno came to Haylo invisible on Google Maps. Inside a month he was ranking #1 across the Coast for CCTV, home theatre installation, home security and smart home - and had his first enquiries and jobs booked through Google. No ads, no shortcuts.</p>
         </div>
-      </div>
+      </article>
 
-      <div class="work-card">
-        <div class="work-card-img" style="background: var(--clay-light); display:flex; align-items:center; justify-content:center; min-height: 240px;">
-          <p style="font-family: var(--font-display); font-size: 1.6rem; font-weight: 300; color: var(--ink-soft); letter-spacing: 0.02em; text-align:center; padding: 2rem;">coming<br><em style="font-style:italic;">soon.</em></p>
+      <article class="work-card" data-pos="2" data-color="clay" aria-roledescription="slide">
+        <div class="work-card-img">
+          <div class="work-card-imac"><img src="/images/Clients-sites/cleaning-with-kym-imac.webp" alt="Cleaning With Kym website" loading="lazy" width="1080" height="1104"></div>
         </div>
         <div class="work-card-body">
-          <span class="work-type">Stay tuned</span>
-          <h3 class="work-title">A business you're about to know.</h3>
-          <p class="work-desc">Something good is in the works. We're helping another Sunshine Coast business get found - and the results are already showing.</p>
+          <span class="work-type">Residential Cleaning</span>
+          <h3 class="work-title">Cleaning With Kym</h3>
+          <div class="work-stats">
+            <div class="work-stat">
+              <span class="work-stat-label">Google rank</span>
+              <div class="work-stat-value">
+                <svg class="work-stat-arrow" viewBox="0 0 16 20" aria-hidden="true" focusable="false"><path class="arrow-shaft" d="M8 18 L8 5" pathLength="1"/><path class="arrow-head" d="M3 9 L8 4 L13 9" pathLength="1"/></svg>
+                <span class="work-stat-number" data-count-prefix="#" data-count-from="40" data-count-to="10">#10</span>
+              </div>
+              <span class="work-stat-note">top 10 across the Sunshine Coast</span>
+            </div>
+            <div class="work-stat">
+              <span class="work-stat-label">5-star reviews</span>
+              <div class="work-stat-value">
+                <span class="work-stat-number" data-count-from="0" data-count-to="3">3</span>
+              </div>
+              <span class="work-stat-stars" data-stars="5"></span>
+            </div>
+            <div class="work-stat">
+              <span class="work-stat-label">To first leads</span>
+              <div class="work-stat-value">
+                <span class="work-stat-number" data-count-from="0" data-count-to="4">4</span><span class="work-stat-unit">wks</span>
+              </div>
+              <span class="work-stat-note">new clients booked</span>
+            </div>
+          </div>
+          <p class="work-desc">Kym had no Google presence at all. We built her a properly optimised Google Business Profile and Facebook page from scratch - and within a month she was ranking in the top 10 across the Sunshine Coast, had three five-star reviews and new clients coming in.</p>
         </div>
-      </div>
+      </article>
 
     </div>
-    <div class="work-dots" role="tablist" aria-label="Work navigation">
-      <button class="work-dot active" role="tab" aria-label="Work 1"></button>
-      <button class="work-dot" role="tab" aria-label="Work 2"></button>
-      <button class="work-dot" role="tab" aria-label="Work 3"></button>
-      <button class="work-dot" role="tab" aria-label="Work 4"></button>
+
+    <div class="work-controls">
+      <button class="work-nav work-prev" type="button" aria-label="Previous client">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11L4 7l5-4"/></svg>
+      </button>
+      <div class="work-dots" role="tablist" aria-label="Client navigation">
+        <button class="work-dot active" type="button" role="tab" aria-selected="true" aria-label="Oven Cleaning Sunshine Coast"></button>
+        <button class="work-dot" type="button" role="tab" aria-selected="false" aria-label="Secure Home Solutions"></button>
+        <button class="work-dot" type="button" role="tab" aria-selected="false" aria-label="Cleaning With Kym"></button>
+      </div>
+      <button class="work-nav work-next" type="button" aria-label="Next client">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3l5 4-5 4"/></svg>
+      </button>
     </div>
   </div>
 </section>
@@ -5960,28 +6288,6 @@ serviceNumbers.forEach(num => serviceCounterObserver.observe(num));
       const isOpen = step.classList.contains('open');
       document.querySelectorAll('.process-step').forEach(s => s.classList.remove('open'));
       if (!isOpen) step.classList.add('open');
-    });
-  });
-})();
-
-// Work carousel dots (mobile only)
-(function () {
-  if (!window.matchMedia('(max-width: 767px)').matches) return;
-  const grid  = document.querySelector('.work-cards');
-  const cards = document.querySelectorAll('.work-card');
-  const dots  = document.querySelectorAll('.work-dot');
-  if (!grid || !cards.length || !dots.length) return;
-  function setActive(i) {
-    dots.forEach((d, j) => d.classList.toggle('active', j === i));
-  }
-  setActive(0);
-  grid.addEventListener('scroll', function () {
-    const cardW = cards[0].offsetWidth + 16;
-    setActive(Math.min(Math.round(grid.scrollLeft / cardW), cards.length - 1));
-  }, { passive: true });
-  dots.forEach((dot, i) => {
-    dot.addEventListener('click', () => {
-      grid.scrollTo({ left: (cards[0].offsetWidth + 16) * i, behavior: 'smooth' });
     });
   });
 })();
@@ -6796,6 +7102,180 @@ document.querySelectorAll('.footer-col-toggle').forEach(function(btn){
       .catch(showStaticFallback);
   }, { rootMargin: '600px 0px' });
   obs.observe(grid);
+})();
+</script>
+
+<script>
+// Selected work: stacked card carousel with animated result stats
+(function () {
+  var stack = document.getElementById('work-stack');
+  if (!stack) return;
+  var cards = Array.prototype.slice.call(stack.querySelectorAll('.work-card'));
+  if (cards.length < 2) return;
+  var dots = Array.prototype.slice.call(document.querySelectorAll('.work-controls .work-dot'));
+  var prevBtn = document.querySelector('.work-prev');
+  var nextBtn = document.querySelector('.work-next');
+  var total = cards.length;
+  var active = 0;
+  var hasEntered = false;
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function layout() {
+    cards.forEach(function (card, i) {
+      var offset = (i - active + total) % total;
+      var pos = offset === 0 ? '0' : offset === 1 ? '1' : offset === 2 ? '2' : 'out';
+      card.setAttribute('data-pos', pos);
+      card.setAttribute('aria-hidden', offset === 0 ? 'false' : 'true');
+    });
+    dots.forEach(function (d, i) {
+      if (i === active) { d.classList.add('active'); d.setAttribute('aria-selected', 'true'); }
+      else { d.classList.remove('active'); d.setAttribute('aria-selected', 'false'); }
+    });
+    if (hasEntered) animateStats(cards[active]);
+  }
+
+  function go(n) {
+    active = ((n % total) + total) % total;
+    layout();
+  }
+
+  prevBtn && prevBtn.addEventListener('click', function () { go(active - 1); });
+  nextBtn && nextBtn.addEventListener('click', function () { go(active + 1); });
+  dots.forEach(function (d, i) { d.addEventListener('click', function () { go(i); }); });
+
+  // Touch swipe on the stack
+  var tx = 0, ty = 0, swiping = false;
+  stack.addEventListener('touchstart', function (e) {
+    if (e.touches.length !== 1) return;
+    swiping = true; tx = e.touches[0].clientX; ty = e.touches[0].clientY;
+  }, { passive: true });
+  stack.addEventListener('touchend', function (e) {
+    if (!swiping) return;
+    swiping = false;
+    var t = e.changedTouches[0];
+    var dx = t.clientX - tx, dy = t.clientY - ty;
+    if (Math.abs(dx) > 48 && Math.abs(dx) > Math.abs(dy)) {
+      if (dx < 0) go(active + 1); else go(active - 1);
+    }
+  }, { passive: true });
+
+  var STAR_PATH = 'M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2z';
+  var NS = 'http://www.w3.org/2000/svg';
+
+  // Build odometer structure once per card (first activation)
+  function buildOdometer(el) {
+    if (el.classList.contains('odo')) return;
+    var from = parseInt(el.getAttribute('data-count-from'), 10) || 0;
+    var to   = parseInt(el.getAttribute('data-count-to'), 10) || 0;
+    var prefix = el.getAttribute('data-count-prefix') || '';
+    var values = [];
+    if (from <= to) { for (var v = from; v <= to; v++) values.push(prefix + v); }
+    else            { for (var w = from; w >= to; w--) values.push(prefix + w); }
+    var reel = document.createElement('span');
+    reel.className = 'odo-reel';
+    values.forEach(function (v) {
+      var row = document.createElement('span');
+      row.className = 'odo-row';
+      row.textContent = v;
+      reel.appendChild(row);
+    });
+    el.classList.add('odo');
+    el.textContent = '';
+    el.appendChild(reel);
+    el._reel = reel;
+    el._lastIndex = values.length - 1;
+  }
+
+  function runOdometer(el, duration, delay) {
+    var reel = el._reel;
+    if (!reel) return;
+    // Travel is expressed in em (row height is 1.15em). em resolves at
+    // render time against the element's own computed font-size, so this
+    // stays correct across font-load, clamp() viewport changes, and iOS
+    // URL-bar resize — no sub-pixel rounding drift across 40 rows.
+    var travel = (el._lastIndex * 1.15).toFixed(4) + 'em';
+    reel.style.transition = 'none';
+    reel.style.transform = 'translate3d(0, 0, 0)';
+    void reel.offsetHeight;
+    if (reduced) {
+      reel.style.transform = 'translate3d(0, -' + travel + ', 0)';
+      return;
+    }
+    reel.style.transition = 'transform ' + duration + 'ms cubic-bezier(0.2, 0.75, 0.25, 1) ' + (delay || 0) + 'ms';
+    reel.style.transform = 'translate3d(0, -' + travel + ', 0)';
+  }
+
+  function buildStars(el) {
+    if (el.childElementCount) return;
+    var count = parseInt(el.getAttribute('data-stars'), 10) || 0;
+    for (var i = 0; i < count; i++) {
+      var svg = document.createElementNS(NS, 'svg');
+      svg.setAttribute('class', 'star-pop');
+      svg.setAttribute('viewBox', '0 0 24 24');
+      svg.setAttribute('aria-hidden', 'true');
+      svg.setAttribute('focusable', 'false');
+      var path = document.createElementNS(NS, 'path');
+      path.setAttribute('d', STAR_PATH);
+      svg.appendChild(path);
+      el.appendChild(svg);
+    }
+  }
+
+  function runStars(el, startDelay) {
+    var stars = el.querySelectorAll('.star-pop');
+    stars.forEach(function (s, i) {
+      s.classList.remove('is-in');
+      s.style.animationDelay = (startDelay + i * 110) + 'ms';
+    });
+    // force reflow so animation restarts cleanly
+    void el.offsetHeight;
+    stars.forEach(function (s) { s.classList.add('is-in'); });
+  }
+
+  function animateStats(card) {
+    card.classList.remove('is-animating');
+    void card.offsetWidth;
+    card.classList.add('is-animating');
+
+    var stats = card.querySelectorAll('.work-stat');
+    var perStatStagger = 220;
+    var duration = 1800;
+
+    stats.forEach(function (stat, i) {
+      var startDelay = i * perStatStagger;
+      stat.querySelectorAll('.work-stat-number').forEach(function (el) {
+        buildOdometer(el);
+        runOdometer(el, duration, startDelay);
+      });
+      stat.querySelectorAll('.work-stat-stars[data-stars]').forEach(function (el) {
+        buildStars(el);
+        runStars(el, startDelay + duration * 0.55);
+      });
+    });
+  }
+
+  layout();
+
+  function fire() {
+    hasEntered = true;
+    animateStats(cards[active]);
+  }
+
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting && !hasEntered) {
+        // Wait for display + body fonts so Cormorant metrics match the
+        // rendered layout before the reel builds. Falls back instantly
+        // if fonts API is unavailable.
+        if (document.fonts && document.fonts.ready) {
+          document.fonts.ready.then(fire);
+        } else {
+          fire();
+        }
+      }
+    });
+  }, { threshold: 0.25, rootMargin: '0px 0px -8% 0px' });
+  obs.observe(stack);
 })();
 </script>
 </body>
