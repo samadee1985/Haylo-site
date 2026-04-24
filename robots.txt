@@ -1,6 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /_templates/
+Disallow: /_api/
 Disallow: /brand/
 
 User-agent: GPTBot
