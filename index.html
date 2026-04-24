@@ -2538,20 +2538,23 @@
     pointer-events: none;
   }
 
-  .work-card.is-leaving {
-    animation: workFlickOff 0.5s cubic-bezier(0.32, 0.08, 0.48, 1) forwards;
+  .work-card.is-dismissing {
+    animation: workDismissLeft 0.55s cubic-bezier(0.32, 0, 0.24, 1) forwards;
     z-index: 5;
   }
+  .work-card.is-returning {
+    animation: workReturnLeft 0.55s cubic-bezier(0.22, 0.72, 0.2, 1) forwards;
+    z-index: 4;
+  }
 
-  @keyframes workFlickOff {
-    0% {
-      transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
-      opacity: 1;
-    }
-    100% {
-      transform: translate3d(78%, 42%, 0) scale(0.9) rotate(9deg);
-      opacity: 0;
-    }
+  @keyframes workDismissLeft {
+    0%   { transform: translate3d(0, 0, 0) scale(1) rotate(0deg); opacity: 1; }
+    100% { transform: translate3d(-115%, 6%, 0) scale(0.92) rotate(-5deg); opacity: 0; }
+  }
+
+  @keyframes workReturnLeft {
+    0%   { transform: translate3d(-115%, 6%, 0) scale(0.92) rotate(-5deg); opacity: 0; }
+    100% { transform: translate3d(0, 0, 0) scale(1) rotate(0deg); opacity: 1; }
   }
 
   .work-card-img {
@@ -2859,232 +2862,230 @@
     .work-card[data-pos="out"] {
       transform: translate3d(0, 18%, 0) scale(0.88) rotate(0deg);
     }
-    @keyframes workFlickOff {
-      0% {
-        transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
-        opacity: 1;
-      }
-      100% {
-        transform: translate3d(65%, 38%, 0) scale(0.9) rotate(8deg);
-        opacity: 0;
-      }
+    @keyframes workDismissLeft {
+      0%   { transform: translate3d(0, 0, 0) scale(1) rotate(0deg); opacity: 1; }
+      100% { transform: translate3d(-100%, 5%, 0) scale(0.92) rotate(-4deg); opacity: 0; }
+    }
+    @keyframes workReturnLeft {
+      0%   { transform: translate3d(-100%, 5%, 0) scale(0.92) rotate(-4deg); opacity: 0; }
+      100% { transform: translate3d(0, 0, 0) scale(1) rotate(0deg); opacity: 1; }
     }
   }
 
-  /* ─── ABOUT ─── */
-  .about {
-    min-height: 300vh;
+  /* ─── THE MOMENT ─── */
+  .moment {
     position: relative;
+    background: #1c1a17;
+    color: rgba(250, 248, 245, 0.92);
+    min-height: 200vh;
   }
 
-  .about::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-color: var(--stone);
-    z-index: -2;
-    pointer-events: none;
-  }
-
-
-  #about-bg::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: rgba(28,26,23,0.35);
-    pointer-events: none;
-  }
-
-  .about .wrap {
+  .moment-sticky {
     position: sticky;
-    top: 4rem;
-    height: calc(100vh - 4rem);
-    z-index: 1;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
     display: flex;
-    align-items: stretch;
-  }
-
-  .about-inner {
-    display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
+  }
+
+  .moment-glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 62% 55% at 50% 50%, rgba(255, 200, 160, 0.14) 0%, rgba(255, 200, 160, 0.05) 42%, transparent 72%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 1.2s ease;
+    z-index: 0;
+  }
+  .moment.is-lit .moment-glow { opacity: 1; }
+
+  .moment-grain {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.12 0 0 0 0 0.10 0 0 0 0 0.09 0 0 0 0.55 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    opacity: 0.06;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .moment-flight {
+    position: absolute;
+    top: 10%;
+    left: 0;
+    width: 100%;
+    height: 72%;
+    pointer-events: none;
+    z-index: 1;
+  }
+  .moment-path {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
-    text-align: center;
+    opacity: 0;
+    transition: opacity 1s ease;
   }
-
-  .about-visual {
-    display: none;
+  .moment-path path {
+    fill: none;
+    stroke: rgba(255, 200, 160, 0.22);
+    stroke-width: 1;
+    vector-effect: non-scaling-stroke;
   }
+  .moment.is-lit .moment-path { opacity: 1; }
 
-  .about-img-wrap {
-    aspect-ratio: 4/5;
-    max-height: calc(100vh - 10rem);
-    background: transparent;
-    overflow: hidden;
-    border-radius: 12px;
-    transition: opacity 0.8s ease;
-  }
-
-  /* Signature block - avatar + name */
-  .about-signature {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    margin-top: 2rem;
+  .moment-plane {
+    position: absolute;
+    width: 34px;
+    height: 14px;
+    left: 0;
+    top: 0;
+    color: rgba(255, 210, 180, 0.95);
     opacity: 0;
     transition: opacity 0.8s ease;
+    filter: drop-shadow(0 0 10px rgba(255, 200, 160, 0.4));
+    will-change: transform, left, top;
   }
+  .moment.is-lit .moment-plane { opacity: 1; }
 
-  .about-avatar {
-    width: 120px;
-    height: 120px;
+  .moment-waypoint {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-body);
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: rgba(250, 248, 245, 0.5);
+    opacity: 0;
+    transition: opacity 1.4s ease 0.2s;
+    white-space: nowrap;
+    transform: translateY(-50%);
+  }
+  .moment-waypoint-dot {
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
-    overflow: hidden;
-    border: 2px solid rgba(250,248,245,0.4);
+    background: rgba(255, 200, 160, 0.65);
+    box-shadow: 0 0 10px rgba(255, 200, 160, 0.4);
     flex-shrink: 0;
   }
+  .moment-waypoint--start { left: 5%; top: 80%; }
+  .moment-waypoint--end   { right: 5%; top: 17.5%; }
+  .moment.is-lit .moment-waypoint { opacity: 1; }
 
-  .about-avatar img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center top;
-    display: block;
-  }
+  .moment .wrap { position: relative; z-index: 2; }
 
-  .about-img-wrap img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    display: block;
-  }
-
-  .about-text .eyebrow {
-    color: rgba(250, 248, 245, 0.6);
-  }
-
-  .about-text .eyebrow::after {
-    background: rgba(250, 248, 245, 0.3);
-  }
-
-  .about-caption {
-    margin-top: 0.5rem;
-    font-size: 1rem;
-    color: rgba(250, 248, 245, 0.75);
-    line-height: 1.6;
-    font-style: italic;
-    font-family: var(--font-display);
-  }
-
-  .about-text {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  .moment-inner {
     max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .moment-eyebrow {
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: rgba(250, 248, 245, 0.55);
+    margin: 0 0 3.5rem;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 1s ease, transform 1s ease;
+  }
+  .moment.is-lit .moment-eyebrow {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .moment-beats {
+    display: flex;
+    flex-direction: column;
+    gap: 2.25rem;
     width: 100%;
   }
 
-  .about-heading {
-    font-family: var(--font-display);
-    font-size: clamp(2rem, 3.5vw, 3.2rem);
-    font-weight: 300;
-    color: var(--warm-white);
-    line-height: 1.1;
-    margin-top: 0;
-    margin-bottom: 1.5rem;
-    letter-spacing: -0.01em;
-  }
-
-  .about-heading em {
-    font-style: italic;
-  }
-
-  .about-body {
-    font-size: 1rem;
-    line-height: 1.85;
-    color: rgba(250, 248, 245, 0.85);
-    font-weight: 300;
-    margin-bottom: 0;
-  }
-
-  .about-body strong {
-    font-weight: 500;
-    color: var(--warm-white);
-  }
-
-
-  .about-btn--mobile {
-    display: inline-block;
-    align-self: flex-start;
-    margin-top: var(--space-md);
-    background: transparent;
-    color: var(--warm-white);
-    border-color: var(--warm-white);
-    font-size: 0.7rem;
-    padding: 0.45rem 0.55rem;
-    width: auto;
-    text-transform: lowercase;
-    transition: background 0.3s ease;
-  }
-  .about-btn--mobile:hover,
-  .about-btn--mobile:focus {
-    background: rgba(250, 248, 245, 0.1);
-    color: var(--warm-white);
-  }
-  .about-btn--desktop {
-    display: inline-block;
-    align-self: flex-start;
-    margin-top: var(--space-md);
-    background: transparent;
-    color: var(--warm-white);
-    border-color: var(--warm-white);
-    font-size: 0.7rem;
-    padding: 0.45rem 0.55rem;
-    width: auto;
-    text-transform: lowercase;
-    transition: background 0.3s ease;
-  }
-  .about-btn--desktop:hover,
-  .about-btn--desktop:focus {
-    background: rgba(250, 248, 245, 0.1);
-    color: var(--warm-white);
-  }
-  @media (max-width: 767px) { .about-btn--desktop { display: none; } }
-  @media (min-width: 768px) { .about-btn--mobile { display: none; } }
-
-  .about-detail {
-    margin-top: 0;
-    padding-top: 2rem;
-    border-top: 1px solid var(--border);
-    display: none;
-    gap: 3rem;
-  }
-
-  .about-stat {
+  .moment-beat {
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
   }
 
-  .about-stat-num {
+  .moment-line {
     font-family: var(--font-display);
-    font-size: 2.2rem;
     font-weight: 300;
-    line-height: 1;
-    color: var(--clay);
+    font-size: clamp(1.4rem, 2.6vw, 2rem);
+    line-height: 1.5;
+    color: rgba(250, 248, 245, 0.88);
+    margin: 0;
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 1s cubic-bezier(0.22, 0.72, 0.2, 1), transform 1s cubic-bezier(0.22, 0.72, 0.2, 1);
+    will-change: opacity, transform;
+  }
+  .moment-line.is-visible {
+    opacity: 1;
+    transform: translateY(0);
   }
 
-  .about-stat-label {
+  .moment-line--final {
+    margin-top: 1.5rem;
+    font-style: italic;
+    font-size: clamp(1.7rem, 3.1vw, 2.5rem);
+    color: var(--warm-white);
+    transition: opacity 1.4s cubic-bezier(0.22, 0.72, 0.2, 1), transform 1.6s cubic-bezier(0.22, 0.72, 0.2, 1);
+  }
+  .moment-line--final.is-visible {
+    transform: translateY(0) scale(1.02);
+  }
+
+  .moment-link {
+    margin-top: 3rem;
+    font-family: var(--font-body);
     font-size: 0.75rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--ink-muted);
     font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(250, 248, 245, 0.6);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(250, 248, 245, 0.22);
+    padding-bottom: 4px;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 1s ease, transform 1s ease, color 0.3s ease, border-color 0.3s ease;
+  }
+  .moment-link:hover,
+  .moment-link:focus {
+    color: var(--warm-white);
+    border-color: rgba(250, 248, 245, 0.55);
+  }
+  .moment.is-arrived .moment-link {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .moment-glow,
+    .moment-path,
+    .moment-eyebrow,
+    .moment-waypoint,
+    .moment-line,
+    .moment-link { transition: none !important; }
+    .moment-glow { opacity: 1; }
+    .moment-eyebrow,
+    .moment-line,
+    .moment-link,
+    .moment-waypoint { opacity: 1; transform: none; }
+    .moment-line--final.is-visible { transform: none; }
+    .moment-path { opacity: 1; }
+    .moment-plane { display: none; }
   }
 
   /* ─── PROCESS ─── */
@@ -4064,82 +4065,51 @@
       aspect-ratio: 16/9;
     }
 
-    .about {
-      min-height: unset;
+    .moment {
+      min-height: 180vh;
     }
 
-    .about .wrap {
-      position: static;
-      height: auto;
-      display: block;
-      padding: 0;
+    .moment-inner {
+      padding: 0 0.5rem;
     }
 
-    .about-inner {
-      display: flex;
-      flex-direction: column;
-      align-items: stretch;
-      justify-content: flex-start;
-      height: auto;
-      gap: 0;
-      min-height: 250vh;
+    .moment-eyebrow {
+      margin-bottom: 2.5rem;
     }
 
-    .about-btn--mobile {
-      width: auto;
-      padding: 0.45rem 0.55rem;
-      font-size: 0.7rem;
-      text-align: left;
+    .moment-beats {
+      gap: 1.75rem;
     }
 
-    /* text sticks while typewriter runs */
-    .about-text {
-      position: sticky;
-      top: 4rem;
-      height: calc(100vh - 4rem);
-      justify-content: center;
-      background: none;
-      padding: var(--space-lg) var(--gutter);
-      flex-shrink: 0;
-      order: 1;
+    .moment-line--final {
+      margin-top: 1.25rem;
     }
 
-    .about-visual {
-      display: none;
+    .moment-link {
+      margin-top: 2.5rem;
     }
 
-    .about-signature {
-      flex-direction: row;
-      align-items: center;
-      gap: 1rem;
-      margin-top: 1.5rem;
+    /* Keep flight full-viewport on mobile and pin waypoints well clear of the
+       centred text block — the line still reads as atmosphere behind the copy. */
+    .moment-flight {
+      top: 0;
+      height: 100%;
     }
-
-    .about-avatar {
-      width: 72px;
-      height: 72px;
+    .moment-path path {
+      stroke: rgba(255, 200, 160, 0.14);
     }
-
-    .about-caption {
-      text-align: left;
-      margin-top: 0;
-      font-size: 1rem;
+    .moment-plane {
+      width: 28px;
+      height: 12px;
     }
-
-    .about-text {
-      align-items: flex-start;
-      text-align: left;
+    .moment-waypoint {
+      font-size: 0.58rem;
+      letter-spacing: 0.24em;
+      gap: 7px;
     }
-
-    .about-img-wrap {
-      flex: unset;
-      aspect-ratio: 4/5;
-      max-height: 70vh;
-    }
-
-    .about-detail {
-      gap: 2rem;
-      flex-wrap: wrap;
+    .moment-waypoint-dot {
+      width: 5px;
+      height: 5px;
     }
 
     .process-header {
@@ -4398,11 +4368,6 @@
     .process-step:nth-child(odd) {
       border-right: none;
       padding-right: 0;
-    }
-
-    .about-detail {
-      gap: 2rem;
-      flex-wrap: wrap;
     }
 
   }
@@ -5499,37 +5464,50 @@
   </div>
 </section>
 
-<!-- ─── ABOUT ─── -->
-<section class="about" id="about" aria-label="About Haylo">
-  <div class="section-parallax-bg" id="about-bg" data-bg="url('images/homepage/plane-under.webp')" aria-hidden="true"></div>
-  <div class="wrap">
-    <div class="about-inner">
-      <div class="about-visual">
-        <div class="about-img-wrap">
-          <img src="images/homepage/about-me.webp" alt="Sam, founder of Haylo" loading="lazy" width="1023" height="1345" />
-        </div>
-        <p class="about-caption">Sam Davies  -  Founder of haylo</p>
+<!-- ─── THE MOMENT ─── -->
+<section class="moment" id="about" aria-label="About Haylo">
+  <div class="moment-sticky">
+    <div class="moment-glow" aria-hidden="true"></div>
+    <div class="moment-grain" aria-hidden="true"></div>
+    <div class="moment-flight" aria-hidden="true">
+      <svg class="moment-path" viewBox="0 0 1200 400" preserveAspectRatio="none">
+        <path d="M 60 320 Q 340 210, 640 190 T 1140 70" />
+      </svg>
+      <svg class="moment-plane" viewBox="0 0 40 16" fill="currentColor">
+        <path d="M39 8 L28 5.5 L19 5.5 L11 0.5 L8.5 0.5 L13 5.5 L5 5.5 L1.5 3 L0 3.5 L2 8 L0 12.5 L1.5 13 L5 10.5 L13 10.5 L8.5 15.5 L11 15.5 L19 10.5 L28 10.5 Z"/>
+      </svg>
+      <div class="moment-waypoint moment-waypoint--start">
+        <span class="moment-waypoint-dot"></span>
+        <span class="moment-waypoint-label">LDN</span>
       </div>
+      <div class="moment-waypoint moment-waypoint--end">
+        <span class="moment-waypoint-label">BNE</span>
+        <span class="moment-waypoint-dot"></span>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="moment-inner">
+        <p class="moment-eyebrow">The moment</p>
 
-      <div class="about-text">
-        <p class="eyebrow" style="margin-bottom: 2.5rem;">About Haylo</p>
-        <p class="about-body" style="text-transform: uppercase; letter-spacing: 0.05em; font-size: clamp(1.2rem, 2.5vw, 1.8rem);">
-          Haylo was founded at 38,000ft, somewhere over Europe, on a flight from London to Brisbane.
-        </p>
-        <p class="about-body" style="text-transform: uppercase; letter-spacing: 0.05em; font-size: clamp(1.2rem, 2.5vw, 1.8rem);">
-          A lot of time, no distractions, and an idea that became something real.
-        </p>
-        <p class="about-body" style="text-transform: uppercase; letter-spacing: 0.05em; font-size: clamp(1.2rem, 2.5vw, 1.8rem);">
-          Exactly where it began will never be known.
-        </p>
-        <div class="about-signature">
-          <div class="about-avatar">
-            <img src="images/homepage/about-me.webp" alt="Sam Davies, founder of Haylo" loading="lazy" width="1023" height="1345" />
+        <div class="moment-beats">
+          <div class="moment-beat" data-moment-beat>
+            <p class="moment-line">Haylo was founded at 38,000ft,</p>
+            <p class="moment-line">somewhere over Europe,</p>
+            <p class="moment-line">on a flight from London to Brisbane.</p>
           </div>
-          <p class="about-caption">Sam Davies  -  Founder of Haylo</p>
+
+          <div class="moment-beat" data-moment-beat>
+            <p class="moment-line">A lot of time. No distractions.</p>
+            <p class="moment-line">An idea that became something real.</p>
+          </div>
+
+          <div class="moment-beat" data-moment-beat>
+            <p class="moment-line">Exactly where it began will never be known.</p>
+            <p class="moment-line moment-line--final">Just the start of something better.</p>
+          </div>
         </div>
-        <a href="/about/" class="btn-primary about-btn--desktop">About us</a>
-        <a href="/about/" class="btn-primary about-btn--mobile">About us</a>
+
+        <a href="/about/" class="moment-link">Read our story &rarr;</a>
       </div>
     </div>
   </div>
@@ -6295,115 +6273,102 @@ navToggle.addEventListener('click', () => {
   navToggle.classList.toggle('active');
 });
 
-// About section  -  typewriter on scroll
+// The Moment — scroll-driven beat reveal + plane along path
 (function () {
-  const about = document.querySelector('.about');
-  if (!about) return;
+  var section = document.querySelector('.moment');
+  if (!section) return;
 
-  const NAV = 64;
-  const photo     = about.querySelector('.about-img-wrap');
-  const signature = about.querySelector('.about-signature');
-  const btn       = about.querySelector('.about-btn--mobile');
-  const btnD      = about.querySelector('.about-btn--desktop');
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var lines = Array.prototype.slice.call(section.querySelectorAll('.moment-line'));
+  var pathEl = section.querySelector('.moment-path path');
+  var flight = section.querySelector('.moment-flight');
+  var plane  = section.querySelector('.moment-plane');
 
-  // Hide image/signature/button immediately before layout reads
-  if (photo)     photo.style.opacity     = '0';
-  if (signature) signature.style.opacity = '0';
-  if (btn)       btn.style.opacity       = '0';
-  if (btnD)      btnD.style.opacity      = '0';
+  if (reduced) {
+    section.classList.add('is-lit');
+    lines.forEach(function (l) { l.classList.add('is-visible'); });
+    return;
+  }
 
-  // Defer setup until after first paint so layout (sticky, flex, min-height) is fully resolved
-  requestAnimationFrame(function () {
+  var pathLen = pathEl ? pathEl.getTotalLength() : 0;
 
-    var start = 0, range = 1;
-    function measure() {
-      const absTop = about.getBoundingClientRect().top + window.pageYOffset;
-      start = absTop - NAV;
-      const end = absTop + about.offsetHeight - window.innerHeight;
-      range = Math.max(1, end - start);
+  // Section is min-height 200vh with a 100vh sticky inside. Sticky engages
+  // around progress 0.33 and disengages near 0.67 — but we fire the scene
+  // earlier so the section never just sits there as a dark panel.
+  var litThreshold = 0.14;
+  var lineThresholds = [0.30, 0.35, 0.40, 0.46, 0.51, 0.57, 0.63];
+  var arrivedThreshold = 0.66;
+  var planeStart = 0.26;
+  var planeEnd   = 0.64;
+
+  var ticking = false;
+  var lastProgress = -1;
+  var wasLit = false;
+  var wasArrived = false;
+  var lineState = [];
+
+  function update() {
+    var rect = section.getBoundingClientRect();
+    var vh = window.innerHeight;
+    var range = vh + rect.height;
+    var progress = Math.max(0, Math.min(1, (vh - rect.top) / range));
+
+    if (progress === lastProgress) return;
+    lastProgress = progress;
+
+    var nowLit = progress > litThreshold;
+    if (nowLit !== wasLit) {
+      section.classList.toggle('is-lit', nowLit);
+      wasLit = nowLit;
     }
 
-    // Measure BEFORE any DOM mutation so layout is still clean
-    measure();
-
-    // Wrap every character in a span with opacity 0
-    function wrapChars(el) {
-      const spans = [];
-      const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
-      const nodes = [];
-      var n;
-      while ((n = walker.nextNode())) nodes.push(n);
-      nodes.forEach(function(textNode) {
-        const frag = document.createDocumentFragment();
-        Array.from(textNode.textContent).forEach(function(ch) {
-          const s = document.createElement('span');
-          s.textContent = ch;
-          s.style.opacity = '0';
-          frag.appendChild(s);
-          spans.push(s);
-        });
-        textNode.parentNode.replaceChild(frag, textNode);
-      });
-      return spans;
+    var nowArrived = progress > arrivedThreshold;
+    if (nowArrived !== wasArrived) {
+      section.classList.toggle('is-arrived', nowArrived);
+      wasArrived = nowArrived;
     }
 
-    const eyebrowEl = about.querySelector('.eyebrow');
-    const eyebrowChars = eyebrowEl ? wrapChars(eyebrowEl) : [];
-    const headingEl = about.querySelector('.about-heading');
-    const headingChars = headingEl ? wrapChars(headingEl) : [];
-    const bodyChars = [];
-    const allParas = Array.from(about.querySelectorAll('.about-body'));
-    var lastParaStart = eyebrowChars.length + headingChars.length;
-    allParas.forEach(function(el, i) {
-      const chars = wrapChars(el);
-      if (i < allParas.length - 1) lastParaStart += chars.length;
-      bodyChars.push.apply(bodyChars, chars);
-    });
-    const textChars = eyebrowChars.concat(headingChars).concat(bodyChars);
-    const total     = textChars.length;
-    // Image fades in over the first 30 characters of the last paragraph
-    const imgFadeOver = 30;
-
-    var prevVisible = -1;
-    var prevFadeP = -1, prevBtnFadeP = -1;
-    function update() {
-      const p       = Math.max(0, Math.min(1, (window.pageYOffset - start) / range));
-      const visible = Math.floor(p * total);
-
-      // Only touch chars whose visibility changed since last update
-      if (visible !== prevVisible) {
-        if (prevVisible < 0) {
-          for (var i = 0; i < total; i++) textChars[i].style.opacity = i < visible ? '1' : '0';
-        } else if (visible > prevVisible) {
-          for (var i = prevVisible; i < visible; i++) textChars[i].style.opacity = '1';
-        } else {
-          for (var i = visible; i < prevVisible; i++) textChars[i].style.opacity = '0';
-        }
-        prevVisible = visible;
-      }
-
-      const fadeP    = Math.max(0, Math.min(1, (visible - (total - imgFadeOver)) / imgFadeOver));
-      const btnFadeP = Math.max(0, Math.min(1, (visible - (total - imgFadeOver + 15)) / imgFadeOver));
-      if (fadeP !== prevFadeP) {
-        const fStr = fadeP.toFixed(3);
-        if (photo)     photo.style.opacity     = fStr;
-        if (signature) signature.style.opacity = fStr;
-        prevFadeP = fadeP;
-      }
-      if (btnFadeP !== prevBtnFadeP) {
-        const bStr = btnFadeP.toFixed(3);
-        if (btn)  btn.style.opacity  = bStr;
-        if (btnD) btnD.style.opacity = bStr;
-        prevBtnFadeP = btnFadeP;
+    for (var i = 0; i < lines.length; i++) {
+      var shouldShow = progress >= lineThresholds[i];
+      if (shouldShow !== lineState[i]) {
+        lines[i].classList.toggle('is-visible', shouldShow);
+        lineState[i] = shouldShow;
       }
     }
 
-    window.addEventListener('resize', measure, { passive: true });
-    window.addEventListener('load', measure);
-    window.addEventListener('scroll', update, { passive: true });
-    update();
+    if (plane && pathEl && flight && pathLen) {
+      var pp = Math.max(0, Math.min(1, (progress - planeStart) / (planeEnd - planeStart)));
+      var dist = pp * pathLen;
+      var pt = pathEl.getPointAtLength(dist);
 
-  }); // end requestAnimationFrame
+      // Symmetric tangent sampling — avoids the end-point snapping to angle 0
+      // once `dist + 1` clamps to pathLen and pt2 collapses onto pt.
+      var offset = Math.min(1, pathLen * 0.5);
+      var ptA = pathEl.getPointAtLength(Math.max(0, dist - offset));
+      var ptB = pathEl.getPointAtLength(Math.min(pathLen, dist + offset));
+
+      var fRect = flight.getBoundingClientRect();
+      var sx = fRect.width / 1200;
+      var sy = fRect.height / 400;
+      var angle = Math.atan2((ptB.y - ptA.y) * sy, (ptB.x - ptA.x) * sx) * 180 / Math.PI;
+
+      // Pure transform — no layout recalc per scroll frame.
+      var px = (pt.x / 1200) * fRect.width;
+      var py = (pt.y / 400) * fRect.height;
+      plane.style.transform = 'translate3d(' + px.toFixed(1) + 'px, ' + py.toFixed(1) + 'px, 0) translate(-50%, -50%) rotate(' + angle.toFixed(2) + 'deg)';
+    }
+  }
+
+  function onScroll() {
+    if (!ticking) {
+      requestAnimationFrame(function () { update(); ticking = false; });
+      ticking = true;
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  update();
 })();
 
 // Scroll animations
@@ -6583,7 +6548,6 @@ serviceNumbers.forEach(num => serviceCounterObserver.observe(num));
 (function () {
   var items = [
     { bg: document.getElementById('who-bg'),       section: document.querySelector('.who') },
-    { bg: document.getElementById('about-bg'),     section: document.querySelector('.about') },
     { bg: document.getElementById('locations-bg'), section: document.querySelector('.locations') },
   ].filter(function (i) { return i.bg && i.section; });
 
@@ -7434,14 +7398,20 @@ document.querySelectorAll('.footer-col-toggle').forEach(function(btn){
   var hasEntered = false;
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  function layout(animate) {
+  function layout(animate, dir) {
     cards.forEach(function (card, i) {
       var offset = (i - active + total) % total;
       var pos = offset === 0 ? '0' : offset === 1 ? '1' : 'out';
       var prev = card.getAttribute('data-pos');
-      if (animate && prev === '0' && pos === 'out' && !reduced) {
-        card.classList.add('is-leaving');
-        setTimeout(function () { card.classList.remove('is-leaving'); }, 520);
+      card.classList.remove('is-dismissing', 'is-returning');
+      if (animate && !reduced) {
+        if (dir === 'next' && prev === '0' && pos === 'out') {
+          card.classList.add('is-dismissing');
+          setTimeout(function () { card.classList.remove('is-dismissing'); }, 580);
+        } else if (dir === 'prev' && pos === '0' && prev !== '0') {
+          card.classList.add('is-returning');
+          setTimeout(function () { card.classList.remove('is-returning'); }, 580);
+        }
       }
       card.setAttribute('data-pos', pos);
       card.setAttribute('aria-hidden', offset === 0 ? 'false' : 'true');
@@ -7453,17 +7423,23 @@ document.querySelectorAll('.footer-col-toggle').forEach(function(btn){
     if (hasEntered) animateStats(cards[active]);
   }
 
-  function go(n) {
+  function go(n, dir) {
     var next = ((n % total) + total) % total;
     if (next === active) return;
+    if (!dir) {
+      // shortest path for non-directional calls (e.g. dot clicks)
+      var fwd = (next - active + total) % total;
+      var back = (active - next + total) % total;
+      dir = fwd <= back ? 'next' : 'prev';
+    }
     active = next;
-    layout(true);
+    layout(true, dir);
   }
 
   layout(false);
 
-  prevBtn && prevBtn.addEventListener('click', function () { go(active - 1); });
-  nextBtn && nextBtn.addEventListener('click', function () { go(active + 1); });
+  prevBtn && prevBtn.addEventListener('click', function () { go(active - 1, 'prev'); });
+  nextBtn && nextBtn.addEventListener('click', function () { go(active + 1, 'next'); });
   dots.forEach(function (d, i) { d.addEventListener('click', function () { go(i); }); });
 
   // Touch swipe on the stack
@@ -7478,7 +7454,7 @@ document.querySelectorAll('.footer-col-toggle').forEach(function(btn){
     var t = e.changedTouches[0];
     var dx = t.clientX - tx, dy = t.clientY - ty;
     if (Math.abs(dx) > 48 && Math.abs(dx) > Math.abs(dy)) {
-      if (dx < 0) go(active + 1); else go(active - 1);
+      if (dx < 0) go(active + 1, 'next'); else go(active - 1, 'prev');
     }
   }, { passive: true });
 
