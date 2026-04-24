@@ -1580,8 +1580,10 @@
   .lseo-outro .btn-primary { min-width: 240px; width: auto; }
 
   @media (max-width: 900px) {
-    .lseo-grid { grid-template-columns: 1fr; gap: 2.5rem; padding: 2rem var(--gutter) 2rem; }
-    .lseo-text { text-align: center; }
+    .lseo-grid { grid-template-columns: 1fr; gap: 2rem; padding: 2rem var(--gutter) 2rem; }
+    .lseo-phone-stage { order: 1; }
+    .lseo-text { order: 2; text-align: center; }
+    .why-lseo-bullets { display: none; }
     .lseo-bridge {
       display: flex;
       flex-direction: column;
@@ -5366,7 +5368,7 @@
     <div class="lseo-text">
       <p class="eyebrow ruled" style="margin-bottom:1.5rem;">Local SEO</p>
       <h2 class="why-lseo-headline">One map. Three names.<br>Yours needs to be <em>one of them.</em></h2>
-      <p class="why-lseo-sub">When a Sunshine Coast local searches "plumber near me", Google shows three businesses above everything else. Those three pick up around three-quarters of the calls. Everyone else is a scroll away - which on a phone means invisible. Our job is to get you into that three and keep you there.</p>
+      <p class="why-lseo-sub">When a Sunshine Coast local searches "plumber near me", Google shows three businesses above everything else. Our job is to get you into that three - and keep you there.</p>
       <ul class="why-lseo-bullets">
         <li><strong>In the 3-pack.</strong> Above organic results, right where the taps happen.</li>
         <li><strong>Ranked by suburb.</strong> Buderim. Noosa. Caloundra. You show up where you actually work.</li>
@@ -5444,135 +5446,6 @@
     <a href="/local-seo-sunshine-coast/" class="btn-primary">Show me how I get in that three &rarr;</a>
   </div>
 </section>
-<!-- ─── CLIMB SCENE (What we do) ─── -->
-<section class="climb-scene" id="services" aria-label="What we do">
-  <div class="wrap">
-    <div class="climb-header animate-fade-in">
-      <p class="eyebrow ruled" style="margin-bottom:1.5rem;">What we do</p>
-      <h2 class="climb-heading">
-        Six things that climb you<br>
-        into <em>the top three.</em>
-      </h2>
-      <p class="climb-intro">
-        Getting found on Google isn't one thing. It's six things working together. Here's the stack that moves a Sunshine Coast business from invisible to the Maps 3-pack.
-      </p>
-    </div>
-
-    <div class="climb-grid">
-      <!-- Left: ranking ladder -->
-      <div class="climb-ladder-wrap" aria-hidden="true">
-        <div class="climb-ladder" data-climb-ladder>
-          <div class="climb-ladder-zone"></div>
-          <div class="climb-ladder-track"></div>
-          <ol class="climb-ladder-marks">
-            <li class="climb-ladder-mark climb-ladder-mark--highlight" style="--p:1;">
-              <span class="climb-ladder-mark-num">#1</span>
-              <span class="climb-ladder-mark-tick"></span>
-              <span class="climb-ladder-mark-label">Most calls</span>
-            </li>
-            <li class="climb-ladder-mark" style="--p:2;">
-              <span class="climb-ladder-mark-num">#2</span>
-              <span class="climb-ladder-mark-tick"></span>
-            </li>
-            <li class="climb-ladder-mark climb-ladder-mark--highlight" style="--p:3;">
-              <span class="climb-ladder-mark-num">#3</span>
-              <span class="climb-ladder-mark-tick"></span>
-              <span class="climb-ladder-mark-label">Cut-off line</span>
-            </li>
-            <li class="climb-ladder-mark" style="--p:4;"><span class="climb-ladder-mark-num">#4</span><span class="climb-ladder-mark-tick"></span></li>
-            <li class="climb-ladder-mark" style="--p:5;"><span class="climb-ladder-mark-num">#5</span><span class="climb-ladder-mark-tick"></span></li>
-            <li class="climb-ladder-mark" style="--p:6;"><span class="climb-ladder-mark-num">#6</span><span class="climb-ladder-mark-tick"></span></li>
-            <li class="climb-ladder-mark" style="--p:7;"><span class="climb-ladder-mark-num">#7</span><span class="climb-ladder-mark-tick"></span></li>
-            <li class="climb-ladder-mark" style="--p:8;"><span class="climb-ladder-mark-num">#8</span><span class="climb-ladder-mark-tick"></span></li>
-            <li class="climb-ladder-mark" style="--p:9;"><span class="climb-ladder-mark-num">#9</span><span class="climb-ladder-mark-tick"></span></li>
-            <li class="climb-ladder-mark" style="--p:10;"><span class="climb-ladder-mark-num">#10</span><span class="climb-ladder-mark-tick"></span></li>
-            <li class="climb-ladder-mark" style="--p:11;"><span class="climb-ladder-mark-num">#11</span><span class="climb-ladder-mark-tick"></span></li>
-            <li class="climb-ladder-mark" style="--p:12;"><span class="climb-ladder-mark-num">#12</span><span class="climb-ladder-mark-tick"></span></li>
-            <li class="climb-ladder-mark" style="--p:13;"><span class="climb-ladder-mark-num">#13</span><span class="climb-ladder-mark-tick"></span></li>
-            <li class="climb-ladder-mark climb-ladder-mark--start" style="--p:14;">
-              <span class="climb-ladder-mark-num">#14</span>
-              <span class="climb-ladder-mark-tick"></span>
-              <span class="climb-ladder-mark-label">Invisible</span>
-            </li>
-          </ol>
-          <div class="climb-ladder-trail"></div>
-          <div class="climb-ladder-dot">
-            <span class="climb-ladder-dot-label">You</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Right: services list -->
-      <ol class="climb-services" data-climb-services>
-        <li class="climb-service" data-target-pos="12">
-          <a href="/local-seo-sunshine-coast/" class="climb-service-card">
-            <span class="climb-service-num">01</span>
-            <div class="climb-service-body">
-              <h3 class="climb-service-name">Local SEO Sunshine Coast</h3>
-              <p class="climb-service-desc">The work that actually moves your ranking. On-page, content, and local signals, stacked over months.</p>
-            </div>
-            <span class="climb-service-arrow" aria-hidden="true">&rarr;</span>
-          </a>
-        </li>
-        <li class="climb-service" data-target-pos="9">
-          <a href="/google-business-profile/" class="climb-service-card">
-            <span class="climb-service-num">02</span>
-            <div class="climb-service-body">
-              <h3 class="climb-service-name">Google Business Profile</h3>
-              <p class="climb-service-desc">Where most local searches end. We own the Maps 3-pack so browsers turn into booked jobs.</p>
-            </div>
-            <span class="climb-service-arrow" aria-hidden="true">&rarr;</span>
-          </a>
-        </li>
-        <li class="climb-service" data-target-pos="6">
-          <a href="/review-generation/" class="climb-service-card">
-            <span class="climb-service-num">03</span>
-            <div class="climb-service-body">
-              <h3 class="climb-service-name">Review Generation &amp; Management</h3>
-              <p class="climb-service-desc">Every happy customer becomes a five-star review. Systematically, not once a quarter.</p>
-            </div>
-            <span class="climb-service-arrow" aria-hidden="true">&rarr;</span>
-          </a>
-        </li>
-        <li class="climb-service" data-target-pos="4">
-          <a href="/website-creation-seo/" class="climb-service-card">
-            <span class="climb-service-num">04</span>
-            <div class="climb-service-body">
-              <h3 class="climb-service-name">Website Creation &amp; SEO</h3>
-              <p class="climb-service-desc">Fast, built to convert, optimised so the right people find you. No bloated builder sites.</p>
-            </div>
-            <span class="climb-service-arrow" aria-hidden="true">&rarr;</span>
-          </a>
-        </li>
-        <li class="climb-service" data-target-pos="3">
-          <a href="/facebook-business-page-management/" class="climb-service-card">
-            <span class="climb-service-num">05</span>
-            <div class="climb-service-body">
-              <h3 class="climb-service-name">Facebook Business Page</h3>
-              <p class="climb-service-desc">Builds trust before a customer has even called. Managed monthly, so you don't have to think about it.</p>
-            </div>
-            <span class="climb-service-arrow" aria-hidden="true">&rarr;</span>
-          </a>
-        </li>
-        <li class="climb-service" data-target-pos="2">
-          <a href="/reporting/" class="climb-service-card">
-            <span class="climb-service-num">06</span>
-            <div class="climb-service-body">
-              <h3 class="climb-service-name">Local Visibility Reporting</h3>
-              <p class="climb-service-desc">Plain-English monthly reports. Calls, views, reviews - what's moving and what's next.</p>
-            </div>
-            <span class="climb-service-arrow" aria-hidden="true">&rarr;</span>
-          </a>
-        </li>
-      </ol>
-    </div>
-
-    <div class="climb-footer">
-      <a href="/google-business-profile-audit/#audit-form" class="btn-primary">See what's holding you back <span class="climb-cta-arrow" aria-hidden="true">&rarr;</span></a>
-    </div>
-  </div>
-</section>
-
 <!-- ─── WHO WE HELP ─── -->
 <section class="who" id="who" aria-label="Who we help">
   <div class="section-parallax-bg" id="who-bg" data-bg="url('images/homepage/buderim.webp')" aria-hidden="true"></div>
@@ -5870,6 +5743,135 @@
     </div>
     <div style="margin: 3rem 0 2rem; text-align: center;">
       <a href="/google-business-profile-audit/#audit-form" class="btn-primary">Get results like these</a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CLIMB SCENE (What we do) ─── -->
+<section class="climb-scene" id="services" aria-label="What we do">
+  <div class="wrap">
+    <div class="climb-header animate-fade-in">
+      <p class="eyebrow ruled" style="margin-bottom:1.5rem;">What we do</p>
+      <h2 class="climb-heading">
+        Six things that climb you<br>
+        into <em>the top three.</em>
+      </h2>
+      <p class="climb-intro">
+        Getting found on Google isn't one thing. It's six things working together. Here's the stack that moves a Sunshine Coast business from invisible to the Maps 3-pack.
+      </p>
+    </div>
+
+    <div class="climb-grid">
+      <!-- Left: ranking ladder -->
+      <div class="climb-ladder-wrap" aria-hidden="true">
+        <div class="climb-ladder" data-climb-ladder>
+          <div class="climb-ladder-zone"></div>
+          <div class="climb-ladder-track"></div>
+          <ol class="climb-ladder-marks">
+            <li class="climb-ladder-mark climb-ladder-mark--highlight" style="--p:1;">
+              <span class="climb-ladder-mark-num">#1</span>
+              <span class="climb-ladder-mark-tick"></span>
+              <span class="climb-ladder-mark-label">Most calls</span>
+            </li>
+            <li class="climb-ladder-mark" style="--p:2;">
+              <span class="climb-ladder-mark-num">#2</span>
+              <span class="climb-ladder-mark-tick"></span>
+            </li>
+            <li class="climb-ladder-mark climb-ladder-mark--highlight" style="--p:3;">
+              <span class="climb-ladder-mark-num">#3</span>
+              <span class="climb-ladder-mark-tick"></span>
+              <span class="climb-ladder-mark-label">Cut-off line</span>
+            </li>
+            <li class="climb-ladder-mark" style="--p:4;"><span class="climb-ladder-mark-num">#4</span><span class="climb-ladder-mark-tick"></span></li>
+            <li class="climb-ladder-mark" style="--p:5;"><span class="climb-ladder-mark-num">#5</span><span class="climb-ladder-mark-tick"></span></li>
+            <li class="climb-ladder-mark" style="--p:6;"><span class="climb-ladder-mark-num">#6</span><span class="climb-ladder-mark-tick"></span></li>
+            <li class="climb-ladder-mark" style="--p:7;"><span class="climb-ladder-mark-num">#7</span><span class="climb-ladder-mark-tick"></span></li>
+            <li class="climb-ladder-mark" style="--p:8;"><span class="climb-ladder-mark-num">#8</span><span class="climb-ladder-mark-tick"></span></li>
+            <li class="climb-ladder-mark" style="--p:9;"><span class="climb-ladder-mark-num">#9</span><span class="climb-ladder-mark-tick"></span></li>
+            <li class="climb-ladder-mark" style="--p:10;"><span class="climb-ladder-mark-num">#10</span><span class="climb-ladder-mark-tick"></span></li>
+            <li class="climb-ladder-mark" style="--p:11;"><span class="climb-ladder-mark-num">#11</span><span class="climb-ladder-mark-tick"></span></li>
+            <li class="climb-ladder-mark" style="--p:12;"><span class="climb-ladder-mark-num">#12</span><span class="climb-ladder-mark-tick"></span></li>
+            <li class="climb-ladder-mark" style="--p:13;"><span class="climb-ladder-mark-num">#13</span><span class="climb-ladder-mark-tick"></span></li>
+            <li class="climb-ladder-mark climb-ladder-mark--start" style="--p:14;">
+              <span class="climb-ladder-mark-num">#14</span>
+              <span class="climb-ladder-mark-tick"></span>
+              <span class="climb-ladder-mark-label">Invisible</span>
+            </li>
+          </ol>
+          <div class="climb-ladder-trail"></div>
+          <div class="climb-ladder-dot">
+            <span class="climb-ladder-dot-label">You</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: services list -->
+      <ol class="climb-services" data-climb-services>
+        <li class="climb-service" data-target-pos="12">
+          <a href="/local-seo-sunshine-coast/" class="climb-service-card">
+            <span class="climb-service-num">01</span>
+            <div class="climb-service-body">
+              <h3 class="climb-service-name">Local SEO Sunshine Coast</h3>
+              <p class="climb-service-desc">The work that actually moves your ranking. On-page, content, and local signals, stacked over months.</p>
+            </div>
+            <span class="climb-service-arrow" aria-hidden="true">&rarr;</span>
+          </a>
+        </li>
+        <li class="climb-service" data-target-pos="9">
+          <a href="/google-business-profile/" class="climb-service-card">
+            <span class="climb-service-num">02</span>
+            <div class="climb-service-body">
+              <h3 class="climb-service-name">Google Business Profile</h3>
+              <p class="climb-service-desc">Where most local searches end. We own the Maps 3-pack so browsers turn into booked jobs.</p>
+            </div>
+            <span class="climb-service-arrow" aria-hidden="true">&rarr;</span>
+          </a>
+        </li>
+        <li class="climb-service" data-target-pos="6">
+          <a href="/review-generation/" class="climb-service-card">
+            <span class="climb-service-num">03</span>
+            <div class="climb-service-body">
+              <h3 class="climb-service-name">Review Generation &amp; Management</h3>
+              <p class="climb-service-desc">Every happy customer becomes a five-star review. Systematically, not once a quarter.</p>
+            </div>
+            <span class="climb-service-arrow" aria-hidden="true">&rarr;</span>
+          </a>
+        </li>
+        <li class="climb-service" data-target-pos="4">
+          <a href="/website-creation-seo/" class="climb-service-card">
+            <span class="climb-service-num">04</span>
+            <div class="climb-service-body">
+              <h3 class="climb-service-name">Website Creation &amp; SEO</h3>
+              <p class="climb-service-desc">Fast, built to convert, optimised so the right people find you. No bloated builder sites.</p>
+            </div>
+            <span class="climb-service-arrow" aria-hidden="true">&rarr;</span>
+          </a>
+        </li>
+        <li class="climb-service" data-target-pos="3">
+          <a href="/facebook-business-page-management/" class="climb-service-card">
+            <span class="climb-service-num">05</span>
+            <div class="climb-service-body">
+              <h3 class="climb-service-name">Facebook Business Page</h3>
+              <p class="climb-service-desc">Builds trust before a customer has even called. Managed monthly, so you don't have to think about it.</p>
+            </div>
+            <span class="climb-service-arrow" aria-hidden="true">&rarr;</span>
+          </a>
+        </li>
+        <li class="climb-service" data-target-pos="2">
+          <a href="/reporting/" class="climb-service-card">
+            <span class="climb-service-num">06</span>
+            <div class="climb-service-body">
+              <h3 class="climb-service-name">Local Visibility Reporting</h3>
+              <p class="climb-service-desc">Plain-English monthly reports. Calls, views, reviews - what's moving and what's next.</p>
+            </div>
+            <span class="climb-service-arrow" aria-hidden="true">&rarr;</span>
+          </a>
+        </li>
+      </ol>
+    </div>
+
+    <div class="climb-footer">
+      <a href="/google-business-profile-audit/#audit-form" class="btn-primary">See what's holding you back <span class="climb-cta-arrow" aria-hidden="true">&rarr;</span></a>
     </div>
   </div>
 </section>
