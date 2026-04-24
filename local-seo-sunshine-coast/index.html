@@ -476,7 +476,10 @@
 
   /* ─── WHY SCENE (phone + copy) ─── */
   .why-lseo { position: relative; background: transparent; padding: clamp(4.5rem, 9vh, 7rem) 0; overflow: hidden; }
-  .why-lseo-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(3rem, 6vw, 6rem); width: 100%; max-width: 1240px; margin: 0 auto; padding: 0 var(--gutter); align-items: center; position: relative; z-index: 2; }
+  .why-lseo-grid { display: grid; grid-template-columns: 1.05fr 1fr; grid-template-areas: "head phone" "body phone"; column-gap: clamp(3rem, 6vw, 6rem); row-gap: 0; width: 100%; max-width: 1240px; margin: 0 auto; padding: 0 var(--gutter); align-items: center; position: relative; z-index: 2; }
+  .why-lseo-head { grid-area: head; align-self: end; }
+  .why-lseo-body { grid-area: body; align-self: start; }
+  .lseo-phone-stage { grid-area: phone; }
   .why-lseo-text { color: var(--warm-white); }
   .why-lseo-text .eyebrow { color: var(--clay); }
   .why-lseo-headline { font-family: var(--font-display); font-weight: 300; font-size: clamp(2rem, 4vw, 3.3rem); line-height: 1.1; letter-spacing: -0.02em; color: var(--warm-white); margin: 1rem 0 1.25rem; text-wrap: balance; }
@@ -529,7 +532,8 @@
 
   @media (max-width: 900px) {
     .why-lseo { padding: 4.5rem 0; }
-    .why-lseo-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .why-lseo-grid { grid-template-columns: 1fr; grid-template-areas: "head" "phone" "body"; row-gap: 2rem; }
+    .why-lseo-head, .why-lseo-body { align-self: auto; }
     .why-lseo-text { text-align: center; }
     .why-lseo-sub, .why-lseo-bullets { margin-left: auto; margin-right: auto; }
     .why-lseo-bullets li { text-align: left; }
@@ -804,17 +808,9 @@
 <section class="why-lseo" id="why-section" aria-label="Why local SEO matters">
   <div class="section-parallax-bg" id="why-bg" data-bg="url('/images/homepage/local-seo-ghm.webp')" aria-hidden="true"></div>
   <div class="why-lseo-grid reveal">
-    <div class="why-lseo-text">
+    <div class="why-lseo-text why-lseo-head">
       <p class="eyebrow ruled ruled-light">Why it matters</p>
       <h2 class="why-lseo-headline">One map. Three names.<br>Yours needs to be <em>one of them.</em></h2>
-      <p class="why-lseo-sub">When a Sunshine Coast local searches "plumber near me", Google shows three businesses above everything else. Those three pick up 75% of the calls. Everyone else is a scroll away - which on a phone means invisible. Our job is to get you into that three and keep you there.</p>
-      <ul class="why-lseo-bullets">
-        <li><strong>In the 3-pack.</strong> Above organic results, right where the taps happen.</li>
-        <li><strong>Ranked by suburb.</strong> Buderim. Noosa. Caloundra. You show up where you actually work.</li>
-        <li><strong>High-intent traffic.</strong> Someone typing "plumber Buderim" wants to book now - not browse.</li>
-        <li><strong>Compounds, not rented.</strong> Unlike ads, good rankings keep paying out for months after the work.</li>
-      </ul>
-      <a href="/google-business-profile-audit/#audit-form" class="btn-primary-light">Get my free audit &rarr;</a>
     </div>
     <div class="lseo-phone-stage" aria-hidden="true">
       <div class="lseo-phone">
@@ -872,6 +868,16 @@
           </div>
         </div>
       </div>
+    </div>
+    <div class="why-lseo-text why-lseo-body">
+      <p class="why-lseo-sub">When a Sunshine Coast local searches "plumber near me", Google shows three businesses above everything else. Those three pick up 75% of the calls. Everyone else is a scroll away - which on a phone means invisible. Our job is to get you into that three and keep you there.</p>
+      <ul class="why-lseo-bullets">
+        <li><strong>In the 3-pack.</strong> Above organic results, right where the taps happen.</li>
+        <li><strong>Ranked by suburb.</strong> Buderim. Noosa. Caloundra. You show up where you actually work.</li>
+        <li><strong>High-intent traffic.</strong> Someone typing "plumber Buderim" wants to book now - not browse.</li>
+        <li><strong>Compounds, not rented.</strong> Unlike ads, good rankings keep paying out for months after the work.</li>
+      </ul>
+      <a href="/google-business-profile-audit/#audit-form" class="btn-primary-light">Get my free audit &rarr;</a>
     </div>
   </div>
 </section>
