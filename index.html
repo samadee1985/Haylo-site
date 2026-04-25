@@ -4816,6 +4816,29 @@
     .suburb-card-overlay { background: linear-gradient(to top, rgba(28,26,23,0.92) 0%, rgba(28,26,23,0.7) 18%, transparent 35%) !important; }
     .suburb-card-sub { display: none; }
   }
+
+  /* Mobile: drop backdrop-filter blur sitewide. It's the dominant paint cost
+     on low-end Android and contributes to TBT. Bump container opacity where
+     legibility relied on the blur (sticky header, mobile nav drawer). */
+  @media (max-width: 768px) {
+    header,
+    .hero-testimonial,
+    .nav-links.nav-open,
+    .nav-drop-list,
+    .suburb-card-alt,
+    .testimonial-card,
+    .hero-card-stack,
+    .hero-card,
+    .work-card,
+    .plan-card,
+    .work-stack-card,
+    [style*="backdrop-filter"] {
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+    }
+    header { background: rgba(250, 248, 245, 0.92); }
+    .hero-testimonial { background: rgba(28, 26, 23, 0.85); }
+  }
 </style>
 
 <!-- ─── STRUCTURED DATA ─── -->
@@ -6264,6 +6287,35 @@
 </footer>
 
 <script>
+// Shared GSAP loader - one promise, reused by every section that needs it.
+// Avoids parsing/executing GSAP multiple times (each <script> tag re-runs even
+// if cached) and keeps the request count to 2 across the whole page.
+window.__loadGsap = function () {
+  if (window.__gsapPromise) return window.__gsapPromise;
+  function load(src) {
+    return new Promise(function (resolve, reject) {
+      var s = document.createElement('script');
+      s.src = src;
+      s.async = true;
+      s.onload = resolve;
+      s.onerror = reject;
+      document.head.appendChild(s);
+    });
+  }
+  window.__gsapPromise = load('https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js')
+    .then(function () { return load('https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js'); });
+  return window.__gsapPromise;
+};
+
+// Schedule below-the-fold setup off the main critical path.
+window.__whenIdle = function (fn) {
+  if ('requestIdleCallback' in window) {
+    window.requestIdleCallback(fn, { timeout: 1500 });
+  } else {
+    setTimeout(fn, 200);
+  }
+};
+
 function toggleFaq(btn) {
   const item = btn.closest('.faq-item');
   const isOpen = item.classList.contains('open');
@@ -6895,20 +6947,19 @@ document.querySelectorAll('.footer-col-toggle').forEach(function(btn){
     }
   }
 
-  var loaded = false;
-  var obs = new IntersectionObserver(function (entries) {
-    if (loaded) return;
-    if (!entries.some(function (e) { return e.isIntersecting; })) return;
-    loaded = true;
-    obs.disconnect();
-    loadScript('https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js')
-      .then(function () {
-        return loadScript('https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js');
-      })
-      .then(initScene)
-      .catch(function () { /* network fail: leave static fallback in place */ });
-  }, { rootMargin: '600px 0px' });
-  obs.observe(scene);
+  window.__whenIdle(function () {
+    var loaded = false;
+    var obs = new IntersectionObserver(function (entries) {
+      if (loaded) return;
+      if (!entries.some(function (e) { return e.isIntersecting; })) return;
+      loaded = true;
+      obs.disconnect();
+      window.__loadGsap()
+        .then(initScene)
+        .catch(function () { /* network fail: leave static fallback in place */ });
+    }, { rootMargin: '600px 0px' });
+    obs.observe(scene);
+  });
 })();
 </script>
 
@@ -7026,25 +7077,19 @@ document.querySelectorAll('.footer-col-toggle').forEach(function(btn){
     }
   }
 
-  var loaded = false;
-  var obs = new IntersectionObserver(function (entries) {
-    if (loaded) return;
-    if (!entries.some(function (e) { return e.isIntersecting; })) return;
-    loaded = true;
-    obs.disconnect();
-    // If GSAP is already loaded by the lseo scene, just init
-    if (window.gsap && window.ScrollTrigger) {
-      initClimb();
-      return;
-    }
-    loadScript('https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js')
-      .then(function () {
-        return loadScript('https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js');
-      })
-      .then(initClimb)
-      .catch(function () { /* leave static fallback */ });
-  }, { rootMargin: '600px 0px' });
-  obs.observe(scene);
+  window.__whenIdle(function () {
+    var loaded = false;
+    var obs = new IntersectionObserver(function (entries) {
+      if (loaded) return;
+      if (!entries.some(function (e) { return e.isIntersecting; })) return;
+      loaded = true;
+      obs.disconnect();
+      window.__loadGsap()
+        .then(initClimb)
+        .catch(function () { /* leave static fallback */ });
+    }, { rootMargin: '600px 0px' });
+    obs.observe(scene);
+  });
 })();
 </script>
 
@@ -7176,20 +7221,19 @@ document.querySelectorAll('.footer-col-toggle').forEach(function(btn){
   }
 
   var trigger = pricing || webpkg;
-  var loaded = false;
-  var obs = new IntersectionObserver(function (entries) {
-    if (loaded) return;
-    if (!entries.some(function (e) { return e.isIntersecting; })) return;
-    loaded = true;
-    obs.disconnect();
-    loadScript('https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js')
-      .then(function () {
-        return loadScript('https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js');
-      })
-      .then(initPricing)
-      .catch(showStaticFallback);
-  }, { rootMargin: '600px 0px' });
-  obs.observe(trigger);
+  window.__whenIdle(function () {
+    var loaded = false;
+    var obs = new IntersectionObserver(function (entries) {
+      if (loaded) return;
+      if (!entries.some(function (e) { return e.isIntersecting; })) return;
+      loaded = true;
+      obs.disconnect();
+      window.__loadGsap()
+        .then(initPricing)
+        .catch(showStaticFallback);
+    }, { rootMargin: '600px 0px' });
+    obs.observe(trigger);
+  });
 })();
 </script>
 
@@ -7294,25 +7338,19 @@ document.querySelectorAll('.footer-col-toggle').forEach(function(btn){
     }
   }
 
-  var loaded = false;
-  var obs = new IntersectionObserver(function (entries) {
-    if (loaded) return;
-    if (!entries.some(function (e) { return e.isIntersecting; })) return;
-    loaded = true;
-    obs.disconnect();
-
-    if (window.gsap && window.ScrollTrigger) {
-      initIndustries();
-      return;
-    }
-    loadScript('https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js')
-      .then(function () {
-        return loadScript('https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js');
-      })
-      .then(initIndustries)
-      .catch(showStaticFallback);
-  }, { rootMargin: '600px 0px' });
-  obs.observe(grid);
+  window.__whenIdle(function () {
+    var loaded = false;
+    var obs = new IntersectionObserver(function (entries) {
+      if (loaded) return;
+      if (!entries.some(function (e) { return e.isIntersecting; })) return;
+      loaded = true;
+      obs.disconnect();
+      window.__loadGsap()
+        .then(initIndustries)
+        .catch(showStaticFallback);
+    }, { rootMargin: '600px 0px' });
+    obs.observe(grid);
+  });
 })();
 </script>
 
