@@ -3407,11 +3407,12 @@
     align-items: center;
   }
 
-  #locations-bg::after {
+  .locations::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: rgba(28,26,23,0.4);
+    background-color: var(--ink);
+    z-index: -2;
     pointer-events: none;
   }
 
