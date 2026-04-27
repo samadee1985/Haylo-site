@@ -443,19 +443,19 @@
   /* SAB TRIGGER */
   .sab-trigger {
     display: inline-block;
-    margin-top: 2.5rem;
+    margin-top: 1.1rem;
     background: none;
     border: none;
     font-family: var(--font-body);
     font-size: 0.78rem;
-    color: var(--ink-muted);
+    color: var(--clay);
     letter-spacing: 0.06em;
     cursor: pointer;
-    padding: 0.5rem 0;
+    padding: 0.35rem 0;
     border-bottom: 1px solid transparent;
     transition: color 0.2s, border-color 0.2s;
   }
-  .sab-trigger:hover { color: var(--clay); border-bottom-color: var(--clay); }
+  .sab-trigger:hover { color: var(--ink); border-bottom-color: var(--clay); }
 
   /* PHONE STAGE */
   .phone-stage {
@@ -811,9 +811,10 @@
           <input type="text" id="business-search" class="search-input" placeholder="Start typing your business name..." autocomplete="off" spellcheck="false">
           <button id="run-scan" class="search-button" disabled>Run my scan</button>
         </div>
-        <p class="search-hint">Results powered by Google. Your data stays private.</p>
 
         <button type="button" class="sab-trigger" id="sab-trigger">My business doesn't come up &rarr;</button>
+
+        <p class="search-hint">Results powered by Google. Your data stays private.</p>
       </div>
 
       <div class="phone-stage" aria-hidden="true">
