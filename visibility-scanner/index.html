@@ -269,99 +269,73 @@
   }
   .scanning-headline em { font-style: italic; color: var(--clay); }
 
-  .skater-scene {
-    position: relative;
-    width: 100%;
-    max-width: 560px;
-    height: 200px;
+  /* Live phone (scanning + reusable demo) */
+  .phone-stage.is-live {
+    height: 580px;
     margin: 0 auto 2.5rem;
-    overflow: hidden;
   }
-  .skater-road {
-    position: absolute;
-    left: 0; right: 0;
-    bottom: 32px;
-    height: 2px;
-    background: rgba(28,26,23,0.18);
+  @media (max-width: 540px) {
+    .phone-stage.is-live { height: 520px; }
   }
-  .skater-ticks {
-    position: absolute;
-    left: 0; right: 0;
-    bottom: 24px;
-    height: 4px;
-    background-image: repeating-linear-gradient(
-      to right,
-      var(--ink) 0,
-      var(--ink) 14px,
-      transparent 14px,
-      transparent 36px
-    );
-    opacity: 0.45;
-    animation: skaterScroll 0.8s linear infinite;
+  .phone-stage.is-live .phone-horizon { transform: scaleX(1); }
+  .phone-stage.is-live .phone-result-flag {
+    opacity: 0;
+    animation: phoneResultIn 0.4s ease forwards;
+    animation-delay: 0.25s;
   }
-  @keyframes skaterScroll {
-    from { background-position: 0 0; }
-    to { background-position: -36px 0; }
-  }
-  .skater-icons {
-    position: absolute;
-    left: 0; right: 0;
-    bottom: 56px;
-    height: 70px;
-    pointer-events: none;
-  }
-  .skater-icon {
-    position: absolute;
-    bottom: 0;
-    left: 100%;
-    width: 44px;
-    height: 44px;
+
+  .phone-loading {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--warm-white);
-    border: 1px solid var(--border);
-    border-radius: 50%;
-    color: var(--clay);
-    box-shadow: 0 6px 14px rgba(28,26,23,0.06);
-    animation: skaterDrift 5.6s linear infinite;
+    gap: 6px;
+    padding: 1.4rem 0;
+    transition: opacity 0.3s ease;
   }
-  .skater-icon svg { width: 20px; height: 20px; }
-  .skater-icon:nth-child(1) { animation-delay: 0s; }
-  .skater-icon:nth-child(2) { animation-delay: 1.4s; }
-  .skater-icon:nth-child(3) { animation-delay: 2.8s; }
-  .skater-icon:nth-child(4) { animation-delay: 4.2s; }
-  @keyframes skaterDrift {
-    0% { left: 100%; transform: translateX(0); }
-    100% { left: 0%; transform: translateX(-60px); }
+  .phone-loading[hidden] { display: none !important; }
+  .phone-loading-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--clay);
+    opacity: 0.4;
+    animation: phoneLoadingDot 1.1s ease-in-out infinite;
+  }
+  .phone-loading-dot:nth-child(2) { animation-delay: 0.18s; }
+  .phone-loading-dot:nth-child(3) { animation-delay: 0.36s; }
+  @keyframes phoneLoadingDot {
+    0%, 100% { opacity: 0.3; transform: translateY(0); }
+    50% { opacity: 1; transform: translateY(-3px); }
   }
 
-  .skater-dog {
-    position: absolute;
-    left: 50%;
-    bottom: 18px;
-    transform: translateX(-50%);
-    width: 140px;
-    height: 100px;
-    animation: skaterBob 0.65s ease-in-out infinite;
-    z-index: 2;
+  .phone-result.is-entering {
+    opacity: 0;
+    transform: translateY(8px);
+    animation: phoneResultIn 0.5s ease forwards;
   }
-  .skater-dog svg { width: 100%; height: 100%; display: block; }
-  .skater-wheel {
-    transform-origin: center;
-    transform-box: fill-box;
-    animation: skaterSpin 0.45s linear infinite;
+  @keyframes phoneResultIn {
+    to { opacity: 1; transform: translateY(0); }
   }
-  @keyframes skaterBob {
-    0%, 100% { transform: translateX(-50%) translateY(0); }
-    50% { transform: translateX(-50%) translateY(-4px); }
+
+  .phone-stat-strip {
+    margin: 0.4rem 0.85rem 0.85rem;
+    padding: 0.55rem 0.8rem;
+    background: var(--stone);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-family: var(--font-body);
+    font-size: 0.6rem;
+    color: var(--ink-muted);
+    letter-spacing: 0.04em;
+    text-align: center;
+    opacity: 0;
+    animation: phoneResultIn 0.5s ease forwards;
+    animation-delay: 0.3s;
   }
-  @keyframes skaterSpin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-  }
+  .phone-stat-strip strong { color: var(--ink); font-weight: 500; }
+
   @media (prefers-reduced-motion: reduce) {
-    .skater-dog, .skater-wheel, .skater-icon, .skater-ticks { animation: none; }
+    .phone-loading-dot, .phone-result.is-entering, .phone-stat-strip { animation: none; opacity: 1; transform: none; }
   }
 
   .scanning-lines { list-style: none; padding: 0; margin: 0; text-align: left; max-width: 380px; margin: 0 auto; }
@@ -902,43 +876,32 @@
   <section id="scanning-step" class="scanner-step" hidden>
     <div class="scanning-card">
       <p class="scanning-eyebrow">Scanning</p>
-      <h2 class="scanning-headline">Hold tight - <em>we're rolling through Google.</em></h2>
+      <h2 class="scanning-headline">This is what people see <em>when they search you.</em></h2>
 
-      <div class="skater-scene" aria-hidden="true">
-        <div class="skater-icons">
-          <div class="skater-icon" title="Reviews">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.5l7.1-.6L12 2z"/></svg>
+      <div class="phone-stage is-live" id="scan-phone-stage" aria-hidden="true">
+        <div class="phone-horizon"></div>
+        <div class="phone" data-phone="scan">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <div class="phone-status-bar">
+              <span class="phone-time">9:41</span>
+              <span class="phone-signal"><span></span><span></span><span></span></span>
+            </div>
+            <div class="phone-search-bar">
+              <span class="phone-search-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+              </span>
+              <span class="phone-search-text" data-phone-typing></span>
+              <span class="phone-search-cursor"></span>
+            </div>
+            <div class="phone-loading" data-phone-loading>
+              <span class="phone-loading-dot"></span>
+              <span class="phone-loading-dot"></span>
+              <span class="phone-loading-dot"></span>
+            </div>
+            <div class="phone-results-list" data-phone-results></div>
+            <div class="phone-stat-strip" data-phone-strip hidden></div>
           </div>
-          <div class="skater-icon" title="Photos">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.5"/><path d="M9 6l1.5-2h3L15 6"/></svg>
-          </div>
-          <div class="skater-icon" title="Recency">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-          </div>
-          <div class="skater-icon" title="Trajectory">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg>
-          </div>
-        </div>
-
-        <div class="skater-road"></div>
-        <div class="skater-ticks"></div>
-
-        <div class="skater-dog">
-          <svg viewBox="0 0 140 100" xmlns="http://www.w3.org/2000/svg">
-            <path d="M 14 56 Q 4 44 16 36" stroke="#b8967a" stroke-width="7" stroke-linecap="round" fill="none"/>
-            <ellipse cx="58" cy="58" rx="32" ry="16" fill="#b8967a"/>
-            <rect x="38" y="64" width="9" height="20" rx="2.5" fill="#1c1a17"/>
-            <rect x="68" y="64" width="9" height="20" rx="2.5" fill="#1c1a17"/>
-            <circle cx="98" cy="46" r="18" fill="#b8967a"/>
-            <path d="M 91 30 Q 84 18 96 22 Q 100 30 96 34 Z" fill="#1c1a17" opacity="0.85"/>
-            <ellipse cx="116" cy="50" rx="11" ry="7" fill="#b8967a"/>
-            <ellipse cx="124" cy="48" rx="3" ry="2.5" fill="#1c1a17"/>
-            <path d="M 100 42 Q 103 39 106 42" stroke="#1c1a17" stroke-width="1.6" fill="none" stroke-linecap="round"/>
-            <ellipse cx="119" cy="56" rx="3.5" ry="2" fill="#c95344"/>
-            <rect x="34" y="86" width="50" height="4" rx="2" fill="#1c1a17"/>
-            <circle class="skater-wheel" cx="42" cy="92" r="3.5" fill="#1c1a17"/>
-            <circle class="skater-wheel" cx="76" cy="92" r="3.5" fill="#1c1a17"/>
-          </svg>
         </div>
       </div>
 
@@ -1125,8 +1088,13 @@ async function runScan(placeId) {
   showStep('scanning-step');
   startScanningLines();
 
+  const stage = document.getElementById('scan-phone-stage');
+  const businessName = selectedBusinessName || 'your business';
+
+  const phoneTyping = playPhoneTypeAndLoad(stage, businessName);
   const minScanTime = new Promise(r => setTimeout(r, 7000));
 
+  let fetchError = null;
   try {
     const response = await fetch(WORKER_URL, {
       method: 'POST',
@@ -1135,6 +1103,12 @@ async function runScan(placeId) {
     });
     scanData = await response.json();
   } catch (err) {
+    fetchError = err;
+  }
+
+  await phoneTyping;
+
+  if (fetchError) {
     await Promise.all([minScanTime, finishScanningLines()]);
     showError("We couldn't run the scan right now. Apply for a manual audit below and Sam will look into it personally.");
     return;
@@ -1146,9 +1120,93 @@ async function runScan(placeId) {
     return;
   }
 
+  populatePhoneResults(stage, scanData);
+
   await Promise.all([minScanTime, finishScanningLines()]);
   showStep('reveal-step');
   await renderReveals(scanData, placeId);
+}
+
+function playPhoneTypeAndLoad(stage, query) {
+  return new Promise((resolve) => {
+    if (!stage) { resolve(); return; }
+    const typing = stage.querySelector('[data-phone-typing]');
+    const loading = stage.querySelector('[data-phone-loading]');
+    const list = stage.querySelector('[data-phone-results]');
+    const strip = stage.querySelector('[data-phone-strip]');
+    if (typing) typing.textContent = '';
+    if (list) list.innerHTML = '';
+    if (strip) { strip.hidden = true; strip.innerHTML = ''; }
+    if (loading) loading.hidden = true;
+
+    const duration = 1500;
+    const stepMs = duration / Math.max(query.length, 1);
+    query.split('').forEach((c, i) => {
+      setTimeout(() => { if (typing) typing.textContent += c; }, i * stepMs);
+    });
+    setTimeout(() => {
+      if (loading) loading.hidden = false;
+      resolve();
+    }, duration);
+  });
+}
+
+function populatePhoneResults(stage, data) {
+  if (!stage) return;
+  const loading = stage.querySelector('[data-phone-loading]');
+  const list = stage.querySelector('[data-phone-results]');
+  const strip = stage.querySelector('[data-phone-strip]');
+  if (loading) loading.hidden = true;
+  if (!list) return;
+  list.innerHTML = '';
+
+  const userReviews = data.user.reviewCount || 0;
+  const avgReviews = data.competitors.avgReviewCount || 0;
+  const userPhotos = data.user.photoCount || 0;
+  const avgPhotos = data.competitors.avgPhotoCount || 0;
+  const userSuburb = data.user.suburb || '';
+  const category = data.category || 'Local business';
+
+  const cards = [
+    {
+      name: 'Top in your category',
+      reviews: avgReviews,
+      cat: category,
+      highlight: false
+    },
+    {
+      name: data.user.name,
+      reviews: userReviews,
+      cat: [category, userSuburb].filter(Boolean).join(' \u00b7 '),
+      highlight: true
+    }
+  ];
+
+  cards.forEach((c, i) => {
+    setTimeout(() => {
+      const card = document.createElement('div');
+      card.className = 'phone-result is-entering' + (c.highlight ? ' phone-result-highlight' : '');
+      card.innerHTML = [
+        '<div class="phone-result-name">' + escapeText(c.name) + '</div>',
+        '<div class="phone-result-meta"><span class="phone-stars">\u2605\u2605\u2605\u2605\u2605</span> <span>' + c.reviews + ' reviews</span></div>',
+        '<div class="phone-result-cat">' + escapeText(c.cat) + '</div>',
+        c.highlight ? '<span class="phone-result-flag">You</span>' : ''
+      ].join('');
+      list.appendChild(card);
+    }, 200 + i * 380);
+  });
+
+  setTimeout(() => {
+    if (!strip) return;
+    strip.hidden = false;
+    strip.innerHTML = '<strong>' + userReviews + '</strong> reviews vs <strong>' + avgReviews + '</strong> avg \u00b7 <strong>' + userPhotos + '</strong> photos vs <strong>' + avgPhotos + '</strong> avg';
+  }, 1100);
+}
+
+function escapeText(s) {
+  return String(s == null ? '' : s).replace(/[&<>"']/g, function(m) {
+    return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[m];
+  });
 }
 
 let scanLineTimers = [];
