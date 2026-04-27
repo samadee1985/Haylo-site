@@ -328,11 +328,15 @@
     color: var(--ink-muted);
     letter-spacing: 0.04em;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
     opacity: 0;
     animation: phoneResultIn 0.5s ease forwards;
     animation-delay: 0.3s;
   }
   .phone-stat-strip strong { color: var(--ink); font-weight: 500; }
+  .phone-stat-row { display: block; }
 
   @media (prefers-reduced-motion: reduce) {
     .phone-loading-dot, .phone-result.is-entering, .phone-stat-strip { animation: none; opacity: 1; transform: none; }
@@ -1199,7 +1203,9 @@ function populatePhoneResults(stage, data) {
   setTimeout(() => {
     if (!strip) return;
     strip.hidden = false;
-    strip.innerHTML = '<strong>' + userReviews + '</strong> reviews vs <strong>' + avgReviews + '</strong> avg \u00b7 <strong>' + userPhotos + '</strong> photos vs <strong>' + avgPhotos + '</strong> avg';
+    strip.innerHTML =
+      '<span class="phone-stat-row"><strong>' + userReviews + '</strong> reviews vs <strong>' + avgReviews + '</strong> avg</span>' +
+      '<span class="phone-stat-row"><strong>' + userPhotos + '</strong> photos vs <strong>' + avgPhotos + '</strong> avg</span>';
   }, 1100);
 }
 
