@@ -710,6 +710,57 @@
     transition: transform 0.25s ease;
   }
 
+  .hero-pill-row {
+    text-align: center;
+    margin-top: 1.5rem;
+  }
+  .hero-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.5rem 1.1rem 0.5rem 0.95rem;
+    font-family: var(--font-body);
+    font-size: 0.74rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--warm-white);
+    background: rgba(250,249,248,0.06);
+    border: 1px solid rgba(250,249,248,0.4);
+    border-radius: 999px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+  }
+  .hero-pill:hover,
+  .hero-pill:focus {
+    background: rgba(250,249,248,0.14);
+    border-color: var(--warm-white);
+    transform: translateY(-1px);
+  }
+  .hero-pill-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--clay);
+    box-shadow: 0 0 0 4px rgba(184,150,122,0.22);
+    animation: heroPillPulse 2.2s ease-in-out infinite;
+    flex-shrink: 0;
+  }
+  .hero-pill-arrow {
+    display: inline-block;
+    transition: transform 0.25s ease;
+  }
+  .hero-pill:hover .hero-pill-arrow,
+  .hero-pill:focus .hero-pill-arrow {
+    transform: translateX(3px);
+  }
+  @keyframes heroPillPulse {
+    0%, 100% { box-shadow: 0 0 0 4px rgba(184,150,122,0.22); }
+    50% { box-shadow: 0 0 0 9px rgba(184,150,122,0); }
+  }
+
   .hero-rating {
     display: flex;
     align-items: center;
@@ -5261,6 +5312,13 @@
       </p>
       <div class="hero-actions">
         <a href="/google-business-profile-audit/#audit-form" class="btn-hero-primary">Get started</a>
+      </div>
+      <div class="hero-pill-row">
+        <a href="/visibility-scanner/" class="hero-pill">
+          <span class="hero-pill-dot" aria-hidden="true"></span>
+          <span>Free 60-second visibility check</span>
+          <span class="hero-pill-arrow" aria-hidden="true">&rarr;</span>
+        </a>
       </div>
       <figure class="hero-testimonial">
         <blockquote class="hero-testimonial-quote">

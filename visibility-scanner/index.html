@@ -274,6 +274,9 @@
     height: 580px;
     margin: 0 auto 2.5rem;
   }
+  @media (max-width: 900px) {
+    .phone-stage.is-live { width: 100vw; max-width: none; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); }
+  }
   @media (max-width: 540px) {
     .phone-stage.is-live { height: 520px; }
   }
@@ -433,11 +436,16 @@
   .hero-grid .hero-content .search-hint { text-align: left; }
 
   @media (max-width: 900px) {
-    .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-    .hero-grid .hero-content { text-align: center; }
-    .hero-grid .hero-content .hero-rule { margin: 0 auto 2rem; }
-    .hero-grid .hero-content .hero-sub { margin-left: auto; margin-right: auto; }
-    .hero-grid .hero-content .search-hint { text-align: center; }
+    .hero-grid { display: flex; flex-direction: column; gap: 2rem; }
+    .hero-grid .hero-content { display: contents; }
+    .hero-grid .hero-rule { order: 1; margin: 0 auto 0.5rem; }
+    .hero-grid .eyebrow { order: 2; text-align: center; margin-bottom: 1.25rem; }
+    .hero-grid .hero-headline { order: 3; text-align: center; margin: 0 auto; }
+    .hero-grid .phone-stage { order: 4; margin-top: -3.5rem; }
+    .hero-grid .hero-sub { order: 5; text-align: center; margin: 0 auto 1.5rem; max-width: 540px; }
+    .hero-grid .sab-trigger { order: 6; align-self: center; }
+    .hero-grid .search-box { order: 7; align-self: stretch; max-width: 540px; margin: 0 auto; width: 100%; }
+    .hero-grid .search-hint { order: 8; text-align: center; }
   }
 
   /* SAB TRIGGER */
@@ -460,17 +468,17 @@
   /* PHONE STAGE */
   .phone-stage {
     position: relative;
-    height: 540px;
+    height: 600px;
     display: flex;
     align-items: flex-end;
     justify-content: center;
     overflow: hidden;
   }
   @media (max-width: 900px) {
-    .phone-stage { height: 480px; max-width: 320px; margin: 0 auto; }
+    .phone-stage { height: 600px; width: 100vw; max-width: none; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); }
   }
   @media (max-width: 540px) {
-    .phone-stage { height: 440px; }
+    .phone-stage { height: 540px; }
   }
 
   .phone-horizon {
@@ -803,7 +811,6 @@
   <section id="identify-step" class="scanner-step active">
     <div class="hero-grid">
       <div class="hero-content">
-        <span class="hero-rule" aria-hidden="true"></span>
         <p class="eyebrow">Free visibility check</p>
         <h1 class="hero-headline">See where you stand on Google <em>in 60 seconds.</em></h1>
         <p class="hero-sub">Type your business name. We'll show you how you compare to the top three businesses like yours nearby. No score, no jargon, just three things you'll want to know.</p>
