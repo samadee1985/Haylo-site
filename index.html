@@ -1259,10 +1259,8 @@
   .lseo-scene::before {
     content: '';
     position: absolute;
-    top: 10%; left: 50%;
-    width: 90vmin; height: 90vmin;
-    transform: translateX(-50%);
-    background: radial-gradient(circle at center, rgba(184,150,122,0.14) 0%, rgba(184,150,122,0) 55%);
+    inset: 0;
+    background: radial-gradient(ellipse 100% 80% at 50% 40%, rgba(184,150,122,0.07) 0%, rgba(184,150,122,0.03) 50%, rgba(184,150,122,0) 100%);
     pointer-events: none;
     z-index: 0;
   }
@@ -1416,17 +1414,22 @@
   }
 
   /* Phone mockup */
-  .lseo-phone-stage { display: flex; justify-content: center; align-items: center; position: relative; }
-  .lseo-phone-stage::after {
-    content: '';
+  .lseo-phone-stage { display: flex; justify-content: center; align-items: flex-end; position: relative; overflow: hidden; }
+  .lseo-horizon {
     position: absolute;
-    left: 50%; bottom: -8%;
-    width: 70%; height: 40px;
-    transform: translateX(-50%);
-    background: radial-gradient(ellipse at center, rgba(28,26,23,0.25) 0%, rgba(28,26,23,0) 70%);
-    filter: blur(12px);
-    z-index: 0;
+    bottom: 0;
+    left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent 0%, rgba(28,26,23,0.18) 25%, rgba(28,26,23,0.28) 50%, rgba(28,26,23,0.18) 75%, transparent 100%);
+    z-index: 4;
+    transform-origin: center;
   }
+  .lseo-scene.lseo-anim-ready .lseo-horizon { transform: scaleX(0); }
+  .lseo-scene.lseo-anim-ready .lseo-phone { transform: translateY(110%); }
+  .lseo-scene.lseo-rise .lseo-horizon { animation: lseo-horizon-in 1.4s ease-in-out forwards; }
+  .lseo-scene.lseo-rise .lseo-phone { animation: lseo-phone-rise 3.2s 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) forwards; }
+  @keyframes lseo-horizon-in { to { transform: scaleX(1); } }
+  @keyframes lseo-phone-rise { to { transform: translateY(0); } }
   .lseo-phone {
     width: min(360px, 100%);
     aspect-ratio: 9 / 18;
@@ -5434,6 +5437,7 @@
       </ul>
     </div>
     <div class="lseo-phone-stage" aria-hidden="true">
+      <div class="lseo-horizon"></div>
       <div class="lseo-phone">
         <div class="lseo-phone-notch"></div>
         <div class="lseo-phone-screen">
@@ -6874,6 +6878,24 @@ document.querySelectorAll('.footer-col-toggle').forEach(function(btn){
   if (!scene) return;
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
+  scene.classList.add('lseo-anim-ready');
+
+  var RISE_DURATION_MS = 3600;
+  scene.__riseDone = false;
+  scene.__onRiseDone = null;
+
+  var riseObs = new IntersectionObserver(function (entries) {
+    if (entries.some(function (e) { return e.isIntersecting; })) {
+      scene.classList.add('lseo-rise');
+      setTimeout(function () {
+        scene.__riseDone = true;
+        if (typeof scene.__onRiseDone === 'function') scene.__onRiseDone();
+      }, RISE_DURATION_MS);
+      riseObs.disconnect();
+    }
+  }, { threshold: 0.15 });
+  riseObs.observe(scene);
+
   function loadScript(src) {
     return new Promise(function (resolve, reject) {
       var s = document.createElement('script');
@@ -6973,13 +6995,29 @@ document.querySelectorAll('.footer-col-toggle').forEach(function(btn){
       reset();
       buildTimeline();
 
+      var firstPlayDone = false;
       ScrollTrigger.create({
         trigger: scene,
         start: 'top 85%',
         end: 'bottom 15%',
         onToggle: function (self) {
-          if (self.isActive) tl.play();
-          else tl.pause();
+          if (self.isActive) {
+            if (firstPlayDone) { tl.play(); return; }
+            if (scene.__riseDone) {
+              firstPlayDone = true;
+              tl.play();
+            } else {
+              scene.__onRiseDone = function () {
+                scene.__onRiseDone = null;
+                if (self.isActive) {
+                  firstPlayDone = true;
+                  tl.play();
+                }
+              };
+            }
+          } else {
+            tl.pause();
+          }
         }
       });
     }
