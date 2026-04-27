@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Visibility Scanner | Haylo</title>
+<meta name="description" content="A 60-second visibility check for Sunshine Coast businesses. See where you stand against your top competitors on Google.">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y2MFJPRSRL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-Y2MFJPRSRL');
+</script>
+
+<link rel="canonical" href="https://www.withhaylo.com/visibility-scanner/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Visibility Scanner | Haylo">
+<meta property="og:description" content="A 60-second visibility check for Sunshine Coast businesses.">
+<meta property="og:url" content="https://www.withhaylo.com/visibility-scanner/">
+<meta property="og:site_name" content="Haylo">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Visibility Scanner | Haylo">
+<meta name="twitter:description" content="A 60-second visibility check for Sunshine Coast businesses.">
+<meta name="robots" content="index, follow">
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"></noscript>
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :focus-visible { outline: 2px solid var(--clay); outline-offset: 2px; }
+
+  :root {
+    --stone:       #f5f2ee;
+    --stone-mid:   #ede9e3;
+    --ink:         #1c1a17;
+    --ink-soft:    #3d3a35;
+    --ink-muted:   #7a766f;
+    --clay:        #b8967a;
+    --clay-light:  #e8d5c4;
+    --warm-white:  #faf8f5;
+    --border:      #e0dbd3;
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-body:    'DM Sans', system-ui, sans-serif;
+    --max-width:   1280px;
+    --gutter:      clamp(1.25rem, 4vw, 3rem);
+  }
+
+  html { scroll-behavior: smooth; overflow-x: clip; }
+
+  body {
+    background: var(--stone);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.7;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: clip;
+  }
+
+  a { text-decoration: none; color: inherit; }
+  img { display: block; max-width: 100%; }
+
+  .wrap { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--gutter); }
+
+  /* HEADER / NAV */
+  header { position: sticky; top: 0; z-index: 100; background: rgba(250,248,245,0.65); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid rgba(226,223,220,0.4); }
+  .header-inner { display: flex; align-items: center; justify-content: space-between; height: 4rem; max-width: var(--max-width); margin: 0 auto; padding: 0 var(--gutter); }
+  .wordmark { font-family: var(--font-display); font-size: 1.6rem; font-weight: 400; letter-spacing: 0.04em; color: var(--ink); text-decoration: none; }
+  nav { display: flex; align-items: center; gap: 2.25rem;}
+  .nav-links { display: flex; gap: 2.25rem; list-style: none; }
+  .nav-links a { font-size: 0.8rem; font-weight: 400; letter-spacing: 0.06em; color: var(--ink-soft); text-decoration: none; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--ink); }
+  .btn-call-nav { font-family: var(--font-body); font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; color: var(--ink); text-decoration: none; display: flex; align-items: center; gap: 0.4rem; transition: opacity 0.2s; white-space: nowrap; }
+  .btn-call-nav:hover { opacity: 0.75; }
+  .btn-call-nav-label { display: none; }
+  .btn-call-nav svg { flex-shrink: 0; }
+
+  .btn-nav-audit {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: var(--clay);
+    color: var(--warm-white) !important;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 0.9rem 1.5rem;
+    margin-top: 0.75rem;
+    transition: background 0.2s, opacity 0.2s;
+  }
+  .btn-nav-audit:hover { opacity: 0.88; }
+  .btn-header { font-family: var(--font-body); font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); background: transparent; border: 1px solid var(--ink); padding: 0.5rem 1.25rem; text-decoration: none; transition: background 0.2s, color 0.2s; }
+  .btn-header:hover { background: var(--ink); color: var(--warm-white); }
+  .nav-toggle { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; padding: 4px; }
+  .nav-toggle span { display: block; width: 22px; height: 1px; background: var(--ink); transition: all 0.3s ease; }
+  .nav-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+  .nav-toggle.active span:nth-child(2) { opacity: 0; }
+  .nav-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
+  .nav-links.nav-open { display: flex; position: absolute; top: 100%; left: 0; right: 0; background: rgba(245,242,238,0.97); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); flex-direction: column; padding: 1.5rem var(--gutter); border-bottom: 1px solid var(--border); gap: 0; }
+
+  /* DROPDOWN NAV */
+  .nav-links { align-items: center; }
+  .nav-links > li { display: flex; align-items: center; }
+  .nav-dropdown { position: relative; }
+  .nav-drop-btn { background: none; border: none; font-family: var(--font-body); font-size: 0.8rem; font-weight: 400; letter-spacing: 0.06em; color: var(--ink-soft); cursor: pointer; display: flex; align-items: center; gap: 0.3rem; padding: 0; transition: color 0.2s; line-height: 1; }
+  .nav-drop-btn:hover, .nav-dropdown.open > .nav-drop-btn { color: var(--ink); }
+  .nav-drop-btn svg { transition: transform 0.2s ease; flex-shrink: 0; }
+  .nav-dropdown:hover > .nav-drop-btn svg, .nav-dropdown.open > .nav-drop-btn svg { transform: rotate(180deg); }
+  .nav-drop-list { display: none; position: absolute; top: calc(100% + 0.85rem); left: 50%; transform: translateX(-50%); background: rgba(245,242,238,0.98); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid var(--border); list-style: none; padding: 0.5rem 0; box-shadow: 0 8px 32px rgba(0,0,0,0.1); z-index: 300; min-width: 200px; }
+  .nav-drop-list--wide { min-width: 340px; columns: 2; column-gap: 0; }
+  .nav-drop-list li { break-inside: avoid; }
+  .nav-drop-list li a { display: block; padding: 0.5rem 1.25rem; font-size: 0.78rem; font-weight: 400; letter-spacing: 0.04em; color: var(--ink-soft); text-decoration: none; transition: color 0.15s, background 0.15s; white-space: nowrap; }
+  .nav-drop-list li a:hover { color: var(--ink); background: rgba(28,26,23,0.04); }
+  .nav-drop-all-trades { color: var(--clay) !important; font-weight: 500 !important; border-bottom: 1px solid var(--border); margin-bottom: 0.25rem; padding-bottom: 0.75rem !important; }
+  .nav-drop-all-trades:hover { color: var(--clay) !important; opacity: 0.8; }
+  .nav-dropdown:hover .nav-drop-list, .nav-dropdown.open .nav-drop-list { display: block; }
+
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .btn-header { display: block; font-size: 0.7rem; padding: 0.45rem 0.9rem; color: var(--ink); border-color: var(--ink); }
+    .btn-header:hover { background: var(--ink); color: var(--warm-white); }
+    .nav-toggle { display: flex; }
+    nav { gap: 1rem; }
+    .nav-call-mobile { display: list-item !important; }
+    .nav-audit-mobile { display: list-item !important; }
+    .btn-call-nav .btn-call-nav-label { display: none; }
+    .nav-drop-btn { width: 100%; justify-content: space-between; padding: 0.65rem 0; font-size: 0.85rem; }
+    .nav-drop-list { position: static; transform: none; box-shadow: none; border: none; border-left: 2px solid var(--border); margin-left: 0.5rem; background: transparent; padding: 0.25rem 0 0.5rem; min-width: unset; backdrop-filter: none; -webkit-backdrop-filter: none; columns: unset; }
+    .nav-drop-list--wide { min-width: unset; columns: unset; }
+    .nav-drop-list li a { padding: 0.45rem 1rem; white-space: normal; font-size: 0.82rem; color: var(--ink-muted); }
+    .nav-drop-list li a:hover { color: var(--ink); background: none; }
+    .nav-dropdown:hover .nav-drop-list { display: none; }
+    .nav-dropdown.open .nav-drop-list { display: block; }
+  }
+
+  /* FOOTER */
+  .site-footer { background: var(--ink); padding: 4rem 0 0; }
+  .footer-grid { display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr; gap: 3rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .footer-brand .footer-wordmark { font-family: var(--font-display); font-size: 1.5rem; font-weight: 400; color: #fff; text-decoration: none; letter-spacing: 0.04em; display: block; margin-bottom: 0.75rem; }
+  .footer-tagline { font-size: 0.82rem; color: rgba(255,255,255,0.4); line-height: 1.65; max-width: 24ch; }
+  .footer-col-toggle { display: flex; align-items: center; justify-content: space-between; width: 100%; background: none; border: none; padding: 0 0 1.1rem; font-family: var(--font-body); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.35); cursor: default; pointer-events: none; }
+  .footer-chevron { display: none; }
+  .footer-col-links { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
+  .footer-col-links a { font-size: 0.85rem; color: rgba(255,255,255,0.55); text-decoration: none; transition: color 0.2s; }
+  .footer-col-links a:hover { color: #fff; }
+  .footer-bottom { padding: 1.5rem 0; }
+  .footer-copy { font-size: 0.73rem; color: rgba(255,255,255,0.25); }
+
+  @media (max-width: 900px) {
+    .footer-grid { grid-template-columns: 1fr; gap: 0; }
+    .footer-col { border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .footer-col-toggle { pointer-events: all; cursor: pointer; padding: 1.1rem 0; color: rgba(255,255,255,0.5); }
+    .footer-col-toggle .footer-chevron { display: block; transition: transform 0.2s; }
+    .footer-col-toggle[aria-expanded="true"] .footer-chevron { transform: rotate(180deg); }
+    .footer-col-links { max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding-bottom 0.3s; gap: 0; }
+    .footer-col-links li { padding: 0.45rem 0; }
+    .footer-col.open .footer-col-links { max-height: 300px; padding-bottom: 1.5rem; }
+  }
+
+  /* WHATSAPP BUTTON */
+  .wa-btn { position: fixed; bottom: 2rem; right: 2rem; z-index: 199; width: 52px; height: 52px; border-radius: 50%; background: var(--ink); box-shadow: 0 4px 16px rgba(0,0,0,0.18); display: flex; align-items: center; justify-content: center; text-decoration: none; transition: transform 0.2s ease, box-shadow 0.2s ease; -webkit-tap-highlight-color: transparent; }
+  .wa-btn:hover { transform: scale(1.08); box-shadow: 0 6px 22px rgba(0,0,0,0.22); }
+  .wa-btn svg { display: block; }
+  @media (max-width: 767px) {
+    .wa-btn { bottom: 1.25rem; right: 1rem; width: 46px; height: 46px; }
+  }
+
+  /* SCANNER PAGE */
+  body { line-height: 1.5; }
+
+  .scanner-step { padding: 5rem 1.5rem; max-width: 720px; margin: 0 auto; }
+  .scanner-step[hidden] { display: none; }
+
+  .hero-content { text-align: center; }
+  .eyebrow { font-family: 'DM Sans', sans-serif; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.18em; color: #1e1e1e; opacity: 0.55; margin-bottom: 1rem; display: block; }
+  .hero-headline { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.25rem, 5vw, 3.5rem); font-weight: 400; line-height: 1.1; color: #1e1e1e; margin: 0 0 1.5rem; }
+  .hero-sub { font-family: 'DM Sans', sans-serif; font-size: 1.05rem; line-height: 1.6; color: #1e1e1e; opacity: 0.75; max-width: 540px; margin: 0 auto 3rem; }
+
+  .search-box { display: flex; gap: 0.5rem; max-width: 520px; margin: 0 auto; }
+  @media (max-width: 540px) { .search-box { flex-direction: column; } }
+  .search-input { flex: 1; padding: 1rem 1.25rem; font-family: 'DM Sans', sans-serif; font-size: 1rem; background: #fff; border: 1px solid rgba(30,30,30,0.15); border-radius: 3px; color: #1e1e1e; }
+  .search-input:focus { outline: none; border-color: #1e1e1e; }
+  .search-button { padding: 1rem 1.5rem; font-family: 'DM Sans', sans-serif; font-size: 1rem; font-weight: 500; background: #1e1e1e; color: #F5F3EF; border: none; border-radius: 3px; cursor: pointer; transition: opacity 0.2s; }
+  .search-button:disabled { opacity: 0.4; cursor: not-allowed; }
+  .search-button:hover:not(:disabled) { background: #000; }
+  .search-hint { font-family: 'DM Sans', sans-serif; font-size: 0.85rem; color: #1e1e1e; opacity: 0.55; margin-top: 1.25rem; }
+
+  .pac-container { font-family: 'DM Sans', sans-serif; border-radius: 3px; border: 1px solid rgba(30,30,30,0.15); box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 4px; }
+  .pac-item { padding: 0.6rem 1rem; font-size: 0.95rem; cursor: pointer; }
+  .pac-item:hover { background: #EDE9E1; }
+  .pac-item-query { color: #1e1e1e; }
+
+  .scanning-card { text-align: center; padding: 5rem 2rem; }
+  .scanning-pulse { width: 12px; height: 12px; background: #1e1e1e; border-radius: 50%; margin: 0 auto 1.5rem; animation: pulse 1.6s ease-in-out infinite; }
+  @keyframes pulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(2.2); opacity: 0.4; } }
+  .scanning-message { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: #1e1e1e; font-style: italic; transition: opacity 0.3s ease; }
+
+  .reveal { padding: 3.5rem 0; border-bottom: 1px solid rgba(30, 30, 30, 0.08); opacity: 0; transform: translateY(20px); animation: revealIn 0.9s ease forwards; }
+  .reveal:last-of-type { border-bottom: none; }
+  .reveal[hidden] { display: none; }
+  @keyframes revealIn { to { opacity: 1; transform: translateY(0); } }
+
+  .reveal-label { font-family: 'DM Sans', sans-serif; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.18em; color: #1e1e1e; opacity: 0.55; margin-bottom: 1rem; text-align: center; }
+  .reveal-business-name { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-weight: 400; color: #1e1e1e; margin: 0 0 0.25rem; line-height: 1.1; text-align: center; }
+  .reveal-suburb { font-family: 'DM Sans', sans-serif; font-size: 0.95rem; color: #1e1e1e; opacity: 0.65; margin: 0 0 2.5rem; text-align: center; }
+
+  .reveal-numbers { display: grid; grid-template-columns: 1fr auto 1fr; gap: 2rem; align-items: center; margin: 2rem 0; }
+  @media (max-width: 540px) { .reveal-numbers { grid-template-columns: 1fr; gap: 1rem; text-align: center; } }
+  .reveal-number { text-align: center; }
+  .reveal-big { display: block; font-family: 'Cormorant Garamond', serif; font-size: 4.5rem; line-height: 1; color: #1e1e1e; font-weight: 400; }
+  .reveal-small { display: block; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; color: #1e1e1e; opacity: 0.6; margin-top: 0.5rem; line-height: 1.4; }
+  .reveal-vs { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.4rem; color: #1e1e1e; opacity: 0.4; text-align: center; }
+
+  .reveal-line { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.35rem; color: #1e1e1e; line-height: 1.4; margin-top: 2rem; text-align: center; }
+  .reveal-line-large { font-family: 'Cormorant Garamond', serif; font-size: 1.75rem; color: #1e1e1e; line-height: 1.35; margin: 1rem 0; text-align: center; font-weight: 400; }
+
+  .cta-card { background: #1e1e1e; color: #F5F3EF; padding: 3.5rem 2.5rem; border-radius: 4px; border-bottom: none; text-align: center; margin-top: 2rem; }
+  .cta-eyebrow { font-family: 'DM Sans', sans-serif; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.18em; opacity: 0.6; margin-bottom: 1rem; color: #c4995a; }
+  .cta-headline { font-family: 'Cormorant Garamond', serif; font-size: 2.25rem; line-height: 1.2; margin: 0 0 1.5rem; color: #F5F3EF; font-weight: 400; }
+  .cta-body { font-family: 'DM Sans', sans-serif; font-size: 1rem; line-height: 1.6; max-width: 480px; margin: 0 auto 2rem; opacity: 0.85; color: #F5F3EF; font-weight: 400; }
+  .cta-form { max-width: 380px; margin: 0 auto; }
+  .cta-form input[type="text"], .cta-form input[type="email"], .cta-form input[type="tel"] { display: block; width: 100%; padding: 0.85rem 1rem; margin-bottom: 0.75rem; background: #F5F3EF; color: #1e1e1e; border: none; border-radius: 3px; font-family: 'DM Sans', sans-serif; font-size: 1rem; }
+  .cta-form input:focus { outline: 2px solid #c4995a; outline-offset: 2px; }
+  .cta-button { display: block; width: 100%; padding: 0.95rem; margin-top: 0.5rem; background: #c4995a; color: #1e1e1e; border: none; border-radius: 3px; font-family: 'DM Sans', sans-serif; font-size: 1rem; font-weight: 500; letter-spacing: 0.02em; cursor: pointer; transition: background 0.2s; }
+  .cta-button:hover { background: #d4a96a; }
+  .cta-button:disabled { opacity: 0.6; cursor: wait; }
+  .cta-fineprint { font-family: 'DM Sans', sans-serif; font-size: 0.8rem; opacity: 0.55; margin-top: 1.25rem; color: #F5F3EF; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="/" class="wordmark">haylo.</a>
+    <nav aria-label="Main navigation">
+            <ul class="nav-links">
+        <li class="nav-dropdown">
+          <button class="nav-drop-btn" aria-expanded="false" aria-haspopup="true">Services <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 1l4 4 4-4"/></svg></button>
+          <ul class="nav-drop-list">
+            <li><a href="/google-business-profile/">Google Business Profile</a></li>
+            <li><a href="/review-generation/">Review Generation</a></li>
+            <li><a href="/local-seo-sunshine-coast/">Local SEO</a></li>
+            <li><a href="/facebook-business-page-management/">Facebook Management</a></li>
+            <li><a href="/reporting/">Reporting</a></li>
+            <li><a href="/website-creation-seo/">Website Creation</a></li>
+            <li><a href="/google-business-profile-audit/#audit-form">Free Audit</a></li>
+          </ul>
+        </li>
+        <li class="nav-dropdown">
+          <button class="nav-drop-btn" aria-expanded="false" aria-haspopup="true">Trades <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 1l4 4 4-4"/></svg></button>
+          <ul class="nav-drop-list nav-drop-list--wide">
+            <li class="nav-drop-all-trades-item"><a href="/marketing-for-tradies/" class="nav-drop-all-trades">All Trades &rarr;</a></li>
+            <li><a href="/marketing-for-plumbers/">Plumbers</a></li>
+            <li><a href="/marketing-for-electricians/">Electricians</a></li>
+            <li><a href="/marketing-for-roofers/">Roofers</a></li>
+            <li><a href="/marketing-for-tilers/">Tilers</a></li>
+            <li><a href="/marketing-for-concreters/">Concreters</a></li>
+            <li><a href="/marketing-for-painters/">Painters</a></li>
+            <li><a href="/marketing-for-carpenters/">Carpenters</a></li>
+            <li><a href="/marketing-for-fencers/">Fencers</a></li>
+            <li><a href="/marketing-for-handymen/">Handymen</a></li>
+            <li><a href="/marketing-for-plasterers/">Plasterers</a></li>
+            <li><a href="/marketing-for-solar-installers/">Solar Installers</a></li>
+            <li><a href="/marketing-for-air-conditioning/">Air Conditioning</a></li>
+            <li><a href="/marketing-for-builders/">Builders</a></li>
+          </ul>
+        </li>
+        <li class="nav-dropdown">
+          <button class="nav-drop-btn" aria-expanded="false" aria-haspopup="true">Industries <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 1l4 4 4-4"/></svg></button>
+          <ul class="nav-drop-list">
+            <li><a href="/google-marketing-for-cleaners/">Cleaners</a></li>
+            <li><a href="/google-marketing-for-garden-outdoor/">Garden &amp; Outdoor</a></li>
+            <li><a href="/google-marketing-for-home-services/">Home Services</a></li>
+            <li><a href="/google-marketing-for-auto-mechanical/">Auto Mechanical</a></li>
+            <li><a href="/google-marketing-for-health-wellness/">Health &amp; Wellness</a></li>
+            <li><a href="/google-marketing-for-pest-control/">Pest Control</a></li>
+            <li><a href="/google-marketing-for-pool-services/">Pool Services</a></li>
+            <li><a href="/google-marketing-for-landscapers/">Landscapers</a></li>
+          </ul>
+        </li>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/#contact">Contact</a></li>
+        <li class="nav-call-mobile" style="display:none;"><a href="tel:0490422192" style="color:var(--ink);font-weight:500;">Call now &middot; 0490 422 192</a></li>
+        <li class="nav-audit-mobile" style="display:none;"><a href="/google-business-profile-audit/#audit-form" class="btn-nav-audit">Get a Free Audit &rarr;</a></li>
+      </ul>
+      <a href="tel:0490422192" class="btn-call-nav"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.16 6.16l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span class="btn-call-nav-label">0490 422 192</span></a>
+      <a href="/google-business-profile-audit/#audit-form" class="btn-header">Free Audit</a>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section id="identify-step" class="scanner-step active">
+    <div class="hero-content">
+      <p class="eyebrow">Free visibility check</p>
+      <h1 class="hero-headline">See where you stand on Google in 60 seconds.</h1>
+      <p class="hero-sub">Type your business name. We'll show you how you compare to the top three businesses like yours nearby. No score, no jargon, just three things you'll want to know.</p>
+
+      <div class="search-box">
+        <input type="text" id="business-search" class="search-input" placeholder="Start typing your business name..." autocomplete="off" spellcheck="false">
+        <button id="run-scan" class="search-button" disabled>Run my scan</button>
+      </div>
+      <p class="search-hint">Results powered by Google. Your data stays private.</p>
+    </div>
+  </section>
+
+  <section id="scanning-step" class="scanner-step" hidden>
+    <div class="scanning-card">
+      <div class="scanning-pulse"></div>
+      <p class="scanning-message" id="scanning-message">Looking at your local market...</p>
+    </div>
+  </section>
+
+  <section id="reveal-step" class="scanner-step" hidden>
+
+    <article class="reveal" data-reveal="1" hidden>
+      <p class="reveal-label">Where you stand</p>
+      <h2 class="reveal-business-name" id="reveal-name"></h2>
+      <p class="reveal-suburb" id="reveal-suburb"></p>
+      <div class="reveal-numbers">
+        <div class="reveal-number">
+          <span class="reveal-big" id="user-reviews">0</span>
+          <span class="reveal-small">reviews</span>
+        </div>
+        <div class="reveal-vs">vs</div>
+        <div class="reveal-number">
+          <span class="reveal-big" id="competitor-reviews">0</span>
+          <span class="reveal-small">top 3 average <span id="reveal-category"></span> nearby</span>
+        </div>
+      </div>
+      <p class="reveal-line" id="reveal-1-line"></p>
+    </article>
+
+    <article class="reveal" data-reveal="2" hidden>
+      <p class="reveal-label">Your shopfront</p>
+      <div class="reveal-numbers">
+        <div class="reveal-number">
+          <span class="reveal-big" id="user-photos">0</span>
+          <span class="reveal-small">photos on your profile</span>
+        </div>
+        <div class="reveal-vs">vs</div>
+        <div class="reveal-number">
+          <span class="reveal-big" id="competitor-photos">0</span>
+          <span class="reveal-small">top 3 average</span>
+        </div>
+      </div>
+      <p class="reveal-line" id="reveal-2-line"></p>
+    </article>
+
+    <article class="reveal" data-reveal="3" hidden>
+      <p class="reveal-label">The trajectory</p>
+      <p class="reveal-line-large" id="reveal-3-recency"></p>
+      <p class="reveal-line-large" id="reveal-3-projection"></p>
+      <p class="reveal-line">The gap widens every week you wait.</p>
+    </article>
+
+    <article class="reveal cta-card" data-reveal="cta" hidden>
+      <p class="cta-eyebrow">A free manual audit by Sam</p>
+      <h2 class="cta-headline">Want to know exactly what to fix, in what order?</h2>
+      <p class="cta-body">Sam personally audits four Sunshine Coast businesses each week. You'll get a five-page report with everything the scanner can't see, and a 90-day plan tailored to your trade. No charge, no obligation, 48 hour turnaround.</p>
+      <form id="audit-form" class="cta-form">
+        <input type="text" id="audit-name" name="name" placeholder="Your name" required>
+        <input type="email" id="audit-email" name="email" placeholder="Email" required>
+        <input type="tel" id="audit-phone" name="phone" placeholder="Phone" required>
+        <input type="hidden" id="audit-business" name="business">
+        <input type="hidden" id="audit-place-id" name="place_id">
+        <input type="hidden" id="audit-snapshot" name="snapshot">
+        <input type="hidden" name="source" value="scanner">
+        <button type="submit" class="cta-button">Apply for my free audit</button>
+      </form>
+      <p class="cta-fineprint">Sam will reply within 48 hours from sam@withhaylo.com</p>
+    </article>
+
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="footer-wordmark">haylo.</a>
+        <p class="footer-tagline">Local marketing for tradespeople &amp; service businesses on the Sunshine Coast.</p>
+      </div>
+      <div class="footer-col">
+        <button class="footer-col-toggle" aria-expanded="false">Services <svg class="footer-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <ul class="footer-col-links">
+          <li><a href="/google-business-profile/">Google Business Profile</a></li>
+          <li><a href="/review-generation/">Review Generation</a></li>
+          <li><a href="/local-seo-sunshine-coast/">Local SEO</a></li>
+          <li><a href="/facebook-business-page-management/">Facebook Management</a></li>
+          <li><a href="/reporting/">Reporting</a></li>
+          <li><a href="/website-creation-seo/">Website &amp; SEO</a></li>
+          <li><a href="/google-business-profile-audit/">Free Audit</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <button class="footer-col-toggle" aria-expanded="false">Industries <svg class="footer-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <ul class="footer-col-links">
+          <li><a href="/marketing-for-tradies/">All Tradies</a></li>
+          <li><a href="/google-marketing-for-pest-control/">Pest Control</a></li>
+          <li><a href="/google-marketing-for-pool-services/">Pool Services</a></li>
+          <li><a href="/google-marketing-for-landscapers/">Landscapers</a></li>
+          <li><a href="/google-marketing-for-cleaners/">Cleaners</a></li>
+          <li><a href="/google-marketing-for-home-services/">Home Services</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <button class="footer-col-toggle" aria-expanded="false">Company <svg class="footer-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <ul class="footer-col-links">
+          <li><a href="/about/">About</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/#contact">Contact</a></li>
+          <li><a href="/privacy-policy/">Privacy Policy</a></li>
+          <li><a href="https://share.google/OZ8AGhojxleja6j3j" target="_blank" rel="noopener">View on Google</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 Haylo. Sunshine Coast, QLD.</p>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/61490422192?text=Hi%20Sam%2C%20I%27d%20like%20to%20find%20out%20more%20about%20local%20marketing%20for%20my%20business." class="wa-btn" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path fill="#fff" d="M16 3C9.373 3 4 8.373 4 15c0 2.385.67 4.61 1.832 6.504L4 29l7.697-1.81A11.94 11.94 0 0 0 16 27c6.627 0 12-5.373 12-12S22.627 3 16 3zm0 2c5.522 0 10 4.478 10 10s-4.478 10-10 10a9.94 9.94 0 0 1-5.09-1.396l-.364-.22-4.573 1.075 1.11-4.457-.24-.377A9.944 9.944 0 0 1 6 15c0-5.522 4.478-10 10-10zm-3.178 5.5c-.232 0-.608.087-.928.432-.32.345-1.22 1.192-1.22 2.907s1.247 3.372 1.42 3.604c.174.232 2.43 3.867 5.975 5.27 2.952 1.165 3.546.933 4.185.875.64-.058 2.062-.843 2.353-1.657.29-.814.29-1.512.203-1.657-.087-.145-.32-.232-.67-.406-.348-.174-2.062-1.017-2.382-1.133-.32-.116-.552-.174-.785.174-.232.347-.9 1.133-1.103 1.366-.203.232-.406.26-.754.087-.348-.174-1.47-.542-2.8-1.727-1.034-.923-1.732-2.063-1.935-2.41-.203-.348-.022-.536.153-.709.157-.156.348-.406.522-.61.174-.203.232-.347.348-.58.116-.231.058-.434-.029-.608-.087-.174-.774-1.899-1.074-2.597-.29-.682-.585-.58-.785-.58l-.694-.013z"/>
+  </svg>
+</a>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTRnUhwYJenrjuRzJc9hNWQLASZ5zPnaU&libraries=places&loading=async&callback=initPlacesAutocomplete" async defer></script>
+
+<script>
+const WORKER_URL = 'https://haylo-scanner.simondavies85.workers.dev';
+const FORMSPREE_URL = 'https://formspree.io/f/mwvajawp';
+
+let selectedPlaceId = null;
+let selectedBusinessName = null;
+let scanData = null;
+
+function initPlacesAutocomplete() {
+  const input = document.getElementById('business-search');
+  if (!input) return;
+
+  const autocomplete = new google.maps.places.Autocomplete(input, {
+    types: ['establishment'],
+    componentRestrictions: { country: 'au' },
+    fields: ['place_id', 'name', 'formatted_address'],
+  });
+
+  autocomplete.addListener('place_changed', () => {
+    const place = autocomplete.getPlace();
+    if (!place || !place.place_id) {
+      selectedPlaceId = null;
+      selectedBusinessName = null;
+      document.getElementById('run-scan').disabled = true;
+      return;
+    }
+    selectedPlaceId = place.place_id;
+    selectedBusinessName = place.name;
+    document.getElementById('run-scan').disabled = false;
+  });
+
+  input.addEventListener('input', () => {
+    if (selectedPlaceId) {
+      if (!input.value.toLowerCase().startsWith((selectedBusinessName || '').toLowerCase().slice(0, 3))) {
+        selectedPlaceId = null;
+        selectedBusinessName = null;
+        document.getElementById('run-scan').disabled = true;
+      }
+    }
+  });
+}
+
+window.initPlacesAutocomplete = initPlacesAutocomplete;
+
+document.getElementById('run-scan').addEventListener('click', () => {
+  if (!selectedPlaceId) return;
+  runScan(selectedPlaceId);
+});
+
+document.getElementById('business-search').addEventListener('keydown', (e) => {
+  if (e.key === 'Enter' && selectedPlaceId) {
+    e.preventDefault();
+    runScan(selectedPlaceId);
+  }
+});
+
+async function runScan(placeId) {
+  showStep('scanning-step');
+  rotateScanningMessages();
+
+  try {
+    const response = await fetch(WORKER_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ place_id: placeId })
+    });
+    scanData = await response.json();
+  } catch (err) {
+    showError("We couldn't run the scan right now. Apply for a manual audit below and Sam will look into it personally.");
+    return;
+  }
+
+  if (scanData.error || !scanData.user) {
+    showError("We couldn't pull enough data for this business. Apply for a manual audit and Sam will look into it directly.");
+    return;
+  }
+
+  showStep('reveal-step');
+  await renderReveals(scanData, placeId);
+}
+
+let scanningInterval = null;
+function rotateScanningMessages() {
+  const messages = ['Looking at your local market...', 'Comparing your top three competitors...', 'Pulling review and photo data...', 'Almost there...'];
+  let i = 0;
+  const el = document.getElementById('scanning-message');
+  if (!el) return;
+  if (scanningInterval) clearInterval(scanningInterval);
+  scanningInterval = setInterval(() => {
+    i = (i + 1) % messages.length;
+    el.style.opacity = '0';
+    setTimeout(() => { el.textContent = messages[i]; el.style.opacity = '1'; }, 300);
+  }, 1800);
+}
+
+function showStep(stepId) {
+  document.querySelectorAll('.scanner-step').forEach(s => s.hidden = true);
+  document.getElementById(stepId).hidden = false;
+  if (stepId !== 'scanning-step' && scanningInterval) {
+    clearInterval(scanningInterval);
+    scanningInterval = null;
+  }
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function showError(message) {
+  showStep('reveal-step');
+  document.querySelectorAll('.reveal').forEach(r => r.hidden = true);
+  const cta = document.querySelector('[data-reveal="cta"]');
+  cta.hidden = false;
+  document.querySelector('.cta-headline').textContent = message;
+  if (selectedBusinessName) document.getElementById('audit-business').value = selectedBusinessName;
+  if (selectedPlaceId) document.getElementById('audit-place-id').value = selectedPlaceId;
+}
+
+async function renderReveals(data, placeId) {
+  document.querySelectorAll('.reveal').forEach(r => r.hidden = true);
+
+  document.getElementById('reveal-name').textContent = data.user.name;
+  document.getElementById('reveal-suburb').textContent = data.user.suburb || '';
+  document.getElementById('user-reviews').textContent = data.user.reviewCount;
+  document.getElementById('competitor-reviews').textContent = data.competitors.avgReviewCount;
+  document.getElementById('reveal-category').textContent = data.category || '';
+  document.getElementById('reveal-1-line').textContent = composeReviewsLine(data);
+  document.querySelector('[data-reveal="1"]').hidden = false;
+  await sleep(2400);
+
+  const userPhotos = data.user.photoCount;
+  const compPhotos = data.competitors.avgPhotoCount;
+  document.getElementById('user-photos').textContent = userPhotos >= 10 ? '10+' : userPhotos;
+  document.getElementById('competitor-photos').textContent = compPhotos >= 10 ? '10+' : compPhotos;
+  document.getElementById('reveal-2-line').textContent = composePhotosLine(data);
+  document.querySelector('[data-reveal="2"]').hidden = false;
+  scrollToReveal(2);
+  await sleep(2400);
+
+  document.getElementById('reveal-3-recency').textContent = composeTrajectoryRecency(data);
+  document.getElementById('reveal-3-projection').textContent = composeTrajectoryProjection(data);
+  document.querySelector('[data-reveal="3"]').hidden = false;
+  scrollToReveal(3);
+  await sleep(2200);
+
+  document.querySelector('[data-reveal="cta"]').hidden = false;
+  scrollToReveal('cta');
+
+  document.getElementById('audit-business').value = data.user.name;
+  document.getElementById('audit-place-id').value = placeId;
+  document.getElementById('audit-snapshot').value = JSON.stringify({
+    suburb: data.user.suburb,
+    category: data.category,
+    userReviews: data.user.reviewCount,
+    avgCompetitorReviews: data.competitors.avgReviewCount,
+    userPhotos: data.user.photoCount,
+    avgCompetitorPhotos: data.competitors.avgPhotoCount,
+    userLastReviewDays: data.user.lastReviewDaysAgo,
+    competitorLastReviewDays: data.competitors.topCompetitorLastReviewDaysAgo,
+    userReviewsPerYear: data.competitors.userReviewsPerYear,
+    competitorReviewsPerYear: data.competitors.topCompetitorReviewsPerYear,
+  });
+}
+
+function scrollToReveal(num) {
+  const el = document.querySelector(`[data-reveal="${num}"]`);
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function sleep(ms) { return new Promise(res => setTimeout(res, ms)); }
+
+function composeReviewsLine(data) {
+  const u = data.user.reviewCount;
+  const c = data.competitors.avgReviewCount;
+  if (c === 0) return "Not enough nearby data to compare just yet.";
+  if (u >= c) return "You're holding your ground on the signal customers trust most.";
+  const gap = c - u;
+  if (gap > 100) return "You're a long way behind on the signal customers trust most.";
+  if (gap > 30) return "You're behind on the signal customers trust most.";
+  return "You're close, but not yet ahead.";
+}
+
+function composePhotosLine(data) {
+  const u = data.user.photoCount;
+  const c = data.competitors.avgPhotoCount;
+  if (u >= c) return "Your shopfront looks the part.";
+  if (c === 0) return "Photos make profiles feel alive. Yours could go further.";
+  return "Customers scroll. Yours runs out before theirs does.";
+}
+
+function composeTrajectoryRecency(data) {
+  const u = data.user.lastReviewDaysAgo;
+  const c = data.competitors.topCompetitorLastReviewDaysAgo;
+
+  if (u >= 999) return "You don't have any recent reviews on record.";
+
+  let userPart;
+  if (u <= 7) userPart = "Your last Google review came in this week";
+  else if (u <= 90) userPart = `Your last Google review came in ${u} days ago`;
+  else userPart = `Your last Google review came in over ${Math.floor(u/30)} months ago`;
+
+  let compPart;
+  if (c <= 2) compPart = "your top competitor's came in yesterday";
+  else if (c <= 30) compPart = `your top competitor's came in ${c} days ago`;
+  else compPart = "your top competitor is also quiet";
+
+  return userPart + ". " + compPart + ".";
+}
+
+function composeTrajectoryProjection(data) {
+  const userRate = data.competitors.userReviewsPerYear || 0;
+  const compRate = data.competitors.topCompetitorReviewsPerYear || 0;
+
+  if (compRate === 0 || compRate <= userRate) return "At current pace, you're keeping up.";
+  if (userRate === 0) return `At current pace, your top competitor will add ${compRate} reviews before you add your next.`;
+
+  const userTimeForOne = 1 / userRate;
+  const compInThatTime = Math.round(compRate * userTimeForOne);
+
+  if (compInThatTime <= 1) return "At current pace, you're roughly matched.";
+  return `In the time it takes you to gain one review, your top competitor will gain ${compInThatTime}.`;
+}
+
+document.getElementById('audit-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const button = e.target.querySelector('button');
+  const originalText = button.textContent;
+  button.textContent = 'Sending...';
+  button.disabled = true;
+
+  const formData = new FormData(e.target);
+
+  try {
+    const response = await fetch(FORMSPREE_URL, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: formData,
+    });
+
+    if (!response.ok) throw new Error('Form submission failed');
+
+    document.querySelector('.cta-card').innerHTML = `
+      <p class="cta-eyebrow" style="color: #c4995a;">Got it</p>
+      <h2 class="cta-headline">Sam will be in touch within 48 hours.</h2>
+      <p class="cta-body">Your scan snapshot has been sent across. Check your email for a confirmation.</p>
+    `;
+  } catch (err) {
+    button.textContent = originalText;
+    button.disabled = false;
+    alert("Something went wrong. Please try again or email sam@withhaylo.com directly.");
+  }
+});
+</script>
+
+<script>
+const toggle = document.querySelector('.nav-toggle');
+const navLinks = document.querySelector('.nav-links');
+if (toggle && navLinks) {
+  toggle.addEventListener('click', () => {
+    navLinks.classList.toggle('nav-open');
+    toggle.classList.toggle('active');
+  });
+}
+
+(function(){
+  document.querySelectorAll('.nav-drop-btn').forEach(function(btn){
+    btn.addEventListener('click',function(e){
+      e.stopPropagation();
+      var parent=this.closest('.nav-dropdown');
+      var isOpen=parent.classList.contains('open');
+      document.querySelectorAll('.nav-dropdown').forEach(function(d){
+        d.classList.remove('open');
+        var b=d.querySelector('.nav-drop-btn');
+        if(b)b.setAttribute('aria-expanded','false');
+      });
+      if(!isOpen){parent.classList.add('open');btn.setAttribute('aria-expanded','true');}
+    });
+  });
+  document.addEventListener('click',function(){
+    document.querySelectorAll('.nav-dropdown').forEach(function(d){
+      d.classList.remove('open');
+      var b=d.querySelector('.nav-drop-btn');
+      if(b)b.setAttribute('aria-expanded','false');
+    });
+  });
+})();
+
+document.querySelectorAll('.footer-col-toggle').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var col=btn.closest('.footer-col');
+    var open=col.classList.toggle('open');
+    btn.setAttribute('aria-expanded',open);
+  });
+});
+</script>
+
+</body>
+</html>
