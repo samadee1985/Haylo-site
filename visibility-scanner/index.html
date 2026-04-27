@@ -443,7 +443,7 @@
   /* SAB TRIGGER */
   .sab-trigger {
     display: inline-block;
-    margin-top: 1.1rem;
+    margin: 0 0 1.25rem;
     background: none;
     border: none;
     font-family: var(--font-body);
@@ -807,13 +807,12 @@
         <h1 class="hero-headline">See where you stand on Google <em>in 60 seconds.</em></h1>
         <p class="hero-sub">Type your business name. We'll show you how you compare to the top three businesses like yours nearby. No score, no jargon, just three things you'll want to know.</p>
 
+        <button type="button" class="sab-trigger" id="sab-trigger">My business doesn't come up &rarr;</button>
+
         <div class="search-box">
           <input type="text" id="business-search" class="search-input" placeholder="Start typing your business name..." autocomplete="off" spellcheck="false">
           <button id="run-scan" class="search-button" disabled>Run my scan</button>
         </div>
-
-        <button type="button" class="sab-trigger" id="sab-trigger">My business doesn't come up &rarr;</button>
-
         <p class="search-hint">Results powered by Google. Your data stays private.</p>
       </div>
 
