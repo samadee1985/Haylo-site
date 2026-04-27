@@ -464,6 +464,7 @@
     display: flex;
     align-items: flex-end;
     justify-content: center;
+    overflow: hidden;
   }
   @media (max-width: 900px) {
     .phone-stage { height: 480px; max-width: 320px; margin: 0 auto; }
@@ -474,11 +475,11 @@
 
   .phone-horizon {
     position: absolute;
-    bottom: 30px;
-    left: -10%; right: -10%;
+    bottom: 0;
+    left: 0; right: 0;
     height: 1px;
     background: linear-gradient(to right, transparent 0%, rgba(28,26,23,0.18) 25%, rgba(28,26,23,0.28) 50%, rgba(28,26,23,0.18) 75%, transparent 100%);
-    z-index: 1;
+    z-index: 4;
     transform: scaleX(0);
     transform-origin: center;
   }
@@ -1461,9 +1462,9 @@ function runPhoneTimeline() {
     return;
   }
   const tl = gsap.timeline({ delay: 0.4 });
-  tl.to('.phone-horizon', { scaleX: 1, duration: 0.9, ease: 'power2.inOut' })
-    .from('.phone', { y: 80, opacity: 0, duration: 0.9, ease: 'power3.out' }, '-=0.4')
-    .from('.phone-search-bar', { opacity: 0, y: 8, duration: 0.4 }, '-=0.2')
+  tl.to('.phone-horizon', { scaleX: 1, duration: 1.5, ease: 'power2.inOut' })
+    .from('.phone', { yPercent: 110, duration: 3.4, ease: 'power3.out' }, '-=0.6')
+    .from('.phone-search-bar', { opacity: 0, y: 8, duration: 0.5 }, '-=0.3')
     .call(() => typePhoneQuery('plumbers in noosa', 1400))
     .to({}, { duration: 1.6 })
     .from('.phone-result', { opacity: 0, y: 12, duration: 0.5, stagger: 0.18, ease: 'power2.out' })
