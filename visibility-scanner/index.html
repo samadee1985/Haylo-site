@@ -1125,6 +1125,8 @@ async function runScan(placeId) {
   showStep('scanning-step');
   startScanningLines();
 
+  const minScanTime = new Promise(r => setTimeout(r, 7000));
+
   try {
     const response = await fetch(WORKER_URL, {
       method: 'POST',
@@ -1133,18 +1135,18 @@ async function runScan(placeId) {
     });
     scanData = await response.json();
   } catch (err) {
-    await finishScanningLines();
+    await Promise.all([minScanTime, finishScanningLines()]);
     showError("We couldn't run the scan right now. Apply for a manual audit below and Sam will look into it personally.");
     return;
   }
 
   if (scanData.error || !scanData.user) {
-    await finishScanningLines();
+    await Promise.all([minScanTime, finishScanningLines()]);
     showError("We couldn't pull enough data for this business. Apply for a manual audit and Sam will look into it directly.");
     return;
   }
 
-  await finishScanningLines();
+  await Promise.all([minScanTime, finishScanningLines()]);
   showStep('reveal-step');
   await renderReveals(scanData, placeId);
 }
@@ -1175,7 +1177,7 @@ function startScanningLines() {
       li.classList.add('visible', 'active');
       const prev = ul.children[i - 1];
       if (prev) { prev.classList.remove('active'); prev.classList.add('done'); }
-    }, 200 + i * 700));
+    }, 300 + i * 1050));
   });
 }
 
