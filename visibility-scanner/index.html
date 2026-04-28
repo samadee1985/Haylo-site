@@ -195,7 +195,7 @@
   .scanner-step[hidden] { display: none; }
 
   /* HERO with breathing gradient + editorial rules */
-  #identify-step {
+  #identify-step:not([hidden]) {
     position: relative;
     min-height: calc(100vh - 4rem);
     display: flex;
@@ -255,7 +255,7 @@
   .pac-item-query { color: var(--ink); font-weight: 500; }
 
   /* SCANNING STEP */
-  #scanning-step {
+  #scanning-step:not([hidden]) {
     min-height: calc(100vh - 4rem);
     display: flex;
     flex-direction: column;
