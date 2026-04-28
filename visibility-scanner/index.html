@@ -545,6 +545,44 @@
     100% { background-position: -200% 0; }
   }
 
+  /* SCAN SUMMARY (sits below cards, leads into CTA) */
+  .scan-summary {
+    max-width: 640px;
+    margin: 3rem auto 0;
+    text-align: center;
+    padding: 0 1.5rem;
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .scan-summary[hidden] { display: none; }
+  .scan-summary.is-visible { opacity: 1; transform: translateY(0); }
+  .summary-eyebrow {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--clay);
+    font-weight: 500;
+    margin: 0 0 1.25rem;
+  }
+  .summary-body {
+    font-family: var(--font-display);
+    font-size: clamp(1.4rem, 3.5vw, 1.85rem);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--ink);
+    line-height: 1.4;
+    margin: 0 0 1.1rem;
+  }
+  .summary-tagline {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    margin: 0;
+  }
+
   /* CTA CARD */
   .cta-card { background: var(--ink); color: var(--warm-white); padding: 4.5rem 3rem; border-radius: 2px; border-bottom: none; text-align: center; margin-top: 3rem; position: relative; overflow: hidden; }
   .cta-card::before {
@@ -1137,6 +1175,12 @@
           </div>
         </article>
     </div>
+
+    <div class="scan-summary" id="scan-summary" hidden>
+      <p class="summary-eyebrow">In short</p>
+      <p class="summary-body" id="summary-body"></p>
+      <p class="summary-tagline">Sam can show you exactly what to fix and in what order. Apply for a free manual audit below.</p>
+    </div>
   </section>
 
   <section id="reveal-step" class="scanner-step" hidden>
@@ -1392,6 +1436,24 @@ function populatePhoneResults(stage, data) {
       '<span class="phone-stat-row"><strong>' + userReviews + '</strong> reviews vs <strong>' + avgReviews + '</strong> avg</span>' +
       '<span class="phone-stat-row"><strong>' + userPhotos + '</strong> photos vs <strong>' + avgPhotos + '</strong> avg</span>';
   }, 1100);
+
+  setTimeout(showSkeletonCards, 1500);
+}
+
+function showSkeletonCards() {
+  const cards = document.getElementById('post-scan-cards');
+  const lines = document.getElementById('scanning-lines');
+  const eyebrow = document.querySelector('.scanning-eyebrow');
+  const headline = document.querySelector('.scanning-headline');
+  if (lines) lines.hidden = true;
+  if (eyebrow) eyebrow.textContent = 'Scoring your shopfront';
+  if (headline) headline.innerHTML = "Pulling the numbers <em>that decide who calls you.</em>";
+  if (cards && cards.hidden) {
+    cards.hidden = false;
+    requestAnimationFrame(() => {
+      cards.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    });
+  }
 }
 
 function escapeText(s) {
@@ -1471,20 +1533,15 @@ function resetScanState() {
   const eyebrow = document.querySelector('.scanning-eyebrow');
   if (eyebrow) eyebrow.textContent = 'Scanning';
   if (headline) headline.innerHTML = "This is what people see <em>when they search you.</em>";
+  const summary = document.getElementById('scan-summary');
+  if (summary) {
+    summary.hidden = true;
+    summary.classList.remove('is-visible');
+  }
   const revealStep = document.getElementById('reveal-step');
   if (revealStep) revealStep.hidden = true;
   const cta = document.querySelector('[data-reveal="cta"]');
   if (cta) cta.hidden = true;
-}
-
-function revealCtaCard() {
-  const revealStep = document.getElementById('reveal-step');
-  if (revealStep) revealStep.hidden = false;
-  const cta = document.querySelector('[data-reveal="cta"]');
-  if (cta) cta.hidden = false;
-  requestAnimationFrame(() => {
-    if (cta) cta.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  });
 }
 
 function animateNumber(el, target, duration) {
@@ -1531,7 +1588,12 @@ async function renderStatCards(data, placeId) {
   if (headline) headline.innerHTML = "Here's where your shopfront <em>stands.</em>";
   if (lines) lines.hidden = true;
 
-  cardsRow.hidden = false;
+  if (cardsRow.hidden) {
+    cardsRow.hidden = false;
+    requestAnimationFrame(() => {
+      cardsRow.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    });
+  }
 
   const userPhotos = data.user.photoCount || 0;
   const compPhotos = data.competitors.avgPhotoCount || 0;
@@ -1579,7 +1641,37 @@ async function renderStatCards(data, placeId) {
     competitorReviewsPerYear: data.competitors.topCompetitorReviewsPerYear,
   });
 
-  revealCtaCard();
+  const summary = document.getElementById('scan-summary');
+  const summaryBody = document.getElementById('summary-body');
+  if (summary && summaryBody) {
+    summaryBody.textContent = composeSummary(data);
+    summary.hidden = false;
+    requestAnimationFrame(() => summary.classList.add('is-visible'));
+  }
+
+  const revealStep = document.getElementById('reveal-step');
+  if (revealStep) revealStep.hidden = false;
+  const cta = document.querySelector('[data-reveal="cta"]');
+  if (cta) cta.hidden = false;
+
+  await sleep(450);
+  if (summary) summary.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function composeSummary(data) {
+  const reviewsBehind = (data.user.reviewCount || 0) < (data.competitors.avgReviewCount || 0);
+  const photosBehind  = (data.user.photoCount  || 0) < (data.competitors.avgPhotoCount  || 0);
+  const paceBehind    = (data.competitors.userReviewsPerYear || 0) < (data.competitors.topCompetitorReviewsPerYear || 0);
+
+  const gaps = [];
+  if (reviewsBehind) gaps.push('reviews');
+  if (photosBehind)  gaps.push('photos');
+  if (paceBehind)    gaps.push('pace');
+
+  if (gaps.length === 0) return "You're holding your ground across reviews, photos, and pace. The opening now is widening that lead before someone else catches up.";
+  if (gaps.length === 3) return "Across reviews, photos, and pace, your shopfront is sitting behind. Every gap on this page is fixable, and the gap widens every week you wait.";
+  if (gaps.length === 2) return "You're behind on " + gaps[0] + " and " + gaps[1] + ", and that compounds every week. Each gap on this page is fixable.";
+  return "You're behind on " + gaps[0] + ". That's the lever to pull first, and it's the easiest one to move.";
 }
 
 function sleep(ms) { return new Promise(res => setTimeout(res, ms)); }
