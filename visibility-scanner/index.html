@@ -560,6 +560,117 @@
     100% { background-position: -200% 0; }
   }
 
+  /* Rating chip on reviews card */
+  .stat-rating-star {
+    font-family: var(--font-display);
+    font-size: clamp(1.6rem, 4vw, 2.1rem);
+    color: var(--clay);
+    line-height: 1;
+    margin-left: 0.05rem;
+    transform: translateY(-0.05em);
+  }
+  .stat-secondary {
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    color: var(--ink-muted);
+    margin: 0.55rem 0 0;
+    letter-spacing: 0.02em;
+  }
+  .stat-secondary strong {
+    color: var(--ink-soft);
+    font-weight: 500;
+  }
+
+  /* PROFILE COMPLETENESS CHECKLIST */
+  .profile-checklist {
+    max-width: 640px;
+    margin: 2.25rem auto 0;
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1.6rem 1.75rem 1.5rem;
+    box-shadow: 0 1px 0 rgba(28,26,23,0.02);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+  }
+  .profile-checklist[hidden] { display: none; }
+  .profile-checklist.is-visible { opacity: 1; transform: translateY(0); }
+  .profile-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.1rem;
+    padding-bottom: 0.85rem;
+    border-bottom: 1px dashed rgba(184,150,122,0.25);
+  }
+  .profile-eyebrow {
+    font-family: var(--font-body);
+    font-size: 0.66rem;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--clay);
+    font-weight: 500;
+    margin: 0;
+  }
+  .profile-score {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    color: var(--ink);
+    margin: 0;
+    font-weight: 300;
+    letter-spacing: 0.01em;
+  }
+  .profile-score strong {
+    font-weight: 500;
+  }
+  .profile-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.55rem 1.5rem;
+  }
+  @media (max-width: 520px) {
+    .profile-list { grid-template-columns: 1fr; }
+    .profile-checklist { padding: 1.35rem 1.35rem 1.25rem; }
+  }
+  .profile-row {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+    line-height: 1.4;
+  }
+  .profile-check {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    line-height: 1;
+  }
+  .profile-row.is-done .profile-check {
+    background: rgba(184,150,122,0.18);
+    color: var(--clay);
+  }
+  .profile-row.is-gap .profile-check {
+    background: rgba(28,26,23,0.05);
+    color: var(--ink-muted);
+  }
+  .profile-row.is-gap .profile-row-label {
+    color: var(--ink-muted);
+  }
+
   /* SCAN SUMMARY (sits below cards, leads into CTA) */
   .scan-summary {
     max-width: 640px;
@@ -1136,9 +1247,13 @@
             <span class="stat-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
             </span>
-            <p class="stat-label">Your reviews</p>
-            <span class="stat-big" data-fill="user-reviews">0</span>
-            <p class="stat-compare">Top 3 nearby average <strong data-fill="comp-reviews">0</strong></p>
+            <p class="stat-label">Your rating</p>
+            <span class="stat-big-row">
+              <span class="stat-big" data-fill="user-rating">-</span>
+              <span class="stat-rating-star" aria-hidden="true">&#9733;</span>
+            </span>
+            <p class="stat-secondary">from <strong data-fill="user-reviews">0</strong> reviews</p>
+            <p class="stat-compare">Top 3 nearby <strong data-fill="comp-rating">-</strong>&#9733; from <strong data-fill="comp-reviews">0</strong> reviews avg</p>
             <div class="stat-divider"></div>
             <p class="stat-verdict" data-fill="reviews-verdict"></p>
             <p class="stat-footnote" data-fill="reviews-footnote"></p>
@@ -1188,6 +1303,14 @@
             <p class="stat-footnote" data-fill="trajectory-footnote"></p>
           </div>
         </article>
+    </div>
+
+    <div class="profile-checklist" id="profile-checklist" hidden>
+      <div class="profile-header">
+        <p class="profile-eyebrow">Profile completeness</p>
+        <p class="profile-score"><strong data-fill="profile-score">0</strong> of <span data-fill="profile-total">6</span> complete</p>
+      </div>
+      <ul class="profile-list" id="profile-list"></ul>
     </div>
 
     <div class="scan-summary" id="scan-summary" hidden>
@@ -1539,7 +1662,18 @@ function resetScanState() {
   if (cards) {
     cards.hidden = true;
     cards.querySelectorAll('.stat-card').forEach(c => c.classList.remove('is-active'));
-    cards.querySelectorAll('[data-fill]').forEach(el => { el.textContent = '0'; el.style.removeProperty('display'); });
+    cards.querySelectorAll('[data-fill]').forEach(el => {
+      const key = el.getAttribute('data-fill');
+      el.textContent = (key === 'user-rating' || key === 'comp-rating') ? '-' : '0';
+      el.style.removeProperty('display');
+    });
+  }
+  const checklist = document.getElementById('profile-checklist');
+  if (checklist) {
+    checklist.hidden = true;
+    checklist.classList.remove('is-visible');
+    const list = document.getElementById('profile-list');
+    if (list) list.innerHTML = '';
   }
   const lines = document.getElementById('scanning-lines');
   if (lines) lines.hidden = false;
@@ -1623,6 +1757,10 @@ async function renderStatCards(data, placeId) {
   c1.classList.add('is-active');
   c1.querySelector('[data-fill="reviews-verdict"]').textContent = composeReviewsLine(data);
   c1.querySelector('[data-fill="reviews-footnote"]').textContent = composeUserRecency(data);
+  const userRatingEl = c1.querySelector('[data-fill="user-rating"]');
+  const compRatingEl = c1.querySelector('[data-fill="comp-rating"]');
+  if (userRatingEl) userRatingEl.textContent = formatRating(data.user.rating);
+  if (compRatingEl) compRatingEl.textContent = formatRating(data.competitors.avgRating);
   setTimeout(() => animateNumber(c1.querySelector('[data-fill="user-reviews"]'), data.user.reviewCount || 0, 1300), 350);
   setTimeout(() => animateNumber(c1.querySelector('[data-fill="comp-reviews"]'), data.competitors.avgReviewCount || 0, 1100), 600);
   await sleep(2400);
@@ -1648,6 +1786,8 @@ async function renderStatCards(data, placeId) {
   setTimeout(() => animateNumber(c3.querySelector('[data-fill="comp-pace"]'), compPace, 1100), 600);
   await sleep(2200);
 
+  renderProfileCompleteness(data);
+
   document.getElementById('audit-business').value = data.user.name;
   document.getElementById('audit-place-id').value = placeId;
   document.getElementById('audit-snapshot').value = JSON.stringify({
@@ -1655,12 +1795,15 @@ async function renderStatCards(data, placeId) {
     category: data.category,
     userReviews: data.user.reviewCount,
     avgCompetitorReviews: data.competitors.avgReviewCount,
+    userRating: data.user.rating,
+    avgCompetitorRating: data.competitors.avgRating,
     userPhotos: data.user.photoCount,
     avgCompetitorPhotos: data.competitors.avgPhotoCount,
     userLastReviewDays: data.user.lastReviewDaysAgo,
     competitorLastReviewDays: data.competitors.topCompetitorLastReviewDaysAgo,
     userReviewsPerYear: data.competitors.userReviewsPerYear,
     competitorReviewsPerYear: data.competitors.topCompetitorReviewsPerYear,
+    profile: data.user.profile || null,
   });
 
   const summary = document.getElementById('scan-summary');
@@ -1690,17 +1833,79 @@ function composeSummary(data) {
   if (photosBehind)  gaps.push('photos');
   if (paceBehind)    gaps.push('pace');
 
-  if (gaps.length === 0) return "You're holding your ground across reviews, photos, and pace. The opening now is widening that lead before someone else catches up.";
-  if (gaps.length === 3) return "Across reviews, photos, and pace, your shopfront is sitting behind. Every gap on this page is fixable, and the gap widens every week you wait.";
-  if (gaps.length === 2) return "You're behind on " + gaps[0] + " and " + gaps[1] + ", and that compounds every week. Each gap on this page is fixable.";
-  return "You're behind on " + gaps[0] + ". That's the lever to pull first, and it's the easiest one to move.";
+  let profileGapTail = '';
+  if (data.user.profile) {
+    const items = ['hasWebsite','hasPhone','hasHours','hasDescription','hasEnoughPhotos','hasRecentReview'];
+    const missing = items.filter(k => !data.user.profile[k]).length;
+    if (missing >= 3) profileGapTail = " Your profile itself is also missing " + missing + " basics that nearby businesses already have filled in.";
+    else if (missing > 0) profileGapTail = " A handful of profile basics are still missing too.";
+  }
+
+  if (gaps.length === 0) return "You're holding your ground across reviews, photos, and pace. The opening now is widening that lead before someone else catches up." + profileGapTail;
+  if (gaps.length === 3) return "Across reviews, photos, and pace, your shopfront is sitting behind. Every gap on this page is fixable, and the gap widens every week you wait." + profileGapTail;
+  if (gaps.length === 2) return "You're behind on " + gaps[0] + " and " + gaps[1] + ", and that compounds every week. Each gap on this page is fixable." + profileGapTail;
+  return "You're behind on " + gaps[0] + ". That's the lever to pull first, and it's the easiest one to move." + profileGapTail;
 }
 
 function sleep(ms) { return new Promise(res => setTimeout(res, ms)); }
 
+function formatRating(value) {
+  if (value == null || isNaN(value)) return '-';
+  const num = Number(value);
+  if (num <= 0) return '-';
+  return num.toFixed(1);
+}
+
+function renderProfileCompleteness(data) {
+  const wrap = document.getElementById('profile-checklist');
+  if (!wrap) return;
+  const profile = data && data.user && data.user.profile;
+  if (!profile) {
+    wrap.hidden = true;
+    return;
+  }
+
+  const items = [
+    { key: 'hasWebsite', label: 'Website linked' },
+    { key: 'hasPhone', label: 'Phone number listed' },
+    { key: 'hasHours', label: 'Opening hours filled in' },
+    { key: 'hasDescription', label: 'Business description' },
+    { key: 'hasEnoughPhotos', label: '5+ photos uploaded' },
+    { key: 'hasRecentReview', label: 'Review in last 90 days' },
+  ];
+
+  const list = document.getElementById('profile-list');
+  list.innerHTML = '';
+  let done = 0;
+  items.forEach(item => {
+    const ok = !!profile[item.key];
+    if (ok) done++;
+    const li = document.createElement('li');
+    li.className = 'profile-row ' + (ok ? 'is-done' : 'is-gap');
+    const mark = ok ? '\u2713' : '\u2014';
+    li.innerHTML = '<span class="profile-check" aria-hidden="true">' + mark + '</span><span class="profile-row-label">' + item.label + '</span>';
+    list.appendChild(li);
+  });
+
+  wrap.querySelector('[data-fill="profile-score"]').textContent = done;
+  wrap.querySelector('[data-fill="profile-total"]').textContent = items.length;
+  wrap.hidden = false;
+  requestAnimationFrame(() => wrap.classList.add('is-visible'));
+}
+
 function composeReviewsLine(data) {
-  const u = data.user.reviewCount;
-  const c = data.competitors.avgReviewCount;
+  const u = data.user.reviewCount || 0;
+  const c = data.competitors.avgReviewCount || 0;
+  const ur = Number(data.user.rating) || 0;
+  const cr = Number(data.competitors.avgRating) || 0;
+
+  if (ur > 0 && cr > 0) {
+    const ratingGap = +(cr - ur).toFixed(1);
+    if (ratingGap >= 0.4) return "Your rating is a noticeable step below nearby competitors.";
+    if (ratingGap >= 0.2) return "Your rating is sitting just below the local average.";
+    if (ratingGap <= -0.3) return "Your rating is a real edge over nearby competitors.";
+  }
+
   if (c === 0) return "Not enough nearby data to compare just yet.";
   if (u >= c) return "You're holding your ground on the signal customers trust most.";
   const gap = c - u;
