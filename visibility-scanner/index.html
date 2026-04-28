@@ -434,7 +434,7 @@
     text-align: center;
     box-shadow: 0 1px 0 rgba(28,26,23,0.02);
     overflow: hidden;
-    min-height: 270px;
+    min-height: 320px;
   }
   .stat-card.is-active {
     box-shadow: 0 12px 30px -16px rgba(28,26,23,0.20), 0 1px 0 rgba(28,26,23,0.04);
@@ -472,12 +472,12 @@
     font-weight: 500;
     margin: 0 0 1rem;
   }
-  .stat-number-row {
-    display: flex;
+  .stat-big-row {
+    display: inline-flex;
     align-items: baseline;
     justify-content: center;
-    gap: 0.55rem;
-    flex-wrap: wrap;
+    gap: 0.15rem;
+    margin-top: 0.1rem;
   }
   .stat-big {
     font-family: var(--font-display);
@@ -487,19 +487,34 @@
     font-weight: 300;
     letter-spacing: -0.02em;
   }
-  .stat-vs {
+  .stat-unit {
+    font-family: var(--font-display);
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: var(--ink-muted);
+    font-weight: 300;
+    letter-spacing: 0.01em;
+  }
+  .stat-compare {
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    color: var(--ink-muted);
+    letter-spacing: 0.02em;
+    line-height: 1.55;
+    margin: 0.85rem 0 0;
+  }
+  .stat-compare strong {
+    font-weight: 600;
+    color: var(--ink-soft);
+  }
+  .stat-footnote {
     font-family: var(--font-body);
     font-size: 0.78rem;
     color: var(--ink-muted);
-    letter-spacing: 0.04em;
-    line-height: 1.4;
-  }
-  .stat-vs strong {
-    font-family: var(--font-display);
-    font-size: 1.25rem;
-    color: var(--ink-soft);
-    font-weight: 300;
-    margin-right: 0.2rem;
+    letter-spacing: 0.02em;
+    line-height: 1.5;
+    margin: 0.85rem 0 0;
+    padding-top: 0.85rem;
+    border-top: 1px dashed rgba(184,150,122,0.25);
   }
   .stat-divider {
     width: 28px;
@@ -1121,13 +1136,12 @@
             <span class="stat-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
             </span>
-            <p class="stat-label">Reviews</p>
-            <div class="stat-number-row">
-              <span class="stat-big" data-fill="user-reviews">0</span>
-              <span class="stat-vs">vs <strong data-fill="comp-reviews">0</strong> avg</span>
-            </div>
+            <p class="stat-label">Your reviews</p>
+            <span class="stat-big" data-fill="user-reviews">0</span>
+            <p class="stat-compare">Top 3 nearby average <strong data-fill="comp-reviews">0</strong></p>
             <div class="stat-divider"></div>
             <p class="stat-verdict" data-fill="reviews-verdict"></p>
+            <p class="stat-footnote" data-fill="reviews-footnote"></p>
           </div>
         </article>
 
@@ -1143,11 +1157,9 @@
             <span class="stat-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
             </span>
-            <p class="stat-label">Photos</p>
-            <div class="stat-number-row">
-              <span class="stat-big" data-fill="user-photos">0</span>
-              <span class="stat-vs">vs <strong data-fill="comp-photos">0</strong> avg</span>
-            </div>
+            <p class="stat-label">Your photos</p>
+            <span class="stat-big" data-fill="user-photos">0</span>
+            <p class="stat-compare">Top 3 nearby average <strong data-fill="comp-photos">0</strong></p>
             <div class="stat-divider"></div>
             <p class="stat-verdict" data-fill="photos-verdict"></p>
           </div>
@@ -1165,13 +1177,15 @@
             <span class="stat-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
             </span>
-            <p class="stat-label">Trajectory</p>
-            <div class="stat-number-row">
+            <p class="stat-label">Your review pace</p>
+            <span class="stat-big-row">
               <span class="stat-big" data-fill="user-pace">0</span>
-              <span class="stat-vs">vs <strong data-fill="comp-pace">0</strong> per yr</span>
-            </div>
+              <span class="stat-unit">/yr</span>
+            </span>
+            <p class="stat-compare">Top competitor adds <strong data-fill="comp-pace">0</strong> a year</p>
             <div class="stat-divider"></div>
             <p class="stat-verdict" data-fill="trajectory-verdict"></p>
+            <p class="stat-footnote" data-fill="trajectory-footnote"></p>
           </div>
         </article>
     </div>
@@ -1179,7 +1193,7 @@
     <div class="scan-summary" id="scan-summary" hidden>
       <p class="summary-eyebrow">In short</p>
       <p class="summary-body" id="summary-body"></p>
-      <p class="summary-tagline">Sam can show you exactly what to fix and in what order. Apply for a free manual audit below.</p>
+      <p class="summary-tagline">This is a quick scan of your Google Business Profile. A full Haylo audit goes deeper, looking at your website, social profiles, and the GBP signals this scanner can't see.</p>
     </div>
   </section>
 
@@ -1199,7 +1213,7 @@
         <input type="hidden" name="source" value="scanner">
         <button type="submit" class="cta-button">Apply for my free audit</button>
       </form>
-      <p class="cta-fineprint">Sam will reply within 48 hours from sam@withhaylo.com</p>
+      <p class="cta-fineprint">&nbsp;</p>
     </article>
 
   </section>
@@ -1525,7 +1539,7 @@ function resetScanState() {
   if (cards) {
     cards.hidden = true;
     cards.querySelectorAll('.stat-card').forEach(c => c.classList.remove('is-active'));
-    cards.querySelectorAll('[data-fill]').forEach(el => { el.textContent = '0'; });
+    cards.querySelectorAll('[data-fill]').forEach(el => { el.textContent = '0'; el.style.removeProperty('display'); });
   }
   const lines = document.getElementById('scanning-lines');
   if (lines) lines.hidden = false;
@@ -1608,6 +1622,7 @@ async function renderStatCards(data, placeId) {
   const c1 = cardsRow.querySelector('[data-card="reviews"]');
   c1.classList.add('is-active');
   c1.querySelector('[data-fill="reviews-verdict"]').textContent = composeReviewsLine(data);
+  c1.querySelector('[data-fill="reviews-footnote"]').textContent = composeUserRecency(data);
   setTimeout(() => animateNumber(c1.querySelector('[data-fill="user-reviews"]'), data.user.reviewCount || 0, 1300), 350);
   setTimeout(() => animateNumber(c1.querySelector('[data-fill="comp-reviews"]'), data.competitors.avgReviewCount || 0, 1100), 600);
   await sleep(2400);
@@ -1622,6 +1637,13 @@ async function renderStatCards(data, placeId) {
   const c3 = cardsRow.querySelector('[data-card="trajectory"]');
   c3.classList.add('is-active');
   c3.querySelector('[data-fill="trajectory-verdict"]').textContent = composeTrajectoryProjection(data);
+  const compRecency = composeCompetitorRecency(data);
+  const c3footnote = c3.querySelector('[data-fill="trajectory-footnote"]');
+  if (compRecency) {
+    c3footnote.textContent = compRecency;
+  } else {
+    c3footnote.style.display = 'none';
+  }
   setTimeout(() => animateNumber(c3.querySelector('[data-fill="user-pace"]'), userPace, 1200), 350);
   setTimeout(() => animateNumber(c3.querySelector('[data-fill="comp-pace"]'), compPace, 1100), 600);
   await sleep(2200);
@@ -1693,6 +1715,33 @@ function composePhotosLine(data) {
   if (u >= c) return "Your shopfront looks the part.";
   if (c === 0) return "Photos make profiles feel alive. Yours could go further.";
   return "Customers scroll. Yours runs out before theirs does.";
+}
+
+function composeUserRecency(data) {
+  const d = data.user.lastReviewDaysAgo;
+  if (d == null || d >= 999) return "No recent review on record.";
+  if (d <= 1) return "Your last review came in today.";
+  if (d <= 7) return "Your last review came in this week.";
+  if (d <= 30) return "Your last review: " + d + " days ago.";
+  if (d < 365) {
+    const months = Math.max(1, Math.floor(d / 30));
+    return "Your last review: " + months + " " + (months === 1 ? "month" : "months") + " ago.";
+  }
+  const years = Math.floor(d / 365);
+  return "Your last review: over " + years + " " + (years === 1 ? "year" : "years") + " ago.";
+}
+
+function composeCompetitorRecency(data) {
+  const d = data.competitors.topCompetitorLastReviewDaysAgo;
+  if (d == null || d >= 999) return null;
+  if (d <= 1) return "Top competitor's last review: yesterday.";
+  if (d <= 7) return "Top competitor's last review: this week.";
+  if (d <= 30) return "Top competitor's last review: " + d + " days ago.";
+  if (d < 365) {
+    const months = Math.max(1, Math.floor(d / 30));
+    return "Top competitor's last review: " + months + " " + (months === 1 ? "month" : "months") + " ago.";
+  }
+  return "Top competitor's last review: over a year ago.";
 }
 
 function composeTrajectoryRecency(data) {
