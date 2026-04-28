@@ -1253,7 +1253,7 @@
               <span class="stat-rating-star" aria-hidden="true">&#9733;</span>
             </span>
             <p class="stat-secondary">from <strong data-fill="user-reviews">0</strong> reviews</p>
-            <p class="stat-compare">Top 3 nearby <strong data-fill="comp-reviews">0</strong> reviews avg</p>
+            <p class="stat-compare">Top 3 nearby <strong data-fill="comp-rating">-</strong>&#9733; from <strong data-fill="comp-reviews">0</strong> reviews avg</p>
             <div class="stat-divider"></div>
             <p class="stat-verdict" data-fill="reviews-verdict"></p>
           </div>
@@ -1756,7 +1756,9 @@ async function renderStatCards(data, placeId) {
   c1.classList.add('is-active');
   c1.querySelector('[data-fill="reviews-verdict"]').textContent = composeReviewsLine(data);
   const userRatingEl = c1.querySelector('[data-fill="user-rating"]');
+  const compRatingEl = c1.querySelector('[data-fill="comp-rating"]');
   if (userRatingEl) userRatingEl.textContent = formatRating(data.user.rating);
+  if (compRatingEl) compRatingEl.textContent = formatRating(data.competitors.avgRating);
   setTimeout(() => animateNumber(c1.querySelector('[data-fill="user-reviews"]'), data.user.reviewCount || 0, 1300), 350);
   setTimeout(() => animateNumber(c1.querySelector('[data-fill="comp-reviews"]'), data.competitors.avgReviewCount || 0, 1100), 600);
   await sleep(2400);
