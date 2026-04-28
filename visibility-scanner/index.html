@@ -1253,10 +1253,9 @@
               <span class="stat-rating-star" aria-hidden="true">&#9733;</span>
             </span>
             <p class="stat-secondary">from <strong data-fill="user-reviews">0</strong> reviews</p>
-            <p class="stat-compare">Top 3 nearby <strong data-fill="comp-rating">-</strong>&#9733; from <strong data-fill="comp-reviews">0</strong> reviews avg</p>
+            <p class="stat-compare">Top 3 nearby <strong data-fill="comp-reviews">0</strong> reviews avg</p>
             <div class="stat-divider"></div>
             <p class="stat-verdict" data-fill="reviews-verdict"></p>
-            <p class="stat-footnote" data-fill="reviews-footnote"></p>
           </div>
         </article>
 
@@ -1756,11 +1755,8 @@ async function renderStatCards(data, placeId) {
   const c1 = cardsRow.querySelector('[data-card="reviews"]');
   c1.classList.add('is-active');
   c1.querySelector('[data-fill="reviews-verdict"]').textContent = composeReviewsLine(data);
-  c1.querySelector('[data-fill="reviews-footnote"]').textContent = composeUserRecency(data);
   const userRatingEl = c1.querySelector('[data-fill="user-rating"]');
-  const compRatingEl = c1.querySelector('[data-fill="comp-rating"]');
   if (userRatingEl) userRatingEl.textContent = formatRating(data.user.rating);
-  if (compRatingEl) compRatingEl.textContent = formatRating(data.competitors.avgRating);
   setTimeout(() => animateNumber(c1.querySelector('[data-fill="user-reviews"]'), data.user.reviewCount || 0, 1300), 350);
   setTimeout(() => animateNumber(c1.querySelector('[data-fill="comp-reviews"]'), data.competitors.avgReviewCount || 0, 1100), 600);
   await sleep(2400);
@@ -1775,10 +1771,10 @@ async function renderStatCards(data, placeId) {
   const c3 = cardsRow.querySelector('[data-card="trajectory"]');
   c3.classList.add('is-active');
   c3.querySelector('[data-fill="trajectory-verdict"]').textContent = composeTrajectoryProjection(data);
-  const compRecency = composeCompetitorRecency(data);
   const c3footnote = c3.querySelector('[data-fill="trajectory-footnote"]');
-  if (compRecency) {
-    c3footnote.textContent = compRecency;
+  const recencyHtml = composeRecencyFootnote(data);
+  if (recencyHtml) {
+    c3footnote.innerHTML = recencyHtml;
   } else {
     c3footnote.style.display = 'none';
   }
@@ -1922,31 +1918,31 @@ function composePhotosLine(data) {
   return "Customers scroll. Yours runs out before theirs does.";
 }
 
-function composeUserRecency(data) {
-  const d = data.user.lastReviewDaysAgo;
-  if (d == null || d >= 999) return "No recent review on record.";
-  if (d <= 1) return "Your last review came in today.";
-  if (d <= 7) return "Your last review came in this week.";
-  if (d <= 30) return "Your last review: " + d + " days ago.";
+function formatDaysShort(d) {
+  if (d == null || d >= 999) return "no recent review on record";
+  if (d <= 1) return "today";
+  if (d <= 7) return "this week";
+  if (d <= 30) return d + " days ago";
   if (d < 365) {
     const months = Math.max(1, Math.floor(d / 30));
-    return "Your last review: " + months + " " + (months === 1 ? "month" : "months") + " ago.";
+    return months + " " + (months === 1 ? "month" : "months") + " ago";
   }
   const years = Math.floor(d / 365);
-  return "Your last review: over " + years + " " + (years === 1 ? "year" : "years") + " ago.";
+  return "over " + years + " " + (years === 1 ? "year" : "years") + " ago";
 }
 
-function composeCompetitorRecency(data) {
-  const d = data.competitors.topCompetitorLastReviewDaysAgo;
-  if (d == null || d >= 999) return null;
-  if (d <= 1) return "Top competitor's last review: yesterday.";
-  if (d <= 7) return "Top competitor's last review: this week.";
-  if (d <= 30) return "Top competitor's last review: " + d + " days ago.";
-  if (d < 365) {
-    const months = Math.max(1, Math.floor(d / 30));
-    return "Top competitor's last review: " + months + " " + (months === 1 ? "month" : "months") + " ago.";
-  }
-  return "Top competitor's last review: over a year ago.";
+function composeRecencyFootnote(data) {
+  const u = data.user.lastReviewDaysAgo;
+  const c = data.competitors.topCompetitorLastReviewDaysAgo;
+  const userKnown = u != null;
+  const compKnown = c != null && c < 999;
+  if (!userKnown && !compKnown) return null;
+
+  const userLine = "Your last review: " + formatDaysShort(u);
+  const compLine = compKnown ? "Top competitor: " + formatDaysShort(c) : null;
+
+  if (compLine) return userLine + "<br>" + compLine;
+  return userLine;
 }
 
 function composeTrajectoryRecency(data) {
