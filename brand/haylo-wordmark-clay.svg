@@ -13,7 +13,7 @@
     font-family="'Cormorant Garamond', Georgia, serif"
     font-size="52"
     font-weight="400"
-    letter-spacing="2.5"
+    letter-spacing="-0.5"
     text-anchor="middle"
     fill="#b8967a">haylo.</text>
 </svg>
