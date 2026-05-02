@@ -19,3 +19,7 @@
 /marketing-consultant-nambour/              /local-seo-nambour/               301
 /marketing-consultant-glass-house-mountains        /local-seo-glass-house-mountains/        301
 /marketing-consultant-glass-house-mountains/       /local-seo-glass-house-mountains/        301
+
+# Legacy Wix-era URL -> facebook page management (301 permanent)
+/copy-of-facebook-page                             /facebook-business-page-management/      301
+/copy-of-facebook-page/                            /facebook-business-page-management/      301
