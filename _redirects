@@ -23,3 +23,7 @@
 # Legacy Wix-era URL -> facebook page management (301 permanent)
 /copy-of-facebook-page                             /facebook-business-page-management/      301
 /copy-of-facebook-page/                            /facebook-business-page-management/      301
+
+# Legacy Wix system endpoints - explicitly gone (410)
+/_api/v2/dynamicmodel                              /                                        410
+/_api/*                                            /                                        410
