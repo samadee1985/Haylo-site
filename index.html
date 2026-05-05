@@ -6661,6 +6661,7 @@ serviceNumbers.forEach(num => serviceCounterObserver.observe(num));
         body: JSON.stringify(data)
       });
       if (res.ok) {
+        if (typeof gtag === 'function') gtag('event', 'generate_lead', { form_location: 'homepage' });
         window.location.href = '/thank-you';
       } else {
         btn.textContent = 'Something went wrong - try again';

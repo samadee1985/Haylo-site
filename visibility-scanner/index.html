@@ -2003,6 +2003,8 @@ document.getElementById('audit-form').addEventListener('submit', async (e) => {
 
     if (!response.ok) throw new Error('Form submission failed');
 
+    if (typeof gtag === 'function') gtag('event', 'generate_lead', { form_location: 'scanner-audit-request' });
+
     document.querySelector('.cta-card').innerHTML = `
       <p class="cta-eyebrow">Got it</p>
       <h2 class="cta-headline">Sam will be in touch within 48 hours.</h2>
@@ -2076,6 +2078,7 @@ if (sabForm) {
         body: new FormData(e.target),
       });
       if (!response.ok) throw new Error('Form submission failed');
+      if (typeof gtag === 'function') gtag('event', 'generate_lead', { form_location: 'scanner-no-listing' });
       document.querySelector('.sab-content').innerHTML = `
         <p class="sab-eyebrow">Got it</p>
         <h2 class="sab-headline">Sam will be in touch within 48 hours.</h2>
