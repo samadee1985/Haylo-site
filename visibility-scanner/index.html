@@ -735,6 +735,30 @@
   .vscore-band-low .vscore-number { color: #d4a07a; }
   .vscore-band-mid .vscore-number { color: var(--clay-light); }
   .vscore-band-high .vscore-number { color: #b8d4a8; }
+  .visibility-score.is-landed .vscore-number {
+    animation: vscoreLand 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  }
+  .visibility-score.is-landed .vscore-number-row::after {
+    content: '';
+    position: absolute;
+    inset: -8% -12%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(184,150,122,0.28) 0%, transparent 60%);
+    animation: vscorePulse 0.9s ease-out forwards;
+    pointer-events: none;
+    z-index: -1;
+  }
+  .vscore-number-row { position: relative; }
+  @keyframes vscoreLand {
+    0% { transform: scale(1); }
+    35% { transform: scale(1.08); }
+    100% { transform: scale(1); }
+  }
+  @keyframes vscorePulse {
+    0% { opacity: 0; transform: scale(0.6); }
+    40% { opacity: 1; }
+    100% { opacity: 0; transform: scale(1.6); }
+  }
   .vscore-descriptor {
     font-family: var(--font-display);
     font-style: italic;
@@ -1899,7 +1923,7 @@ function resetScanState() {
   const vscore = document.getElementById('visibility-score');
   if (vscore) {
     vscore.hidden = true;
-    vscore.classList.remove('is-visible', 'vscore-band-low', 'vscore-band-mid', 'vscore-band-high');
+    vscore.classList.remove('is-visible', 'is-landed', 'vscore-band-low', 'vscore-band-mid', 'vscore-band-high');
     const vsNum = document.getElementById('vscore-number');
     if (vsNum) vsNum.textContent = '0';
     const vsDesc = document.getElementById('vscore-descriptor');
@@ -1966,9 +1990,19 @@ async function renderStatCards(data, placeId) {
   if (headline) headline.innerHTML = "Here's where your shopfront <em>stands.</em>";
   if (lines) lines.hidden = true;
 
+  // Phase A: Score reveals first, alone, with drum roll
   renderVisibilityScore(data);
-  renderCompetitorLeaderboard(data);
+  requestAnimationFrame(() => {
+    const vscoreEl = document.getElementById('visibility-score');
+    if (vscoreEl) vscoreEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+  await sleep(2200); // animation 1.4s + 0.25s pre-delay + ~0.5s land breath
 
+  // Phase B: Leaderboard reveals
+  renderCompetitorLeaderboard(data);
+  await sleep(900);
+
+  // Phase C: Cards row appears (then animates one by one below)
   if (cardsRow.hidden) {
     cardsRow.hidden = false;
     requestAnimationFrame(() => {
@@ -2190,10 +2224,14 @@ function renderVisibilityScore(data) {
   wrap.hidden = false;
   requestAnimationFrame(function() {
     wrap.classList.add('is-visible');
-    // Animate the number after the block reveals
+    // Animate the number after the block reveals, then add land class for pulse
+    const animDuration = 1400;
     setTimeout(function() {
-      animateNumber(numEl, score, 1100);
-    }, 200);
+      animateNumber(numEl, score, animDuration);
+      setTimeout(function() {
+        wrap.classList.add('is-landed');
+      }, animDuration);
+    }, 250);
   });
 }
 
