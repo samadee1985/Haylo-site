@@ -383,11 +383,18 @@
   .playbook-item {
     display: grid;
     grid-template-columns: clamp(96px, 14vw, 160px) 1fr;
-    gap: clamp(1.5rem, 3.5vw, 3rem);
+    grid-template-areas:
+      "num title"
+      "num desc";
+    column-gap: clamp(1.5rem, 3.5vw, 3rem);
+    row-gap: 0;
     padding: 2.5rem 0;
     border-bottom: 1px solid rgba(250,248,245,0.10);
     align-items: start;
   }
+  .playbook-num   { grid-area: num; }
+  .playbook-title { grid-area: title; }
+  .playbook-desc  { grid-area: desc; }
   .playbook-item:last-child { border-bottom: none; }
   .playbook-num {
     font-family: var(--font-display);
@@ -410,20 +417,24 @@
   }
   .playbook-desc {
     font-family: var(--font-body);
-    font-size: 0.97rem;
-    line-height: 1.85;
-    color: rgba(250,248,245,0.65);
+    font-size: 1rem;
+    line-height: 1.8;
+    color: rgba(250,248,245,0.78);
     margin: 0;
-    font-weight: 300;
-    max-width: 56ch;
+    font-weight: 400;
   }
   @media (max-width: 700px) {
     .playbook-item {
       grid-template-columns: 1fr;
-      gap: 0.85rem;
+      grid-template-areas:
+        "num"
+        "title"
+        "desc";
+      row-gap: 0.65rem;
       padding: 2rem 0;
     }
     .playbook-num { font-size: 2.4rem; }
+    .playbook-title { margin-bottom: 0.25rem; }
   }
   .why-num { font-family: var(--font-display); font-size: 2.5rem; font-weight: 300; color: var(--border); line-height: 1; margin-bottom: 1.25rem; }
   .why-title { font-family: var(--font-body); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); margin-bottom: 0.6rem; }
@@ -634,19 +645,86 @@
   @media (max-width: 767px) {
     .ip-hero { min-height: calc(100svh - 4rem); min-height: calc(100vh - 4rem); display: flex; flex-direction: column; justify-content: flex-end; padding: 3rem 0; }
     .stats-band-grid { grid-template-columns: repeat(2, 1fr); }
+
+    /* Mobile section padding: tighten everything to reduce sprawl */
+    .section { padding: 3.5rem 0; }
+    .tr-pricing { padding: 3.5rem 0; }
+    .tr-reviews { padding: 3.5rem 0; }
+    .ip-proof { padding: 4.5rem 0; }
+    .pull-quote-section { padding: 4rem 0; }
+    .trade-showcase { padding: 3.5rem 0; }
+    .section-header { margin-bottom: 2rem; }
+
+    /* Hide the redundant 6-reasons grid on mobile - reality + included + playbook already cover this ground */
+    .why-grid-section { display: none; }
+
+    /* Forces (Reality): horizontal scroll-snap carousel within wrap */
+    .forces-grid {
+      display: flex !important;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      gap: 0.85rem;
+      margin: 2rem 0 2rem;
+    }
+    .forces-grid::-webkit-scrollbar { display: none; }
+    .force-card {
+      flex: 0 0 calc(100% - 2.5rem);
+      scroll-snap-align: start;
+    }
+    /* Spacer so the last card can scroll fully into view */
+    .forces-grid::after {
+      content: '';
+      flex: 0 0 1px;
+    }
+
+    /* Trade showcase: horizontal scroll-snap carousel (sits outside .wrap, needs own gutter) */
+    .trades-showcase-grid {
+      display: flex !important;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-padding-left: var(--gutter);
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      gap: 0.6rem;
+      margin-top: 2rem;
+      padding: 0 var(--gutter);
+    }
+    .trades-showcase-grid::-webkit-scrollbar { display: none; }
+    .trade-showcase-card {
+      flex: 0 0 calc(75vw - 1rem);
+      scroll-snap-align: start;
+      aspect-ratio: 4/5;
+    }
+    /* Spacer to ensure last card can scroll fully into view */
+    .trades-showcase-grid::after {
+      content: '';
+      flex: 0 0 1px;
+    }
+
+    /* Existing testimonials scroll-snap */
     .tr-reviews-grid { display: flex !important; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; scrollbar-width: none; gap: 1rem; }
     .tr-reviews-grid::-webkit-scrollbar { display: none; }
     .tr-review-card { flex: 0 0 85vw; scroll-snap-align: start; }
     .tr-reviews-dots { display: flex; justify-content: center; align-items: center; gap: 0.5rem; padding: 1.5rem 0 0; }
     .tr-reviews-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--border); border: none; padding: 0; cursor: pointer; flex-shrink: 0; transition: all 0.25s ease; }
     .tr-reviews-dot.active { background: var(--ink); width: 22px; border-radius: 4px; }
+
+    /* Existing pricing scroll-snap */
     .tr-pricing-grid { display: flex !important; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; scrollbar-width: none; gap: 1rem; }
     .tr-pricing-grid::-webkit-scrollbar { display: none; }
     .tr-price-card { flex: 0 0 85vw; scroll-snap-align: start; }
     .tr-pricing-dots { display: flex; justify-content: center; align-items: center; gap: 0.5rem; padding: 1.5rem 0 0; }
     .tr-pricing-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--border); border: none; padding: 0; cursor: pointer; flex-shrink: 0; transition: all 0.25s ease; }
     .tr-pricing-dot.active { background: var(--ink); width: 22px; border-radius: 4px; }
+
+    /* Swipe hint text appears under each carousel on mobile */
+    .swipe-hint { display: block; text-align: center; font-family: var(--font-body); font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-muted); margin-top: 1.25rem; }
   }
+  @media (min-width: 768px) { .swipe-hint { display: none; } }
   @media (min-width: 768px) {
     .tr-reviews-dots { display: none; }
     .tr-pricing-dots { display: none; }
@@ -667,9 +745,19 @@
     .nav-audit-mobile { display: list-item !important; }
     .btn-call-nav .btn-call-nav-label { display: none; }
   }
+  @media (max-width: 900px) {
+    .trade-showcase-card { aspect-ratio: 5/4; }
+    .trade-showcase-content { padding: 1.25rem; }
+    .trade-showcase-overlay { background: linear-gradient(to top, rgba(28,26,23,0.92) 0%, rgba(28,26,23,0.55) 50%, rgba(28,26,23,0.25) 100%); }
+  }
   @media (max-width: 580px) {
     .why-grid { grid-template-columns: 1fr; }
     .trades-showcase-grid { grid-template-columns: repeat(2, 1fr); }
+    .trade-showcase-card { aspect-ratio: 4/5; }
+    .trade-showcase-content { padding: 1.1rem 1rem; }
+    .trade-showcase-name { font-size: 1.2rem; }
+    .trade-showcase-note { font-size: 0.72rem; line-height: 1.4; margin-top: 0.4rem; max-width: 22ch; }
+    .trade-showcase-cta { opacity: 1; transform: none; margin-top: 0.55rem; }
     .ip-actions { flex-direction: column; }
     .ip-ctas { flex-direction: column; }
   }
@@ -887,11 +975,11 @@
     <p class="ip-crumb"><a href="/">Home</a> / Marketing for Tradies</p>
     <p class="eyebrow ruled ruled-light">Sunshine Coast Tradies</p>
     <h1 class="ip-h1">Tradie Marketing<br><em>Sunshine Coast.</em></h1>
-    <p class="hero-trust-line">13 trades &middot; Every Sunshine Coast suburb &middot; No lock-in</p>
+    <p class="hero-trust-line">All trades &middot; Every Sunshine Coast suburb &middot; No lock-in</p>
     <p class="ip-sub">When someone searches for a plumber, electrician, or roofer near them - they call whoever shows up first. Start with a 60-second scan to see where you actually rank.</p>
     <div class="ip-actions">
       <a href="/visibility-scanner/" class="btn-hero-primary">See where you rank in 60 seconds &rarr;</a>
-      <a href="/google-business-profile-audit/#audit-form" class="btn-hero-secondary">Or get a deeper audit by Sam</a>
+      <a href="/google-business-profile-audit/#audit-form" class="btn-hero-secondary">Or get a deeper audit by Haylo</a>
     </div>
     <p class="hero-call-line">Or call <a href="tel:0490422192">0490 422 192</a></p>
     <span class="ip-trust"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>Trusted by Sunshine Coast tradies<span class="ip-trust-stars" aria-label="5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span></span>
@@ -1028,6 +1116,8 @@
       </article>
     </div>
 
+    <p class="swipe-hint" aria-hidden="true">&larr; Swipe through the three forces &rarr;</p>
+
     <p class="reality-summary reveal">Search competition also varies massively by category. Electricians and plumbers face dozens of established competitors. Specialty trades - fencers, plasterers, solar installers, concreters, tilers - have <em>far thinner</em> search competition. That's where the easiest local SEO wins live right now, and most tradies in those niches haven't optimised for them.</p>
   </div>
 </section>
@@ -1064,7 +1154,7 @@
 </section>
 
 <!-- WHY GRID -->
-<section class="section section--mid">
+<section class="section section--mid why-grid-section">
   <div class="wrap">
     <div class="section-header reveal">
       <p class="eyebrow ruled">Why it matters</p>
@@ -1407,6 +1497,7 @@
       </div>
     </a>
   </div>
+  <p class="swipe-hint" aria-hidden="true">&larr; Swipe through every trade &rarr;</p>
 </section>
 
 <!-- THE PLAYBOOK -->
