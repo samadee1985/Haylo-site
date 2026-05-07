@@ -1444,7 +1444,7 @@
     </div>
 
     <div class="post-scan-cards" id="post-scan-cards" hidden>
-        <article class="stat-card" data-card="reviews">
+        <article class="stat-card" data-card="recency">
           <div class="stat-skeleton" aria-hidden="true">
             <span class="skeleton-bar skel-circle"></span>
             <span class="skeleton-bar skel-label"></span>
@@ -1454,37 +1454,16 @@
           </div>
           <div class="stat-content">
             <span class="stat-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
             </span>
-            <p class="stat-label">Your rating</p>
+            <p class="stat-label">Last review</p>
             <span class="stat-big-row">
-              <span class="stat-big" data-fill="user-rating">-</span>
-              <span class="stat-rating-star" aria-hidden="true">&#9733;</span>
+              <span class="stat-big" data-fill="user-recency">0</span>
+              <span class="stat-unit" data-fill="user-recency-unit">days ago</span>
             </span>
-            <p class="stat-secondary">from <strong data-fill="user-reviews">0</strong> reviews</p>
-            <p class="stat-compare">Top 3 nearby <strong data-fill="comp-rating">-</strong>&#9733; from <strong data-fill="comp-reviews">0</strong> reviews avg</p>
+            <p class="stat-compare" data-fill="recency-compare">Top competitor: <strong data-fill="comp-recency">-</strong></p>
             <div class="stat-divider"></div>
-            <p class="stat-verdict" data-fill="reviews-verdict"></p>
-          </div>
-        </article>
-
-        <article class="stat-card" data-card="photos">
-          <div class="stat-skeleton" aria-hidden="true">
-            <span class="skeleton-bar skel-circle"></span>
-            <span class="skeleton-bar skel-label"></span>
-            <span class="skeleton-bar skel-big"></span>
-            <span class="skeleton-bar skel-line"></span>
-            <span class="skeleton-bar skel-line2"></span>
-          </div>
-          <div class="stat-content">
-            <span class="stat-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-            </span>
-            <p class="stat-label">Your photos</p>
-            <span class="stat-big" data-fill="user-photos">0</span>
-            <p class="stat-compare">Top 3 nearby average <strong data-fill="comp-photos">0</strong></p>
-            <div class="stat-divider"></div>
-            <p class="stat-verdict" data-fill="photos-verdict"></p>
+            <p class="stat-verdict" data-fill="recency-verdict"></p>
           </div>
         </article>
 
@@ -1500,7 +1479,7 @@
             <span class="stat-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
             </span>
-            <p class="stat-label">Your review pace</p>
+            <p class="stat-label">Review pace</p>
             <span class="stat-big-row">
               <span class="stat-big" data-fill="user-pace">0</span>
               <span class="stat-unit">/yr</span>
@@ -1508,7 +1487,29 @@
             <p class="stat-compare">Top competitor adds <strong data-fill="comp-pace">0</strong> a year</p>
             <div class="stat-divider"></div>
             <p class="stat-verdict" data-fill="trajectory-verdict"></p>
-            <p class="stat-footnote" data-fill="trajectory-footnote"></p>
+          </div>
+        </article>
+
+        <article class="stat-card" data-card="profile-health">
+          <div class="stat-skeleton" aria-hidden="true">
+            <span class="skeleton-bar skel-circle"></span>
+            <span class="skeleton-bar skel-label"></span>
+            <span class="skeleton-bar skel-big"></span>
+            <span class="skeleton-bar skel-line"></span>
+            <span class="skeleton-bar skel-line2"></span>
+          </div>
+          <div class="stat-content">
+            <span class="stat-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            </span>
+            <p class="stat-label">Profile health</p>
+            <span class="stat-big-row">
+              <span class="stat-big" data-fill="profile-score-num">0</span>
+              <span class="stat-unit">of 6</span>
+            </span>
+            <p class="stat-compare" data-fill="profile-most-missing">Calculating&hellip;</p>
+            <div class="stat-divider"></div>
+            <p class="stat-verdict" data-fill="profile-verdict"></p>
           </div>
         </article>
     </div>
@@ -1872,7 +1873,12 @@ function resetScanState() {
     cards.querySelectorAll('.stat-card').forEach(c => c.classList.remove('is-active'));
     cards.querySelectorAll('[data-fill]').forEach(el => {
       const key = el.getAttribute('data-fill');
-      el.textContent = (key === 'user-rating' || key === 'comp-rating') ? '-' : '0';
+      if (key === 'user-recency-unit') el.textContent = 'days ago';
+      else if (key === 'profile-most-missing') el.textContent = 'Calculating…';
+      else if (key === 'comp-recency') el.textContent = '-';
+      else if (key && key.endsWith('-verdict')) el.textContent = '';
+      else if (key === 'recency-compare') { el.style.removeProperty('display'); }
+      else el.textContent = '0';
       el.style.removeProperty('display');
     });
   }
@@ -1970,47 +1976,53 @@ async function renderStatCards(data, placeId) {
     });
   }
 
-  const userPhotos = data.user.photoCount || 0;
-  const compPhotos = data.competitors.avgPhotoCount || 0;
-  const userPhotosDisplay = userPhotos >= 10 ? '10+' : userPhotos;
-  const compPhotosDisplay = compPhotos >= 10 ? '10+' : compPhotos;
-
   const userPace = Math.round(data.competitors.userReviewsPerYear || 0);
   const compPace = Math.round(data.competitors.topCompetitorReviewsPerYear || 0);
 
   await sleep(500);
 
-  const c1 = cardsRow.querySelector('[data-card="reviews"]');
+  // Card 1: Recency
+  const c1 = cardsRow.querySelector('[data-card="recency"]');
   c1.classList.add('is-active');
-  c1.querySelector('[data-fill="reviews-verdict"]').textContent = composeReviewsLine(data);
-  const userRatingEl = c1.querySelector('[data-fill="user-rating"]');
-  const compRatingEl = c1.querySelector('[data-fill="comp-rating"]');
-  if (userRatingEl) userRatingEl.textContent = formatRating(data.user.rating);
-  if (compRatingEl) compRatingEl.textContent = formatRating(data.competitors.avgRating);
-  setTimeout(() => animateNumber(c1.querySelector('[data-fill="user-reviews"]'), data.user.reviewCount || 0, 1300), 350);
-  setTimeout(() => animateNumber(c1.querySelector('[data-fill="comp-reviews"]'), data.competitors.avgReviewCount || 0, 1100), 600);
-  await sleep(2400);
-
-  const c2 = cardsRow.querySelector('[data-card="photos"]');
-  c2.classList.add('is-active');
-  c2.querySelector('[data-fill="photos-verdict"]').textContent = composePhotosLine(data);
-  setTimeout(() => animateNumber(c2.querySelector('[data-fill="user-photos"]'), userPhotosDisplay, 1200), 350);
-  setTimeout(() => animateNumber(c2.querySelector('[data-fill="comp-photos"]'), compPhotosDisplay, 1100), 600);
-  await sleep(2400);
-
-  const c3 = cardsRow.querySelector('[data-card="trajectory"]');
-  c3.classList.add('is-active');
-  c3.querySelector('[data-fill="trajectory-verdict"]').textContent = composeTrajectoryProjection(data);
-  const c3footnote = c3.querySelector('[data-fill="trajectory-footnote"]');
-  const recencyHtml = composeRecencyFootnote(data);
-  if (recencyHtml) {
-    c3footnote.innerHTML = recencyHtml;
+  const userDays = data.user.lastReviewDaysAgo;
+  const compDays = data.competitors.topCompetitorLastReviewDaysAgo;
+  const c1Big = c1.querySelector('[data-fill="user-recency"]');
+  const c1Unit = c1.querySelector('[data-fill="user-recency-unit"]');
+  const c1Compare = c1.querySelector('[data-fill="recency-compare"]');
+  const c1CompEl = c1.querySelector('[data-fill="comp-recency"]');
+  if (typeof userDays === 'number' && userDays < 999) {
+    if (c1Unit) c1Unit.textContent = userDays === 1 ? 'day ago' : 'days ago';
+    setTimeout(() => animateNumber(c1Big, userDays, 1100), 350);
   } else {
-    c3footnote.style.display = 'none';
+    if (c1Big) c1Big.textContent = '—';
+    if (c1Unit) c1Unit.textContent = 'no recent reviews';
   }
-  setTimeout(() => animateNumber(c3.querySelector('[data-fill="user-pace"]'), userPace, 1200), 350);
-  setTimeout(() => animateNumber(c3.querySelector('[data-fill="comp-pace"]'), compPace, 1100), 600);
-  await sleep(2200);
+  if (typeof compDays === 'number' && compDays < 999) {
+    if (c1CompEl) c1CompEl.textContent = compDays + (compDays === 1 ? ' day ago' : ' days ago');
+  } else {
+    if (c1Compare) c1Compare.style.display = 'none';
+  }
+  c1.querySelector('[data-fill="recency-verdict"]').textContent = composeRecencyVerdict(data);
+  await sleep(1200);
+
+  // Card 2: Pace
+  const c2 = cardsRow.querySelector('[data-card="trajectory"]');
+  c2.classList.add('is-active');
+  c2.querySelector('[data-fill="trajectory-verdict"]').textContent = composeTrajectoryProjection(data);
+  setTimeout(() => animateNumber(c2.querySelector('[data-fill="user-pace"]'), userPace, 1200), 350);
+  setTimeout(() => animateNumber(c2.querySelector('[data-fill="comp-pace"]'), compPace, 1100), 600);
+  await sleep(1200);
+
+  // Card 3: Profile Health
+  const c3 = cardsRow.querySelector('[data-card="profile-health"]');
+  c3.classList.add('is-active');
+  const profile = data.user && data.user.profile;
+  const profileItems = ['hasWebsite','hasPhone','hasHours','hasDescription','hasEnoughPhotos','hasRecentReview'];
+  const profileScore = profile ? profileItems.filter(k => !!profile[k]).length : 0;
+  c3.querySelector('[data-fill="profile-most-missing"]').innerHTML = composeProfileMissingLine(profile);
+  c3.querySelector('[data-fill="profile-verdict"]').textContent = composeProfileHealthVerdict(profileScore);
+  setTimeout(() => animateNumber(c3.querySelector('[data-fill="profile-score-num"]'), profileScore, 1100), 350);
+  await sleep(1200);
 
   renderProfileCompleteness(data);
 
@@ -2330,6 +2342,46 @@ function composeTrajectoryRecency(data) {
   else compPart = "your top competitor is also quiet";
 
   return userPart + ". " + compPart + ".";
+}
+
+function composeRecencyVerdict(data) {
+  const u = data.user.lastReviewDaysAgo;
+  const c = data.competitors.topCompetitorLastReviewDaysAgo;
+  if (typeof u !== 'number' || u >= 999) return "Your profile looks abandoned to Google's algorithm.";
+  if (u <= 7) return "You're showing fresh activity. Stay consistent.";
+  if (u <= 30) {
+    if (typeof c === 'number' && c < 999 && c <= 14 && u > c + 14) return "Your top competitor is collecting reviews faster.";
+    return "Recent enough to keep ranking signals warm.";
+  }
+  if (u <= 90) {
+    if (typeof c === 'number' && c < 999 && c <= 30) return "You're slipping behind on activity.";
+    return "Activity is fading. Time to nudge customers for reviews.";
+  }
+  if (u <= 180) return "Your profile is going stale - Google notices.";
+  return "Your profile reads as inactive to Google's local algorithm.";
+}
+
+function composeProfileMissingLine(profile) {
+  if (!profile) return "Unable to read profile signals.";
+  const priority = [
+    { key: 'hasPhone', label: 'phone number' },
+    { key: 'hasHours', label: 'opening hours' },
+    { key: 'hasWebsite', label: 'website link' },
+    { key: 'hasDescription', label: 'business description' },
+    { key: 'hasEnoughPhotos', label: '5+ photos' },
+  ];
+  const missing = priority.filter(p => !profile[p.key]);
+  if (!missing.length) return "All essentials in place.";
+  if (missing.length === 1) return "Most missing: <strong>" + missing[0].label + "</strong>";
+  return "Most missing: <strong>" + missing[0].label + "</strong> + " + (missing.length - 1) + " other" + (missing.length > 2 ? 's' : '');
+}
+
+function composeProfileHealthVerdict(score) {
+  if (score >= 6) return "Profile fundamentals are dialled in.";
+  if (score >= 5) return "Almost there - one small fix away from complete.";
+  if (score >= 3) return "Several basics missing that are easy to add.";
+  if (score >= 1) return "Profile is sparse. Customers see a half-built listing.";
+  return "Profile is essentially empty. This is the first fix.";
 }
 
 function composeTrajectoryProjection(data) {
