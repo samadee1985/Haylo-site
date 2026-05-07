@@ -676,6 +676,119 @@
     color: var(--ink-muted);
   }
 
+  /* COMPETITOR LEADERBOARD (top-of-results - the visceral hit) */
+  .competitor-leaderboard {
+    max-width: 640px;
+    margin: 1rem auto 0;
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1.85rem 1.85rem 1.65rem;
+    box-shadow: 0 1px 0 rgba(28,26,23,0.02);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+  }
+  .competitor-leaderboard[hidden] { display: none; }
+  .competitor-leaderboard.is-visible { opacity: 1; transform: translateY(0); }
+
+  .leaderboard-eyebrow {
+    font-family: var(--font-body);
+    font-size: 0.66rem;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--clay);
+    font-weight: 500;
+    margin: 0 0 0.6rem;
+    text-align: center;
+  }
+  .leaderboard-headline {
+    font-family: var(--font-display);
+    font-size: clamp(1.3rem, 2.6vw, 1.6rem);
+    font-weight: 300;
+    color: var(--ink);
+    line-height: 1.3;
+    margin: 0 0 1.4rem;
+    padding-bottom: 1.2rem;
+    border-bottom: 1px dashed rgba(184,150,122,0.25);
+    text-align: center;
+  }
+  .leaderboard-headline em {
+    font-style: italic;
+    color: var(--clay);
+  }
+  .leaderboard-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+  .leaderboard-row {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    font-family: var(--font-body);
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    line-height: 1.4;
+  }
+  .leaderboard-rank {
+    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    font-family: var(--font-display);
+    font-size: 1rem;
+    color: var(--ink);
+    background: var(--stone-mid);
+    font-weight: 400;
+  }
+  .leaderboard-name {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: var(--ink);
+    font-weight: 400;
+  }
+  .leaderboard-stats {
+    flex-shrink: 0;
+    font-size: 0.85rem;
+    color: var(--ink-muted);
+    letter-spacing: 0.02em;
+  }
+  .leaderboard-stats strong {
+    color: var(--ink-soft);
+    font-weight: 500;
+  }
+  .leaderboard-divider {
+    height: 1px;
+    background: var(--border);
+    margin: 1.2rem 0;
+  }
+  .leaderboard-row.is-you .leaderboard-rank {
+    background: var(--clay);
+    color: var(--warm-white);
+    font-family: var(--font-body);
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+  }
+  .leaderboard-row.is-you .leaderboard-name {
+    font-weight: 500;
+  }
+  @media (max-width: 520px) {
+    .competitor-leaderboard { padding: 1.5rem 1.35rem 1.35rem; }
+    .leaderboard-stats { font-size: 0.8rem; }
+    .leaderboard-name { font-size: 0.88rem; }
+  }
+
   /* SCAN SUMMARY (sits below cards, leads into CTA) */
   .scan-summary {
     max-width: 640px;
@@ -1239,6 +1352,18 @@
       <ul class="scanning-lines" id="scanning-lines"></ul>
     </div>
 
+    <div class="competitor-leaderboard" id="competitor-leaderboard" hidden>
+      <p class="leaderboard-eyebrow">The competition</p>
+      <p class="leaderboard-headline">The top 3 <span data-fill="leaderboard-category">businesses</span> <em>near you.</em></p>
+      <ol class="leaderboard-list" id="leaderboard-list"></ol>
+      <div class="leaderboard-divider"></div>
+      <div class="leaderboard-row is-you">
+        <span class="leaderboard-rank">YOU</span>
+        <span class="leaderboard-name" data-fill="leaderboard-you-name">Your business</span>
+        <span class="leaderboard-stats"><strong data-fill="leaderboard-you-rating">-</strong>&#9733; &middot; <strong data-fill="leaderboard-you-reviews">0</strong> reviews</span>
+      </div>
+    </div>
+
     <div class="post-scan-cards" id="post-scan-cards" hidden>
         <article class="stat-card" data-card="reviews">
           <div class="stat-skeleton" aria-hidden="true">
@@ -1679,6 +1804,13 @@ function resetScanState() {
     const list = document.getElementById('profile-list');
     if (list) list.innerHTML = '';
   }
+  const leaderboard = document.getElementById('competitor-leaderboard');
+  if (leaderboard) {
+    leaderboard.hidden = true;
+    leaderboard.classList.remove('is-visible');
+    const lboardList = document.getElementById('leaderboard-list');
+    if (lboardList) lboardList.innerHTML = '';
+  }
   const lines = document.getElementById('scanning-lines');
   if (lines) lines.hidden = false;
   const headline = document.querySelector('.scanning-headline');
@@ -1739,6 +1871,8 @@ async function renderStatCards(data, placeId) {
   if (eyebrow) eyebrow.textContent = 'Results';
   if (headline) headline.innerHTML = "Here's where your shopfront <em>stands.</em>";
   if (lines) lines.hidden = true;
+
+  renderCompetitorLeaderboard(data);
 
   if (cardsRow.hidden) {
     cardsRow.hidden = false;
@@ -1857,6 +1991,41 @@ function formatRating(value) {
   const num = Number(value);
   if (num <= 0) return '-';
   return num.toFixed(1);
+}
+
+function renderCompetitorLeaderboard(data) {
+  const wrap = document.getElementById('competitor-leaderboard');
+  if (!wrap) return;
+  const list = data && data.competitors && data.competitors.list;
+  if (!list || !list.length) { wrap.hidden = true; return; }
+
+  const categoryEl = wrap.querySelector('[data-fill="leaderboard-category"]');
+  if (categoryEl && data.category) categoryEl.textContent = data.category;
+
+  const listEl = document.getElementById('leaderboard-list');
+  listEl.innerHTML = '';
+  list.slice(0, 3).forEach(function(c, i) {
+    const li = document.createElement('li');
+    li.className = 'leaderboard-row';
+    const ratingNum = (c.rating != null && c.rating > 0) ? Number(c.rating).toFixed(1) : '-';
+    const fullName = c.name || 'Unknown';
+    const displayName = fullName.length > 36 ? (fullName.slice(0, 33) + '...') : fullName;
+    li.innerHTML =
+      '<span class="leaderboard-rank">' + (i + 1) + '</span>' +
+      '<span class="leaderboard-name" title="' + escapeText(fullName) + '">' + escapeText(displayName) + '</span>' +
+      '<span class="leaderboard-stats"><strong>' + ratingNum + '</strong>★ · <strong>' + (c.reviewCount || 0) + '</strong> reviews</span>';
+    listEl.appendChild(li);
+  });
+
+  const youName = wrap.querySelector('[data-fill="leaderboard-you-name"]');
+  const youRating = wrap.querySelector('[data-fill="leaderboard-you-rating"]');
+  const youReviews = wrap.querySelector('[data-fill="leaderboard-you-reviews"]');
+  if (youName) youName.textContent = (data.user && data.user.name) || 'Your business';
+  if (youRating) youRating.textContent = (data.user && data.user.rating > 0) ? Number(data.user.rating).toFixed(1) : '-';
+  if (youReviews) youReviews.textContent = (data.user && data.user.reviewCount) || 0;
+
+  wrap.hidden = false;
+  requestAnimationFrame(function() { wrap.classList.add('is-visible'); });
 }
 
 function renderProfileCompleteness(data) {
