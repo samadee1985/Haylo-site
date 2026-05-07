@@ -83,22 +83,73 @@
   .ip-crumb { font-size: 0.72rem; letter-spacing: 0.06em; display: inline-flex; align-items: center; gap: 0.35rem; align-self: flex-start; background: rgba(250,248,245,0.1); border: 1px solid rgba(250,248,245,0.15); border-radius: 100px; padding: 0.3rem 0.9rem; color: rgba(250,248,245,0.5); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
   .ip-crumb a { color: rgba(250,248,245,0.65); transition: color 0.2s; }
   .ip-crumb a:hover { color: var(--warm-white); }
-  .ip-h1 { font-family: var(--font-display); font-size: clamp(3rem, 7vw, 6rem); font-weight: 300; line-height: 1.05; letter-spacing: -0.01em; color: var(--warm-white); }
+  .ip-h1 { font-family: var(--font-display); font-size: clamp(3rem, 8vw, 7rem); font-weight: 300; line-height: 1.02; letter-spacing: -0.015em; color: var(--warm-white); }
   .ip-h1 em { font-style: italic; color: var(--clay); }
   .ip-sub { font-size: 1.05rem; line-height: 1.8; color: rgba(250,248,245,0.6); max-width: 540px; font-weight: 300; }
+
+  /* Trade-name marquee - sits as a separator between hero and stats-band */
+  .trade-marquee {
+    overflow: hidden;
+    position: relative;
+    padding: 1.85rem 0;
+    background: var(--stone);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    mask-image: linear-gradient(to right, transparent 0%, black 7%, black 93%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 7%, black 93%, transparent 100%);
+  }
+  .trade-marquee-track {
+    display: inline-flex;
+    gap: 2.25rem;
+    white-space: nowrap;
+    animation: marqueeScroll 38s linear infinite;
+    will-change: transform;
+  }
+  .trade-marquee-item {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(1.3rem, 2.6vw, 1.8rem);
+    font-weight: 300;
+    color: var(--ink-soft);
+    letter-spacing: 0.005em;
+  }
+  .trade-marquee-item .dot {
+    color: var(--clay);
+    margin-left: 2.25rem;
+    font-style: normal;
+    font-weight: 400;
+  }
+  @keyframes marqueeScroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .trade-marquee-track { animation: none; }
+  }
   .ip-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 0.5rem; }
   .ip-trust { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; font-weight: 400; letter-spacing: 0.03em; color: rgba(250,248,245,0.55); }
   .ip-trust svg { color: rgba(250,248,245,0.55); flex-shrink: 0; }
-  .ip-trust-stars { display: inline-flex; margin-left: 0.3rem; }
-  .ip-trust-stars svg { margin-left: -4px; color: rgba(250,248,245,0.55); }
-  .ip-trust-stars svg:first-child { margin-left: 0; }
+  .ip-trust-stars { display: inline-flex; margin-left: 0.4rem; gap: 1px; }
+  .ip-trust-stars svg { color: var(--clay); }
 
   /* Stats band */
   .stats-band { background: var(--stone-mid); border-bottom: 1px solid var(--border); }
   .stats-band-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); }
-  .stat-item { background: var(--stone-mid); padding: 2.5rem 2rem; text-align: center; }
-  .stat-num { font-family: var(--font-display); font-size: 2.6rem; font-weight: 300; color: var(--clay); line-height: 1; }
-  .stat-label { font-size: 0.78rem; color: var(--ink-muted); letter-spacing: 0.04em; margin-top: 0.5rem; line-height: 1.5; max-width: 18ch; margin-left: auto; margin-right: auto; }
+  .stat-item { background: var(--stone-mid); padding: 3rem 2rem 2.85rem; text-align: center; transition: background 0.2s; }
+  .stat-item:hover { background: var(--stone); }
+  .stat-num {
+    font-family: var(--font-display);
+    font-size: clamp(2.8rem, 4.5vw, 3.6rem);
+    font-weight: 300;
+    color: var(--clay);
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+  }
+  .stat-label { font-size: 0.78rem; color: var(--ink-muted); letter-spacing: 0.04em; margin-top: 0.85rem; line-height: 1.55; max-width: 20ch; margin-left: auto; margin-right: auto; }
+  @media (max-width: 760px) {
+    .stats-band-grid { grid-template-columns: repeat(2, 1fr); }
+    .stat-item { padding: 2rem 1.25rem 1.85rem; }
+  }
 
   /* Sections */
   .section { padding: 6rem 0; }
@@ -125,6 +176,184 @@
   .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
   .why-card { background: var(--stone-mid); padding: 2.5rem 2rem; border-top: 3px solid transparent; transition: border-color 0.2s, background 0.2s; }
   .why-card:hover { border-top-color: var(--clay); background: var(--stone); }
+
+  /* Reality / Three Forces */
+  .reality-section { background: var(--stone); position: relative; }
+  .reality-intro { max-width: 760px; }
+  .reality-lead { font-family: var(--font-body); font-size: 1.05rem; line-height: 1.8; color: var(--ink-soft); margin: 1.5rem 0 0; font-weight: 300; }
+  .forces-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    margin: 3.5rem 0 2.5rem;
+  }
+  .force-card {
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 2.25rem 1.85rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .force-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--clay);
+    transform-origin: left;
+    transform: scaleX(0.15);
+    transition: transform 0.45s cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  .force-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px -16px rgba(28,26,23,0.18);
+  }
+  .force-card:hover::before { transform: scaleX(1); }
+  .force-marker {
+    font-family: var(--font-body);
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--clay);
+    margin: 0;
+  }
+  .force-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 2.4vw, 1.85rem);
+    font-weight: 300;
+    line-height: 1.15;
+    color: var(--ink);
+    margin: 0;
+  }
+  .force-title em { font-style: italic; color: var(--clay); }
+  .force-body {
+    font-family: var(--font-body);
+    font-size: 0.92rem;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    margin: 0;
+    font-weight: 300;
+  }
+  .force-tags {
+    list-style: none;
+    padding: 0;
+    margin: 0.4rem 0 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  .force-tags li {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--ink-muted);
+    background: var(--stone-mid);
+    padding: 0.3rem 0.7rem;
+    border-radius: 100px;
+  }
+  .force-takeaway {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    margin: 0.4rem 0 0;
+    padding-top: 1rem;
+    border-top: 1px dashed rgba(184,150,122,0.3);
+    font-weight: 400;
+  }
+  .reality-summary {
+    font-family: var(--font-display);
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    font-weight: 300;
+    line-height: 1.5;
+    color: var(--ink);
+    max-width: 800px;
+    margin: 0;
+    padding: 1.5rem 0 0;
+    border-top: 1px solid var(--border);
+  }
+  .reality-summary em { font-style: italic; color: var(--clay); }
+  @media (max-width: 900px) {
+    .forces-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .force-card { padding: 1.85rem 1.5rem 1.65rem; }
+  }
+
+  /* The Playbook - editorial step-by-step */
+  .playbook-section { background: var(--ink); color: var(--warm-white); position: relative; overflow: hidden; }
+  .playbook-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 20% 0%, rgba(184,150,122,0.10) 0%, transparent 55%),
+                radial-gradient(ellipse at 80% 100%, rgba(184,150,122,0.06) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .playbook-section > * { position: relative; }
+  .playbook-section .eyebrow { color: var(--clay-light); }
+  .playbook-section .ip-h2 { color: var(--warm-white); }
+  .playbook-section .ip-body, .playbook-section .ip-lead {
+    color: rgba(250,248,245,0.7);
+  }
+  .playbook-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    max-width: 880px;
+    margin: 3rem auto 0;
+  }
+  .playbook-item {
+    display: grid;
+    grid-template-columns: clamp(96px, 14vw, 160px) 1fr;
+    gap: clamp(1.5rem, 3.5vw, 3rem);
+    padding: 2.5rem 0;
+    border-bottom: 1px solid rgba(250,248,245,0.10);
+    align-items: start;
+  }
+  .playbook-item:last-child { border-bottom: none; }
+  .playbook-num {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 7vw, 5rem);
+    font-weight: 300;
+    color: var(--clay);
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+    margin: 0;
+  }
+  .playbook-title {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(1.4rem, 2.6vw, 1.85rem);
+    font-weight: 300;
+    color: var(--warm-white);
+    margin: 0 0 1rem;
+    line-height: 1.2;
+    letter-spacing: -0.005em;
+  }
+  .playbook-desc {
+    font-family: var(--font-body);
+    font-size: 0.97rem;
+    line-height: 1.85;
+    color: rgba(250,248,245,0.65);
+    margin: 0;
+    font-weight: 300;
+    max-width: 56ch;
+  }
+  @media (max-width: 700px) {
+    .playbook-item {
+      grid-template-columns: 1fr;
+      gap: 0.85rem;
+      padding: 2rem 0;
+    }
+    .playbook-num { font-size: 2.4rem; }
+  }
   .why-num { font-family: var(--font-display); font-size: 2.5rem; font-weight: 300; color: var(--border); line-height: 1; margin-bottom: 1.25rem; }
   .why-title { font-family: var(--font-body); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); margin-bottom: 0.6rem; }
   .why-desc { font-size: 0.88rem; line-height: 1.8; color: var(--ink-muted); }
@@ -176,6 +405,59 @@
   .tr-review-name { font-size: 0.82rem; font-weight: 500; color: var(--ink); }
   .tr-review-biz { font-size: 0.78rem; color: var(--ink-muted); }
 
+  /* Pull quote (editorial moment) */
+  .pull-quote-section {
+    background: var(--stone);
+    padding: 7rem 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    text-align: center;
+  }
+  .pull-quote-mark {
+    font-family: var(--font-display);
+    font-size: clamp(4rem, 9vw, 7rem);
+    color: var(--clay);
+    line-height: 0.6;
+    margin-bottom: 0.5rem;
+    opacity: 0.4;
+  }
+  .pull-quote-text {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(1.6rem, 3.5vw, 2.5rem);
+    font-weight: 300;
+    line-height: 1.35;
+    color: var(--ink);
+    max-width: 880px;
+    margin: 0 auto 2rem;
+    text-wrap: balance;
+  }
+  .pull-quote-text em { font-style: italic; color: var(--clay); }
+  .pull-quote-attribution {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    align-items: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    max-width: 320px;
+    margin: 0 auto;
+  }
+  .pull-quote-name {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--ink);
+    letter-spacing: 0.04em;
+  }
+  .pull-quote-biz {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    color: var(--ink-muted);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
   /* Proof band */
   .ip-proof { position: relative; padding: 7rem 0; background: var(--ink) center/cover no-repeat; }
   .ip-proof-overlay { position: absolute; inset: 0; background: rgba(28,26,23,0.84); }
@@ -193,7 +475,8 @@
   .trade-showcase-card:hover .trade-showcase-overlay { background: linear-gradient(to top, rgba(28,26,23,0.92) 0%, rgba(28,26,23,0.45) 100%); }
   .trade-showcase-content { position: relative; z-index: 1; padding: 1.5rem; width: 100%; }
   .trade-showcase-name { font-family: var(--font-display); font-size: 1.5rem; font-weight: 300; color: var(--warm-white); line-height: 1; }
-  .trade-showcase-cta { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; color: var(--clay); text-transform: uppercase; margin-top: 0.4rem; opacity: 0; transform: translateY(6px); transition: opacity 0.25s, transform 0.25s; }
+  .trade-showcase-note { font-family: var(--font-body); font-size: 0.78rem; line-height: 1.45; color: rgba(250,248,245,0.78); margin-top: 0.55rem; max-width: 26ch; font-weight: 300; }
+  .trade-showcase-cta { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; color: var(--clay); text-transform: uppercase; margin-top: 0.7rem; opacity: 0; transform: translateY(6px); transition: opacity 0.25s, transform 0.25s; }
   .trade-showcase-card:hover .trade-showcase-cta { opacity: 1; transform: translateY(0); }
 
   /* FAQ */
@@ -503,10 +786,41 @@
       <a href="tel:0490422192" class="btn-primary-light" style="border-color:rgba(250,248,245,0.3);color:rgba(250,248,245,0.7);">Call 0490 422 192</a>
     </div>
     <p style="margin:1rem 0 0;font-size:0.9rem;"><a href="/visibility-scanner/" style="color:var(--clay-light);text-decoration:underline;">Or see where you rank in 60 seconds &rarr;</a></p>
-    <span class="ip-trust"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>Trusted by Sunshine Coast tradies<span class="ip-trust-stars" aria-label="5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span></span>
+    <span class="ip-trust"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>Trusted by Sunshine Coast tradies<span class="ip-trust-stars" aria-label="5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span></span>
   </div>
-    <p style="margin:1rem 0 0;font-size:0.9rem;"><a href="/visibility-scanner/" style="color:var(--clay-light);text-decoration:underline;">Or see where you rank in 60 seconds &rarr;</a></p>
 </section>
+
+<!-- TRADE NAME MARQUEE - between hero and next section -->
+<div class="trade-marquee" aria-hidden="true">
+  <div class="trade-marquee-track">
+    <span class="trade-marquee-item">Plumbers<span class="dot">&middot;</span></span>
+    <span class="trade-marquee-item">Electricians<span class="dot">&middot;</span></span>
+    <span class="trade-marquee-item">Roofers<span class="dot">&middot;</span></span>
+    <span class="trade-marquee-item">Tilers<span class="dot">&middot;</span></span>
+    <span class="trade-marquee-item">Concreters<span class="dot">&middot;</span></span>
+    <span class="trade-marquee-item">Painters<span class="dot">&middot;</span></span>
+    <span class="trade-marquee-item">Carpenters<span class="dot">&middot;</span></span>
+    <span class="trade-marquee-item">Fencers<span class="dot">&middot;</span></span>
+    <span class="trade-marquee-item">Handymen<span class="dot">&middot;</span></span>
+    <span class="trade-marquee-item">Plasterers<span class="dot">&middot;</span></span>
+    <span class="trade-marquee-item">Solar Installers<span class="dot">&middot;</span></span>
+    <span class="trade-marquee-item">Air Conditioning<span class="dot">&middot;</span></span>
+    <span class="trade-marquee-item">Builders<span class="dot">&middot;</span></span>
+    <span class="trade-marquee-item">Plumbers<span class="dot">&middot;</span></span>
+    <span class="trade-marquee-item">Electricians<span class="dot">&middot;</span></span>
+    <span class="trade-marquee-item">Roofers<span class="dot">&middot;</span></span>
+    <span class="trade-marquee-item">Tilers<span class="dot">&middot;</span></span>
+    <span class="trade-marquee-item">Concreters<span class="dot">&middot;</span></span>
+    <span class="trade-marquee-item">Painters<span class="dot">&middot;</span></span>
+    <span class="trade-marquee-item">Carpenters<span class="dot">&middot;</span></span>
+    <span class="trade-marquee-item">Fencers<span class="dot">&middot;</span></span>
+    <span class="trade-marquee-item">Handymen<span class="dot">&middot;</span></span>
+    <span class="trade-marquee-item">Plasterers<span class="dot">&middot;</span></span>
+    <span class="trade-marquee-item">Solar Installers<span class="dot">&middot;</span></span>
+    <span class="trade-marquee-item">Air Conditioning<span class="dot">&middot;</span></span>
+    <span class="trade-marquee-item">Builders<span class="dot">&middot;</span></span>
+  </div>
+</div>
 
 <!-- STATS BAND -->
 <div class="stats-band">
@@ -562,6 +876,51 @@
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- THE SUNSHINE COAST TRADIE REALITY -->
+<section class="section reality-section">
+  <div class="wrap">
+    <div class="reveal reality-intro">
+      <p class="eyebrow ruled">The local reality</p>
+      <h2 class="ip-h2">The Sunshine Coast trade market<br><em>is not one market.</em></h2>
+      <p class="reality-lead">Three forces shape every tradie's customer base right now. Each one demands a different marketing approach. Most Coast tradies are working off one playbook for all three - and missing the wins sitting in front of them.</p>
+    </div>
+
+    <div class="forces-grid reveal">
+      <article class="force-card">
+        <p class="force-marker">Force 01</p>
+        <h3 class="force-title">Rapid residential <em>growth.</em></h3>
+        <p class="force-body">Aura, Bells Creek, Caloundra West and the Kawana corridor are filling with new homes every week. New residents arrive without a local trade network and Google is the first stop for everything.</p>
+        <ul class="force-tags">
+          <li>Electricians</li><li>Plumbers</li><li>Fencers</li><li>Solar</li><li>AC</li><li>Removalists</li>
+        </ul>
+        <p class="force-takeaway">Search competition for "[trade] Aura" or "[trade] Bells Creek" is genuinely thin. The window is open right now and narrows every year.</p>
+      </article>
+
+      <article class="force-card">
+        <p class="force-marker">Force 02</p>
+        <h3 class="force-title">Tree-changers buying <em>older homes.</em></h3>
+        <p class="force-body">Buderim Mountain, established Maroochydore, parts of Caloundra, the Noosa hinterland. A steady wave of Brisbane and Sydney buyers picking up older properties for renovation rather than knockdown.</p>
+        <ul class="force-tags">
+          <li>Plasterers</li><li>Painters</li><li>Tilers</li><li>Carpenters</li><li>Electricians</li><li>Plumbers</li>
+        </ul>
+        <p class="force-takeaway">Customers research carefully and reward photo portfolios over raw review volume. Visual evidence wins the work.</p>
+      </article>
+
+      <article class="force-card">
+        <p class="force-marker">Force 03</p>
+        <h3 class="force-title">The premium <em>coastal strip.</em></h3>
+        <p class="force-body">Sunshine Beach, Pelican Waters, Buddina and Minyama canals, Noosa Heads. Lower search volume than the new-build corridors but each enquiry can be substantial - architectural builds, marine work, premium landscaping.</p>
+        <ul class="force-tags">
+          <li>Builders</li><li>Landscapers</li><li>Joiners</li><li>Pool</li><li>Marine</li><li>Specialty</li>
+        </ul>
+        <p class="force-takeaway">Profile aesthetics and project portfolios matter more than raw review count. You're being judged on whether you look credible.</p>
+      </article>
+    </div>
+
+    <p class="reality-summary reveal">Search competition also varies massively by category. Electricians and plumbers face dozens of established competitors. Specialty trades - fencers, plasterers, solar installers, concreters, tilers - have <em>far thinner</em> search competition. That's where the easiest local SEO wins live right now, and most tradies in those niches haven't optimised for them.</p>
   </div>
 </section>
 
@@ -790,6 +1149,18 @@
   </div>
 </section>
 
+<!-- PULL QUOTE -->
+<section class="pull-quote-section">
+  <div class="wrap reveal">
+    <p class="pull-quote-mark" aria-hidden="true">&ldquo;</p>
+    <p class="pull-quote-text">My account received a ban, but Sam had it rectified <em>in less than 24 hours.</em> I would highly recommend Haylo to anyone.</p>
+    <div class="pull-quote-attribution">
+      <span class="pull-quote-name">Terri Webb</span>
+      <span class="pull-quote-biz">Sunshine Coast Oven Cleaning</span>
+    </div>
+  </div>
+</section>
+
 <!-- PROOF BAND -->
 <section class="ip-proof" style="background-image: url('../images/services/google-marketing-results-tradies.webp');">
   <div class="ip-proof-overlay"></div>
@@ -827,6 +1198,7 @@
       <div class="trade-showcase-overlay"></div>
       <div class="trade-showcase-content">
         <p class="trade-showcase-name">Plumbers</p>
+        <p class="trade-showcase-note">Urgent demand. Customers searching at 9pm with a leaking pipe call the first three results.</p>
         <p class="trade-showcase-cta">See how we help &rarr;</p>
       </div>
     </a>
@@ -834,6 +1206,7 @@
       <div class="trade-showcase-overlay"></div>
       <div class="trade-showcase-content">
         <p class="trade-showcase-name">Electricians</p>
+        <p class="trade-showcase-note">Compliance and trust. Reviews mentioning 'safe' and 'professional' weigh more than star count.</p>
         <p class="trade-showcase-cta">See how we help &rarr;</p>
       </div>
     </a>
@@ -841,6 +1214,7 @@
       <div class="trade-showcase-overlay"></div>
       <div class="trade-showcase-content">
         <p class="trade-showcase-name">Roofers</p>
+        <p class="trade-showcase-note">Storm-driven spikes. Profiles ready before the next big weather event win the work.</p>
         <p class="trade-showcase-cta">See how we help &rarr;</p>
       </div>
     </a>
@@ -848,6 +1222,7 @@
       <div class="trade-showcase-overlay"></div>
       <div class="trade-showcase-content">
         <p class="trade-showcase-name">Tilers</p>
+        <p class="trade-showcase-note">Visual portfolio decides it. Fresh job photos beat anything in the description.</p>
         <p class="trade-showcase-cta">See how we help &rarr;</p>
       </div>
     </a>
@@ -855,6 +1230,7 @@
       <div class="trade-showcase-overlay"></div>
       <div class="trade-showcase-content">
         <p class="trade-showcase-name">Concreters</p>
+        <p class="trade-showcase-note">Acreage and new builds. Aura, Bells Creek and Buderim Mountain pour every week.</p>
         <p class="trade-showcase-cta">See how we help &rarr;</p>
       </div>
     </a>
@@ -862,6 +1238,7 @@
       <div class="trade-showcase-overlay"></div>
       <div class="trade-showcase-content">
         <p class="trade-showcase-name">Painters</p>
+        <p class="trade-showcase-note">Colour photos sell. Before-and-after sets decide whether they call you or scroll past.</p>
         <p class="trade-showcase-cta">See how we help &rarr;</p>
       </div>
     </a>
@@ -869,6 +1246,7 @@
       <div class="trade-showcase-overlay"></div>
       <div class="trade-showcase-content">
         <p class="trade-showcase-name">Carpenters</p>
+        <p class="trade-showcase-note">Speciality matters. 'Decking' and 'cabinetry' rank separately from generic 'carpenter'.</p>
         <p class="trade-showcase-cta">See how we help &rarr;</p>
       </div>
     </a>
@@ -876,6 +1254,7 @@
       <div class="trade-showcase-overlay"></div>
       <div class="trade-showcase-content">
         <p class="trade-showcase-name">Fencers</p>
+        <p class="trade-showcase-note">Acreage and new estates. Tanawha, Mons and the Aura corridor are quietly thin in competition.</p>
         <p class="trade-showcase-cta">See how we help &rarr;</p>
       </div>
     </a>
@@ -883,6 +1262,7 @@
       <div class="trade-showcase-overlay"></div>
       <div class="trade-showcase-content">
         <p class="trade-showcase-name">Handymen</p>
+        <p class="trade-showcase-note">Repeat customers. The first job is the hard one. After that they call you for everything.</p>
         <p class="trade-showcase-cta">See how we help &rarr;</p>
       </div>
     </a>
@@ -890,6 +1270,7 @@
       <div class="trade-showcase-overlay"></div>
       <div class="trade-showcase-content">
         <p class="trade-showcase-name">Plasterers</p>
+        <p class="trade-showcase-note">Renovation territory. Buderim Mountain's older homes generate steady plastering demand.</p>
         <p class="trade-showcase-cta">See how we help &rarr;</p>
       </div>
     </a>
@@ -897,6 +1278,7 @@
       <div class="trade-showcase-overlay"></div>
       <div class="trade-showcase-content">
         <p class="trade-showcase-name">Solar Installers</p>
+        <p class="trade-showcase-note">Education-led. Customers research for weeks. Photo galleries and reviews close them.</p>
         <p class="trade-showcase-cta">See how we help &rarr;</p>
       </div>
     </a>
@@ -904,6 +1286,7 @@
       <div class="trade-showcase-overlay"></div>
       <div class="trade-showcase-content">
         <p class="trade-showcase-name">Air Conditioning</p>
+        <p class="trade-showcase-note">Seasonal urgency plus year-round commercial. Dual demand profile rewards consistent activity.</p>
         <p class="trade-showcase-cta">See how we help &rarr;</p>
       </div>
     </a>
@@ -911,9 +1294,49 @@
       <div class="trade-showcase-overlay"></div>
       <div class="trade-showcase-content">
         <p class="trade-showcase-name">Builders</p>
+        <p class="trade-showcase-note">Premium residential. Sunshine Beach and Pelican Waters customers research carefully and reward portfolios.</p>
         <p class="trade-showcase-cta">See how we help &rarr;</p>
       </div>
     </a>
+  </div>
+</section>
+
+<!-- THE PLAYBOOK -->
+<section class="section playbook-section">
+  <div class="wrap">
+    <div class="reveal" style="max-width:760px;">
+      <p class="eyebrow ruled ruled-light">The playbook</p>
+      <h2 class="ip-h2">Five things any Sunshine Coast tradie<br><em>can do this week.</em></h2>
+      <p class="ip-body" style="margin-top:1.25rem;font-size:1rem;">No commitment, no charge. If you do these five things over the next seven days, your Google profile will be sharper than 80% of your local competitors. Hire us afterward if you want help running them at scale.</p>
+    </div>
+
+    <div class="playbook-list reveal">
+      <div class="playbook-item">
+        <p class="playbook-num">01</p>
+        <p class="playbook-title">Audit your GBP categories</p>
+        <p class="playbook-desc">Open your Google Business Profile and check the primary category. A plumber should be "Plumber" - not "Contractor" or "Home Services". Then add up to 9 secondary categories that match your actual work. A plumber who also does gas fitting and hot water should add "Gas Installation Service" and "Hot Water System Supplier". Most tradies have one category and stop. Adding the right secondaries is the single fastest way to start ranking for searches you currently don't.</p>
+      </div>
+      <div class="playbook-item">
+        <p class="playbook-num">02</p>
+        <p class="playbook-title">Set up a same-day review request text</p>
+        <p class="playbook-desc">Find your direct Google review link (in your GBP, "Get more reviews" -> share). Save it as a contact in your phone. After every job, send the customer a short text within 4 hours of leaving site - not 4 days later. Conversion rates triple when the request comes while the work is fresh in their head. A simple message works: "Thanks for having us out today - if you've got 30 seconds, a Google review would really help us out: [link]". Two reviews per fortnight is enough to outpace most local competitors.</p>
+      </div>
+      <div class="playbook-item">
+        <p class="playbook-num">03</p>
+        <p class="playbook-title">Post one Google Post per fortnight</p>
+        <p class="playbook-desc">From your GBP dashboard, hit "Add update". Upload a real photo from a recent job - not a stock image, not your logo. Write two or three sentences about what you did and where you did it. "Replaced an old switchboard for a Buderim homeowner this week - upgraded from fuses to circuit breakers" beats "Another job done!" by every metric Google measures. Specific suburb mentions inside posts strengthen your relevance for that area's searches.</p>
+      </div>
+      <div class="playbook-item">
+        <p class="playbook-num">04</p>
+        <p class="playbook-title">Add 5+ photos of recent finished work</p>
+        <p class="playbook-desc">Take five clean photos showing actual completed work in real Sunshine Coast locations. Mention the suburb in each caption. "Bathroom renovation, Cotton Tree" or "New deck, Mountain Creek". Most tradie profiles have a logo and a van photo. Five labelled job photos puts you ahead of 70% of local competitors immediately, and gives Google's algorithm signals to rank you for suburb-specific searches.</p>
+      </div>
+      <div class="playbook-item">
+        <p class="playbook-num">05</p>
+        <p class="playbook-title">Update your hours and check the basics</p>
+        <p class="playbook-desc">Confirm your opening hours are accurate and add holiday hours if you take time off. Make sure your phone number, address and service areas reflect what you actually cover today. Most tradies haven't touched these settings since they set up the profile years ago. Stale or missing details quietly cost you ranking and trust. A 10-minute audit usually finds 2 or 3 things to fix.</p>
+      </div>
+    </div>
   </div>
 </section>
 
