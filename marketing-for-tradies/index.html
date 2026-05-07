@@ -127,6 +127,77 @@
     .trade-marquee-track { animation: none; }
   }
   .ip-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 0.5rem; }
+  /* Hero trust line + CTA hierarchy */
+  .hero-trust-line {
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--clay-light);
+    margin: -0.5rem 0 0.5rem;
+  }
+  .btn-hero-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: var(--clay);
+    color: var(--ink);
+    border: 1px solid var(--clay);
+    padding: 1.05rem 1.85rem;
+    text-decoration: none;
+    transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+    border-radius: 2px;
+  }
+  .btn-hero-primary:hover {
+    background: var(--clay-light);
+    border-color: var(--clay-light);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px -14px rgba(184,150,122,0.6);
+  }
+  .btn-hero-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    color: rgba(250,248,245,0.75);
+    border: 1px solid rgba(250,248,245,0.25);
+    padding: 1rem 1.6rem;
+    text-decoration: none;
+    background: transparent;
+    transition: border-color 0.25s, color 0.25s, background 0.25s;
+    border-radius: 2px;
+  }
+  .btn-hero-secondary:hover {
+    border-color: var(--warm-white);
+    color: var(--warm-white);
+    background: rgba(250,248,245,0.04);
+  }
+  .hero-call-line {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: rgba(250,248,245,0.5);
+    margin: 0.4rem 0 0;
+    letter-spacing: 0.02em;
+  }
+  .hero-call-line a {
+    color: var(--clay-light);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(232,213,196,0.4);
+    padding-bottom: 1px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    transition: border-color 0.2s;
+  }
+  .hero-call-line a:hover { border-bottom-color: var(--clay-light); }
   .ip-trust { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; font-weight: 400; letter-spacing: 0.03em; color: rgba(250,248,245,0.55); }
   .ip-trust svg { color: rgba(250,248,245,0.55); flex-shrink: 0; }
   .ip-trust-stars { display: inline-flex; margin-left: 0.4rem; gap: 1px; }
@@ -499,6 +570,42 @@
   .ip-cta p { font-size: 1rem; line-height: 1.8; color: var(--ink-soft); max-width: 420px; }
   .ip-cta-contact { font-size: 0.8rem; color: var(--ink-muted); }
   .ip-cta-contact a { color: var(--clay); }
+  .btn-cta-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: var(--ink);
+    color: var(--warm-white);
+    border: 1px solid var(--ink);
+    padding: 1.15rem 2.25rem;
+    text-decoration: none;
+    transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+    border-radius: 2px;
+    margin-top: 0.5rem;
+  }
+  .btn-cta-primary:hover {
+    background: var(--ink-soft);
+    transform: translateY(-2px);
+    box-shadow: 0 14px 32px -16px rgba(28,26,23,0.4);
+  }
+  .cta-secondary-line {
+    font-size: 0.85rem;
+    color: var(--ink-muted);
+    margin-top: 0.25rem;
+    line-height: 1.6;
+  }
+  .cta-secondary-line a {
+    color: var(--clay);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(184,150,122,0.4);
+    transition: border-color 0.2s;
+  }
+  .cta-secondary-line a:hover { border-bottom-color: var(--clay); }
 
   /* Related posts */
   .related-posts-section { padding: 3.5rem 0; border-top: 1px solid var(--border); }
@@ -780,12 +887,13 @@
     <p class="ip-crumb"><a href="/">Home</a> / Marketing for Tradies</p>
     <p class="eyebrow ruled ruled-light">Sunshine Coast Tradies</p>
     <h1 class="ip-h1">Tradie Marketing<br><em>Sunshine Coast.</em></h1>
-    <p class="ip-sub">When someone searches for a plumber, electrician, or roofer near them - they call whoever shows up first. Haylo makes sure that's you.</p>
+    <p class="hero-trust-line">13 trades &middot; Every Sunshine Coast suburb &middot; No lock-in</p>
+    <p class="ip-sub">When someone searches for a plumber, electrician, or roofer near them - they call whoever shows up first. Start with a 60-second scan to see where you actually rank.</p>
     <div class="ip-actions">
-      <a href="/google-business-profile-audit/#audit-form" class="btn-primary-light">Get your free audit</a>
-      <a href="tel:0490422192" class="btn-primary-light" style="border-color:rgba(250,248,245,0.3);color:rgba(250,248,245,0.7);">Call 0490 422 192</a>
+      <a href="/visibility-scanner/" class="btn-hero-primary">See where you rank in 60 seconds &rarr;</a>
+      <a href="/google-business-profile-audit/#audit-form" class="btn-hero-secondary">Or get a deeper audit by Sam</a>
     </div>
-    <p style="margin:1rem 0 0;font-size:0.9rem;"><a href="/visibility-scanner/" style="color:var(--clay-light);text-decoration:underline;">Or see where you rank in 60 seconds &rarr;</a></p>
+    <p class="hero-call-line">Or call <a href="tel:0490422192">0490 422 192</a></p>
     <span class="ip-trust"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>Trusted by Sunshine Coast tradies<span class="ip-trust-stars" aria-label="5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span></span>
   </div>
 </section>
@@ -1431,12 +1539,11 @@
 <!-- CTA BAND -->
 <section class="ip-cta">
   <div class="wrap reveal">
-    <p class="eyebrow ruled">Get started</p>
-    <h2>Your competitors are on Google.<br><em>You should be first.</em></h2>
-    <p>No lock-in contracts. Just consistent local visibility for your trade business on the Sunshine Coast.</p>
-    <a href="/google-business-profile-audit/#audit-form" class="btn-primary">Get your free audit</a>
-    <p class="cta-scanner-link" style="margin:0.85rem 0 0;font-size:0.9rem;"><a href="/visibility-scanner/" style="color:var(--clay);text-decoration:underline;">Or run a free 60-second visibility check first &rarr;</a></p>
-    <p class="ip-cta-contact">Or call <a href="tel:0490422192">0490 422 192</a></p>
+    <p class="eyebrow ruled">Start here</p>
+    <h2>Two minutes to know <em>where you stand.</em></h2>
+    <p>Run the free 60-second scan to see how your Google profile compares to other Sunshine Coast tradies in your suburb. No email, no commitment - just the numbers.</p>
+    <a href="/visibility-scanner/" class="btn-cta-primary">See where you rank in 60 seconds &rarr;</a>
+    <p class="cta-secondary-line">Want a deeper look? <a href="/google-business-profile-audit/#audit-form">Get a manual audit by Sam</a> &middot; or call <a href="tel:0490422192">0490 422 192</a></p>
   </div>
 </section>
 
