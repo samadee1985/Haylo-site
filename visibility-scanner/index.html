@@ -2218,9 +2218,6 @@ async function renderStatCards(data, placeId) {
   if (revealStep) revealStep.hidden = false;
   const cta = document.querySelector('[data-reveal="cta"]');
   if (cta) cta.hidden = false;
-
-  await sleep(450);
-  if (summary) summary.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 function composeSummary(data) {
