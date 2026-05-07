@@ -937,6 +937,69 @@
     .leaderboard-name { font-size: 0.88rem; }
   }
 
+  /* RESULTS SECTION - MOBILE TIGHTENING */
+  @media (max-width: 760px) {
+    /* Score block */
+    .visibility-score { padding: 1.5rem 1.25rem 1.4rem; margin-top: 0.75rem; }
+    .vscore-eyebrow { font-size: 0.6rem; letter-spacing: 0.2em; margin-bottom: 0.5rem; }
+    .vscore-ring-wrap { width: 132px; height: 132px; margin: 0.25rem auto 0.65rem; }
+    .vscore-number { font-size: 2.4rem; }
+    .vscore-out-of { font-size: 0.78rem; }
+    .vscore-descriptor { font-size: 0.95rem; line-height: 1.35; }
+    .vscore-ring-track, .vscore-ring-fill { stroke-width: 5; }
+
+    /* Leaderboard */
+    .competitor-leaderboard { padding: 1.35rem 1.25rem 1.25rem; margin-top: 0.75rem; }
+    .leaderboard-eyebrow { font-size: 0.6rem; letter-spacing: 0.2em; margin-bottom: 0.45rem; }
+    .leaderboard-headline { font-size: 1.15rem; margin-bottom: 1rem; padding-bottom: 0.85rem; }
+    .leaderboard-list { gap: 0.6rem; }
+    .leaderboard-row { font-size: 0.85rem; gap: 0.65rem; }
+    .leaderboard-rank { width: 24px; height: 24px; font-size: 0.85rem; }
+    .leaderboard-name { font-size: 0.85rem; }
+    .leaderboard-stats { font-size: 0.75rem; }
+    .leaderboard-divider { margin: 0.85rem 0; }
+    .leaderboard-row.is-you { margin: 0 -1.25rem; padding: 0.55rem 1.25rem; font-size: 0.92rem; }
+
+    /* Stat cards - much shorter */
+    .stat-card { min-height: auto; padding: 1.35rem 1rem 1.2rem; }
+    .stat-skeleton { inset: 1.35rem 1rem 1.2rem; gap: 0.5rem; }
+    .skeleton-bar.skel-circle { width: 32px; height: 32px; }
+    .skeleton-bar.skel-big { height: 28px; }
+    .stat-icon { width: 32px; height: 32px; margin-bottom: 0.55rem; }
+    .stat-icon svg { width: 16px; height: 16px; }
+    .stat-label { font-size: 0.6rem; letter-spacing: 0.2em; margin-bottom: 0.65rem; }
+    .stat-big { font-size: 2.4rem; }
+    .stat-unit { font-size: 0.95rem; }
+    .stat-secondary { font-size: 0.75rem; margin-top: 0.4rem; }
+    .stat-compare { font-size: 0.78rem; margin-top: 0.65rem; }
+    .stat-divider { margin: 0.8rem auto 0.7rem; }
+    .stat-verdict { font-size: 0.92rem; }
+    .stat-rating-star { font-size: 1.7rem; }
+    .post-scan-cards { gap: 0.65rem; margin-top: 0.75rem; }
+
+    /* Profile checklist */
+    .profile-checklist { padding: 1.2rem 1.2rem 1.1rem; margin-top: 1.25rem; }
+    .profile-header { margin-bottom: 0.85rem; padding-bottom: 0.7rem; }
+    .profile-eyebrow { font-size: 0.6rem; letter-spacing: 0.2em; }
+    .profile-score { font-size: 1rem; }
+    .profile-list { gap: 0.45rem 1rem; }
+    .profile-row { font-size: 0.83rem; gap: 0.55rem; }
+    .profile-check { width: 19px; height: 19px; font-size: 0.7rem; }
+
+    /* Summary */
+    .scan-summary { margin-top: 1.75rem; }
+    .summary-eyebrow { font-size: 0.6rem; letter-spacing: 0.2em; margin-bottom: 0.85rem; }
+    .summary-body { font-size: 1.2rem; }
+    .summary-tagline { font-size: 0.88rem; }
+  }
+
+  @media (max-width: 420px) {
+    .vscore-ring-wrap { width: 116px; height: 116px; }
+    .vscore-number { font-size: 2.1rem; }
+    .leaderboard-headline { font-size: 1.05rem; }
+    .stat-big { font-size: 2.1rem; }
+  }
+
   /* SCAN SUMMARY (sits below cards, leads into CTA) */
   .scan-summary {
     max-width: 640px;
